@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import zombie1 from "./zombie1.png";
 import zombie2 from "./zombie2.png";
@@ -8,6 +8,21 @@ import zombie4 from "./zombie4.png";
 //vocabulary pool
 const words = ["zombie", "attack", "survive", "escape", "horror", "danger", "fight"];
 const zombieImages = [zombie1, zombie2, zombie3, zombie4];
+
+const usePreloadedSounds = () => {
+  const sounds = useRef({});
+
+  useEffect(() => {
+    const soundFiles = ["accept.wav", "defeated.mp3"];
+    soundFiles.forEach((file) => {
+      const audio = new Audio(process.env.PUBLIC_URL + `/sounds/${file}`);
+      audio.load();
+      sounds.current[file] = audio;
+    });
+  }, []);
+
+  return sounds;
+};
 
 export default function TypingGame() {
   const [currentWord, setCurrentWord] = useState("");
@@ -20,6 +35,21 @@ export default function TypingGame() {
 
   // State for the currently displayed zombie image (randomly chosen)
   const [currentZombie, setCurrentZombie] = useState(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
+
+  const sounds = usePreloadedSounds();
+  const playSound = (soundFile) => {
+    if (sounds.current[soundFile]) {
+      const audio = sounds.current[soundFile];
+      audio.currentTime = 0;
+      audio.play();
+    }
+  }
+
+  useEffect(() => {
+    if (gameOver) {
+      playSound("defeated.mp3");
+    }
+  }, [gameOver]);
 
   //useEffect: Runs once on game start, generates the first word and starts the zombie zoom-in timer
   useEffect(() => {
@@ -57,6 +87,7 @@ export default function TypingGame() {
     // If the entered word matches the current word, increase score and spawn a new word
     if (e.target.value === currentWord) {
       setScore(score + 1);
+      playSound("accept.wav")
       spawnWord();// Generate a new word
     }
   };
