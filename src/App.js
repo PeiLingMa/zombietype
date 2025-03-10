@@ -4,7 +4,7 @@ import zombie1 from "./zombie1.png";
 import zombie2 from "./zombie2.png";
 import zombie3 from "./zombie3.png";
 import zombie4 from "./zombie4.png";
-import "./shake.css"; // 載入 CSS 動畫
+import "./shake.css";
 
 const words = ["zombie", "attack", "survive", "escape", "horror", "danger", "fight"];
 const zombieImages = [zombie1, zombie2, zombie3, zombie4];
@@ -31,7 +31,7 @@ export default function TypingGame() {
   const [gameOver, setGameOver] = useState(false);
   const [scale, setScale] = useState(0.1);
   const [currentZombie, setCurrentZombie] = useState(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
-  const [isShaking, setIsShaking] = useState(false); // 錯誤特效狀態
+  const [isShaking, setIsShaking] = useState(false);
 
   const sounds = usePreloadedSounds();
 
@@ -50,7 +50,7 @@ export default function TypingGame() {
         if (prev >= 1) {
           setGameOver(true);
           clearInterval(interval);
-          playSound("defeated.mp3"); // 播放遊戲失敗音效
+          playSound("defeated.mp3");
           return prev;
         }
         return prev + 0.05;
@@ -58,7 +58,7 @@ export default function TypingGame() {
     }, 300);
 
     return () => clearInterval(interval);
-  });
+  }, []);
 
   const spawnWord = () => {
     const randomWord = words[Math.floor(Math.random() * words.length)];
@@ -79,11 +79,10 @@ export default function TypingGame() {
         spawnWord();
       } else {
         setIsShaking(true);
-        setInputValue(""); // 清空輸入框
-        playSound("error.wav"); // 播放錯誤音效
+        setInputValue("");
+        playSound("error.wav");
 
-        // 讓輸入框晃動 0.5 秒後停止
-        setTimeout(() => setIsShaking(false), 500);
+        setTimeout(() => setIsShaking(false), 300);
       }
     }
   };
