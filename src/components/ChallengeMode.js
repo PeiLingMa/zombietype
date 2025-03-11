@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import zombie1 from "./zombie1.png";
-import zombie2 from "./zombie2.png";
-import zombie3 from "./zombie3.png";
-import zombie4 from "./zombie4.png";
-import "./shake.css";
+import zombie1 from "../images/zombie1.png";
+import zombie2 from "../images/zombie2.png";
+import zombie3 from "../images/zombie3.png";
+import zombie4 from "../images/zombie4.png";
+import "./effects/shake.css";
 
 const zombieImages = [zombie1, zombie2, zombie3, zombie4];
 
@@ -24,6 +24,7 @@ const usePreloadedSounds = () => {
 };
 
 export default function TypingGame() {
+  // Game state variables
   const [wordList, setWordList] = useState([]);
   const [difficulty, setDifficulty] = useState("hard")
   const [currentWord, setCurrentWord] = useState("");
@@ -34,6 +35,7 @@ export default function TypingGame() {
   const [currentZombie, setCurrentZombie] = useState(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
   const [isWrong, setIsWrong] = useState(false);
 
+  // Game sound effects
   const sounds = usePreloadedSounds();
 
   const playSound = (soundFile) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ChallengeMode from "./ChallengeMode";
-import StoryMode from "./StoryMode";
-import Settings from "./Option";
+import ChallengeMode from "./components/ChallengeMode";
+import StoryMode from "./components/StoryMode";
+import Options from "./components/Option";
 import "./App.css"
 
 export default function MainMenu() {
@@ -13,7 +13,7 @@ export default function MainMenu() {
         ? StoryMode
         : currentScreen === "challenge"
         ? ChallengeMode
-        : Settings;
+        : Options;
     return <Component onBack={() => setCurrentScreen("menu")} />;
   }
 
