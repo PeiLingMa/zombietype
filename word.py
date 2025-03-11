@@ -39,10 +39,12 @@ def store_2_json(topic: str, difficulty: str, words:List[dict[str, str]]):
             "hard": []
         }
 
-    print(topic_d)
+    wordList = topic_d[difficulty]
 
-    # wordList += words
-    # print(wordList)
+    wordList += words
+
+    with open(WORDS_DIR + "/data.json", "w", encoding="utf-8") as jFile:
+        jFile.write(json.dumps(word_d, indent=2, ensure_ascii=False))
         
 if __name__ == "__main__":
     while RUN:

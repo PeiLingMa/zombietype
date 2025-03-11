@@ -1,210 +1,1353 @@
 {
-	"author": "cjh5958",
-	"version": "1.0",
-	"last_update": "2025-03-11",
-	"topics": {
-		"food": {
-			"beginner": [
-					{ "word": "apple", "translation": "蘋果" },
-					{ "word": "banana", "translation": "香蕉" },
-					{ "word": "bread", "translation": "麵包" },
-					{ "word": "cake", "translation": "蛋糕" },
-					{ "word": "candy", "translation": "糖果" },
-					{ "word": "cheese", "translation": "起司" },
-					{ "word": "chicken", "translation": "雞肉" },
-					{ "word": "chocolate", "translation": "巧克力" },
-					{ "word": "cookie", "translation": "餅乾" },
-					{ "word": "corn", "translation": "玉米" },
-					{ "word": "donut", "translation": "甜甜圈" },
-					{ "word": "egg", "translation": "蛋" },
-					{ "word": "fish", "translation": "魚" },
-					{ "word": "fries", "translation": "薯條" },
-					{ "word": "grape", "translation": "葡萄" },
-					{ "word": "ham", "translation": "火腿" },
-					{ "word": "honey", "translation": "蜂蜜" },
-					{ "word": "ice cream", "translation": "冰淇淋" },
-					{ "word": "jam", "translation": "果醬" },
-					{ "word": "juice", "translation": "果汁" },
-					{ "word": "kiwi", "translation": "奇異果" },
-					{ "word": "lemon", "translation": "檸檬" },
-					{ "word": "lettuce", "translation": "生菜" },
-					{ "word": "lime", "translation": "萊姆" },
-					{ "word": "mango", "translation": "芒果" },
-					{ "word": "meat", "translation": "肉" },
-					{ "word": "milk", "translation": "牛奶" },
-					{ "word": "noodles", "translation": "麵條" },
-					{ "word": "nut", "translation": "堅果" },
-					{ "word": "orange", "translation": "橙子" },
-					{ "word": "pasta", "translation": "義大利麵" },
-					{ "word": "peach", "translation": "桃子" },
-					{ "word": "pear", "translation": "梨子" },
-					{ "word": "peas", "translation": "豌豆" },
-					{ "word": "pepper", "translation": "胡椒" },
-					{ "word": "pineapple", "translation": "鳳梨" },
-					{ "word": "pizza", "translation": "披薩" },
-					{ "word": "plum", "translation": "李子" },
-					{ "word": "popcorn", "translation": "爆米花" },
-					{ "word": "potato", "translation": "馬鈴薯" },
-					{ "word": "pumpkin", "translation": "南瓜" },
-					{ "word": "rice", "translation": "米" },
-					{ "word": "salad", "translation": "沙拉" },
-					{ "word": "sausage", "translation": "香腸" },
-					{ "word": "soup", "translation": "湯" },
-					{ "word": "strawberry", "translation": "草莓" },
-					{ "word": "sugar", "translation": "糖" },
-					{ "word": "tea", "translation": "茶" },
-					{ "word": "toast", "translation": "吐司" },
-					{ "word": "tomato", "translation": "番茄" },
-					{ "word": "water", "translation": "水" },
-					{ "word": "yogurt", "translation": "優格" }
-			],
-			"medium": [
-					{ "word": "almond", "translation": "杏仁" },
-					{ "word": "avocado", "translation": "酪梨" },
-					{ "word": "bagel", "translation": "貝果" },
-					{ "word": "basil", "translation": "羅勒" },
-					{ "word": "beef", "translation": "牛肉" },
-					{ "word": "blueberry", "translation": "藍莓" },
-					{ "word": "butter", "translation": "奶油" },
-					{ "word": "carrot", "translation": "胡蘿蔔" },
-					{ "word": "cauliflower", "translation": "花椰菜" },
-					{ "word": "celery", "translation": "芹菜" },
-					{ "word": "cherry", "translation": "櫻桃" },
-					{ "word": "chili", "translation": "辣椒" },
-					{ "word": "clams", "translation": "蛤蜊" },
-					{ "word": "coconut", "translation": "椰子" },
-					{ "word": "cranberry", "translation": "蔓越莓" },
-					{ "word": "cucumber", "translation": "黃瓜" },
-					{ "word": "dill", "translation": "蒔蘿" },
-					{ "word": "dragon fruit", "translation": "火龍果" },
-					{ "word": "fig", "translation": "無花果" },
-					{ "word": "ginger", "translation": "生薑" },
-					{ "word": "grapefruit", "translation": "葡萄柚" },
-					{ "word": "hazelnut", "translation": "榛果" },
-					{ "word": "kale", "translation": "羽衣甘藍" },
-					{ "word": "lamb", "translation": "羊肉" },
-					{ "word": "licorice", "translation": "甘草" },
-					{ "word": "lobster", "translation": "龍蝦" },
-					{ "word": "lychee", "translation": "荔枝" },
-					{ "word": "macadamia", "translation": "澳洲堅果" },
-					{ "word": "melon", "translation": "瓜" },
-					{ "word": "mozzarella", "translation": "馬茲瑞拉起司" },
-					{ "word": "muffin", "translation": "鬆餅" },
-					{ "word": "mushroom", "translation": "蘑菇" },
-					{ "word": "nectarine", "translation": "油桃" },
-					{ "word": "oatmeal", "translation": "燕麥片" },
-					{ "word": "olive", "translation": "橄欖" },
-					{ "word": "onion", "translation": "洋蔥" },
-					{ "word": "oregano", "translation": "牛至" },
-					{ "word": "papaya", "translation": "木瓜" },
-					{ "word": "parmesan", "translation": "帕瑪森起司" },
-					{ "word": "parsley", "translation": "香菜" },
-					{ "word": "passion fruit", "translation": "百香果" },
-					{ "word": "pea", "translation": "豌豆" },
-					{ "word": "pecan", "translation": "胡桃" },
-					{ "word": "peppermint", "translation": "薄荷" },
-					{ "word": "pistachio", "translation": "開心果" },
-					{ "word": "pomegranate", "translation": "石榴" },
-					{ "word": "pumpkin seed", "translation": "南瓜籽" },
-					{ "word": "radish", "translation": "蘿蔔" },
-					{ "word": "raspberry", "translation": "覆盆子" },
-					{ "word": "rhubarb", "translation": "大黃" },
-					{ "word": "rosemary", "translation": "迷迭香" },
-					{ "word": "shallot", "translation": "小洋蔥" },
-					{ "word": "shrimp", "translation": "蝦子" },
-					{ "word": "soybean", "translation": "大豆" },
-					{ "word": "spinach", "translation": "菠菜" },
-					{ "word": "squash", "translation": "南瓜" },
-					{ "word": "starfruit", "translation": "楊桃" },
-					{ "word": "sunflower seed", "translation": "向日葵種子" },
-					{ "word": "tangerine", "translation": "橘子" },
-					{ "word": "thyme", "translation": "百里香" },
-					{ "word": "tofu", "translation": "豆腐" },
-					{ "word": "truffle", "translation": "松露" },
-					{ "word": "tuna", "translation": "金槍魚" },
-					{ "word": "turmeric", "translation": "薑黃" },
-					{ "word": "vanilla", "translation": "香草" },
-					{ "word": "walnut", "translation": "胡桃" },
-					{ "word": "watermelon", "translation": "西瓜" },
-					{ "word": "wheat", "translation": "小麥" },
-					{ "word": "zucchini", "translation": "西葫蘆" }
-			],
-			"hard": [
-					{ "word": "anchovy", "translation": "鯷魚" },
-					{ "word": "arugula", "translation": "芝麻菜" },
-					{ "word": "artichoke", "translation": "朝鮮薊" },
-					{ "word": "asparagus", "translation": "蘆筍" },
-					{ "word": "beetroot", "translation": "甜菜根" },
-					{ "word": "blackberry", "translation": "黑莓" },
-					{ "word": "bok choy", "translation": "小白菜" },
-					{ "word": "broccoli", "translation": "花椰菜" },
-					{ "word": "brussels sprouts", "translation": "抱子甘藍" },
-					{ "word": "caper", "translation": "刺山柑" },
-					{ "word": "caviar", "translation": "魚子醬" },
-					{ "word": "chamomile", "translation": "洋甘菊" },
-					{ "word": "chard", "translation": "瑞士甜菜" },
-					{ "word": "chickpea", "translation": "鷹嘴豆" },
-					{ "word": "chive", "translation": "韭菜" },
-					{ "word": "cinnamon", "translation": "肉桂" },
-					{ "word": "clove", "translation": "丁香" },
-					{ "word": "coriander", "translation": "香菜" },
-					{ "word": "cranberry sauce", "translation": "蔓越莓醬" },
-					{ "word": "cumin", "translation": "孜然" },
-					{ "word": "daikon", "translation": "白蘿蔔" },
-					{ "word": "dragonfruit", "translation": "火龍果" },
-					{ "word": "durian", "translation": "榴槤" },
-					{ "word": "edamame", "translation": "毛豆" },
-					{ "word": "elderberry", "translation": "接骨木莓" },
-					{ "word": "endive", "translation": "菊苣" },
-					{ "word": "fennel", "translation": "茴香" },
-					{ "word": "fenugreek", "translation": "胡芦巴" },
-					{ "word": "galangal", "translation": "南薑" },
-					{ "word": "garbanzo bean", "translation": "鷹嘴豆" },
-					{ "word": "goji berry", "translation": "枸杞" },
-					{ "word": "gooseberry", "translation": "醋栗" },
-					{ "word": "guava", "translation": "番石榴" },
-					{ "word": "habanero", "translation": "哈瓦那辣椒" },
-					{ "word": "horseradish", "translation": "辣根" },
-					{ "word": "jackfruit", "translation": "菠蘿蜜" },
-					{ "word": "jicama", "translation": "洋蔥蘇" },
-					{ "word": "juniper berry", "translation": "杜松果" },
-					{ "word": "kefir", "translation": "克非爾" },
-					{ "word": "kimchi", "translation": "泡菜" },
-					{ "word": "kombucha", "translation": "康普茶" },
-					{ "word": "kumquat", "translation": "金桔" },
-					{ "word": "litchi", "translation": "荔枝" },
-					{ "word": "marjoram", "translation": "馬郁蘭" },
-					{ "word": "mirin", "translation": "味醂" },
-					{ "word": "miso", "translation": "味噌" },
-					{ "word": "mulberry", "translation": "桑葚" },
-					{ "word": "mustard seed", "translation": "芥菜種子" },
-					{ "word": "nori", "translation": "海苔" },
-					{ "word": "nutmeg", "translation": "肉豆蔻" },
-					{ "word": "okra", "translation": "秋葵" },
-					{ "word": "paprika", "translation": "紅椒粉" },
-					{ "word": "passionfruit", "translation": "百香果" },
-					{ "word": "persimmon", "translation": "柿子" },
-					{ "word": "porcini", "translation": "波奇尼蘑菇" },
-					{ "word": "quinoa", "translation": "藜麥" },
-					{ "word": "radicchio", "translation": "紅菜頭" },
-					{ "word": "ramen", "translation": "拉麵" },
-					{ "word": "reishi mushroom", "translation": "靈芝" },
-					{ "word": "rutabaga", "translation": "蘿蔔" },
-					{ "word": "saffron", "translation": "藏紅花" },
-					{ "word": "salsify", "translation": "羅蔔" },
-					{ "word": "sauerkraut", "translation": "酸菜" },
-					{ "word": "scallion", "translation": "蔥" },
-					{ "word": "sesame", "translation": "芝麻" },
-					{ "word": "shallots", "translation": "小洋蔥" },
-					{ "word": "sorrel", "translation": "酢漿草" },
-					{ "word": "tamarind", "translation": "羅望子" },
-					{ "word": "tapioca", "translation": "木薯" },
-					{ "word": "tempeh", "translation": "天貝" },
-					{ "word": "wasabi", "translation": "山葵" },
-					{ "word": "watercress", "translation": "水田芥" },
-					{ "word": "yuzu", "translation": "柚子" }
-			]
-		}
-	}
+  "author": "cjh5958",
+  "version": "1.0",
+  "last_update": "2025-03-11",
+  "topics": {
+    "food": {
+      "beginner": [
+        {
+          "word": "apple",
+          "translation": "蘋果"
+        },
+        {
+          "word": "banana",
+          "translation": "香蕉"
+        },
+        {
+          "word": "bread",
+          "translation": "麵包"
+        },
+        {
+          "word": "cake",
+          "translation": "蛋糕"
+        },
+        {
+          "word": "candy",
+          "translation": "糖果"
+        },
+        {
+          "word": "cheese",
+          "translation": "起司"
+        },
+        {
+          "word": "chicken",
+          "translation": "雞肉"
+        },
+        {
+          "word": "chocolate",
+          "translation": "巧克力"
+        },
+        {
+          "word": "cookie",
+          "translation": "餅乾"
+        },
+        {
+          "word": "corn",
+          "translation": "玉米"
+        },
+        {
+          "word": "donut",
+          "translation": "甜甜圈"
+        },
+        {
+          "word": "egg",
+          "translation": "蛋"
+        },
+        {
+          "word": "fish",
+          "translation": "魚"
+        },
+        {
+          "word": "fries",
+          "translation": "薯條"
+        },
+        {
+          "word": "grape",
+          "translation": "葡萄"
+        },
+        {
+          "word": "ham",
+          "translation": "火腿"
+        },
+        {
+          "word": "honey",
+          "translation": "蜂蜜"
+        },
+        {
+          "word": "ice cream",
+          "translation": "冰淇淋"
+        },
+        {
+          "word": "jam",
+          "translation": "果醬"
+        },
+        {
+          "word": "juice",
+          "translation": "果汁"
+        },
+        {
+          "word": "kiwi",
+          "translation": "奇異果"
+        },
+        {
+          "word": "lemon",
+          "translation": "檸檬"
+        },
+        {
+          "word": "lettuce",
+          "translation": "生菜"
+        },
+        {
+          "word": "lime",
+          "translation": "萊姆"
+        },
+        {
+          "word": "mango",
+          "translation": "芒果"
+        },
+        {
+          "word": "meat",
+          "translation": "肉"
+        },
+        {
+          "word": "milk",
+          "translation": "牛奶"
+        },
+        {
+          "word": "noodles",
+          "translation": "麵條"
+        },
+        {
+          "word": "nut",
+          "translation": "堅果"
+        },
+        {
+          "word": "orange",
+          "translation": "橙子"
+        },
+        {
+          "word": "pasta",
+          "translation": "義大利麵"
+        },
+        {
+          "word": "peach",
+          "translation": "桃子"
+        },
+        {
+          "word": "pear",
+          "translation": "梨子"
+        },
+        {
+          "word": "peas",
+          "translation": "豌豆"
+        },
+        {
+          "word": "pepper",
+          "translation": "胡椒"
+        },
+        {
+          "word": "pineapple",
+          "translation": "鳳梨"
+        },
+        {
+          "word": "pizza",
+          "translation": "披薩"
+        },
+        {
+          "word": "plum",
+          "translation": "李子"
+        },
+        {
+          "word": "popcorn",
+          "translation": "爆米花"
+        },
+        {
+          "word": "potato",
+          "translation": "馬鈴薯"
+        },
+        {
+          "word": "pumpkin",
+          "translation": "南瓜"
+        },
+        {
+          "word": "rice",
+          "translation": "米"
+        },
+        {
+          "word": "salad",
+          "translation": "沙拉"
+        },
+        {
+          "word": "sausage",
+          "translation": "香腸"
+        },
+        {
+          "word": "soup",
+          "translation": "湯"
+        },
+        {
+          "word": "strawberry",
+          "translation": "草莓"
+        },
+        {
+          "word": "sugar",
+          "translation": "糖"
+        },
+        {
+          "word": "tea",
+          "translation": "茶"
+        },
+        {
+          "word": "toast",
+          "translation": "吐司"
+        },
+        {
+          "word": "tomato",
+          "translation": "番茄"
+        },
+        {
+          "word": "water",
+          "translation": "水"
+        },
+        {
+          "word": "yogurt",
+          "translation": "優格"
+        }
+      ],
+      "medium": [
+        {
+          "word": "almond",
+          "translation": "杏仁"
+        },
+        {
+          "word": "avocado",
+          "translation": "酪梨"
+        },
+        {
+          "word": "bagel",
+          "translation": "貝果"
+        },
+        {
+          "word": "basil",
+          "translation": "羅勒"
+        },
+        {
+          "word": "beef",
+          "translation": "牛肉"
+        },
+        {
+          "word": "blueberry",
+          "translation": "藍莓"
+        },
+        {
+          "word": "butter",
+          "translation": "奶油"
+        },
+        {
+          "word": "carrot",
+          "translation": "胡蘿蔔"
+        },
+        {
+          "word": "cauliflower",
+          "translation": "花椰菜"
+        },
+        {
+          "word": "celery",
+          "translation": "芹菜"
+        },
+        {
+          "word": "cherry",
+          "translation": "櫻桃"
+        },
+        {
+          "word": "chili",
+          "translation": "辣椒"
+        },
+        {
+          "word": "clams",
+          "translation": "蛤蜊"
+        },
+        {
+          "word": "coconut",
+          "translation": "椰子"
+        },
+        {
+          "word": "cranberry",
+          "translation": "蔓越莓"
+        },
+        {
+          "word": "cucumber",
+          "translation": "黃瓜"
+        },
+        {
+          "word": "dill",
+          "translation": "蒔蘿"
+        },
+        {
+          "word": "dragon fruit",
+          "translation": "火龍果"
+        },
+        {
+          "word": "fig",
+          "translation": "無花果"
+        },
+        {
+          "word": "ginger",
+          "translation": "生薑"
+        },
+        {
+          "word": "grapefruit",
+          "translation": "葡萄柚"
+        },
+        {
+          "word": "hazelnut",
+          "translation": "榛果"
+        },
+        {
+          "word": "kale",
+          "translation": "羽衣甘藍"
+        },
+        {
+          "word": "lamb",
+          "translation": "羊肉"
+        },
+        {
+          "word": "licorice",
+          "translation": "甘草"
+        },
+        {
+          "word": "lobster",
+          "translation": "龍蝦"
+        },
+        {
+          "word": "lychee",
+          "translation": "荔枝"
+        },
+        {
+          "word": "macadamia",
+          "translation": "澳洲堅果"
+        },
+        {
+          "word": "melon",
+          "translation": "瓜"
+        },
+        {
+          "word": "mozzarella",
+          "translation": "馬茲瑞拉起司"
+        },
+        {
+          "word": "muffin",
+          "translation": "鬆餅"
+        },
+        {
+          "word": "mushroom",
+          "translation": "蘑菇"
+        },
+        {
+          "word": "nectarine",
+          "translation": "油桃"
+        },
+        {
+          "word": "oatmeal",
+          "translation": "燕麥片"
+        },
+        {
+          "word": "olive",
+          "translation": "橄欖"
+        },
+        {
+          "word": "onion",
+          "translation": "洋蔥"
+        },
+        {
+          "word": "oregano",
+          "translation": "牛至"
+        },
+        {
+          "word": "papaya",
+          "translation": "木瓜"
+        },
+        {
+          "word": "parmesan",
+          "translation": "帕瑪森起司"
+        },
+        {
+          "word": "parsley",
+          "translation": "香菜"
+        },
+        {
+          "word": "passion fruit",
+          "translation": "百香果"
+        },
+        {
+          "word": "pea",
+          "translation": "豌豆"
+        },
+        {
+          "word": "pecan",
+          "translation": "胡桃"
+        },
+        {
+          "word": "peppermint",
+          "translation": "薄荷"
+        },
+        {
+          "word": "pistachio",
+          "translation": "開心果"
+        },
+        {
+          "word": "pomegranate",
+          "translation": "石榴"
+        },
+        {
+          "word": "pumpkin seed",
+          "translation": "南瓜籽"
+        },
+        {
+          "word": "radish",
+          "translation": "蘿蔔"
+        },
+        {
+          "word": "raspberry",
+          "translation": "覆盆子"
+        },
+        {
+          "word": "rhubarb",
+          "translation": "大黃"
+        },
+        {
+          "word": "rosemary",
+          "translation": "迷迭香"
+        },
+        {
+          "word": "shallot",
+          "translation": "小洋蔥"
+        },
+        {
+          "word": "shrimp",
+          "translation": "蝦子"
+        },
+        {
+          "word": "soybean",
+          "translation": "大豆"
+        },
+        {
+          "word": "spinach",
+          "translation": "菠菜"
+        },
+        {
+          "word": "squash",
+          "translation": "南瓜"
+        },
+        {
+          "word": "starfruit",
+          "translation": "楊桃"
+        },
+        {
+          "word": "sunflower seed",
+          "translation": "向日葵種子"
+        },
+        {
+          "word": "tangerine",
+          "translation": "橘子"
+        },
+        {
+          "word": "thyme",
+          "translation": "百里香"
+        },
+        {
+          "word": "tofu",
+          "translation": "豆腐"
+        },
+        {
+          "word": "truffle",
+          "translation": "松露"
+        },
+        {
+          "word": "tuna",
+          "translation": "金槍魚"
+        },
+        {
+          "word": "turmeric",
+          "translation": "薑黃"
+        },
+        {
+          "word": "vanilla",
+          "translation": "香草"
+        },
+        {
+          "word": "walnut",
+          "translation": "胡桃"
+        },
+        {
+          "word": "watermelon",
+          "translation": "西瓜"
+        },
+        {
+          "word": "wheat",
+          "translation": "小麥"
+        },
+        {
+          "word": "zucchini",
+          "translation": "西葫蘆"
+        }
+      ],
+      "hard": [
+        {
+          "word": "anchovy",
+          "translation": "鯷魚"
+        },
+        {
+          "word": "arugula",
+          "translation": "芝麻菜"
+        },
+        {
+          "word": "artichoke",
+          "translation": "朝鮮薊"
+        },
+        {
+          "word": "asparagus",
+          "translation": "蘆筍"
+        },
+        {
+          "word": "beetroot",
+          "translation": "甜菜根"
+        },
+        {
+          "word": "blackberry",
+          "translation": "黑莓"
+        },
+        {
+          "word": "bok choy",
+          "translation": "小白菜"
+        },
+        {
+          "word": "broccoli",
+          "translation": "花椰菜"
+        },
+        {
+          "word": "brussels sprouts",
+          "translation": "抱子甘藍"
+        },
+        {
+          "word": "caper",
+          "translation": "刺山柑"
+        },
+        {
+          "word": "caviar",
+          "translation": "魚子醬"
+        },
+        {
+          "word": "chamomile",
+          "translation": "洋甘菊"
+        },
+        {
+          "word": "chard",
+          "translation": "瑞士甜菜"
+        },
+        {
+          "word": "chickpea",
+          "translation": "鷹嘴豆"
+        },
+        {
+          "word": "chive",
+          "translation": "韭菜"
+        },
+        {
+          "word": "cinnamon",
+          "translation": "肉桂"
+        },
+        {
+          "word": "clove",
+          "translation": "丁香"
+        },
+        {
+          "word": "coriander",
+          "translation": "香菜"
+        },
+        {
+          "word": "cranberry sauce",
+          "translation": "蔓越莓醬"
+        },
+        {
+          "word": "cumin",
+          "translation": "孜然"
+        },
+        {
+          "word": "daikon",
+          "translation": "白蘿蔔"
+        },
+        {
+          "word": "dragonfruit",
+          "translation": "火龍果"
+        },
+        {
+          "word": "durian",
+          "translation": "榴槤"
+        },
+        {
+          "word": "edamame",
+          "translation": "毛豆"
+        },
+        {
+          "word": "elderberry",
+          "translation": "接骨木莓"
+        },
+        {
+          "word": "endive",
+          "translation": "菊苣"
+        },
+        {
+          "word": "fennel",
+          "translation": "茴香"
+        },
+        {
+          "word": "fenugreek",
+          "translation": "胡芦巴"
+        },
+        {
+          "word": "galangal",
+          "translation": "南薑"
+        },
+        {
+          "word": "garbanzo bean",
+          "translation": "鷹嘴豆"
+        },
+        {
+          "word": "goji berry",
+          "translation": "枸杞"
+        },
+        {
+          "word": "gooseberry",
+          "translation": "醋栗"
+        },
+        {
+          "word": "guava",
+          "translation": "番石榴"
+        },
+        {
+          "word": "habanero",
+          "translation": "哈瓦那辣椒"
+        },
+        {
+          "word": "horseradish",
+          "translation": "辣根"
+        },
+        {
+          "word": "jackfruit",
+          "translation": "菠蘿蜜"
+        },
+        {
+          "word": "jicama",
+          "translation": "洋蔥蘇"
+        },
+        {
+          "word": "juniper berry",
+          "translation": "杜松果"
+        },
+        {
+          "word": "kefir",
+          "translation": "克非爾"
+        },
+        {
+          "word": "kimchi",
+          "translation": "泡菜"
+        },
+        {
+          "word": "kombucha",
+          "translation": "康普茶"
+        },
+        {
+          "word": "kumquat",
+          "translation": "金桔"
+        },
+        {
+          "word": "litchi",
+          "translation": "荔枝"
+        },
+        {
+          "word": "marjoram",
+          "translation": "馬郁蘭"
+        },
+        {
+          "word": "mirin",
+          "translation": "味醂"
+        },
+        {
+          "word": "miso",
+          "translation": "味噌"
+        },
+        {
+          "word": "mulberry",
+          "translation": "桑葚"
+        },
+        {
+          "word": "mustard seed",
+          "translation": "芥菜種子"
+        },
+        {
+          "word": "nori",
+          "translation": "海苔"
+        },
+        {
+          "word": "nutmeg",
+          "translation": "肉豆蔻"
+        },
+        {
+          "word": "okra",
+          "translation": "秋葵"
+        },
+        {
+          "word": "paprika",
+          "translation": "紅椒粉"
+        },
+        {
+          "word": "passionfruit",
+          "translation": "百香果"
+        },
+        {
+          "word": "persimmon",
+          "translation": "柿子"
+        },
+        {
+          "word": "porcini",
+          "translation": "波奇尼蘑菇"
+        },
+        {
+          "word": "quinoa",
+          "translation": "藜麥"
+        },
+        {
+          "word": "radicchio",
+          "translation": "紅菜頭"
+        },
+        {
+          "word": "ramen",
+          "translation": "拉麵"
+        },
+        {
+          "word": "reishi mushroom",
+          "translation": "靈芝"
+        },
+        {
+          "word": "rutabaga",
+          "translation": "蘿蔔"
+        },
+        {
+          "word": "saffron",
+          "translation": "藏紅花"
+        },
+        {
+          "word": "salsify",
+          "translation": "羅蔔"
+        },
+        {
+          "word": "sauerkraut",
+          "translation": "酸菜"
+        },
+        {
+          "word": "scallion",
+          "translation": "蔥"
+        },
+        {
+          "word": "sesame",
+          "translation": "芝麻"
+        },
+        {
+          "word": "shallots",
+          "translation": "小洋蔥"
+        },
+        {
+          "word": "sorrel",
+          "translation": "酢漿草"
+        },
+        {
+          "word": "tamarind",
+          "translation": "羅望子"
+        },
+        {
+          "word": "tapioca",
+          "translation": "木薯"
+        },
+        {
+          "word": "tempeh",
+          "translation": "天貝"
+        },
+        {
+          "word": "wasabi",
+          "translation": "山葵"
+        },
+        {
+          "word": "watercress",
+          "translation": "水田芥"
+        },
+        {
+          "word": "yuzu",
+          "translation": "柚子"
+        }
+      ]
+    },
+    "animal": {
+      "beginner": [
+        {
+          "word": "dog",
+          "translation": "狗"
+        },
+        {
+          "word": "cat",
+          "translation": "貓"
+        },
+        {
+          "word": "rabbit",
+          "translation": "兔子"
+        },
+        {
+          "word": "horse",
+          "translation": "馬"
+        },
+        {
+          "word": "cow",
+          "translation": "牛"
+        },
+        {
+          "word": "pig",
+          "translation": "豬"
+        },
+        {
+          "word": "sheep",
+          "translation": "綿羊"
+        },
+        {
+          "word": "goat",
+          "translation": "山羊"
+        },
+        {
+          "word": "chicken",
+          "translation": "雞"
+        },
+        {
+          "word": "duck",
+          "translation": "鴨"
+        },
+        {
+          "word": "bird",
+          "translation": "鳥"
+        },
+        {
+          "word": "fish",
+          "translation": "魚"
+        },
+        {
+          "word": "dolphin",
+          "translation": "海豚"
+        },
+        {
+          "word": "whale",
+          "translation": "鯨魚"
+        },
+        {
+          "word": "shark",
+          "translation": "鯊魚"
+        },
+        {
+          "word": "tiger",
+          "translation": "老虎"
+        },
+        {
+          "word": "lion",
+          "translation": "獅子"
+        },
+        {
+          "word": "elephant",
+          "translation": "大象"
+        },
+        {
+          "word": "monkey",
+          "translation": "猴子"
+        },
+        {
+          "word": "bear",
+          "translation": "熊"
+        },
+        {
+          "word": "wolf",
+          "translation": "狼"
+        },
+        {
+          "word": "fox",
+          "translation": "狐狸"
+        },
+        {
+          "word": "snake",
+          "translation": "蛇"
+        },
+        {
+          "word": "frog",
+          "translation": "青蛙"
+        },
+        {
+          "word": "turtle",
+          "translation": "烏龜"
+        },
+        {
+          "word": "butterfly",
+          "translation": "蝴蝶"
+        },
+        {
+          "word": "bee",
+          "translation": "蜜蜂"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "clothing": {
+      "beginner": [
+        {
+          "word": "shirt",
+          "translation": "襯衫"
+        },
+        {
+          "word": "T-shirt",
+          "translation": "短袖上衣"
+        },
+        {
+          "word": "sweater",
+          "translation": "毛衣"
+        },
+        {
+          "word": "jacket",
+          "translation": "夾克"
+        },
+        {
+          "word": "coat",
+          "translation": "外套"
+        },
+        {
+          "word": "jeans",
+          "translation": "牛仔褲"
+        },
+        {
+          "word": "pants",
+          "translation": "長褲"
+        },
+        {
+          "word": "shorts",
+          "translation": "短褲"
+        },
+        {
+          "word": "skirt",
+          "translation": "裙子"
+        },
+        {
+          "word": "dress",
+          "translation": "洋裝"
+        },
+        {
+          "word": "socks",
+          "translation": "襪子"
+        },
+        {
+          "word": "shoes",
+          "translation": "鞋子"
+        },
+        {
+          "word": "sandals",
+          "translation": "涼鞋"
+        },
+        {
+          "word": "boots",
+          "translation": "靴子"
+        },
+        {
+          "word": "hat",
+          "translation": "帽子"
+        },
+        {
+          "word": "cap",
+          "translation": "鴨舌帽"
+        },
+        {
+          "word": "scarf",
+          "translation": "圍巾"
+        },
+        {
+          "word": "gloves",
+          "translation": "手套"
+        },
+        {
+          "word": "belt",
+          "translation": "皮帶"
+        },
+        {
+          "word": "tie",
+          "translation": "領帶"
+        },
+        {
+          "word": "sunglasses",
+          "translation": "太陽眼鏡"
+        },
+        {
+          "word": "glasses",
+          "translation": "眼鏡"
+        },
+        {
+          "word": "watch",
+          "translation": "手錶"
+        },
+        {
+          "word": "bracelet",
+          "translation": "手鍊"
+        },
+        {
+          "word": "necklace",
+          "translation": "項鍊"
+        },
+        {
+          "word": "ring",
+          "translation": "戒指"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "color": {
+      "beginner": [
+        {
+          "word": "red",
+          "translation": "紅色"
+        },
+        {
+          "word": "blue",
+          "translation": "藍色"
+        },
+        {
+          "word": "yellow",
+          "translation": "黃色"
+        },
+        {
+          "word": "green",
+          "translation": "綠色"
+        },
+        {
+          "word": "orange",
+          "translation": "橙色"
+        },
+        {
+          "word": "purple",
+          "translation": "紫色"
+        },
+        {
+          "word": "pink",
+          "translation": "粉紅色"
+        },
+        {
+          "word": "brown",
+          "translation": "棕色"
+        },
+        {
+          "word": "black",
+          "translation": "黑色"
+        },
+        {
+          "word": "white",
+          "translation": "白色"
+        },
+        {
+          "word": "gray",
+          "translation": "灰色"
+        },
+        {
+          "word": "silver",
+          "translation": "銀色"
+        },
+        {
+          "word": "gold",
+          "translation": "金色"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "body": {
+      "beginner": [
+        {
+          "word": "head",
+          "translation": "頭"
+        },
+        {
+          "word": "face",
+          "translation": "臉"
+        },
+        {
+          "word": "hair",
+          "translation": "頭髮"
+        },
+        {
+          "word": "eye",
+          "translation": "眼睛"
+        },
+        {
+          "word": "ear",
+          "translation": "耳朵"
+        },
+        {
+          "word": "nose",
+          "translation": "鼻子"
+        },
+        {
+          "word": "mouth",
+          "translation": "嘴巴"
+        },
+        {
+          "word": "lip",
+          "translation": "嘴唇"
+        },
+        {
+          "word": "tooth",
+          "translation": "牙齒"
+        },
+        {
+          "word": "teeth",
+          "translation": "牙齒（複數）"
+        },
+        {
+          "word": "tongue",
+          "translation": "舌頭"
+        },
+        {
+          "word": "chin",
+          "translation": "下巴"
+        },
+        {
+          "word": "neck",
+          "translation": "脖子"
+        },
+        {
+          "word": "shoulder",
+          "translation": "肩膀"
+        },
+        {
+          "word": "arm",
+          "translation": "手臂"
+        },
+        {
+          "word": "elbow",
+          "translation": "手肘"
+        },
+        {
+          "word": "hand",
+          "translation": "手"
+        },
+        {
+          "word": "finger",
+          "translation": "手指"
+        },
+        {
+          "word": "thumb",
+          "translation": "拇指"
+        },
+        {
+          "word": "chest",
+          "translation": "胸部"
+        },
+        {
+          "word": "stomach",
+          "translation": "胃"
+        },
+        {
+          "word": "back",
+          "translation": "背部"
+        },
+        {
+          "word": "leg",
+          "translation": "腿"
+        },
+        {
+          "word": "knee",
+          "translation": "膝蓋"
+        },
+        {
+          "word": "foot",
+          "translation": "腳"
+        },
+        {
+          "word": "feet",
+          "translation": "腳（複數）"
+        },
+        {
+          "word": "toe",
+          "translation": "腳趾"
+        },
+        {
+          "word": "skin",
+          "translation": "皮膚"
+        },
+        {
+          "word": "heart",
+          "translation": "心臟"
+        },
+        {
+          "word": "brain",
+          "translation": "大腦"
+        },
+        {
+          "word": "bone",
+          "translation": "骨頭"
+        },
+        {
+          "word": "muscle",
+          "translation": "肌肉"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "relationship": {
+      "beginner": [
+        {
+          "word": "father",
+          "translation": "父親"
+        },
+        {
+          "word": "mother",
+          "translation": "母親"
+        },
+        {
+          "word": "dad",
+          "translation": "爸爸"
+        },
+        {
+          "word": "mom",
+          "translation": "媽媽"
+        },
+        {
+          "word": "brother",
+          "translation": "兄弟"
+        },
+        {
+          "word": "sister",
+          "translation": "姐妹"
+        },
+        {
+          "word": "son",
+          "translation": "兒子"
+        },
+        {
+          "word": "daughter",
+          "translation": "女兒"
+        },
+        {
+          "word": "uncle",
+          "translation": "叔叔"
+        },
+        {
+          "word": "aunt",
+          "translation": "阿姨"
+        },
+        {
+          "word": "cousin",
+          "translation": "堂表兄弟姐妹"
+        },
+        {
+          "word": "grandfather",
+          "translation": "祖父"
+        },
+        {
+          "word": "grandmother",
+          "translation": "祖母"
+        },
+        {
+          "word": "grandpa",
+          "translation": "爺爺"
+        },
+        {
+          "word": "grandma",
+          "translation": "奶奶"
+        },
+        {
+          "word": "baby",
+          "translation": "嬰兒"
+        },
+        {
+          "word": "child",
+          "translation": "孩子"
+        },
+        {
+          "word": "children",
+          "translation": "孩子們"
+        },
+        {
+          "word": "boy",
+          "translation": "男孩"
+        },
+        {
+          "word": "girl",
+          "translation": "女孩"
+        },
+        {
+          "word": "man",
+          "translation": "男人"
+        },
+        {
+          "word": "woman",
+          "translation": "女人"
+        },
+        {
+          "word": "friend",
+          "translation": "朋友"
+        },
+        {
+          "word": "best friend",
+          "translation": "摯友"
+        },
+        {
+          "word": "neighbor",
+          "translation": "鄰居"
+        },
+        {
+          "word": "teacher",
+          "translation": "老師"
+        },
+        {
+          "word": "student",
+          "translation": "學生"
+        },
+        {
+          "word": "classmate",
+          "translation": "同學"
+        },
+        {
+          "word": "roommate",
+          "translation": "室友"
+        },
+        {
+          "word": "husband",
+          "translation": "丈夫"
+        },
+        {
+          "word": "wife",
+          "translation": "妻子"
+        },
+        {
+          "word": "couple",
+          "translation": "夫妻"
+        },
+        {
+          "word": "family",
+          "translation": "家庭"
+        },
+        {
+          "word": "love",
+          "translation": "愛"
+        },
+        {
+          "word": "home",
+          "translation": "家"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    }
+  }
 }
-      

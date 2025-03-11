@@ -1,0 +1,30 @@
+.main-menu {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('background.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .menu-buttons button {
+    width: 250px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .menu-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
