@@ -6,7 +6,6 @@ import zombie3 from "./zombie3.png";
 import zombie4 from "./zombie4.png";
 import "./shake.css";
 
-const words = ["zombie", "attack", "survive", "escape", "horror", "danger", "fight"];
 const zombieImages = [zombie1, zombie2, zombie3, zombie4];
 
 const usePreloadedSounds = () => {
@@ -25,13 +24,15 @@ const usePreloadedSounds = () => {
 };
 
 export default function TypingGame() {
+  const [wordList, setWordList] = useState([]);
+  const [difficulty, setDifficulty] = useState("beginner")
   const [currentWord, setCurrentWord] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [scale, setScale] = useState(0.1);
   const [currentZombie, setCurrentZombie] = useState(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
-  const [isShaking, setIsShaking] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
 
   const sounds = usePreloadedSounds();
 
@@ -44,7 +45,16 @@ export default function TypingGame() {
   };
 
   useEffect(() => {
-    spawnWord();
+    fetch(process.env.PUBLIC_URL + "/data.json")
+      .then((res) => res.json())
+      .then((data) => setWordList(data["topics"]["food"][difficulty]));
+  }, [difficulty]);
+
+  useEffect(() => {
+    if(wordList.length > 0){
+      spawnWord(wordList);
+    }
+
     let interval = setInterval(() => {
       setScale((prev) => {
         if (prev >= 1) {
@@ -58,11 +68,12 @@ export default function TypingGame() {
     }, 300);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [wordList]);
 
-  const spawnWord = () => {
+  const spawnWord = (words) => {
     const randomWord = words[Math.floor(Math.random() * words.length)];
-    setCurrentWord(randomWord);
+    console.log(randomWord)
+    setCurrentWord(randomWord["word"]);
     setInputValue("");
     setScale(0.1);
     setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
@@ -76,13 +87,13 @@ export default function TypingGame() {
       if (newValue === currentWord) {
         setScore(score + 1);
         playSound("accept.wav");
-        spawnWord();
+        spawnWord(wordList);
       } else {
-        setIsShaking(true);
+        setIsWrong(true);
         setInputValue("");
-        playSound("error.wav");
+        playSound("wrong_answer.mp3");
 
-        setTimeout(() => setIsShaking(false), 300);
+        setTimeout(() => setIsWrong(false), 300);
       }
     }
   };
@@ -111,7 +122,7 @@ export default function TypingGame() {
             type="text"
             value={inputValue}
             onChange={handleInputChange}
-            className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${isShaking ? "shake" : ""}`}
+            className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${isWrong ? "shake" : ""}`}
             autoFocus
             disabled={gameOver}
           />
