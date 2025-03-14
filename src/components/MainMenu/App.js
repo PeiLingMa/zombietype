@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ChallengeMode from "./components/ChallengeMode";
-import StoryMode from "./components/StoryMode";
-import Options from "./components/Option";
+import ChallengeMode from "../ChallengeMode/ChallengeMode";
+import StoryMode from "../StoryMode/StoryMode";
+import Options from "../Option/Option";
 import "./App.css"
 
 export default function MainMenu() {
