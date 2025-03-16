@@ -101,5 +101,5 @@ zombietype/
 1. [ ] 更好的打字體驗
 
 ## 其他
-
-
+若發現 Bugs 請在 [**zombietype**](https://github.com/PeiLingMa/zombietype/issues) 發布 issue
+> 最後更新時間：2025-03-16
