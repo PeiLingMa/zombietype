@@ -79,7 +79,7 @@ export default function TypingGame() {
     const randomWord = words[Math.floor(Math.random() * words.length)];
     setCurrentWord(randomWord['word']);
     setInputValue('');
-    setScale(0.1);
+    setScale(0.01);
     setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
   };
 
@@ -112,7 +112,8 @@ export default function TypingGame() {
         <>
           <h1 className="display-4 fw-bold text-warning mb-4">Monster Typing Game</h1>
           <p className="lead">Type the word to defeat the monster!</p>
-
+          <p className={`mt-2 fw-bold ${scale >= 0.8 ? "text-danger" : "text-warning"} bg-dark py-2 px-4 rounded-pill shadow`}>
+              Time Left: {Math.ceil((1 - scale) * 20)}s </p>
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
             style={{ transform: `scale(${scale})`, transition: 'transform 0.3s linear' }}
