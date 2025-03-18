@@ -23,7 +23,7 @@ const usePreloadedSounds = () => {
   return sounds;
 };
 
-export default function TypingGame() {
+export default function TypingGame({ onBack }) {
   // Game state variables
   const [wordList, setWordList] = useState([]);
   const [difficulty, setDifficulty] = useState('hard');
@@ -105,15 +105,26 @@ export default function TypingGame() {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center bg-dark text-light p-4">
       {gameOver ? (
-        <h1 className="display-3 text-danger fw-bold animate__animated animate__bounce">
-          You Died!
-        </h1>
+        <>
+          <h1 className="display-3 text-danger fw-bold animate__animated animate__bounce">
+            You Died!
+          </h1>
+          <button
+            className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+            onClick={onBack}
+          >
+            Back Menu
+          </button>
+        </>
       ) : (
         <>
           <h1 className="display-4 fw-bold text-warning mb-4">Monster Typing Game</h1>
           <p className="lead">Type the word to defeat the monster!</p>
-          <p className={`mt-2 fw-bold ${scale >= 0.8 ? "text-danger" : "text-warning"} bg-dark py-2 px-4 rounded-pill shadow`}>
-              Time Left: {Math.ceil((1 - scale) * 20)}s </p>
+          <p
+            className={`mt-2 fw-bold ${scale >= 0.8 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+          >
+            Time Left: {Math.ceil((1 - scale) * 20)}s{' '}
+          </p>
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
             style={{ transform: `scale(${scale})`, transition: 'transform 0.3s linear' }}
