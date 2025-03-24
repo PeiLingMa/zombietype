@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { useGameState } from './hooks/useGameState';
+import { GAME_CONFIG } from './gameConfig';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import zombie1 from './zombie1.png';
 import zombie2 from './zombie2.png';
@@ -23,14 +26,13 @@ const usePreloadedSounds = () => {
   return sounds;
 };
 
-export default function TypingGame({ onBack }) {
+export default function ChallengeMode({ onBack }) {
   // Game state variables
+  const { gameState, updateGameState, calculateChargeSpeed, checkLevelProgress } = useGameState();
+
   const [wordList, setWordList] = useState([]);
-  const [difficulty, setDifficulty] = useState('hard');
   const [currentWord, setCurrentWord] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
   const [scale, setScale] = useState(0.1);
   const [currentZombie, setCurrentZombie] = useState(
     zombieImages[Math.floor(Math.random() * zombieImages.length)]
@@ -52,8 +54,8 @@ export default function TypingGame({ onBack }) {
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/data.json')
       .then((res) => res.json())
-      .then((data) => setWordList(data['topics']['food'][difficulty]));
-  }, [difficulty]);
+      .then((data) => setWordList(data['topics']['food'][gameState.currentDifficulty]));
+  }, [gameState.currentDifficulty]);
 
   // main logic in game loop
   useEffect(() => {
@@ -64,19 +66,12 @@ export default function TypingGame({ onBack }) {
     let interval = setInterval(() => {
       setScale((prev) => {
         if (prev >= 1) {
-          // Deduct one life
-          if (lives - 1 <= 0) {
-            setLives(0);
-            setGameOver(true);
-            playSound('defeated.mp3');
-          } else {
-            setLives(lives - 1);
-            playSound('wrong_answer.mp3');
-            spawnWord(wordList); // Generate a new word
-          }
-          return 0.1; // Reset scale
+          updateGameState({ gameOver: true });
+          clearInterval(interval);
+          playSound('defeated.mp3');
+          return prev;
         }
-        return prev + 0.05;
+        return prev + calculateChargeSpeed();
       });
     }, 300);
 
@@ -97,7 +92,6 @@ export default function TypingGame({ onBack }) {
 
     if (newValue.length === currentWord.length) {
       if (newValue === currentWord) {
-        setScore(score + 1);
         playSound('accept.wav');
         spawnWord(wordList);
       } else {
@@ -112,7 +106,7 @@ export default function TypingGame({ onBack }) {
 
   return (
     <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center bg-dark text-light p-4">
-      {gameOver ? (
+      {gameState.gameOver ? (
         <>
           <h1 className="display-3 text-danger fw-bold animate__animated animate__bounce">
             You Died!
@@ -155,15 +149,8 @@ export default function TypingGame({ onBack }) {
             onChange={handleInputChange}
             className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${isWrong ? 'shake' : ''}`}
             autoFocus
-            disabled={gameOver}
+            disabled={gameState.gameOver}
           />
-
-          <p className="mt-4 fw-bold text-warning bg-dark py-2 px-4 rounded-pill shadow">
-            Score: {score}
-          </p>
-          <p className="mt-2 fw-bold text-info bg-dark py-2 px-4 rounded-pill shadow">
-            Lives: {lives}
-          </p>
         </>
       )}
     </div>
