@@ -36,6 +36,7 @@ export default function TypingGame({ onBack }) {
     zombieImages[Math.floor(Math.random() * zombieImages.length)]
   );
   const [isWrong, setIsWrong] = useState(false);
+  const [lives, setLives] = useState(3); // 初始生命值 3
 
   // Game sound effects
   const sounds = usePreloadedSounds();
@@ -44,7 +45,7 @@ export default function TypingGame({ onBack }) {
     if (sounds.current[soundFile]) {
       const audio = sounds.current[soundFile];
       audio.currentTime = 0;
-      audio.play();
+      audio.play().catch((err) => console.warn("音效播放被阻擋:", err));
     }
   };
 
@@ -63,17 +64,24 @@ export default function TypingGame({ onBack }) {
     let interval = setInterval(() => {
       setScale((prev) => {
         if (prev >= 1) {
-          setGameOver(true);
-          clearInterval(interval);
-          playSound('defeated.mp3');
-          return prev;
+          // Deduct one life
+          if (lives - 1 <= 0) {
+            setLives(0);
+            setGameOver(true);
+            playSound('defeated.mp3');
+          } else {
+            setLives(lives - 1);
+            playSound('wrong_answer.mp3');
+            spawnWord(wordList); // Generate a new word
+          }
+          return 0.1; // Reset scale
         }
         return prev + 0.05;
       });
     }, 300);
 
     return () => clearInterval(interval);
-  }, [wordList]);
+  }, [wordList, lives]); // Listen for changes in lives
 
   const spawnWord = (words) => {
     const randomWord = words[Math.floor(Math.random() * words.length)];
@@ -121,7 +129,7 @@ export default function TypingGame({ onBack }) {
           <h1 className="display-4 fw-bold text-warning mb-4">Monster Typing Game</h1>
           <p className="lead">Type the word to defeat the monster!</p>
           <p
-            className={`mt-2 fw-bold ${scale >= 0.8 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${scale >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
             Time Left: {Math.ceil((1 - scale) * 20)}s{' '}
           </p>
@@ -152,6 +160,9 @@ export default function TypingGame({ onBack }) {
 
           <p className="mt-4 fw-bold text-warning bg-dark py-2 px-4 rounded-pill shadow">
             Score: {score}
+          </p>
+          <p className="mt-2 fw-bold text-info bg-dark py-2 px-4 rounded-pill shadow">
+            Lives: {lives}
           </p>
         </>
       )}
