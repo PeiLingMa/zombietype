@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { useGameState } from './hooks/useGameState';
-import { GAME_CONFIG } from './gameConfig';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import zombie1 from './zombie1.png';
@@ -54,7 +53,7 @@ export default function ChallengeMode({ onBack }) {
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/data.json')
       .then((res) => res.json())
-      .then((data) => setWordList(data['topics']['food'][gameState.currentDifficulty]));
+      .then((data) => setWordList(data['topics'][gameState.currentTheme][gameState.currentDifficulty]));
   }, [gameState.currentDifficulty]);
 
   // main logic in game loop
@@ -93,6 +92,7 @@ export default function ChallengeMode({ onBack }) {
     if (newValue.length === currentWord.length) {
       if (newValue === currentWord) {
         playSound('accept.wav');
+        //updateGameState({zombiesDefeated: gameState.zombiesDefeated + 1});
         spawnWord(wordList);
       } else {
         setIsWrong(true);

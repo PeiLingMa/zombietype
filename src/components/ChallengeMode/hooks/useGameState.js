@@ -6,13 +6,11 @@ export const useGameState = () => {
     level: 1,
     lives: GAME_CONFIG.INITIAL_LIVES,
     zombiesDefeated: 0,
-    currentTheme: '',
-    remainingThemes: [...GAME_CONFIG.THEMES],
+    currentTheme: 'food',
+    remainingThemes: [...GAME_CONFIG.THEME_POOL],
     themeAccuracy: {},
     gameTime: 0,
-    samplePool: [],
-    candidatePool: [],
-    currentDifficulty: 'beginner'
+    currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY
   });
 
   const calculateChargeSpeed = () => {
@@ -22,7 +20,7 @@ export const useGameState = () => {
   };
 
   const updateGameState = (updates) => {
-    setGameState(prev => ({
+    setGameState((prev) => ({
       ...prev,
       ...updates
     }));

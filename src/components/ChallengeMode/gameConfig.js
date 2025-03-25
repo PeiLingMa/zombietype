@@ -5,7 +5,8 @@ export const GAME_CONFIG = {
   DIFFICULTY_MULTIPLIER: 0.1,
   ACCURACY_THRESHOLD: 0.9,
   SAMPLE_SIZE: 50,
-  THEMES: ['food', 'animals', 'weather', 'sports'], // Set the theme pool here
+  INITIAL_DIFFICULTY: 'beginner',
+  THEME_POOL: ['food', 'animals', 'weather', 'sports'],
   DIFFICULTY_LEVELS: {
     BEGINNER: 1,
     MEDIUM: 2,
