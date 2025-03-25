@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useGameState } from './hooks/useGameState';
+import { useLevelManager } from './hooks/useLevelManager';
+import { GAME_CONFIG } from './gameConfig';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import zombie1 from './zombie1.png';
@@ -27,7 +29,8 @@ const usePreloadedSounds = () => {
 
 export default function ChallengeMode({ onBack }) {
   // Game state variables
-  const { gameState, updateGameState, calculateChargeSpeed, checkLevelProgress } = useGameState();
+  const { gameState, updateGameState } = useGameState();
+  const { getChargeSpeed, checkLevelProgress } = useLevelManager(gameState, updateGameState);
 
   const [wordList, setWordList] = useState([]);
   const [currentWord, setCurrentWord] = useState('');
@@ -37,7 +40,6 @@ export default function ChallengeMode({ onBack }) {
     zombieImages[Math.floor(Math.random() * zombieImages.length)]
   );
   const [isWrong, setIsWrong] = useState(false);
-  const [lives, setLives] = useState(3); // 初始生命值 3
 
   // Game sound effects
   const sounds = usePreloadedSounds();
@@ -72,12 +74,12 @@ export default function ChallengeMode({ onBack }) {
           playSound('defeated.mp3');
           return prev;
         }
-        return prev + calculateChargeSpeed();
+        return prev + getChargeSpeed();
       });
-    }, 1000);
+    }, GAME_CONFIG.CHARGE_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [wordList, lives]); // Listen for changes in lives
+  }, [wordList]);
 
   const spawnWord = (words) => {
     const randomWord = words[Math.floor(Math.random() * words.length)];
@@ -94,7 +96,8 @@ export default function ChallengeMode({ onBack }) {
     if (newValue.length === currentWord.length) {
       if (newValue === currentWord) {
         playSound('accept.wav');
-        //updateGameState({zombiesDefeated: gameState.zombiesDefeated + 1});
+        updateGameState({ zombiesDefeated: gameState.zombiesDefeated + 1 });
+        checkLevelProgress();
         spawnWord(wordList);
       } else {
         setIsWrong(true);
@@ -153,6 +156,9 @@ export default function ChallengeMode({ onBack }) {
             autoFocus
             disabled={gameState.gameOver}
           />
+          <p className="level">level: {gameState.level}</p>
+          <p className="speed">speed: {getChargeSpeed()}</p>
+          <p className="charge">charge: {Math.round(scale * 100)}%</p>
         </>
       )}
     </div>
