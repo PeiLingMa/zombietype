@@ -13,12 +13,6 @@ export const useGameState = () => {
     currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY
   });
 
-  const calculateChargeSpeed = () => {
-    const baseSpeed = GAME_CONFIG.INITIAL_CHARGE_SPEED;
-    const level = gameState.level;
-    return baseSpeed * (1 + GAME_CONFIG.DIFFICULTY_MULTIPLIER * (level - 1));
-  };
-
   const updateGameState = (updates) => {
     setGameState((prev) => ({
       ...prev,
@@ -26,19 +20,8 @@ export const useGameState = () => {
     }));
   };
 
-  const checkLevelProgress = () => {
-    if (gameState.zombiesDefeated >= GAME_CONFIG.ZOMBIES_PER_LEVEL) {
-      updateGameState({
-        level: gameState.level + 1,
-        zombiesDefeated: 0
-      });
-    }
-  };
-
   return {
     gameState,
-    updateGameState,
-    calculateChargeSpeed,
-    checkLevelProgress
+    updateGameState
   };
 };
