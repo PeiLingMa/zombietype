@@ -30,7 +30,7 @@ const usePreloadedSounds = () => {
 export default function ChallengeMode({ onBack }) {
   // Game state variables
   const { gameState, updateGameState } = useGameState();
-  const { getChargeSpeed, checkLevelProgress } = useLevelManager(gameState, updateGameState);
+  const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
 
   const [wordList, setWordList] = useState([]);
   const [currentWord, setCurrentWord] = useState('');
@@ -62,30 +62,34 @@ export default function ChallengeMode({ onBack }) {
 
   // main logic in game loop
   useEffect(() => {
-    if (wordList.length > 0) {
+    if (wordList.length > 0 && !gameState.gameOver) {
       spawnWord(wordList);
     }
 
     let interval = setInterval(() => {
       setScale((prev) => {
         if (prev >= 1) {
-          updateGameState({ gameOver: true });
-          clearInterval(interval);
-          playSound('defeated.mp3');
-          return prev;
+          const newLives = gameState.lives - 1;
+          if (newLives <= 0) {
+            updateGameState({ gameOver: true });
+            playSound('defeated.mp3');
+            clearInterval(interval);
+          }
+          updateGameState({ lives: newLives });
+          return 0;
         }
         return prev + getChargeSpeed();
       });
     }, GAME_CONFIG.CHARGE_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [wordList]);
+  }, [wordList, gameState.lives, gameState.gameOver, getChargeSpeed]);
 
   const spawnWord = (words) => {
     const randomWord = words[Math.floor(Math.random() * words.length)];
     setCurrentWord(randomWord['word']);
     setInputValue('');
-    setScale(0.01);
+    setScale(0);
     setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
   };
 
@@ -97,7 +101,6 @@ export default function ChallengeMode({ onBack }) {
       if (newValue === currentWord) {
         playSound('accept.wav');
         updateGameState({ zombiesDefeated: gameState.zombiesDefeated + 1 });
-        checkLevelProgress();
         spawnWord(wordList);
       } else {
         setIsWrong(true);
@@ -157,6 +160,7 @@ export default function ChallengeMode({ onBack }) {
             disabled={gameState.gameOver}
           />
           <p className="level">level: {gameState.level}</p>
+          <p className="lives">lives: {gameState.lives}</p>
           <p className="speed">speed: {getChargeSpeed()}</p>
           <p className="charge">charge: {Math.round(scale * 100)}%</p>
         </>
