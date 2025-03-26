@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
 
 export const useLevelManager = (gameState, updateGameState) => {
@@ -8,17 +8,16 @@ export const useLevelManager = (gameState, updateGameState) => {
     return baseSpeed * (1 + GAME_CONFIG.DIFFICULTY_MULTIPLIER * (level - 1));
   }, [gameState.level]);
 
-  const checkLevelProgress = useCallback(() => {
+  useEffect(() => {
     if (gameState.zombiesDefeated >= GAME_CONFIG.ZOMBIES_PER_LEVEL) {
       updateGameState({
         level: gameState.level + 1,
         zombiesDefeated: 0
       });
     }
-  }, [gameState.zombiesDefeated, gameState.level, updateGameState]);
+  }, [gameState.zombiesDefeated, gameState.level]);
 
   return {
-    getChargeSpeed,
-    checkLevelProgress
+    getChargeSpeed
   };
 };
