@@ -1,24 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
 
+/**
+ * Custom hook to manage game state in Challenge Mode
+ * Handles game state initialization, updates, and level management
+ *
+ * @returns {Object} Game state and update functions
+ */
 export const useGameState = () => {
+  // Initialize game state with default values
   const [gameState, setGameState] = useState({
     level: 1,
-    lives: GAME_CONFIG.INITIAL_LIVES,
+    lives: 3,
     zombiesDefeated: 0,
-    currentTheme: 'food',
-    remainingThemes: [...GAME_CONFIG.THEME_POOL],
-    themeAccuracy: {},
-    gameTime: 0,
-    currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY
+    gameOver: false,
+    currentTheme: '',
+    currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY,
+    remainingThemes: [...GAME_CONFIG.THEME_POOL]
   });
 
-  const updateGameState = (updates) => {
-    setGameState((prev) => ({
-      ...prev,
-      ...updates
-    }));
-  };
+  // Update only specific gameState properties
+  const updateGameState = useCallback((updates) => {
+    setGameState((prev) => ({ ...prev, ...updates }));
+  }, []);
 
   return {
     gameState,

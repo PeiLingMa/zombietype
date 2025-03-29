@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useGameState } from './hooks/useGameState';
 import { useLevelManager } from './hooks/useLevelManager';
 import { usePlayerInput } from './hooks/usePlayerInput';
+import { useThemeManager } from './hooks/useThemeManager';
 import { GAME_CONFIG } from './gameConfig';
 
 // Import Bootstrap for UI styling
@@ -48,6 +49,16 @@ export default function ChallengeMode({ onBack }) {
   const { gameState, updateGameState } = useGameState();
   const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
 
+  // Theme management
+  const {
+    currentSample,
+    getQuestionsByDifficulty,
+    handleCorrectAnswer: themeHandleCorrectAnswer,
+    handleWrongAnswer: themeHandleWrongAnswer,
+    getThemeAccuracy,
+    rotateToNextTheme
+  } = useThemeManager(gameState, updateGameState);
+
   // Local state for the component
   const [wordList, setWordList] = useState([]); // List of words from current theme/difficulty
   const [scale, setScale] = useState(0.1); // Zombie scale (controls charge visualization)
@@ -55,12 +66,11 @@ export default function ChallengeMode({ onBack }) {
     zombieImages[Math.floor(Math.random() * zombieImages.length)]
   );
 
-  // Temporary accuracy tracking (will be moved to QuestionManager)
-  const correctAnswers = useRef(0);
-  const totalAnswers = useRef(0);
-
   // Load game sound effects
   const sounds = usePreloadedSounds();
+
+  // Function reference for spawnWord, initialized after playerInput
+  const spawnWordRef = useRef(null);
 
   /**
    * Plays a sound effect
@@ -75,75 +85,83 @@ export default function ChallengeMode({ onBack }) {
   };
 
   /**
-   * Spawns a new word for the player to type
-   * @param {Array} words - Array of word objects to select from
-   */
-  const spawnWord = (words) => {
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    playerInput.updateCurrentWord(randomWord['word'], gameState.currentDifficulty);
-    setScale(0); // Reset zombie charge
-    setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
-  };
-
-  /**
    * Handles correct answer events
-   * Updates accuracy statistics and will interface with QuestionManager in the future
+   * Updates theme accuracy and spawns a new word
    * @param {Object} answerData - Data about the correct answer
    */
   const handleCorrectAnswer = (answerData) => {
-    correctAnswers.current += 1;
-    totalAnswers.current += 1;
-    // Future implementation: will call QuestionManager methods here
+    // Placeholder for future QuestionManager implementation
+    // (moving accuracy calculation to QuestionManager)
+
+    // Spawn a new word from the current difficulty
+    if (spawnWordRef.current) {
+      spawnWordRef.current(getQuestionsByDifficulty(gameState.currentDifficulty));
+    }
+
+    setScale(0);
   };
 
   /**
    * Handles wrong answer events
-   * Updates accuracy statistics and applies penalties if applicable
+   * Updates theme accuracy and applies penalties if applicable
    * @param {Object} answerData - Data about the wrong answer
    */
   const handleWrongAnswer = (answerData) => {
-    totalAnswers.current += 1;
+    // Placeholder for future QuestionManager implementation
+    // (moving accuracy calculation to QuestionManager)
+
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
       applyPenalty();
     }
-    // Future implementation: will call QuestionManager methods here
-  };
-
-  /**
-   * Calculates current accuracy percentage (temporary method)
-   * @returns {number} Accuracy percentage (0-100)
-   */
-  const getAccuracy = () => {
-    if (totalAnswers.current === 0) return 100;
-    return Math.round((correctAnswers.current / totalAnswers.current) * 100);
   };
 
   // Initialize PlayerInput hook with necessary callbacks
   const playerInput = usePlayerInput({
     gameState,
     updateGameState,
-    spawnWord,
+    spawnWord: (...args) => spawnWordRef.current && spawnWordRef.current(...args),
     playSound,
     wordList,
     onCorrectAnswer: handleCorrectAnswer,
     onWrongAnswer: handleWrongAnswer
   });
 
-  // Load word list when difficulty or theme changes
+  // Initialize the spawnWord function after playerInput is available
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + '/data.json')
-      .then((res) => res.json())
-      .then((data) =>
-        setWordList(data['topics'][gameState.currentTheme][gameState.currentDifficulty])
-      );
-  }, [gameState.currentDifficulty, gameState.currentTheme]);
+    spawnWordRef.current = (words) => {
+      if (!words || words.length === 0) {
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * words.length);
+      const randomWord = words[randomIndex];
+
+      if (!randomWord || !randomWord.answer) {
+        return;
+      }
+
+      // Set the current word in the player input system
+      playerInput.updateCurrentWord(randomWord.answer, randomWord.difficulty);
+    };
+    return () => console.log('spawnWordRef setup done.');
+  }, []);
+
+  // Update word list when theme sample or difficulty changes
+  useEffect(() => {
+    if (currentSample) {
+      const filteredWords = getQuestionsByDifficulty(gameState.currentDifficulty);
+      setWordList(filteredWords);
+      console.log('Updated word list:', filteredWords);
+      if (filteredWords.length > 0 && !gameState.gameOver && spawnWordRef.current) {
+        spawnWordRef.current(filteredWords);
+      }
+    }
+  }, [currentSample, gameState.currentDifficulty, getQuestionsByDifficulty]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
-    if (wordList.length > 0 && !gameState.gameOver) {
-      spawnWord(wordList);
-    }
+    if (gameState.gameOver) return;
 
     // Set up interval for zombie charge progress
     let interval = setInterval(() => {
@@ -166,13 +184,13 @@ export default function ChallengeMode({ onBack }) {
           return 0; // Reset zombie charge
         }
         // Increase zombie charge based on current level
-        return prev + getChargeSpeed();
+        return Math.min(prev + getChargeSpeed(), 1);
       });
     }, GAME_CONFIG.CHARGE_INTERVAL);
 
     // Clean up interval on component unmount
     return () => clearInterval(interval);
-  }, [wordList, gameState.lives, gameState.gameOver, getChargeSpeed]);
+  }, [gameState.lives, gameState.gameOver, getChargeSpeed]);
 
   /**
    * Applies penalty for wrong answers (Level-4 and above)
@@ -194,7 +212,6 @@ export default function ChallengeMode({ onBack }) {
             You Died!
           </h1>
           <p className="fs-4 mb-4">Final Score: Level {gameState.level}</p>
-          <p className="fs-5 mb-4">Accuracy: {getAccuracy()}%</p>
           <button
             className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
             onClick={onBack}
@@ -244,7 +261,7 @@ export default function ChallengeMode({ onBack }) {
           <div className="d-flex justify-content-around w-50 mt-3">
             <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
-            <p className="badge bg-success p-2">Accuracy: {getAccuracy()}%</p>
+            <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
           </div>
         </>
       )}
