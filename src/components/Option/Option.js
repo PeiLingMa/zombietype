@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { useGameSettings } from '../../context/GameSettingsContext';
 
-// FIXME : edit the function name
-export default function StoryMode({ onBack }) {
+export default function Option({ onBack }) {
   // 從 Context 獲取狀態和更新函數
   const { difficulty, updateDifficulty, volume, updateVolume, gameConfig } = useGameSettings();
 
