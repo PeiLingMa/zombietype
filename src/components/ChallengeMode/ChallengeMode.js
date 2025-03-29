@@ -74,7 +74,7 @@ export default function ChallengeMode({ onBack }) {
         }
         return prev + calculateChargeSpeed();
       });
-    }, 300);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [wordList, lives]); // Listen for changes in lives
