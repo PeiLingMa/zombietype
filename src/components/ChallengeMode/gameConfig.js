@@ -7,7 +7,7 @@ export const GAME_CONFIG = {
   ACCURACY_THRESHOLD: 0.9,
   SAMPLE_SIZE: 50,
   INITIAL_DIFFICULTY: 'beginner',
-  THEME_POOL: ['food', 'animals', 'weather', 'sports'],
+  THEME_POOL: ['food'],
   DIFFICULTY_LEVELS: {
     BEGINNER: 1,
     MEDIUM: 2,

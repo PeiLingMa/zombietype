@@ -32,11 +32,6 @@ export const usePlayerInput = ({
   const [currentWord, setCurrentWord] = useState('');
   const [currentWordDifficulty, setCurrentWordDifficulty] = useState('');
 
-  // Use for storing input history and statistics
-  const inputHistory = useRef([]);
-  const correctInputs = useRef(0);
-  const totalInputs = useRef(0);
-
   /**
    * Updates the current word to be typed
    * @param {string} word - The new word to be typed
