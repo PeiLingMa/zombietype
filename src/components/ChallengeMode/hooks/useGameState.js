@@ -1,7 +1,13 @@
+// src/components/ChallengeMode/hooks/useGameState.js
+
 import { useState, useEffect } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
+import { useGameSettings } from '../../../context/GameSettingsContext';
 
 export const useGameState = () => {
+  // 從 Context 獲取狀態，目前volume沒有實際調整音量功能(尚未使用到)
+  const { difficulty, volume } = useGameSettings();
+
   const [gameState, setGameState] = useState({
     level: 1,
     lives: GAME_CONFIG.INITIAL_LIVES,
@@ -10,8 +16,16 @@ export const useGameState = () => {
     remainingThemes: [...GAME_CONFIG.THEME_POOL],
     themeAccuracy: {},
     gameTime: 0,
-    currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY
+    currentDifficulty: difficulty
   });
+
+  useEffect(() => {
+    console.log(`useGameState sees config update. Difficulty: ${difficulty}`);
+    setGameState((prev) => ({
+      ...prev,
+      currentDifficulty: difficulty
+    }));
+  }, [difficulty]);
 
   const calculateChargeSpeed = () => {
     const baseSpeed = GAME_CONFIG.INITIAL_CHARGE_SPEED;

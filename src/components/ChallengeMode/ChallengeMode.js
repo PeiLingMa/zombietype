@@ -46,14 +46,16 @@ export default function ChallengeMode({ onBack }) {
     if (sounds.current[soundFile]) {
       const audio = sounds.current[soundFile];
       audio.currentTime = 0;
-      audio.play().catch((err) => console.warn("音效播放被阻擋:", err));
+      audio.play().catch((err) => console.warn('音效播放被阻擋:', err));
     }
   };
 
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + '/data.json')
       .then((res) => res.json())
-      .then((data) => setWordList(data['topics'][gameState.currentTheme][gameState.currentDifficulty]));
+      .then((data) =>
+        setWordList(data['topics'][gameState.currentTheme][gameState.currentDifficulty])
+      );
   }, [gameState.currentDifficulty]);
 
   // main logic in game loop
@@ -72,7 +74,7 @@ export default function ChallengeMode({ onBack }) {
         }
         return prev + calculateChargeSpeed();
       });
-    }, 300);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [wordList, lives]); // Listen for changes in lives

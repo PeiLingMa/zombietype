@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/MainMenu/App';
 import reportWebVitals from './reportWebVitals';
+import { GameSettingsProvider } from './context/GameSettingsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <GameSettingsProvider>
+      <App />
+    </GameSettingsProvider>
   </React.StrictMode>
 );
 
