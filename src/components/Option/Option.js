@@ -27,7 +27,7 @@ export default function Option({ onBack }) {
   };
 
   return (
-    <div className="option-container">
+    <div className="option-page">
       <div
         className="container mt-5 p-4 border rounded shadow-lg bg-light"
         style={{ maxWidth: '700px' }}
