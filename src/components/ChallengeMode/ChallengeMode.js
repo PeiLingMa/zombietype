@@ -3,6 +3,7 @@ import { useGameState } from './hooks/useGameState';
 import { useLevelManager } from './hooks/useLevelManager';
 import { usePlayerInput } from './hooks/usePlayerInput';
 import { useThemeManager } from './hooks/useThemeManager';
+import { useQuestionManager } from './hooks/useQuestionManager';
 import { GAME_CONFIG } from './gameConfig';
 
 // Import Bootstrap for UI styling
@@ -50,17 +51,21 @@ export default function ChallengeMode({ onBack }) {
   const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
 
   // Theme management
+  const { currentSample } = useThemeManager(gameState, updateGameState);
+
+  // Question management
   const {
-    currentSample,
-    getQuestionsByDifficulty,
-    handleCorrectAnswer: themeHandleCorrectAnswer,
-    handleWrongAnswer: themeHandleWrongAnswer,
+    updateSamplePool,
+    selectQuestion,
+    handleCorrectAnswer: questionHandleCorrectAnswer,
+    handleWrongAnswer: questionHandleWrongAnswer,
     getThemeAccuracy,
-    rotateToNextTheme
-  } = useThemeManager(gameState, updateGameState);
+    getThemeStats,
+    currentQuestion
+  } = useQuestionManager(gameState, updateGameState);
 
   // Local state for the component
-  const [wordList, setWordList] = useState([]); // List of words from current theme/difficulty
+  const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
   const [scale, setScale] = useState(0.1); // Zombie scale (controls charge visualization)
   const [currentZombie, setCurrentZombie] = useState(
     zombieImages[Math.floor(Math.random() * zombieImages.length)]
@@ -68,9 +73,6 @@ export default function ChallengeMode({ onBack }) {
 
   // Load game sound effects
   const sounds = usePreloadedSounds();
-
-  // Function reference for spawnWord, initialized after playerInput
-  const spawnWordRef = useRef(null);
 
   /**
    * Plays a sound effect
@@ -80,35 +82,63 @@ export default function ChallengeMode({ onBack }) {
     if (sounds.current[soundFile]) {
       const audio = sounds.current[soundFile];
       audio.currentTime = 0;
-      audio.play().catch((err) => console.warn('音效播放被阻擋:', err));
+      audio.play().catch((err) => console.warn('Sound playback blocked:', err));
     }
   };
 
   /**
    * Handles correct answer events
-   * Updates theme accuracy and spawns a new word
+   * Updates accuracy statistics and spawns a new word
    * @param {Object} answerData - Data about the correct answer
    */
   const handleCorrectAnswer = (answerData) => {
-    // Placeholder for future QuestionManager implementation
-    // (moving accuracy calculation to QuestionManager)
-
-    // Spawn a new word from the current difficulty
-    if (spawnWordRef.current) {
-      spawnWordRef.current(getQuestionsByDifficulty(gameState.currentDifficulty));
+    // Update accuracy statistics
+    if (currentQuestion) {
+      questionHandleCorrectAnswer({
+        ...answerData,
+        question: currentQuestion,
+        isCorrect: true
+      });
     }
 
+    // Increase zombie count, limit to 1-5 range
+    setZombieCount((prev) => {
+      const next = prev + 1;
+      // Reset to 1 when reaching 5 zombies (prepare for next level)
+      if (next > 5) {
+        // TODO: This should trigger LevelManager's upgrade check
+        return 1;
+      }
+      return next;
+    });
+
+    // Play correct sound effect
+    playSound('accept.wav');
+
+    // Reset zombie charge
     setScale(0);
+
+    // Generate new zombie and question
+    generateNewZombie();
   };
 
   /**
    * Handles wrong answer events
-   * Updates theme accuracy and applies penalties if applicable
+   * Updates accuracy statistics and applies penalties if applicable
    * @param {Object} answerData - Data about the wrong answer
    */
   const handleWrongAnswer = (answerData) => {
-    // Placeholder for future QuestionManager implementation
-    // (moving accuracy calculation to QuestionManager)
+    // Update accuracy statistics
+    if (currentQuestion) {
+      questionHandleWrongAnswer({
+        ...answerData,
+        question: currentQuestion,
+        isCorrect: false
+      });
+    }
+
+    // Play error sound effect
+    playSound('wrong_answer.mp3');
 
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
@@ -120,44 +150,45 @@ export default function ChallengeMode({ onBack }) {
   const playerInput = usePlayerInput({
     gameState,
     updateGameState,
-    spawnWord: (...args) => spawnWordRef.current && spawnWordRef.current(...args),
     playSound,
-    wordList,
     onCorrectAnswer: handleCorrectAnswer,
     onWrongAnswer: handleWrongAnswer
   });
 
-  // Initialize the spawnWord function after playerInput is available
-  useEffect(() => {
-    spawnWordRef.current = (words) => {
-      if (!words || words.length === 0) {
-        return;
-      }
+  /**
+   * Generate new zombie and question
+   */
+  const generateNewZombie = useCallback(() => {
+    // Select question with current difficulty and zombie count
+    const question = selectQuestion(gameState.currentDifficulty, zombieCount);
 
-      const randomIndex = Math.floor(Math.random() * words.length);
-      const randomWord = words[randomIndex];
-
-      if (!randomWord || !randomWord.answer) {
-        return;
-      }
-
-      // Set the current word in the player input system
-      playerInput.updateCurrentWord(randomWord.answer, randomWord.difficulty);
-    };
-    return () => console.log('spawnWordRef setup done.');
-  }, []);
-
-  // Update word list when theme sample or difficulty changes
-  useEffect(() => {
-    if (currentSample) {
-      const filteredWords = getQuestionsByDifficulty(gameState.currentDifficulty);
-      setWordList(filteredWords);
-      console.log('Updated word list:', filteredWords);
-      if (filteredWords.length > 0 && !gameState.gameOver && spawnWordRef.current) {
-        spawnWordRef.current(filteredWords);
-      }
+    if (!question) {
+      console.warn('No question available for difficulty:', gameState.currentDifficulty);
+      return;
     }
-  }, [currentSample, gameState.currentDifficulty, getQuestionsByDifficulty]);
+
+    // Update random zombie image (30% chance)
+    if (Math.random() > 0.7) {
+      setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
+    }
+
+    // Set the question
+    playerInput.updateCurrentWord(question.answer, question.difficulty);
+  }, [gameState.currentDifficulty, zombieCount, selectQuestion, playerInput]);
+
+  // Initialize game, generate first zombie
+  useEffect(() => {
+    if (currentSample && !gameState.gameOver) {
+      // Update QuestionManager's sample pool
+      updateSamplePool(currentSample);
+
+      // Reset zombie count (when theme changes)
+      setZombieCount(1);
+
+      // Generate zombie and question
+      generateNewZombie();
+    }
+  }, [currentSample, gameState.gameOver, updateSamplePool, generateNewZombie]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
@@ -179,8 +210,15 @@ export default function ChallengeMode({ onBack }) {
             updateGameState({ gameOver: true });
             playSound('defeated.mp3');
             clearInterval(interval);
+          } else {
+            updateGameState({ lives: newLives });
+
+            // Clear input field
+            playerInput.clearInput();
+
+            // Generate new zombie
+            generateNewZombie();
           }
-          updateGameState({ lives: newLives });
           return 0; // Reset zombie charge
         }
         // Increase zombie charge based on current level
@@ -190,7 +228,7 @@ export default function ChallengeMode({ onBack }) {
 
     // Clean up interval on component unmount
     return () => clearInterval(interval);
-  }, [gameState.lives, gameState.gameOver, getChargeSpeed]);
+  }, [gameState.lives, gameState.gameOver, getChargeSpeed, updateGameState, generateNewZombie]);
 
   /**
    * Applies penalty for wrong answers (Level-4 and above)
@@ -212,6 +250,7 @@ export default function ChallengeMode({ onBack }) {
             You Died!
           </h1>
           <p className="fs-4 mb-4">Final Score: Level {gameState.level}</p>
+          <p className="fs-5 mb-4">Theme Accuracy: {getThemeAccuracy()}%</p>
           <button
             className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
             onClick={onBack}
@@ -262,6 +301,7 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
+            <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
           </div>
         </>
       )}

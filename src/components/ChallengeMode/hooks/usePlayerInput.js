@@ -7,9 +7,7 @@ import { useState, useCallback, useRef } from 'react';
  * @param {Object} props - Hook properties
  * @param {Object} props.gameState - Current game state
  * @param {Function} props.updateGameState - Function to update game state
- * @param {Function} props.spawnWord - Function to generate a new word
  * @param {Function} props.playSound - Function to play game sounds
- * @param {Array} props.wordList - List of available words
  * @param {Function} props.onCorrectAnswer - Callback for correct answers
  * @param {Function} props.onWrongAnswer - Callback for wrong answers
  * @returns {Object} Input management functions and state
@@ -17,9 +15,7 @@ import { useState, useCallback, useRef } from 'react';
 export const usePlayerInput = ({
   gameState,
   updateGameState,
-  spawnWord,
   playSound,
-  wordList,
   onCorrectAnswer,
   onWrongAnswer
 }) => {
@@ -59,7 +55,6 @@ export const usePlayerInput = ({
         // Validate if the answer is correct
         if (newValue === currentWord) {
           // Correct answer logic
-          playSound('accept.wav');
 
           // Create answer data for external tracking
           const answerData = {
@@ -81,13 +76,12 @@ export const usePlayerInput = ({
             zombiesDefeated: newZombiesDefeated
           });
 
-          // Generate a new word
-          spawnWord(wordList);
+          // 清空輸入欄位 (新的殭屍/題目由外部邏輯處理)
+          setInputValue('');
         } else {
           // Wrong answer logic
           setIsWrong(true);
           setInputValue('');
-          playSound('wrong_answer.mp3');
 
           // Create answer data for external tracking
           const answerData = {
@@ -112,22 +106,30 @@ export const usePlayerInput = ({
       currentWord,
       currentWordDifficulty,
       gameState.zombiesDefeated,
-      playSound,
-      spawnWord,
       updateGameState,
-      wordList,
       onCorrectAnswer,
       onWrongAnswer
     ]
   );
 
   /**
-   * Resets the input field and error state
-   * Useful when switching words or resetting the game
+   * 清空輸入欄位
+   * 用於主動重置輸入狀態
+   */
+  const clearInput = useCallback(() => {
+    setInputValue('');
+    setIsWrong(false);
+  }, []);
+
+  /**
+   * 重置整個輸入系統
+   * 包括當前單詞和輸入狀態
    */
   const resetInput = useCallback(() => {
     setInputValue('');
     setIsWrong(false);
+    setCurrentWord('');
+    setCurrentWordDifficulty('');
   }, []);
 
   // Return functions and state for external use
@@ -137,6 +139,7 @@ export const usePlayerInput = ({
     currentWord,
     handleInputChange,
     updateCurrentWord,
+    clearInput,
     resetInput
   };
 };

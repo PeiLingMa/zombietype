@@ -110,26 +110,25 @@ export const useThemeManager = (gameState, updateGameState) => {
       const themeData = allThemeData.current.topics[theme];
       if (!themeData) return;
 
-      // 使用主題輪替次數決定採樣比例
+      // Use theme rotation count to determine sampling ratios
       const themeRound = gameState.completedThemes ? gameState.completedThemes.length : 0;
       const samplingRatios =
         themeRound >= 3
           ? GAME_CONFIG.SAMPLING_RATIOS.ADVANCED
           : GAME_CONFIG.SAMPLING_RATIOS.INITIAL;
 
-      // 計算每個難度的採樣數量
+      // Calculate sample size for each difficulty
       const totalSampleSize = GAME_CONFIG.SAMPLE_SIZE;
       const beginnerCount = Math.floor(totalSampleSize * samplingRatios.beginner);
       const mediumCount = Math.floor(totalSampleSize * samplingRatios.medium);
       const hardCount = Math.floor(totalSampleSize * samplingRatios.hard);
 
-      // 依照難度進行採樣
+      // Sample from each difficulty
       const beginner = sampleFromDifficulty('beginner', beginnerCount);
       const medium = sampleFromDifficulty('medium', mediumCount);
       const hard = sampleFromDifficulty('hard', hardCount);
 
-      // 將所有難度的樣本合併成一個陣列
-      const sample = [...beginner, ...medium, ...hard];
+      // Set the samples for each difficulty
       setCurrentSample({
         beginner,
         medium,
@@ -140,68 +139,45 @@ export const useThemeManager = (gameState, updateGameState) => {
   );
 
   /**
-   * Stub function for handling correct answers
-   * To be replaced by QuestionManager implementation
-   * @param {Object} answerData - Data about the correct answer
-   */
-  const handleCorrectAnswer = useCallback((answerData) => {
-    // Placeholder for future QuestionManager implementation
-    console.log('Correct answer:', answerData);
-  }, []);
-
-  /**
-   * Stub function for handling wrong answers
-   * To be replaced by QuestionManager implementation
-   * @param {Object} answerData - Data about the wrong answer
-   */
-  const handleWrongAnswer = useCallback((answerData) => {
-    // Placeholder for future QuestionManager implementation
-    console.log('Wrong answer:', answerData);
-  }, []);
-
-  /**
-   * Stub function to return theme accuracy
-   * To be replaced by QuestionManager implementation
-   * @returns {number} Placeholder accuracy value
-   */
-  const getThemeAccuracy = useCallback(() => {
-    // Placeholder for future QuestionManager implementation
-    return 0;
-  }, []);
-
-  /**
-   * Rotates to the next theme
-   * Creates a new sample for the next theme
-   */
-  const rotateToNextTheme = useCallback(() => {
-    const nextTheme = selectNextTheme();
-    createThemeSample(nextTheme);
-  }, [selectNextTheme, createThemeSample, gameState.currentTheme, updateGameState]);
-
-  /**
    * Gets questions filtered by difficulty
    * @param {string} difficulty - Difficulty level to filter by
    * @returns {Array} Filtered questions
    */
   const getQuestionsByDifficulty = useCallback(
     (difficulty) => {
-      return currentSample[difficulty];
+      return currentSample[difficulty] || [];
     },
     [currentSample]
   );
+
+  /**
+   * Rotates to the next theme
+   * Creates a new sample for the next theme
+   */
+  const rotateToNextTheme = useCallback(() => {
+    // Mark current theme as completed
+    if (gameState.currentTheme) {
+      updateGameState({
+        completedThemes: [...(gameState.completedThemes || []), gameState.currentTheme]
+      });
+    }
+
+    // Select and switch to next theme
+    const nextTheme = selectNextTheme();
+    createThemeSample(nextTheme);
+  }, [selectNextTheme, createThemeSample, gameState.currentTheme, updateGameState]);
 
   // Initialize theme data on first load
   useEffect(() => {
     async function initializeThemeData() {
       const data = await loadThemeData();
-      console.log('Fetched data: ', data);
+      console.log('Fetched theme data');
       if (data && (!gameState.currentTheme || gameState.currentTheme === '')) {
         selectNextTheme();
       }
     }
     initializeThemeData();
-    return () => console.log('initializeThemeData executing.');
-  }, []);
+  }, [loadThemeData, selectNextTheme, gameState.currentTheme]);
 
   // Create sample when theme changes
   useEffect(() => {
@@ -211,11 +187,6 @@ export const useThemeManager = (gameState, updateGameState) => {
   }, [gameState.currentTheme, createThemeSample]);
 
   return {
-    currentSample,
-    getQuestionsByDifficulty,
-    handleCorrectAnswer,
-    handleWrongAnswer,
-    getThemeAccuracy,
-    rotateToNextTheme
+    currentSample
   };
 };
