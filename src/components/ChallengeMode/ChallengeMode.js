@@ -4,20 +4,13 @@ import { useLevelManager } from './hooks/useLevelManager';
 import { usePlayerInput } from './hooks/usePlayerInput';
 import { useThemeManager } from './hooks/useThemeManager';
 import { useQuestionManager } from './hooks/useQuestionManager';
+import { useZombieManager } from './hooks/useZombieManager';
 import { GAME_CONFIG } from './gameConfig';
 
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Import zombie images for visualization
-import zombie1 from './zombie1.png';
-import zombie2 from './zombie2.png';
-import zombie3 from './zombie3.png';
-import zombie4 from './zombie4.png';
 // Import CSS for shake animation
 import './shake.css';
-
-// Array of zombie images for random selection
-const zombieImages = [zombie1, zombie2, zombie3, zombie4];
 
 /**
  * Custom hook to preload game sounds
@@ -64,12 +57,15 @@ export default function ChallengeMode({ onBack }) {
     currentQuestion
   } = useQuestionManager(gameState, updateGameState);
 
+  // Zombie Manager
+  const {
+    zombieState,
+    changeCurrentZombie,
+    setChargerate
+  } = useZombieManager(gameState, updateGameState);
+
   // Local state for the component
   const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
-  const [scale, setScale] = useState(0.1); // Zombie scale (controls charge visualization)
-  const [currentZombie, setCurrentZombie] = useState(
-    zombieImages[Math.floor(Math.random() * zombieImages.length)]
-  );
 
   // Load game sound effects
   const sounds = usePreloadedSounds();
@@ -116,7 +112,7 @@ export default function ChallengeMode({ onBack }) {
     playSound('accept.wav');
 
     // Reset zombie charge
-    setScale(0);
+    setChargerate(0);
 
     // Generate new zombie and question
     generateNewZombie();
@@ -167,10 +163,8 @@ export default function ChallengeMode({ onBack }) {
       return;
     }
 
-    // Update random zombie image (30% chance)
-    if (Math.random() > 0.7) {
-      setCurrentZombie(zombieImages[Math.floor(Math.random() * zombieImages.length)]);
-    }
+    // Update random zombie image
+    changeCurrentZombie();
 
     // Set the question
     playerInput.updateCurrentWord(question.answer, question.difficulty);
@@ -201,7 +195,7 @@ export default function ChallengeMode({ onBack }) {
         return;
       }
 
-      setScale((prev) => {
+      setChargerate((prev) => {
         if (prev >= 1) {
           // Zombie fully charged - player loses a life
           const newLives = gameState.lives - 1;
@@ -236,7 +230,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const applyPenalty = () => {
     if (gameState.level >= 4) {
-      setScale((prev) => Math.min(prev + 0.3, 1));
+      setChargerate((prev) => Math.min(prev + 0.3, 1));
     }
   };
 
@@ -265,17 +259,17 @@ export default function ChallengeMode({ onBack }) {
           <p className="lead">Type the word to defeat the monster!</p>
           {/* Time remaining indicator */}
           <p
-            className={`mt-2 fw-bold ${scale >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
-            Time Left: {Math.ceil((1 - scale) * 20)}s{' '}
+            Time Left: {Math.ceil((1 - zombieState.currentChargeRate) * 20)}s{' '}
           </p>
           {/* Zombie visualization */}
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
-            style={{ transform: `scale(${scale})`, transition: 'transform 0.3s linear' }}
+            style={{ transform: `scale(${zombieState.currentChargeRate})`, transition: 'transform 0.3s linear' }}
           >
             <img
-              src={currentZombie}
+              src={zombieState.currentZombie}
               alt="Zombie"
               className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
               style={{ width: '250px', height: '250px' }}
@@ -302,6 +296,7 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
             <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
+            <p className="badge bg-warning p-2">Charge: {zombieState.currentChargeRate.toFixed(2)}%</p>
           </div>
         </>
       )}

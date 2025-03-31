@@ -1,5 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { GAME_CONFIG } from '../gameConfig';
+import { useState, useCallback } from 'react';
 
 // Import zombie images for visualization
 import zombie1 from '../zombie1.png';
@@ -15,10 +14,29 @@ const zombieImages = [zombie1, zombie2, zombie3, zombie4];
  *
  * @param {Object} gameState - Current game state
  */
-export const useZombieManager = (gameState) => {
+export const useZombieManager = (gameState, updateGameState) => {
   const [zombieState, setZombieState] = useState({
-    currentZombie: null
+    currentZombie: zombieImages[Math.floor(Math.random() * zombieImages.length)],
+    currentChargeRate: 0.0
   });
 
-  return { zombieState };
+  const changeCurrentZombie = useCallback(() => {
+    const newZombie = zombieImages[Math.floor(Math.random() * zombieImages.length)];
+    console.log('Changing current zombie', newZombie);
+    setZombieState((prev) => ({
+      ...prev,
+      currentZombie: newZombie
+    }));
+  }, []);
+
+  // Charge rate setter of the zombie
+  const setChargerate = useCallback((newCharge) => {
+    setZombieState((prev) => (
+      typeof newCharge === "function" 
+        ? {...prev, currentChargeRate: newCharge(prev.currentChargeRate)} 
+        : {...prev, currentChargeRate: newCharge}
+    ));
+  }, []);
+
+  return { zombieState, changeCurrentZombie, setChargerate };
 };
