@@ -58,11 +58,10 @@ export default function ChallengeMode({ onBack }) {
   } = useQuestionManager(gameState, updateGameState);
 
   // Zombie Manager
-  const {
-    zombieState,
-    changeCurrentZombie,
-    setChargerate
-  } = useZombieManager(gameState, updateGameState);
+  const { zombieState, changeCurrentZombie, setChargerate } = useZombieManager(
+    gameState,
+    updateGameState
+  );
 
   // Local state for the component
   const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
@@ -266,7 +265,10 @@ export default function ChallengeMode({ onBack }) {
           {/* Zombie visualization */}
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
-            style={{ transform: `scale(${zombieState.currentChargeRate})`, transition: 'transform 0.3s linear' }}
+            style={{
+              transform: `scale(${zombieState.currentChargeRate})`,
+              transition: 'transform 0.3s linear'
+            }}
           >
             <img
               src={zombieState.currentZombie}
@@ -296,7 +298,9 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
             <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
-            <p className="badge bg-warning p-2">Charge: {zombieState.currentChargeRate.toFixed(2)}%</p>
+            <p className="badge bg-warning p-2">
+              Charge: {zombieState.currentChargeRate.toFixed(2)}%
+            </p>
           </div>
         </>
       )}
