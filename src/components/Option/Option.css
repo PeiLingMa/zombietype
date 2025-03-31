@@ -1,0 +1,18 @@
+/* src/components/Option/Option.css */
+
+.option-container {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../MainMenu/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option-container .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
