@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useGameSettings } from '../../context/GameSettingsContext';
+import './Option.css';
 
 export default function Option({ onBack }) {
   // 從 Context 獲取狀態和更新函數
