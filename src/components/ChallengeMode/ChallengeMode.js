@@ -7,6 +7,10 @@ import { useQuestionManager } from './hooks/useQuestionManager';
 import { useZombieManager } from './hooks/useZombieManager';
 import { GAME_CONFIG } from './gameConfig';
 
+import { Canvas, useThree } from "@react-three/fiber";
+import { Zombie } from "./hooks/zombie";
+import { OrbitControls } from "@react-three/drei";
+
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Import CSS for shake animation
@@ -262,20 +266,28 @@ export default function ChallengeMode({ onBack }) {
           >
             Time Left: {Math.ceil((1 - zombieState.currentChargeRate) * 20)}s{' '}
           </p>
-          {/* Zombie visualization */}
-          <div
-            className="position-relative d-flex justify-content-center align-items-center my-4"
-            style={{
-              transform: `scale(${zombieState.currentChargeRate})`,
-              transition: 'transform 0.3s linear'
-            }}
+
+          <div 
+            className="canvas-container d-flex justify-content-center align-items-center my-4"
+            style={{ width: "800px", height: "600px" }}
           >
-            <img
-              src={zombieState.currentZombie}
-              alt="Zombie"
-              className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
-              style={{ width: '250px', height: '250px' }}
-            />
+            <Canvas
+              onCreated={({ camera }) => {
+                camera.fov = 30;
+                camera.position.set(0, 1.5, 3);
+                camera.near = 0.1;
+                camera.far = 100;
+                camera.rotation.set(0, Math.PI/4, 0);
+                camera.lookAt(0, 1.5, 0);
+              }}
+            >
+              <ambientLight intensity={0.7} />
+              <directionalLight position={[0, 5, 5]} intensity={1} castShadow />
+              <pointLight position={[10,10,10]} />
+              <Zombie charge={zombieState.currentChargeRate}/>
+              <color args={ ['#222222'] } attach={"background"} />
+              <axesHelper args={[10]} />
+            </Canvas>
           </div>
 
           {/* Current word display */}
