@@ -5,32 +5,13 @@ import { usePlayerInput } from './hooks/usePlayerInput';
 import { useThemeManager } from './hooks/useThemeManager';
 import { useQuestionManager } from './hooks/useQuestionManager';
 import { useZombieManager } from './hooks/useZombieManager';
+import { useSoundManager } from './hooks/useSoundManager';
 import { GAME_CONFIG } from './gameConfig';
 
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Import CSS for shake animation
 import './shake.css';
-
-/**
- * Custom hook to preload game sounds
- * This prevents audio loading delays during gameplay
- * @returns {Object} Reference to loaded sound objects
- */
-const usePreloadedSounds = () => {
-  const sounds = useRef({});
-
-  useEffect(() => {
-    const soundFiles = ['accept.wav', 'defeated.mp3', 'wrong_answer.mp3'];
-    soundFiles.forEach((file) => {
-      const audio = new Audio(process.env.PUBLIC_URL + `/sounds/${file}`);
-      audio.load();
-      sounds.current[file] = audio;
-    });
-  }, []);
-
-  return sounds;
-};
 
 /**
  * Challenge Mode Component
@@ -63,23 +44,11 @@ export default function ChallengeMode({ onBack }) {
     updateGameState
   );
 
+  // Sound Manager
+  const { playSound } = useSoundManager();
+
   // Local state for the component
   const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
-
-  // Load game sound effects
-  const sounds = usePreloadedSounds();
-
-  /**
-   * Plays a sound effect
-   * @param {string} soundFile - Name of the sound file to play
-   */
-  const playSound = (soundFile) => {
-    if (sounds.current[soundFile]) {
-      const audio = sounds.current[soundFile];
-      audio.currentTime = 0;
-      audio.play().catch((err) => console.warn('Sound playback blocked:', err));
-    }
-  };
 
   /**
    * Handles correct answer events
@@ -108,7 +77,7 @@ export default function ChallengeMode({ onBack }) {
     });
 
     // Play correct sound effect
-    playSound('accept.wav');
+    playSound('accepted');
 
     // Reset zombie charge
     setChargerate(0);
@@ -133,7 +102,7 @@ export default function ChallengeMode({ onBack }) {
     }
 
     // Play error sound effect
-    playSound('wrong_answer.mp3');
+    playSound('wrongAnswer');
 
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
@@ -201,7 +170,7 @@ export default function ChallengeMode({ onBack }) {
           if (newLives <= 0) {
             // Game over when lives reach zero
             updateGameState({ gameOver: true });
-            playSound('defeated.mp3');
+            playSound('defeated');
             clearInterval(interval);
           } else {
             updateGameState({ lives: newLives });
@@ -221,7 +190,14 @@ export default function ChallengeMode({ onBack }) {
 
     // Clean up interval on component unmount
     return () => clearInterval(interval);
-  }, [gameState.lives, gameState.gameOver, getChargeSpeed, updateGameState, generateNewZombie]);
+  }, [
+    gameState.lives,
+    gameState.gameOver,
+    getChargeSpeed,
+    updateGameState,
+    generateNewZombie,
+    playSound
+  ]);
 
   /**
    * Applies penalty for wrong answers (Level-4 and above)
