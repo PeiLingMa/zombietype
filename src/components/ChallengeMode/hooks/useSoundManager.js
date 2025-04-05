@@ -1,21 +1,7 @@
 import { useRef, useEffect } from 'react';
+import { GAME_CONFIG } from '../gameConfig';
 
-// Sound effect configuration
-const SOUND_CONFIG = {
-  accept: {
-    file: 'accept.wav',
-    volume: 1.0
-  },
-  defeated: {
-    file: 'defeated.mp3',
-    volume: 0.5
-  },
-  wrongAnswer: {
-    file: 'wrong_answer.mp3',
-    volume: 1
-  }
-  // Add more sound effects here
-};
+const { SOUND_CONFIG } = GAME_CONFIG;
 
 /**
  * Custom hook for managing game sound effects

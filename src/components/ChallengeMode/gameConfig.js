@@ -24,5 +24,21 @@ export const GAME_CONFIG = {
       medium: 0.4,
       hard: 0.4
     }
-  }
+  },
+  // Sound effects configuration
+  SOUND_CONFIG: {
+    accepted: {
+      file: 'accept.wav',
+      volume: 1.0
+    },
+    defeated: {
+      file: 'defeated.mp3',
+      volume: 0.5
+    },
+    wrongAnswer: {
+      file: 'wrong_answer.mp3',
+      volume: 1
+    }
+    // Add more sound effects here
+  },
 };

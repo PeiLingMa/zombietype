@@ -77,7 +77,7 @@ export default function ChallengeMode({ onBack }) {
     });
 
     // Play correct sound effect
-    playSound('accept');
+    playSound('accepted');
 
     // Reset zombie charge
     setChargerate(0);
