@@ -1,0 +1,53 @@
+name: 問題或討論
+description: 提出一個問題或開始一個討論
+title: "[QUESTION] 標題"
+labels: ["question"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝您提出問題！如果該問題屬於系統錯誤請使用 [Bug 回報](https://github.com/PeiLingMa/zombietype/issues/new?template=bug_report.yml) 模板。
+  - type: textarea
+    id: question
+    attributes:
+      label: 您的問題是什麼？
+      description: 請清晰地陳述您的問題。
+      placeholder: 我想了解...
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 問題類別
+      description: 您的問題屬於哪個類別？
+      options:
+        - 使用方法
+        - 配置問題
+        - 技術細節
+        - 最佳實踐
+        - 已知問題
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 相關背景
+      description: 提供任何可能有助於理解這個問題的上下文或背景。
+    validations:
+      required: false
+  - type: textarea
+    id: tried
+    attributes:
+      label: 您已經嘗試了什麼？
+      description: 如果適用，描述您已經嘗試解決這個問題的任何方法。
+    validations:
+      required: false
+  - type: textarea
+    id: references
+    attributes:
+      label: 其他參考資料
+      description: 列出任何相關的文檔、文章或討論，這些資料可能與您的問題有關。
+    validations:
+      required: false 

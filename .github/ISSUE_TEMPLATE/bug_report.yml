@@ -1,0 +1,87 @@
+name: Bug 回報
+description: 提交一個錯誤回報
+title: "[BUG] 標題"
+labels: ["bug"]
+assignees: []
+body:
+  - type: checkboxes
+    attributes:
+      label: 是否已存在相關的問題？(必填)
+      description: 請搜尋看看是否已有類似的錯誤問題。
+      options:
+      - label: 我已搜尋過現有的問題
+        required: true
+  - type: input
+    attributes:
+      label: 發生時間(必填)
+      placeholder: YYYY-MM-DD HH:MM
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 描述錯誤
+      description: 請清晰簡潔地描述這個錯誤是什麼。
+      placeholder: 當我...時，發生了...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 重現步驟
+      description: 重現此行為的步驟
+      placeholder: |
+        1. 前往 '...'
+        2. 點擊 '....'
+        3. 滾動到 '....'
+        4. 看到錯誤
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期行為
+      description: 清晰簡潔地描述您預期發生的情況。
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截圖
+      description: 如果適用，添加截圖以幫助理解您的問題。
+    validations:
+      required: false
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系統
+      description: 您使用的是什麼作業系統？
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+        - 其他
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: 瀏覽器
+      description: 您使用的是什麼瀏覽器？
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他上下文
+      description: 在此處添加有關此問題的任何其他上下文。 

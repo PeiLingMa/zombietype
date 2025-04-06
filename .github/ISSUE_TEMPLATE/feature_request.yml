@@ -1,0 +1,57 @@
+name: 功能請求
+description: 為這個項目提出一個想法
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝您提出新功能建議，協助我們改進！
+  - type: textarea
+    id: problem
+    attributes:
+      label: 您的功能需求是否與問題有關？請描述。
+      description: 清晰簡潔地描述問題是什麼。
+      placeholder: 例如，當 [...] 時我總是感到沮喪。
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 描述您期望的解決方案
+      description: 清晰簡潔地描述您希望發生的事情。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 描述您考慮過的替代方案
+      description: 清晰簡潔地描述您考慮過的任何替代解決方案或功能。
+    validations:
+      required: false
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: 用戶案例
+      description: 請描述此功能將如何使用，以及誰會使用它
+      placeholder: |
+        作為一個 [類型的用戶]，我想要 [能夠做某事]，這樣我就可以 [達到某個目標/價值]。
+    validations:
+      required: false
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先級
+      description: 您認為這個功能的優先級如何？
+      options:
+        - 低：可有可無
+        - 中：有幫助但不緊急
+        - 高：對於項目來說至關重要
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他上下文
+      description: 在此處添加有關功能請求的任何其他上下文或截圖。 

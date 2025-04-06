@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 項目討論
+    url: https://github.com/PeiLingMa/zombietype/discussions
+    about: 請在這裡進行一般討論或問答
+  - name: 尋求支援
+    url: https://github.com/PeiLingMa/zombietype/discussions/categories/q-a
+    about: 尋求其他幫助和支持 
