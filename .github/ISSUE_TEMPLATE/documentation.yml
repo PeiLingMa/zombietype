@@ -1,0 +1,52 @@
+name: 文檔更新
+description: 幫助改進或更新項目文檔
+title: "[DOCS] 標題"
+labels: ["documentation"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝您提出文檔改進建議！良好的文檔對項目至關重要。
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: 文檔類型
+      description: 您想要更新哪種類型的文檔？
+      options:
+        - README/項目概述
+        - 安裝說明
+        - 使用教學
+        - API 文檔
+        - 示例/範例
+        - 故障排除指南
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: doc-update
+    attributes:
+      label: 需要更新的文檔
+      description: 請指明需要創建或更新的文檔部分。
+      placeholder: 例如：安裝指南中的環境設置部分
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 為什麼需要這個更新？
+      description: 說明為什麼當前的文檔不足或需要改進。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建議的更改
+      description: 如果可能，請概述您希望在文檔中看到的修改或添加內容。
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他資訊
+      description: 提供有關此文檔請求的任何額外上下文或參考資料。 
