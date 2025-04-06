@@ -236,7 +236,13 @@ export default function ChallengeMode({ onBack }) {
           <p
             className={`mt-2 fw-bold ${zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
-            Time Left: {Math.ceil((1 - zombieState.currentChargeRate) * 20)}s{' '}
+            Time Left:{' '}
+            {Math.round(
+              (1 - zombieState.currentChargeRate) /
+                getChargeSpeed() /
+                (1000 / GAME_CONFIG.CHARGE_INTERVAL)
+            )}
+            s{' '}
           </p>
           {/* Zombie visualization */}
           <div
