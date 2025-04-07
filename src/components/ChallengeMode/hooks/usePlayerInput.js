@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 /**
  * Custom hook to manage player input in Challenge Mode
@@ -12,20 +12,18 @@ import { useState, useCallback, useRef } from 'react';
  * @param {Function} props.onWrongAnswer - Callback for wrong answers
  * @returns {Object} Input management functions and state
  */
-export const usePlayerInput = ({
-  gameState,
-  updateGameState,
-  playSound,
-  onCorrectAnswer,
-  onWrongAnswer
-}) => {
-  // State for user input text
-  const [inputValue, setInputValue] = useState('');
-  // State for tracking incorrect input (for visual feedback)
+export const usePlayerInput = (gameState, updateGameState, onCorrectAnswer, onWrongAnswer) => {
+  // Use useRef to manage input value completely
+  const inputRef = useRef('');
+
+  // DOM element ref for direct input field manipulation
+  const inputElementRef = useRef(null);
+
+  // Retain only necessary state
   const [isWrong, setIsWrong] = useState(false);
 
-  // Store the current word and its difficulty level
-  const [currentWord, setCurrentWord] = useState('');
+  // Current answer related state
+  const [currentAnswer, setCurrentAnswer] = useState('');
   const [currentWordDifficulty, setCurrentWordDifficulty] = useState('');
 
   /**
@@ -33,10 +31,16 @@ export const usePlayerInput = ({
    * @param {string} word - The new word to be typed
    * @param {string} difficulty - Difficulty level of the word
    */
-  const updateCurrentWord = useCallback((word, difficulty = 'beginner') => {
-    setCurrentWord(word);
+  const updateCurrentAnswer = useCallback((word, difficulty = 'beginner') => {
+    setCurrentAnswer(word);
     setCurrentWordDifficulty(difficulty);
-    setInputValue('');
+
+    // Directly clear the input field value
+    inputRef.current = '';
+    if (inputElementRef.current) {
+      inputElementRef.current.value = '';
+    }
+
     setIsWrong(false);
   }, []);
 
@@ -47,99 +51,117 @@ export const usePlayerInput = ({
    */
   const handleInputChange = useCallback(
     (e) => {
-      const newValue = e.target.value;
-      setInputValue(newValue);
+      const value = e.target.value;
+      inputRef.current = value;
 
-      // Check if input length matches word length (completed input)
-      if (newValue.length === currentWord.length) {
-        // Validate if the answer is correct
-        if (newValue === currentWord) {
-          // Correct answer logic
-
-          // Create answer data for external tracking
-          const answerData = {
-            word: currentWord,
-            difficulty: currentWordDifficulty,
-            input: newValue,
-            isCorrect: true,
-            timestamp: Date.now()
-          };
-
-          // Notify external handlers about correct answer
-          if (onCorrectAnswer) {
-            onCorrectAnswer(answerData);
+      // Immediately check answer completion status
+      if (value.length === currentAnswer.length) {
+        // Use setTimeout to ensure UI updates outside the main JS thread
+        setTimeout(() => {
+          if (value === currentAnswer) {
+            handleCorrect(value);
+          } else {
+            handleWrong(value);
           }
-
-          // Update zombie defeat count in game state
-          const newZombiesDefeated = gameState.zombiesDefeated + 1;
-          updateGameState({
-            zombiesDefeated: newZombiesDefeated
-          });
-
-          // 清空輸入欄位 (新的殭屍/題目由外部邏輯處理)
-          setInputValue('');
-        } else {
-          // Wrong answer logic
-          setIsWrong(true);
-          setInputValue('');
-
-          // Create answer data for external tracking
-          const answerData = {
-            word: currentWord,
-            difficulty: currentWordDifficulty,
-            input: newValue,
-            isCorrect: false,
-            timestamp: Date.now()
-          };
-
-          // Notify external handlers about wrong answer
-          if (onWrongAnswer) {
-            onWrongAnswer(answerData);
-          }
-
-          // Reset wrong state after a short delay (for animation)
-          setTimeout(() => setIsWrong(false), 300);
-        }
+        }, 0);
       }
     },
-    [
-      currentWord,
-      currentWordDifficulty,
-      gameState.zombiesDefeated,
-      updateGameState,
-      onCorrectAnswer,
-      onWrongAnswer
-    ]
+    [currentAnswer]
   );
 
   /**
-   * 清空輸入欄位
-   * 用於主動重置輸入狀態
+   * Clear input field
+   * Used for actively resetting input state
    */
   const clearInput = useCallback(() => {
-    setInputValue('');
+    inputRef.current = '';
+    if (inputElementRef.current) {
+      inputElementRef.current.value = '';
+    }
     setIsWrong(false);
   }, []);
 
   /**
-   * 重置整個輸入系統
-   * 包括當前單詞和輸入狀態
+   * Reset entire input system
+   * Including current word and input status
    */
   const resetInput = useCallback(() => {
-    setInputValue('');
+    inputRef.current = '';
+    if (inputElementRef.current) {
+      inputElementRef.current.value = '';
+    }
     setIsWrong(false);
-    setCurrentWord('');
+    setCurrentAnswer('');
     setCurrentWordDifficulty('');
+  }, []);
+
+  const handleCorrect = useCallback(
+    (newValue) => {
+      // Create answer data for external tracking
+      const answerData = {
+        word: currentAnswer,
+        difficulty: currentWordDifficulty,
+        input: newValue,
+        isCorrect: true,
+        timestamp: Date.now()
+      };
+
+      // Notify external handlers about correct answer
+      onCorrectAnswer?.(answerData);
+
+      // Directly clear the input field
+      inputRef.current = '';
+      if (inputElementRef.current) {
+        inputElementRef.current.value = '';
+      }
+    },
+    [
+      currentAnswer,
+      currentWordDifficulty,
+      onCorrectAnswer,
+      updateGameState,
+      gameState.zombiesDefeated
+    ]
+  );
+
+  const handleWrong = useCallback(
+    (newValue) => {
+      const answerData = {
+        word: currentAnswer,
+        difficulty: currentWordDifficulty,
+        input: newValue,
+        isCorrect: false,
+        timestamp: Date.now()
+      };
+
+      onWrongAnswer?.(answerData);
+      setIsWrong(true);
+
+      // Directly clear the input field
+      inputRef.current = '';
+      if (inputElementRef.current) {
+        inputElementRef.current.value = '';
+      }
+
+      setTimeout(() => setIsWrong(false), 300);
+    },
+    [currentAnswer, currentWordDifficulty, onWrongAnswer]
+  );
+
+  // Register input element reference
+  const registerInputRef = useCallback((el) => {
+    inputElementRef.current = el;
   }, []);
 
   // Return functions and state for external use
   return {
-    inputValue,
+    inputValue: inputRef.current, // Provide inputValue for compatibility
     isWrong,
-    currentWord,
+    currentAnswer,
     handleInputChange,
-    updateCurrentWord,
+    updateCurrentAnswer,
     clearInput,
-    resetInput
+    resetInput,
+    registerInputRef
   };
 };
