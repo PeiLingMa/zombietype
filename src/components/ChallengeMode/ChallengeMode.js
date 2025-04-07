@@ -65,6 +65,14 @@ export default function ChallengeMode({ onBack }) {
       });
     }
 
+    // Update zombie defeat count in game state using functional update pattern
+    updateGameState((prevState) => {
+      return {
+        ...prevState,
+        zombiesDefeated: prevState.zombiesDefeated + 1
+      };
+    });
+
     // Increase zombie count, limit to 1-5 range
     setZombieCount((prev) => {
       const next = prev + 1;
@@ -111,13 +119,12 @@ export default function ChallengeMode({ onBack }) {
   };
 
   // Initialize PlayerInput hook with necessary callbacks
-  const playerInput = usePlayerInput({
+  const playerInput = usePlayerInput(
     gameState,
     updateGameState,
-    playSound,
-    onCorrectAnswer: handleCorrectAnswer,
-    onWrongAnswer: handleWrongAnswer
-  });
+    handleCorrectAnswer,
+    handleWrongAnswer
+  );
 
   /**
    * Generate new zombie and question
@@ -150,46 +157,47 @@ export default function ChallengeMode({ onBack }) {
       // Generate zombie and question
       generateNewZombie();
     }
-  }, [currentSample, gameState.gameOver, updateSamplePool, generateNewZombie]);
+  }, [currentSample]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
     if (gameState.gameOver) return;
 
-    // Set up interval for zombie charge progress
-    let interval = setInterval(() => {
-      if (gameState.gameOver) {
-        clearInterval(interval);
-        return;
-      }
+    let frameId;
+    let lastChargeTime = performance.now();
 
-      setChargerate((prev) => {
-        if (prev >= 1) {
-          // Zombie fully charged - player loses a life
-          const newLives = gameState.lives - 1;
-          if (newLives <= 0) {
-            // Game over when lives reach zero
-            updateGameState({ gameOver: true });
-            playSound('defeated');
-            clearInterval(interval);
-          } else {
-            updateGameState({ lives: newLives });
+    const tick = (now) => {
+      frameId = requestAnimationFrame(tick);
 
-            // Clear input field
-            playerInput.clearInput();
+      // Check if it's time for the next update
+      if (now - lastChargeTime >= GAME_CONFIG.CHARGE_INTERVAL) {
+        lastChargeTime = now;
 
-            // Generate new zombie
-            generateNewZombie();
+        setChargerate((prev) => {
+          let next = prev + getChargeSpeed();
+
+          if (next >= 1) {
+            const newLives = gameState.lives - 1;
+            if (newLives <= 0) {
+              updateGameState({ gameOver: true });
+              playSound('defeated');
+              return 1;
+            } else {
+              updateGameState({ lives: newLives });
+              playerInput.clearInput();
+              generateNewZombie();
+              return 0;
+            }
           }
-          return 0; // Reset zombie charge
-        }
-        // Increase zombie charge based on current level
-        return Math.min(prev + getChargeSpeed(), 1);
-      });
-    }, GAME_CONFIG.CHARGE_INTERVAL);
 
-    // Clean up interval on component unmount
-    return () => clearInterval(interval);
+          return Math.min(next, 1);
+        });
+      }
+    };
+
+    frameId = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(frameId);
   }, [
     gameState.lives,
     gameState.gameOver,
@@ -262,13 +270,13 @@ export default function ChallengeMode({ onBack }) {
 
           {/* Current word display */}
           <div className="bg-warning text-dark px-4 py-2 rounded-pill fs-4 fw-bold border border-dark shadow mb-4">
-            {playerInput.currentWord}
+            {currentQuestion ? currentQuestion.description : ''}
           </div>
 
           {/* User input field */}
           <input
             type="text"
-            value={playerInput.inputValue}
+            ref={playerInput.registerInputRef}
             onChange={playerInput.handleInputChange}
             className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${playerInput.isWrong ? 'shake' : ''}`}
             autoFocus

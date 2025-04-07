@@ -22,7 +22,9 @@ export const useGameState = () => {
 
   // Update only specific gameState properties
   const updateGameState = useCallback((updates) => {
-    setGameState((prev) => ({ ...prev, ...updates }));
+    setGameState((prev) =>
+      typeof updates === 'function' ? updates(prev) : { ...prev, ...updates }
+    );
   }, []);
 
   return {
