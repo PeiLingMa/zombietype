@@ -12,12 +12,6 @@ export default function Option({ onBack }) {
     updateVolume(e.target.value);
   };
 
-  /**
-   * Converts a level key string to a displayable name string.
-   * @param {string} levelKey - The level key string.
-   * @returns {string} The formatted level name string.
-   */
-
   return (
     <div className="option-page">
       <div
