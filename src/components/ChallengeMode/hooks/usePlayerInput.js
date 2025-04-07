@@ -33,7 +33,7 @@ export const usePlayerInput = ({
    * @param {string} word - The new word to be typed
    * @param {string} difficulty - Difficulty level of the word
    */
-  const updateCurrentWord = useCallback((word, difficulty = 'beginner') => {
+  const updateCurrentAnswer = useCallback((word, difficulty = 'beginner') => {
     setCurrentWord(word);
     setCurrentWordDifficulty(difficulty);
     setInputValue('');
@@ -138,7 +138,7 @@ export const usePlayerInput = ({
     isWrong,
     currentWord,
     handleInputChange,
-    updateCurrentWord,
+    updateCurrentAnswer,
     clearInput,
     resetInput
   };

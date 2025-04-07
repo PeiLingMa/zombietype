@@ -135,7 +135,7 @@ export default function ChallengeMode({ onBack }) {
     changeCurrentZombie();
 
     // Set the question
-    playerInput.updateCurrentWord(question.answer, question.difficulty);
+    playerInput.updateCurrentAnswer(question.answer, question.difficulty);
   }, [gameState.currentDifficulty, zombieCount, selectQuestion, playerInput]);
 
   // Initialize game, generate first zombie
