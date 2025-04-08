@@ -43,8 +43,8 @@ export default function ChallengeMode({ onBack }) {
   // Zombie management
   const zombieManager = useZombieManager(gameState, updateGameState);
 
-  // Sound Manager
-  const { playSound } = useSoundManager();
+  // Sound management
+  const soundManager = useSoundManager();
 
   // Local state for the component
   const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
@@ -84,7 +84,7 @@ export default function ChallengeMode({ onBack }) {
     });
 
     // Play correct sound effect
-    playSound('accepted');
+    soundManager.playSound('accepted');
 
     // Reset zombie charge
     zombieManager.setChargerate(0);
@@ -109,7 +109,7 @@ export default function ChallengeMode({ onBack }) {
     }
 
     // Play error sound effect
-    playSound('wrongAnswer');
+    soundManager.playSound('wrongAnswer');
 
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
@@ -179,7 +179,7 @@ export default function ChallengeMode({ onBack }) {
             const newLives = gameState.lives - 1;
             if (newLives <= 0) {
               updateGameState({ gameOver: true });
-              playSound('defeated');
+              soundManager.playSound('defeated');
               return 1;
             } else {
               updateGameState({ lives: newLives });
@@ -203,7 +203,7 @@ export default function ChallengeMode({ onBack }) {
     levelManager.getChargeSpeed,
     updateGameState,
     generateNewZombie,
-    playSound
+    soundManager.playSound
   ]);
 
   /**
