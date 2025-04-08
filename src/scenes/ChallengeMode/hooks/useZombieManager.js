@@ -20,6 +20,10 @@ export const useZombieManager = (gameState, updateGameState) => {
     currentChargeRate: 0.0
   });
 
+  const getCurrentZombieImage = useCallback(() => {
+    return zombieState.currentZombie;
+  }, [zombieState.currentZombie]);
+
   const changeCurrentZombie = useCallback(() => {
     const newZombie = zombieImages[Math.floor(Math.random() * zombieImages.length)];
     console.log('Changing current zombie', newZombie);
@@ -28,6 +32,10 @@ export const useZombieManager = (gameState, updateGameState) => {
       currentZombie: newZombie
     }));
   }, []);
+
+  const getCurrentChargeRate = useCallback(() => {
+    return zombieState.currentChargeRate;
+  }, [zombieState.currentChargeRate]);
 
   // Charge rate setter of the zombie
   const setChargeRate = useCallback((newCharge) => {
@@ -38,9 +46,10 @@ export const useZombieManager = (gameState, updateGameState) => {
     );
   }, []);
 
-  return { 
-    zombieState,
+  return {
+    getCurrentZombieImage,
     changeCurrentZombie,
+    getCurrentChargeRate,
     setChargeRate
   };
 };

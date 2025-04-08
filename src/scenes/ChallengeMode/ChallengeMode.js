@@ -233,11 +233,11 @@ export default function ChallengeMode({ onBack }) {
           <p className="lead">Type the word to defeat the monster!</p>
           {/* Time remaining indicator */}
           <p
-            className={`mt-2 fw-bold ${zombieManager.zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate()>= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
             Time Left:{' '}
             {Math.round(
-              (1 - zombieManager.zombieState.currentChargeRate) /
+              (1 - zombieManager.getCurrentChargeRate()) /
                 levelManager.getChargeSpeed() /
                 (1000 / GAME_CONFIG.CHARGE_INTERVAL)
             )}
@@ -247,12 +247,12 @@ export default function ChallengeMode({ onBack }) {
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
             style={{
-              transform: `scale(${zombieManager.zombieState.currentChargeRate})`,
+              transform: `scale(${zombieManager.getCurrentChargeRate()})`,
               transition: 'transform 0.3s linear'
             }}
           >
             <img
-              src={zombieManager.zombieState.currentZombie}
+              src={zombieManager.getCurrentZombieImage()}
               alt="Zombie"
               className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
               style={{ width: '250px', height: '250px' }}
@@ -280,7 +280,7 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
             <p className="badge bg-info p-2">Accuracy: {questionManager.getThemeAccuracy()}%</p>
             <p className="badge bg-warning p-2">
-              Charge: {zombieManager.zombieState.currentChargeRate.toFixed(2)}%
+              Charge: {zombieManager.getCurrentChargeRate().toFixed(2)}%
             </p>
           </div>
         </>
