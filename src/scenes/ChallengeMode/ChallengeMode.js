@@ -30,15 +30,7 @@ export default function ChallengeMode({ onBack }) {
   const themeManager = useThemeManager(gameState, updateGameState);
 
   // Question management
-  const {
-    updateSamplePool,
-    selectQuestion,
-    handleCorrectAnswer: questionHandleCorrectAnswer,
-    handleWrongAnswer: questionHandleWrongAnswer,
-    getThemeAccuracy,
-    getThemeStats,
-    currentQuestion
-  } = useQuestionManager(gameState, updateGameState);
+  const questionManager = useQuestionManager(gameState, updateGameState);
 
   // Zombie management
   const zombieManager = useZombieManager(gameState, updateGameState);
@@ -56,10 +48,10 @@ export default function ChallengeMode({ onBack }) {
    */
   const handleCorrectAnswer = (answerData) => {
     // Update accuracy statistics
-    if (currentQuestion) {
-      questionHandleCorrectAnswer({
+    if (questionManager.currentQuestion) {
+      questionManager.onCorrectAnswer({
         ...answerData,
-        question: currentQuestion,
+        question: questionManager.currentQuestion,
         isCorrect: true
       });
     }
@@ -100,10 +92,10 @@ export default function ChallengeMode({ onBack }) {
    */
   const handleWrongAnswer = (answerData) => {
     // Update accuracy statistics
-    if (currentQuestion) {
-      questionHandleWrongAnswer({
+    if (questionManager.currentQuestion) {
+      questionManager.onWrongAnswer({
         ...answerData,
-        question: currentQuestion,
+        question: questionManager.currentQuestion,
         isCorrect: false
       });
     }
@@ -130,7 +122,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const generateNewZombie = useCallback(() => {
     // Select question with current difficulty and zombie count
-    const question = selectQuestion(gameState.currentDifficulty, zombieCount);
+    const question = questionManager.selectQuestion(gameState.currentDifficulty, zombieCount);
 
     if (!question) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
@@ -142,13 +134,13 @@ export default function ChallengeMode({ onBack }) {
 
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [gameState.currentDifficulty, zombieCount, selectQuestion, playerInput]);
+  }, [gameState.currentDifficulty, zombieCount, questionManager.selectQuestion, playerInput]);
 
   // Initialize game, generate first zombie
   useEffect(() => {
     if (themeManager.currentSample && !gameState.gameOver) {
       // Update QuestionManager's sample pool
-      updateSamplePool(themeManager.currentSample);
+      questionManager.updateSamplePool(themeManager.currentSample);
 
       // Reset zombie count (when theme changes)
       setZombieCount(1);
@@ -226,7 +218,7 @@ export default function ChallengeMode({ onBack }) {
             You Died!
           </h1>
           <p className="fs-4 mb-4">Final Score: Level {gameState.level}</p>
-          <p className="fs-5 mb-4">Theme Accuracy: {getThemeAccuracy()}%</p>
+          <p className="fs-5 mb-4">Theme Accuracy: {questionManager.getThemeAccuracy()}%</p>
           <button
             className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
             onClick={onBack}
@@ -269,7 +261,7 @@ export default function ChallengeMode({ onBack }) {
 
           {/* Current word display */}
           <div className="bg-warning text-dark px-4 py-2 rounded-pill fs-4 fw-bold border border-dark shadow mb-4">
-            {currentQuestion ? currentQuestion.description : ''}
+            {questionManager.currentQuestion ? questionManager.currentQuestion.description : ''}
           </div>
 
           {/* User input field */}
@@ -286,7 +278,7 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
-            <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
+            <p className="badge bg-info p-2">Accuracy: {questionManager.getThemeAccuracy()}%</p>
             <p className="badge bg-warning p-2">
               Charge: {zombieManager.zombieState.currentChargeRate.toFixed(2)}%
             </p>
