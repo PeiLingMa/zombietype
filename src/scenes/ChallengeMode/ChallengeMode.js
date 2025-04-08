@@ -40,11 +40,8 @@ export default function ChallengeMode({ onBack }) {
     currentQuestion
   } = useQuestionManager(gameState, updateGameState);
 
-  // Zombie Manager
-  const { zombieState, changeCurrentZombie, setChargerate } = useZombieManager(
-    gameState,
-    updateGameState
-  );
+  // Zombie management
+  const zombieManager = useZombieManager(gameState, updateGameState);
 
   // Sound Manager
   const { playSound } = useSoundManager();
@@ -90,7 +87,7 @@ export default function ChallengeMode({ onBack }) {
     playSound('accepted');
 
     // Reset zombie charge
-    setChargerate(0);
+    zombieManager.setChargerate(0);
 
     // Generate new zombie and question
     generateNewZombie();
@@ -141,7 +138,7 @@ export default function ChallengeMode({ onBack }) {
     }
 
     // Update random zombie image
-    changeCurrentZombie();
+    zombieManager.changeCurrentZombie();
 
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
@@ -175,7 +172,7 @@ export default function ChallengeMode({ onBack }) {
       if (now - lastChargeTime >= GAME_CONFIG.CHARGE_INTERVAL) {
         lastChargeTime = now;
 
-        setChargerate((prev) => {
+        zombieManager.setChargerate((prev) => {
           let next = prev + levelManager.getChargeSpeed();
 
           if (next >= 1) {
@@ -215,7 +212,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const applyPenalty = () => {
     if (gameState.level >= 4) {
-      setChargerate((prev) => Math.min(prev + 0.3, 1));
+      zombieManager.setChargerate((prev) => Math.min(prev + 0.3, 1));
     }
   };
 
@@ -244,11 +241,11 @@ export default function ChallengeMode({ onBack }) {
           <p className="lead">Type the word to defeat the monster!</p>
           {/* Time remaining indicator */}
           <p
-            className={`mt-2 fw-bold ${zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${zombieManager.zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
             Time Left:{' '}
             {Math.round(
-              (1 - zombieState.currentChargeRate) /
+              (1 - zombieManager.zombieState.currentChargeRate) /
                 levelManager.getChargeSpeed() /
                 (1000 / GAME_CONFIG.CHARGE_INTERVAL)
             )}
@@ -258,12 +255,12 @@ export default function ChallengeMode({ onBack }) {
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
             style={{
-              transform: `scale(${zombieState.currentChargeRate})`,
+              transform: `scale(${zombieManager.zombieState.currentChargeRate})`,
               transition: 'transform 0.3s linear'
             }}
           >
             <img
-              src={zombieState.currentZombie}
+              src={zombieManager.zombieState.currentZombie}
               alt="Zombie"
               className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
               style={{ width: '250px', height: '250px' }}
@@ -291,7 +288,7 @@ export default function ChallengeMode({ onBack }) {
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
             <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
             <p className="badge bg-warning p-2">
-              Charge: {zombieState.currentChargeRate.toFixed(2)}%
+              Charge: {zombieManager.zombieState.currentChargeRate.toFixed(2)}%
             </p>
           </div>
         </>
