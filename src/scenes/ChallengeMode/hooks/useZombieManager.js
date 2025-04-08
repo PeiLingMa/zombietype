@@ -30,7 +30,7 @@ export const useZombieManager = (gameState, updateGameState) => {
   }, []);
 
   // Charge rate setter of the zombie
-  const setChargerate = useCallback((newCharge) => {
+  const setChargeRate = useCallback((newCharge) => {
     setZombieState((prev) =>
       typeof newCharge === 'function'
         ? { ...prev, currentChargeRate: newCharge(prev.currentChargeRate) }
@@ -38,5 +38,9 @@ export const useZombieManager = (gameState, updateGameState) => {
     );
   }, []);
 
-  return { zombieState, changeCurrentZombie, setChargerate };
+  return { 
+    zombieState,
+    changeCurrentZombie,
+    setChargeRate
+  };
 };

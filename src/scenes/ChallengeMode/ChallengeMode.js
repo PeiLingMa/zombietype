@@ -79,7 +79,7 @@ export default function ChallengeMode({ onBack }) {
     soundManager.playSound('accepted');
 
     // Reset zombie charge
-    zombieManager.setChargerate(0);
+    zombieManager.setChargeRate(0);
 
     // Generate new zombie and question
     generateNewZombie();
@@ -164,7 +164,7 @@ export default function ChallengeMode({ onBack }) {
       if (now - lastChargeTime >= GAME_CONFIG.CHARGE_INTERVAL) {
         lastChargeTime = now;
 
-        zombieManager.setChargerate((prev) => {
+        zombieManager.setChargeRate((prev) => {
           let next = prev + levelManager.getChargeSpeed();
 
           if (next >= 1) {
@@ -204,7 +204,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const applyPenalty = () => {
     if (gameState.level >= 4) {
-      zombieManager.setChargerate((prev) => Math.min(prev + 0.3, 1));
+      zombieManager.setChargeRate((prev) => Math.min(prev + 0.3, 1));
     }
   };
 
