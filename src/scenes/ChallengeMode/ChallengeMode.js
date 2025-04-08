@@ -22,6 +22,8 @@ import './shake.css';
 export default function ChallengeMode({ onBack }) {
   // Game state variables
   const { gameState, updateGameState } = useGameState();
+
+  // Level management
   const levelManager = useLevelManager(gameState, updateGameState);
 
   // Theme management
