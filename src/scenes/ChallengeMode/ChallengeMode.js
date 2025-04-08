@@ -25,7 +25,7 @@ export default function ChallengeMode({ onBack }) {
   const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
 
   // Theme management
-  const { currentSample } = useThemeManager(gameState, updateGameState);
+  const themeManager = useThemeManager(gameState, updateGameState);
 
   // Question management
   const {
@@ -147,9 +147,9 @@ export default function ChallengeMode({ onBack }) {
 
   // Initialize game, generate first zombie
   useEffect(() => {
-    if (currentSample && !gameState.gameOver) {
+    if (themeManager.currentSample && !gameState.gameOver) {
       // Update QuestionManager's sample pool
-      updateSamplePool(currentSample);
+      updateSamplePool(themeManager.currentSample);
 
       // Reset zombie count (when theme changes)
       setZombieCount(1);
@@ -157,7 +157,7 @@ export default function ChallengeMode({ onBack }) {
       // Generate zombie and question
       generateNewZombie();
     }
-  }, [currentSample]);
+  }, [themeManager.currentSample]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
