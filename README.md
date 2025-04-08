@@ -60,7 +60,7 @@ zombietype/
     │  logo.svg
     │  reportWebVitals.js
     │  setupTests.js
-    └─components/
+    └─scenes/
         ├─ChallengeMode/
         │      ChallengeMode.js
         │      shake.css
