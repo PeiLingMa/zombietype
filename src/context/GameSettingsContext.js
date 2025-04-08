@@ -1,7 +1,7 @@
 // src/context/GameSettingsContext.js
 
 import React, { createContext, useState, useContext, useMemo } from 'react';
-import { GAME_CONFIG as BASE_GAME_CONFIG } from '../components/ChallengeMode/gameConfig';
+import { GAME_CONFIG as BASE_GAME_CONFIG } from '../scenes/ChallengeMode/gameConfig';
 
 const GameSettingsContext = createContext();
 

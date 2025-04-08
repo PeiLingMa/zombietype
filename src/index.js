@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './components/MainMenu/App';
+import App from './scenes/MainMenu/App';
 import reportWebVitals from './reportWebVitals';
 import { GameSettingsProvider } from './context/GameSettingsContext';
 

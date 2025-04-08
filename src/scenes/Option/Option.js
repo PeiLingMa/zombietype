@@ -1,4 +1,4 @@
-// src/components/Option/Option.js
+// src/scenes/Option/Option.js
 
 import { useState } from 'react';
 import { useGameSettings } from '../../context/GameSettingsContext';
