@@ -22,7 +22,7 @@ import './shake.css';
 export default function ChallengeMode({ onBack }) {
   // Game state variables
   const { gameState, updateGameState } = useGameState();
-  const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
+  const levelManager = useLevelManager(gameState, updateGameState);
 
   // Theme management
   const themeManager = useThemeManager(gameState, updateGameState);
@@ -174,7 +174,7 @@ export default function ChallengeMode({ onBack }) {
         lastChargeTime = now;
 
         setChargerate((prev) => {
-          let next = prev + getChargeSpeed();
+          let next = prev + levelManager.getChargeSpeed();
 
           if (next >= 1) {
             const newLives = gameState.lives - 1;
@@ -201,7 +201,7 @@ export default function ChallengeMode({ onBack }) {
   }, [
     gameState.lives,
     gameState.gameOver,
-    getChargeSpeed,
+    levelManager.getChargeSpeed,
     updateGameState,
     generateNewZombie,
     playSound
@@ -247,7 +247,7 @@ export default function ChallengeMode({ onBack }) {
             Time Left:{' '}
             {Math.round(
               (1 - zombieState.currentChargeRate) /
-                getChargeSpeed() /
+                levelManager.getChargeSpeed() /
                 (1000 / GAME_CONFIG.CHARGE_INTERVAL)
             )}
             s{' '}
