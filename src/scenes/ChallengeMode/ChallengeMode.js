@@ -79,7 +79,7 @@ export default function ChallengeMode({ onBack }) {
     soundManager.playSound('accepted');
 
     // Reset zombie charge
-    zombieManager.setChargeRate(0);
+    zombieManager.resetChargeRate();
 
     // Generate new zombie and question
     generateNewZombie();
@@ -164,25 +164,24 @@ export default function ChallengeMode({ onBack }) {
       if (now - lastChargeTime >= GAME_CONFIG.CHARGE_INTERVAL) {
         lastChargeTime = now;
 
-        zombieManager.setChargeRate((prev) => {
-          let next = prev + levelManager.getChargeSpeed();
+        let chargeRate = zombieManager.getCurrentChargeRate();
+        let chargeSpeed = levelManager.getChargeSpeed();
+        let next = chargeRate + chargeSpeed;
 
-          if (next >= 1) {
-            const newLives = gameState.lives - 1;
-            if (newLives <= 0) {
-              updateGameState({ gameOver: true });
-              soundManager.playSound('defeated');
-              return 1;
-            } else {
-              updateGameState({ lives: newLives });
-              playerInput.clearInput();
-              generateNewZombie();
-              return 0;
-            }
+        zombieManager.charge(chargeSpeed);
+
+        if (next >= 1) {
+          const newLives = gameState.lives - 1;
+          if (newLives <= 0) {
+            updateGameState({ gameOver: true });
+            soundManager.playSound('defeated');
+          } else {
+            updateGameState({ lives: newLives });
+            playerInput.clearInput();
+            generateNewZombie();
           }
-
-          return Math.min(next, 1);
-        });
+          zombieManager.resetChargeRate();
+        }
       }
     };
 
@@ -193,6 +192,8 @@ export default function ChallengeMode({ onBack }) {
     gameState.lives,
     gameState.gameOver,
     levelManager.getChargeSpeed,
+    zombieManager.charge,
+    zombieManager.getCurrentChargeRate,
     updateGameState,
     generateNewZombie,
     soundManager.playSound
@@ -204,7 +205,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const applyPenalty = () => {
     if (gameState.level >= 4) {
-      zombieManager.setChargeRate((prev) => Math.min(prev + 0.3, 1));
+      zombieManager.charge(0.3);
     }
   };
 
@@ -233,7 +234,7 @@ export default function ChallengeMode({ onBack }) {
           <p className="lead">Type the word to defeat the monster!</p>
           {/* Time remaining indicator */}
           <p
-            className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate()>= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate() >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
             Time Left:{' '}
             {Math.round(
