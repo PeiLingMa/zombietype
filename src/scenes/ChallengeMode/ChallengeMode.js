@@ -38,9 +38,6 @@ export default function ChallengeMode({ onBack }) {
   // Sound management
   const soundManager = useSoundManager();
 
-  // Local state for the component
-  const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
-
   /**
    * Handles correct answer events
    * Updates accuracy statistics and spawns a new word
@@ -62,17 +59,6 @@ export default function ChallengeMode({ onBack }) {
         ...prevState,
         zombiesDefeated: prevState.zombiesDefeated + 1
       };
-    });
-
-    // Increase zombie count, limit to 1-5 range
-    setZombieCount((prev) => {
-      const next = prev + 1;
-      // Reset to 1 when reaching 5 zombies (prepare for next level)
-      if (next > 5) {
-        // TODO: This should trigger LevelManager's upgrade check
-        return 1;
-      }
-      return next;
     });
 
     // Play correct sound effect
@@ -122,7 +108,10 @@ export default function ChallengeMode({ onBack }) {
    */
   const generateNewZombie = useCallback(() => {
     // Select question with current difficulty and zombie count
-    const question = questionManager.selectQuestion(gameState.currentDifficulty, zombieCount);
+    const question = questionManager.selectQuestion(
+      gameState.currentDifficulty,
+      gameState.zombiesDefeated + 1
+    );
 
     if (!question) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
@@ -134,16 +123,18 @@ export default function ChallengeMode({ onBack }) {
 
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [gameState.currentDifficulty, zombieCount, questionManager.selectQuestion, playerInput]);
+  }, [
+    gameState.currentDifficulty,
+    gameState.zombiesDefeated,
+    questionManager.selectQuestion,
+    playerInput
+  ]);
 
   // Initialize game, generate first zombie
   useEffect(() => {
     if (themeManager.currentSample && !gameState.gameOver) {
       // Update QuestionManager's sample pool
       questionManager.updateSamplePool(themeManager.currentSample);
-
-      // Reset zombie count (when theme changes)
-      setZombieCount(1);
 
       // Generate zombie and question
       generateNewZombie();
@@ -265,6 +256,7 @@ export default function ChallengeMode({ onBack }) {
           />
           {/* Game stats */}
           <div className="d-flex justify-content-around w-50 mt-3">
+            <p className="badge bg-secondary p-2">zombiesDefeated: {gameState.zombiesDefeated}</p>
             <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
