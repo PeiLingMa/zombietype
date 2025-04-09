@@ -105,7 +105,7 @@ export default function ChallengeMode({ onBack }) {
 
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
-      applyPenalty();
+      zombieManager.charge(0.3);
     }
   };
 
@@ -198,16 +198,6 @@ export default function ChallengeMode({ onBack }) {
     generateNewZombie,
     soundManager.playSound
   ]);
-
-  /**
-   * Applies penalty for wrong answers (Level-4 and above)
-   * Increases zombie charge by 30%
-   */
-  const applyPenalty = () => {
-    if (gameState.level >= 4) {
-      zombieManager.charge(0.3);
-    }
-  };
 
   // Render game UI
   return (
