@@ -195,7 +195,6 @@ export default function ChallengeMode({ onBack }) {
     zombieManager.charge,
     zombieManager.getCurrentChargeRate,
     updateGameState,
-    generateNewZombie,
     soundManager.playSound
   ]);
 
