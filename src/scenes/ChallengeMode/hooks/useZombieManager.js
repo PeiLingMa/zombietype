@@ -54,7 +54,7 @@ export const useZombieManager = (gameState, updateGameState) => {
    */
   const charge = useCallback((value) => {
     setChargeRate((prev) => {
-      return Math.min(prev + value);
+      return Math.min(prev + value, 1.0);
     });
   }, []);
 
