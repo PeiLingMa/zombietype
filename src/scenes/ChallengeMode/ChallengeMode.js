@@ -22,33 +22,21 @@ import './shake.css';
 export default function ChallengeMode({ onBack }) {
   // Game state variables
   const { gameState, updateGameState } = useGameState();
-  const { getChargeSpeed } = useLevelManager(gameState, updateGameState);
+
+  // Level management
+  const levelManager = useLevelManager(gameState, updateGameState);
 
   // Theme management
-  const { currentSample } = useThemeManager(gameState, updateGameState);
+  const themeManager = useThemeManager(gameState, updateGameState);
 
   // Question management
-  const {
-    updateSamplePool,
-    selectQuestion,
-    handleCorrectAnswer: questionHandleCorrectAnswer,
-    handleWrongAnswer: questionHandleWrongAnswer,
-    getThemeAccuracy,
-    getThemeStats,
-    currentQuestion
-  } = useQuestionManager(gameState, updateGameState);
+  const questionManager = useQuestionManager(gameState, updateGameState);
 
-  // Zombie Manager
-  const { zombieState, changeCurrentZombie, setChargerate } = useZombieManager(
-    gameState,
-    updateGameState
-  );
+  // Zombie management
+  const zombieManager = useZombieManager(gameState, updateGameState);
 
-  // Sound Manager
-  const { playSound } = useSoundManager();
-
-  // Local state for the component
-  const [zombieCount, setZombieCount] = useState(1); // Track current zombie count (for non-decreasing difficulty)
+  // Sound management
+  const soundManager = useSoundManager();
 
   /**
    * Handles correct answer events
@@ -57,10 +45,10 @@ export default function ChallengeMode({ onBack }) {
    */
   const handleCorrectAnswer = (answerData) => {
     // Update accuracy statistics
-    if (currentQuestion) {
-      questionHandleCorrectAnswer({
+    if (questionManager.currentQuestion) {
+      questionManager.onCorrectAnswer({
         ...answerData,
-        question: currentQuestion,
+        question: questionManager.currentQuestion,
         isCorrect: true
       });
     }
@@ -73,22 +61,11 @@ export default function ChallengeMode({ onBack }) {
       };
     });
 
-    // Increase zombie count, limit to 1-5 range
-    setZombieCount((prev) => {
-      const next = prev + 1;
-      // Reset to 1 when reaching 5 zombies (prepare for next level)
-      if (next > 5) {
-        // TODO: This should trigger LevelManager's upgrade check
-        return 1;
-      }
-      return next;
-    });
-
     // Play correct sound effect
-    playSound('accepted');
+    soundManager.playSound('accepted');
 
     // Reset zombie charge
-    setChargerate(0);
+    zombieManager.resetChargeRate();
 
     // Generate new zombie and question
     generateNewZombie();
@@ -101,20 +78,20 @@ export default function ChallengeMode({ onBack }) {
    */
   const handleWrongAnswer = (answerData) => {
     // Update accuracy statistics
-    if (currentQuestion) {
-      questionHandleWrongAnswer({
+    if (questionManager.currentQuestion) {
+      questionManager.onWrongAnswer({
         ...answerData,
-        question: currentQuestion,
+        question: questionManager.currentQuestion,
         isCorrect: false
       });
     }
 
     // Play error sound effect
-    playSound('wrongAnswer');
+    soundManager.playSound('wrongAnswer');
 
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
-      applyPenalty();
+      zombieManager.charge(0.3);
     }
   };
 
@@ -127,11 +104,32 @@ export default function ChallengeMode({ onBack }) {
   );
 
   /**
+   * Fetch the type of zombie to spawn and request question(s)
+   * 
+   * For future use:
+   *   1. Replace generateNewZombie
+   *   2. More powerful function
+   *   3. Request question(s) based on zombie type
+   *   4. Update zombieManager with the new zombie type
+   * 
+   * This function will be called when the player defeats a zombie
+   */
+  const requestNextZombie = useCallback(() => {
+    // TODO: Fetch or deside the type of zombie to spawn
+    // TODO: Request question(s) based on zombie type
+    // TODO: Update zombieManager with the new zombie type
+    // TODO: Notify playerInput to update the current answer
+  }, []);
+
+  /**
    * Generate new zombie and question
    */
   const generateNewZombie = useCallback(() => {
     // Select question with current difficulty and zombie count
-    const question = selectQuestion(gameState.currentDifficulty, zombieCount);
+    const question = questionManager.selectQuestion(
+      gameState.currentDifficulty,
+      gameState.zombiesDefeated + 1
+    );
 
     if (!question) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
@@ -139,25 +137,27 @@ export default function ChallengeMode({ onBack }) {
     }
 
     // Update random zombie image
-    changeCurrentZombie();
+    zombieManager.changeCurrentZombie();
 
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [gameState.currentDifficulty, zombieCount, selectQuestion, playerInput]);
+  }, [
+    gameState.currentDifficulty,
+    gameState.zombiesDefeated,
+    questionManager.selectQuestion,
+    playerInput
+  ]);
 
   // Initialize game, generate first zombie
   useEffect(() => {
-    if (currentSample && !gameState.gameOver) {
+    if (themeManager.currentSample && !gameState.gameOver) {
       // Update QuestionManager's sample pool
-      updateSamplePool(currentSample);
-
-      // Reset zombie count (when theme changes)
-      setZombieCount(1);
+      questionManager.updateSamplePool(themeManager.currentSample);
 
       // Generate zombie and question
       generateNewZombie();
     }
-  }, [currentSample]);
+  }, [themeManager.currentSample]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
@@ -173,25 +173,24 @@ export default function ChallengeMode({ onBack }) {
       if (now - lastChargeTime >= GAME_CONFIG.CHARGE_INTERVAL) {
         lastChargeTime = now;
 
-        setChargerate((prev) => {
-          let next = prev + getChargeSpeed();
+        let chargeRate = zombieManager.getCurrentChargeRate();
+        let chargeSpeed = levelManager.getChargeSpeed();
+        let next = chargeRate + chargeSpeed;
 
-          if (next >= 1) {
-            const newLives = gameState.lives - 1;
-            if (newLives <= 0) {
-              updateGameState({ gameOver: true });
-              playSound('defeated');
-              return 1;
-            } else {
-              updateGameState({ lives: newLives });
-              playerInput.clearInput();
-              generateNewZombie();
-              return 0;
-            }
+        zombieManager.charge(chargeSpeed);
+
+        if (next >= 1) {
+          const newLives = gameState.lives - 1;
+          if (newLives <= 0) {
+            updateGameState({ gameOver: true });
+            soundManager.playSound('defeated');
+          } else {
+            updateGameState({ lives: newLives });
+            playerInput.clearInput();
+            generateNewZombie();
           }
-
-          return Math.min(next, 1);
-        });
+          zombieManager.resetChargeRate();
+        }
       }
     };
 
@@ -201,21 +200,12 @@ export default function ChallengeMode({ onBack }) {
   }, [
     gameState.lives,
     gameState.gameOver,
-    getChargeSpeed,
+    levelManager.getChargeSpeed,
+    zombieManager.charge,
+    zombieManager.getCurrentChargeRate,
     updateGameState,
-    generateNewZombie,
-    playSound
+    soundManager.playSound
   ]);
-
-  /**
-   * Applies penalty for wrong answers (Level-4 and above)
-   * Increases zombie charge by 30%
-   */
-  const applyPenalty = () => {
-    if (gameState.level >= 4) {
-      setChargerate((prev) => Math.min(prev + 0.3, 1));
-    }
-  };
 
   // Render game UI
   return (
@@ -227,7 +217,7 @@ export default function ChallengeMode({ onBack }) {
             You Died!
           </h1>
           <p className="fs-4 mb-4">Final Score: Level {gameState.level}</p>
-          <p className="fs-5 mb-4">Theme Accuracy: {getThemeAccuracy()}%</p>
+          <p className="fs-5 mb-4">Theme Accuracy: {questionManager.getThemeAccuracy()}%</p>
           <button
             className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
             onClick={onBack}
@@ -242,12 +232,12 @@ export default function ChallengeMode({ onBack }) {
           <p className="lead">Type the word to defeat the monster!</p>
           {/* Time remaining indicator */}
           <p
-            className={`mt-2 fw-bold ${zombieState.currentChargeRate >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
+            className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate() >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
           >
             Time Left:{' '}
             {Math.round(
-              (1 - zombieState.currentChargeRate) /
-                getChargeSpeed() /
+              (1 - zombieManager.getCurrentChargeRate()) /
+                levelManager.getChargeSpeed() /
                 (1000 / GAME_CONFIG.CHARGE_INTERVAL)
             )}
             s{' '}
@@ -256,12 +246,12 @@ export default function ChallengeMode({ onBack }) {
           <div
             className="position-relative d-flex justify-content-center align-items-center my-4"
             style={{
-              transform: `scale(${zombieState.currentChargeRate})`,
+              transform: `scale(${zombieManager.getCurrentChargeRate()})`,
               transition: 'transform 0.3s linear'
             }}
           >
             <img
-              src={zombieState.currentZombie}
+              src={zombieManager.getCurrentZombieImage()}
               alt="Zombie"
               className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
               style={{ width: '250px', height: '250px' }}
@@ -270,7 +260,7 @@ export default function ChallengeMode({ onBack }) {
 
           {/* Current word display */}
           <div className="bg-warning text-dark px-4 py-2 rounded-pill fs-4 fw-bold border border-dark shadow mb-4">
-            {currentQuestion ? currentQuestion.description : ''}
+            {questionManager.currentQuestion ? questionManager.currentQuestion.description : ''}
           </div>
 
           {/* User input field */}
@@ -284,12 +274,13 @@ export default function ChallengeMode({ onBack }) {
           />
           {/* Game stats */}
           <div className="d-flex justify-content-around w-50 mt-3">
+            <p className="badge bg-secondary p-2">zombiesDefeated: {gameState.zombiesDefeated}</p>
             <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
-            <p className="badge bg-info p-2">Accuracy: {getThemeAccuracy()}%</p>
+            <p className="badge bg-info p-2">Accuracy: {questionManager.getThemeAccuracy()}%</p>
             <p className="badge bg-warning p-2">
-              Charge: {zombieState.currentChargeRate.toFixed(2)}%
+              Charge: {zombieManager.getCurrentChargeRate().toFixed(2)}%
             </p>
           </div>
         </>

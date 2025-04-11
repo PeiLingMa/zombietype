@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
 
 const { SOUND_CONFIG } = GAME_CONFIG;
@@ -32,13 +32,13 @@ export const useSoundManager = () => {
    * Play a sound effect
    * @param {string} soundKey - Key of the sound to play
    */
-  const playSound = (soundKey) => {
+  const playSound = useCallback((soundKey) => {
     if (sounds.current[soundKey]) {
       const audio = sounds.current[soundKey];
       audio.currentTime = 0;
       audio.play().catch((err) => console.warn('Sound playback blocked:', err));
     }
-  };
+  }, []);
 
   /**
    * Set volume for a specific sound

@@ -119,7 +119,7 @@ export const useQuestionManager = (gameState, updateGameState) => {
    * Update accuracy statistics and add question to candidate pool
    * @param {Object} answerData - Answer related data
    */
-  const handleCorrectAnswer = useCallback(
+  const onCorrectAnswer = useCallback(
     (answerData) => {
       const { question, theme = gameState.currentTheme } = answerData;
 
@@ -191,7 +191,7 @@ export const useQuestionManager = (gameState, updateGameState) => {
    * Update accuracy statistics
    * @param {Object} answerData - Answer related data
    */
-  const handleWrongAnswer = useCallback(
+  const onWrongAnswer = useCallback(
     (answerData) => {
       const { question, theme = gameState.currentTheme } = answerData;
 
@@ -286,8 +286,8 @@ export const useQuestionManager = (gameState, updateGameState) => {
   return {
     updateSamplePool,
     selectQuestion,
-    handleCorrectAnswer,
-    handleWrongAnswer,
+    onCorrectAnswer,
+    onWrongAnswer,
     getThemeAccuracy,
     getThemeStats,
     getCandidateQuestions,
