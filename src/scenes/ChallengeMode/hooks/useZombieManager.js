@@ -41,7 +41,10 @@ const zombieTypes = [
     image: zombie4,
     chargeSpeedMultiplier: 0.4,
     behavior: 'boss',
-    description: '需要三題才會被消滅，通過後換主題並升級'
+    description: '需要三題才會被消滅，通過後換主題並升級',
+    extraState: {
+      bossHp: 3
+    }
   }
 ];
 

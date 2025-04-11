@@ -80,6 +80,28 @@ export default function ChallengeMode({ onBack }) {
       }
     }
 
+    // 處理 Boss 殭屍
+    if (behavior === 'boss') {
+      const hp = zombieState.extraState.bossHp ?? 3;
+
+      if (hp > 1) {
+        // 累積一次命中但還沒死
+        setExtraState('bossHp', hp - 1);
+        console.log(`Boss hp ${hp - 1}/3`);
+
+        const newQuestion = selectQuestion(gameState.currentDifficulty, zombieCount);
+        if (newQuestion) {
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+
+        return; // 不進入下一隻殭屍
+      }
+
+      // Boss 被打到第 3 次，視為死亡
+      console.log('Boss defeated!');
+      // （這邊可以進入下一隻殭屍處理流程）
+    }
+
     // Update zombie defeat count in game state using functional update pattern
     updateGameState((prevState) => {
       return {
@@ -211,8 +233,13 @@ export default function ChallengeMode({ onBack }) {
             } else {
               updateGameState({ lives: newLives });
               playerInput.clearInput();
-              generateNewZombie();
-              return 0;
+              if (zombieState.currentZombie.behavior == 'boss'){
+                next = 0.5;
+              }
+              else{
+                generateNewZombie();
+                return 0;
+              }
             }
           }
 
@@ -293,7 +320,27 @@ export default function ChallengeMode({ onBack }) {
               style={{ width: '250px', height: '250px' }}
             />
           </div>
-
+          {/* Boss HP bar */}
+          {zombieState.currentZombie.behavior === 'boss' && (
+            <div className="d-flex justify-content-center mb-3">
+              {[...Array(3)].map((_, i) => {
+                const bossHp = zombieState.extraState?.bossHp ?? 3;
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      width: '25px',
+                      height: '25px',
+                      margin: '0 5px',
+                      borderRadius: '50%',
+                      backgroundColor: i < bossHp ? 'red' : 'lightgray',
+                      boxShadow: '0 0 5px rgba(0,0,0,0.5)'
+                    }}
+                  />
+                );
+              })}
+            </div>
+          )}
           {/* Current word display */}
           <div className="bg-warning text-dark px-4 py-2 rounded-pill fs-4 fw-bold border border-dark shadow mb-4">
             {currentQuestion ? currentQuestion.description : ''}
