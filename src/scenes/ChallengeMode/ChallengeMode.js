@@ -39,7 +39,7 @@ export default function ChallengeMode({ onBack }) {
   } = useQuestionManager(gameState, updateGameState);
 
   // Zombie Manager
-  const { zombieState, changeCurrentZombie, setChargerate } = useZombieManager(
+  const { zombieState, changeCurrentZombie, setChargerate, setExtraState } = useZombieManager(
     gameState,
     updateGameState
   );
@@ -56,6 +56,8 @@ export default function ChallengeMode({ onBack }) {
    * @param {Object} answerData - Data about the correct answer
    */
   const handleCorrectAnswer = (answerData) => {
+    const currentZombie = zombieState.currentZombie;
+    const behavior = currentZombie?.behavior;
     // Update accuracy statistics
     if (currentQuestion) {
       questionHandleCorrectAnswer({
@@ -63,6 +65,19 @@ export default function ChallengeMode({ onBack }) {
         question: currentQuestion,
         isCorrect: true
       });
+    }
+    // 處理護盾殭屍
+    if (behavior === 'shield') {
+      if (!zombieState.extraState.shieldHit) {
+        // 第一次答對：破盾
+        setExtraState('shieldHit', true);
+        console.log('Shield break');
+        const newQuestion = selectQuestion(gameState.currentDifficulty, zombieCount);
+        if (newQuestion) {
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+        return; // 不進入下一隻殭屍
+      }
     }
 
     // Update zombie defeat count in game state using functional update pattern
@@ -100,7 +115,9 @@ export default function ChallengeMode({ onBack }) {
    * @param {Object} answerData - Data about the wrong answer
    */
   const handleWrongAnswer = (answerData) => {
-    // Update accuracy statistics
+    const currentZombie = zombieState.currentZombie;
+    const behavior = currentZombie?.behavior;
+  
     if (currentQuestion) {
       questionHandleWrongAnswer({
         ...answerData,
@@ -108,13 +125,22 @@ export default function ChallengeMode({ onBack }) {
         isCorrect: false
       });
     }
-
-    // Play error sound effect
+  
     playSound('wrongAnswer');
-
-    // Apply penalty mechanism (for Level-4 and above)
+  
+    // ✅ 處理變色殭屍
+    if (behavior === 'chameleon') {
+      // 換一個新題目，但保留殭屍
+      const newQuestion = selectQuestion(gameState.currentDifficulty, zombieCount);
+      if (newQuestion) {
+        playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+      }
+      return; // 不扣血、不重生殭屍
+    }
+  
+    // 一般錯誤處理（包含懲罰機制）
     if (gameState.level >= 4) {
-      applyPenalty();
+      applyPenalty(); // 蓄力 +30%
     }
   };
 
@@ -174,7 +200,7 @@ export default function ChallengeMode({ onBack }) {
         lastChargeTime = now;
 
         setChargerate((prev) => {
-          let next = prev + getChargeSpeed();
+          let next = prev + getChargeSpeed()*zombieState.currentZombie.chargeSpeedMultiplier;
 
           if (next >= 1) {
             const newLives = gameState.lives - 1;
@@ -261,7 +287,7 @@ export default function ChallengeMode({ onBack }) {
             }}
           >
             <img
-              src={zombieState.currentZombie}
+              src={zombieState.currentZombie.image}
               alt="Zombie"
               className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
               style={{ width: '250px', height: '250px' }}
