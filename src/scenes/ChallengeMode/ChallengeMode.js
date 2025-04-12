@@ -61,10 +61,7 @@ export default function ChallengeMode({ onBack }) {
     if (behavior === 'shield') {
       if (!zombieManager.getExtraState('shieldHit')) {
         zombieManager.setExtraState('shieldHit', true);
-        const newQuestion = questionManager.selectQuestion(
-          gameState.currentDifficulty,
-          gameState.zombiesDefeated
-        );
+        const newQuestion = questionManager.selectQuestion();
         if (newQuestion) {
           playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
         }
@@ -76,10 +73,7 @@ export default function ChallengeMode({ onBack }) {
       const hp = zombieManager.getExtraState('bossHp') ?? 3;
       if (hp > 1) {
         zombieManager.setExtraState('bossHp', hp - 1);
-        const newQuestion = questionManager.selectQuestion(
-          gameState.currentDifficulty,
-          gameState.zombiesDefeated
-        );
+        const newQuestion = questionManager.selectQuestion();
         if (newQuestion) {
           playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
         }
@@ -128,10 +122,7 @@ export default function ChallengeMode({ onBack }) {
     }
 
     if (behavior === 'chameleon') {
-      const newQuestion = questionManager.selectQuestion(
-        gameState.currentDifficulty,
-        gameState.zombiesDefeated
-      );
+      const newQuestion = questionManager.selectQuestion();
       if (newQuestion) {
         playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
       }
@@ -157,7 +148,6 @@ export default function ChallengeMode({ onBack }) {
   const generateNewZombie = useCallback(() => {
     // Select question with current difficulty and zombie count
     const question = questionManager.selectQuestion();
-
     if (!question) {
       console.warn('ChallengeMode: No questions available in pool, rotating to next theme...');
       themeManager.rotateToNextTheme();
