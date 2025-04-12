@@ -126,10 +126,7 @@ export default function ChallengeMode({ onBack }) {
    */
   const generateNewZombie = useCallback(() => {
     // Select question with current difficulty and zombie count
-    const question = questionManager.selectQuestion(
-      gameState.currentDifficulty,
-      gameState.zombiesDefeated + 1
-    );
+    const question = questionManager.selectQuestion();
 
     if (!question) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
