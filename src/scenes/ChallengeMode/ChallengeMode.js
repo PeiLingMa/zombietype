@@ -44,6 +44,8 @@ export default function ChallengeMode({ onBack }) {
    * @param {Object} answerData - Data about the correct answer
    */
   const handleCorrectAnswer = (answerData) => {
+    const currentZombie = zombieManager.getCurrentZombie();
+    const behavior = currentZombie?.behavior;
     // Update accuracy statistics
     if (questionManager.currentQuestion) {
       questionManager.onCorrectAnswer({
@@ -51,6 +53,35 @@ export default function ChallengeMode({ onBack }) {
         question: questionManager.currentQuestion,
         isCorrect: true
       });
+    }
+    // 處理護盾殭屍
+    if (behavior === 'shield') {
+      if (!zombieManager.getExtraState('shieldHit')) {
+        zombieManager.setExtraState('shieldHit', true);
+        const newQuestion = questionManager.selectQuestion(
+          gameState.currentDifficulty,
+          gameState.zombiesDefeated
+        );
+        if (newQuestion) {
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+        return;
+      }
+    }
+
+    if (behavior === 'boss') {
+      const hp = zombieManager.getExtraState('bossHp') ?? 3;
+      if (hp > 1) {
+        zombieManager.setExtraState('bossHp', hp - 1);
+        const newQuestion = questionManager.selectQuestion(
+          gameState.currentDifficulty,
+          gameState.zombiesDefeated
+        );
+        if (newQuestion) {
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+        return;
+      }
     }
 
     // Update zombie defeat count in game state using functional update pattern
@@ -77,6 +108,8 @@ export default function ChallengeMode({ onBack }) {
    * @param {Object} answerData - Data about the wrong answer
    */
   const handleWrongAnswer = (answerData) => {
+    const currentZombie = zombieManager.getCurrentZombie();
+    const behavior = currentZombie?.behavior;
     // Update accuracy statistics
     if (questionManager.currentQuestion) {
       questionManager.onWrongAnswer({
@@ -86,13 +119,25 @@ export default function ChallengeMode({ onBack }) {
       });
     }
 
-    // Play error sound effect
-    soundManager.playSound('wrongAnswer');
-
     // Apply penalty mechanism (for Level-4 and above)
     if (gameState.level >= 4) {
       zombieManager.charge(0.3);
     }
+
+    if (behavior === 'chameleon') {
+      const newQuestion = questionManager.selectQuestion(
+        gameState.currentDifficulty,
+        gameState.zombiesDefeated
+      );
+      if (newQuestion) {
+        playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+      }
+      return;
+    }
+
+    // Play error sound effect
+    soundManager.playSound('wrongAnswer');
+
   };
 
   // Initialize PlayerInput hook with necessary callbacks
@@ -172,9 +217,9 @@ export default function ChallengeMode({ onBack }) {
 
         let chargeRate = zombieManager.getCurrentChargeRate();
         let chargeSpeed = levelManager.getChargeSpeed();
-        let next = chargeRate + chargeSpeed;
+        let next = chargeRate + chargeSpeed*zombieManager.getCurrentZombie().chargeSpeedMultiplier;
 
-        zombieManager.charge(chargeSpeed);
+        zombieManager.charge(chargeSpeed*zombieManager.getCurrentZombie().chargeSpeedMultiplier);
 
         if (next >= 1) {
           const newLives = gameState.lives - 1;
@@ -184,7 +229,15 @@ export default function ChallengeMode({ onBack }) {
           } else {
             updateGameState({ lives: newLives });
             playerInput.clearInput();
-            generateNewZombie();
+            if(zombieManager.getCurrentZombie().name === 'boss'){
+              zombieManager.resetChargeRate();
+              console.log('reset');
+              setTimeout(() => {
+                zombieManager.charge(0.5);
+              }, 100);
+            } else{
+              generateNewZombie();
+            }
           }
           zombieManager.resetChargeRate();
         }
@@ -227,6 +280,27 @@ export default function ChallengeMode({ onBack }) {
         <>
           <h1 className="display-4 fw-bold text-warning mb-4">Monster Typing Game</h1>
           <p className="lead">Type the word to defeat the monster!</p>
+          {/* Boss hp */}
+          {zombieManager.getCurrentZombie()?.behavior === 'boss' && (
+            <div className="d-flex justify-content-center mb-3">
+              {[...Array(3)].map((_, i) => {
+                const bossHp = zombieManager.getExtraState('bossHp') ?? 3;
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      width: '25px',
+                      height: '25px',
+                      margin: '0 5px',
+                      borderRadius: '50%',
+                      backgroundColor: i < bossHp ? 'red' : 'lightgray',
+                      boxShadow: '0 0 5px rgba(0,0,0,0.5)'
+                    }}
+                  />
+                );
+              })}
+            </div>
+          )}
           {/* Time remaining indicator */}
           <p
             className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate() >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
