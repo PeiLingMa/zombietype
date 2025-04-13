@@ -1,51 +1,62 @@
 .cutscene-container {
-  position: relative;
-  background: rgb(255, 0, 0); /* 紅色背景方便您觀察對話框是否移動 */
+  position: relative; /* 確保 ratio-container 可以相對於它定位 */
+  background: rgb(255, 0, 0); /* 紅色背景方便您觀察 */
   color: white;
-  height: 100vh;
+  height: 100vh; /* 容器高度佔滿整個 viewport height */
   overflow: hidden;
+  display: flex; /* 使用 Flexbox 讓內容可以水平置中 */
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 (如果您也想垂直置中 16:9 區域) */
+}
+
+/* 16:9 比例容器 */
+.ratio-container {
+  width: 100%; /* 寬度佔滿父容器 (cutscene-container) */
+  max-width: 177.78vh; /*  限制最大寬度為 viewport height 的 177.78% (16/9 * 100)，確保在寬螢幕下也不會超出垂直方向 */
+  height: auto; /* 高度根據寬度和比例自動調整 */
+  aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
+  position: relative; /* 讓內容元件可以相對於它絕對定位 */
+  overflow: hidden; /* 確保內容超出比例容器時被隱藏 */
+  background-color: rgb(255, 0, 0); /* 可選：為比例容器設定背景色，方便觀察 */
 }
 
 .character {
   position: absolute;
-  bottom: 5%; /* 跟 dialogue-box 的 padding 高度對齊 */
-  left: 3%;
-  height: 35%;
-  z-index: 2; /* 保證角色在對話框上面 */
+  width: 20%;
+  bottom: 3%;
+  left: 1%;
+  z-index: 2;
 }
 
 .dialogue-box {
   position: absolute;
-  bottom: 7vh;
-  left: 23%; /* 初始左邊位置 */
-  width: 70%; /* 初始寬度 */
-  max-width: 1200px;
-  height: 15rem;
-  min-height: 10rem;
+  bottom:5%;
+  width: 60%;
+  height: 40%;
+  
+  min-width: 50%;
+  min-height: 40%;
 
-  /* 使用 dialog box.png 作為背景圖片 */
   background-image: url('./images/dialog box.png');
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: bottom;
 
   /* background: rgba(30, 30, 30, 0.85); */
-  padding: 10rem;
-  font-size: 1.2rem;
   cursor: pointer;
   z-index: 1;
 
   /* 加入左右抖動動畫 */
-  animation: shake-sides 0.5s infinite; /* 動畫名稱, 持續時間, 循環次數 */
+  animation: shake-sides 0.5s infinite;
 }
 
 .dialogue-box h3 {
   position: absolute;
-  bottom: 26vh;
-  left: 14rem;
+  top: 24%;
+  left: 23%;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: rgb(0, 0, 0);
   text-align: center;
   transform: rotate(-19deg);
@@ -53,8 +64,8 @@
 
 .dialogue-box p {
   position: absolute;
-  bottom: 10vh;
-  left: 10rem;
+  top: 55%;
+  left: 18%;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
@@ -63,26 +74,50 @@
   max-width: 60%;
 }
 
-/* 定義左右抖動動畫的關鍵影格 */
+/* 要再確認怎麼用 */
+@media screen and (max-width: 768px) {
+  .dialogue-box h3 {
+    top: 25%; /* 在小螢幕上將 top 值調整為 15% */
+    left: 15%; /* 在小螢幕上將 left 值調整為 15% */
+    font-size: 1.2rem; /* 可選：同時調整字體大小 */
+  }
+}
+
+/* Media query for medium screens (example: screens between 769px and 992px wide) */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .dialogue-box h3 {
+    top: 23%;
+    left: 20%;
+    font-size: 1.25rem;
+  }
+  .dialogue-box p {
+    top: 55%;
+    left: 17%;
+    font-size: 0.8rem;
+    max-width: 60%;
+  }
+}
+
+/* 定義左右抖動動畫的關鍵影格 (保持不變) */
 @keyframes shake-sides {
   0% {
-    width: 70%;      /* 初始寬度 */
-    left: 23%;       /* 初始位置 */
+    width: 70%;
+    left: 23%;
   }
   25% {
-    width: 70.1%;      /* 稍微加寬 */
-    left: 23%;       /* 向左調整，保持中心大致不變 */
+    width: 70.08%;
+    left: 23%;
   }
   50% {
-    width: 69.5%;      /* 稍微縮窄 */
-    left: 23%;       /* 向右調整，保持中心大致不變 */
+    width: 69.95%;
+    left: 23%;
   }
   75% {
-    width: 70.1%;      /* 再次加寬 */
-    left: 23%;       /* 再次向左調整 */
+    width: 70.08%;
+    left: 23%;
   }
   100% {
-    width: 70.1%;      /* 回到初始寬度 */
-    left: 23%;       /* 回到初始位置 */
+    width: 70%;
+    left: 23%;
   }
 }
