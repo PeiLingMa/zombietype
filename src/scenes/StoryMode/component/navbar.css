@@ -1,0 +1,14 @@
+.navbar {
+    position: absolute;
+    display: flex;
+    gap: 70px;
+    bottom: 33%;
+    left: 65%;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .navbar {
+        gap: 30px;
+    }
+  }

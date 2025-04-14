@@ -22,102 +22,64 @@
 
 .character {
   position: absolute;
-  width: 20%;
-  bottom: 3%;
+  width: 15%;
+  bottom: 33%;
   left: 1%;
   z-index: 2;
 }
 
 .dialogue-box {
   position: absolute;
-  bottom:5%;
-  width: 60%;
-  height: 40%;
+  bottom:3%;
+  width: 100vw;
+  height: 30%;
   
-  min-width: 50%;
-  min-height: 40%;
+  min-width: 100vw;
 
-  background-image: url('./images/dialog box.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: bottom;
-
-  /* background: rgba(30, 30, 30, 0.85); */
+  background: rgba(73, 59, 59, 0.85);
   cursor: pointer;
   z-index: 1;
-
-  /* 加入左右抖動動畫 */
-  animation: shake-sides 0.5s infinite;
 }
 
 .dialogue-box h3 {
   position: absolute;
-  top: 24%;
-  left: 23%;
+  left: 5%;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.85);
   text-align: center;
-  transform: rotate(-19deg);
 }
 
-.dialogue-box p {
+.content {
   position: absolute;
-  top: 55%;
-  left: 18%;
+  bottom: 30%;
+  left: 10%;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: rgb(255, 255, 255);
-  text-align: center;
-  max-width: 60%;
+  max-width: 70%;
 }
 
 /* 要再確認怎麼用 */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .dialogue-box h3 {
-    top: 25%; /* 在小螢幕上將 top 值調整為 15% */
-    left: 15%; /* 在小螢幕上將 left 值調整為 15% */
-    font-size: 1.2rem; /* 可選：同時調整字體大小 */
+    top: 25%; 
+    left: 15%; 
+    font-size: 1.2rem;
   }
-}
+} */
 
 /* Media query for medium screens (example: screens between 769px and 992px wide) */
 @media screen and (min-width: 769px) and (max-width: 992px) {
   .dialogue-box h3 {
-    top: 23%;
-    left: 20%;
-    font-size: 1.25rem;
+    left: 5%;
+    font-size: 1rem;
   }
   .dialogue-box p {
-    top: 55%;
-    left: 17%;
-    font-size: 0.8rem;
-    max-width: 60%;
-  }
-}
-
-/* 定義左右抖動動畫的關鍵影格 (保持不變) */
-@keyframes shake-sides {
-  0% {
-    width: 70%;
-    left: 23%;
-  }
-  25% {
-    width: 70.08%;
-    left: 23%;
-  }
-  50% {
-    width: 69.95%;
-    left: 23%;
-  }
-  75% {
-    width: 70.08%;
-    left: 23%;
-  }
-  100% {
-    width: 70%;
-    left: 23%;
+    left: 10%;
+    font-size: 1rem;
   }
 }

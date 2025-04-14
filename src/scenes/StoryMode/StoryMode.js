@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import sceneData from "./script";
+import Navbar from "./component/navbar";
 import './test.css';
 
 export default function StoryMode({ onBack }) {
@@ -14,11 +15,7 @@ export default function StoryMode({ onBack }) {
     setDisplayText("");
     setIsTyping(true);
     const interval = setInterval(() => {
-      // 加入 console.log 檢查 currentScene 和 currentScene.dialogue
-      console.log("currentScene:", currentScene);
-      console.log("currentScene.dialogue:", currentScene && currentScene.dialogue); // 避免 currentScene undefined 時報錯
-
-      if (currentScene && currentScene.dialogue && i < currentScene.dialogue.length) { // 確保 currentScene 和 currentScene.dialogue 存在
+      if (currentScene && currentScene.dialogue && i < currentScene.dialogue.length-1) { // 確保 currentScene 和 currentScene.dialogue 存在
         setDisplayText((prev) => prev + currentScene.dialogue[i]);
         i++;
       } else {
@@ -48,11 +45,14 @@ export default function StoryMode({ onBack }) {
           className="character"
         />
 
+        <Navbar/>
+        
         {/* 對話框 */}
         <div className="dialogue-box">
           <h3>{currentScene.character}</h3>
-          <p>{displayText}</p>
+          <p className="content">{displayText}</p>
           {!isTyping && <span style={{ fontSize: "0.9rem", opacity: 0.5 }}></span>}
+
         </div>
 
         {/* 返回按鈕放在畫面外 */}
@@ -68,7 +68,6 @@ export default function StoryMode({ onBack }) {
           </button>
         </div>
       </div>
-      {/* 16:9 比例容器結束 */}
     </div>
   );
 }
