@@ -172,7 +172,7 @@ export default function ChallengeMode({ onBack }) {
 
     // Update random zombie image
     zombieManager.changeCurrentZombie();
-
+    
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
   }, [
