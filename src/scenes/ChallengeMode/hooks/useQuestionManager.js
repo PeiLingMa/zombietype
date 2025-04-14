@@ -245,6 +245,7 @@ export const useQuestionManager = (gameState, updateGameState) => {
     getThemeStats,
     getCandidateQuestions,
     clearCandidatePool,
-    currentQuestion
+    currentQuestion,
+    changeCurrentQuestion
   };
 };
