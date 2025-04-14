@@ -30,10 +30,10 @@
 
 .dialogue-box {
   position: absolute;
-  bottom:3%;
+  bottom: 3%;
   width: 100vw;
   height: 30%;
-  
+
   min-width: 100vw;
 
   background: rgba(73, 59, 59, 0.85);

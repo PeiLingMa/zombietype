@@ -1,0 +1,70 @@
+.log-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 確保在最上層 */
+}
+
+.log-dialog {
+  background: rgba(73, 59, 59, 0.85);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 確保 header 和 content 的圓角 */
+}
+
+.log-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px 8px 0 0; /* 上方圓角 */
+}
+
+.log-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.log-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.log-close-button:hover {
+  opacity: 1;
+}
+
+.log-content {
+  padding: 20px;
+  overflow-y: auto; /* 啟用垂直滾動 */
+  height: 100%; /* 讓內容區域佔滿剩餘高度 */
+}
+
+.log-item {
+  margin-bottom: 15px;
+}
+
+.log-character {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.log-dialogue {
+  margin: 0;
+  line-height: 1.4;
+}
