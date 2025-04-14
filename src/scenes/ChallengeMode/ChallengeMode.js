@@ -71,10 +71,18 @@ export default function ChallengeMode({ onBack }) {
 
     if (behavior === 'boss') {
       const hp = zombieManager.getExtraState('bossHp') ?? 3;
+      const stage = zombieManager.getExtraState('bossStage') ?? 0;
       if (hp > 1) {
+        const nextStage = stage + 1;
+        const difficultyOrder = ['beginner', 'medium', 'hard'];
+        const nextDifficulty = difficultyOrder[nextStage];
+
         zombieManager.setExtraState('bossHp', hp - 1);
-        const newQuestion = questionManager.selectQuestion();
+        zombieManager.setExtraState('bossStage', nextStage);
+        const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
+        const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];   
         if (newQuestion) {
+          questionManager.updateCurrentQuestion(newQuestion);
           playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
         }
         return;
@@ -143,25 +151,69 @@ export default function ChallengeMode({ onBack }) {
   );
 
   /**
+   * Fetch the type of zombie to spawn and request question(s)
+   * 
+   * For future use:
+   *   1. Replace generateNewZombie
+   *   2. More powerful function
+   *   3. Request question(s) based on zombie type
+   *   4. Update zombieManager with the new zombie type
+   * 
+   * This function will be called when the player defeats a zombie
+   */
+  const requestNextZombie = useCallback(() => {
+    // TODO: Fetch or deside the type of zombie to spawn
+    // TODO: Request question(s) based on zombie type
+    // TODO: Update zombieManager with the new zombie type
+    // TODO: Notify playerInput to update the current answer
+  }, []);
+
+  /**
    * Generate new zombie and question
    */
   const generateNewZombie = useCallback(() => {
-    // Select question with current difficulty and zombie count
-    const question = questionManager.selectQuestion();
-    if (!question) {
-      console.warn('ChallengeMode: No questions available in pool, rotating to next theme...');
-      themeManager.rotateToNextTheme();
-      return;
+    // Update random zombie 
+    const zombie = zombieManager.changeCurrentZombie();
+
+    if (zombie.behavior === 'boss') {
+      const boss_questionArray = questionManager.getCandidateQuestions('beginner');
+      console.log(boss_questionArray);
+      const boss_question = boss_questionArray[Math.floor(Math.random() * boss_questionArray.length)];
+      if (!boss_question) {
+        console.warn('No question available for difficulty:', gameState.currentDifficulty);
+        return;
+      }
+      questionManager.updateCurrentQuestion(boss_question);
+      playerInput.updateCurrentAnswer(boss_question.answer, boss_question.difficulty);
     }
-
-    questionManager.updateCurrentQuestion(question);
-
-    // Update random zombie image
-    zombieManager.changeCurrentZombie();
-    
-    // Set the question
-    playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [questionManager, zombieManager]);
+    else{
+      // Select question with current difficulty and zombie count
+      const question = questionManager.selectQuestion();
+      if (!question) {
+        console.warn('No question available for difficulty:', gameState.currentDifficulty);
+        return;
+      }
+      if(zombie.behavior === 'mimic'){
+        const question1 = questionManager.selectQuestion();
+        const question2 = questionManager.selectQuestion();
+        console.log(question1.answer);
+        console.log(question2.answer);
+        playerInput.updateCurrentAnswer(question1.answer, question.difficulty);
+        zombieManager.setExtraState('mimicRevealed', false);
+        zombieManager.setExtraState('realAnswer', question1.answer);
+        setTimeout(() => {
+          questionManager.updateCurrentQuestion(question1);
+        }, 3000);
+      }
+      else{
+        questionManager.updateCurrentQuestion(question);
+        playerInput.updateCurrentAnswer(question.answer, question.difficulty);
+      }
+    }
+  }, [
+    questionManager,
+    zombieManager
+  ]);
 
   // Initialize game, generate first zombie
   useEffect(() => {

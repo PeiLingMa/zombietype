@@ -43,7 +43,8 @@ const zombieTypes = [
     behavior: 'boss',
     description: '需要三題才會被消滅，通過後換主題並升級',
     extraState:{
-      bossHp: 3
+      bossHp: 3,
+      bossState: 0
     }
   }
 ];
@@ -90,6 +91,7 @@ export const useZombieManager = (gameState, updateGameState) => {
       currentZombie: newZombie,
       extraState: {}
     }));
+    return newZombie;
   }, [getRandomZombie, gameState.level]);
 
   /**
