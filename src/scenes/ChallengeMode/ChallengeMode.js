@@ -105,13 +105,13 @@ export default function ChallengeMode({ onBack }) {
 
   /**
    * Fetch the type of zombie to spawn and request question(s)
-   * 
+   *
    * For future use:
    *   1. Replace generateNewZombie
    *   2. More powerful function
    *   3. Request question(s) based on zombie type
    *   4. Update zombieManager with the new zombie type
-   * 
+   *
    * This function will be called when the player defeats a zombie
    */
   const requestNextZombie = useCallback(() => {
@@ -132,6 +132,8 @@ export default function ChallengeMode({ onBack }) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
       return;
     }
+
+    questionManager.updateCurrentQuestion(question);
 
     // Update random zombie image
     zombieManager.changeCurrentZombie();
