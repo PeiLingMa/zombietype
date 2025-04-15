@@ -246,6 +246,5 @@ export const useQuestionManager = () => {
     getCandidateQuestions,
     clearCandidatePool,
     currentQuestion,
-    changeCurrentQuestion
   };
 };
