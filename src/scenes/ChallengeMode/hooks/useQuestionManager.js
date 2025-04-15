@@ -246,6 +246,5 @@ export const useQuestionManager = (gameState, updateGameState) => {
     getCandidateQuestions,
     clearCandidatePool,
     currentQuestion,
-    changeCurrentQuestion
   };
 };
