@@ -1,0 +1,42 @@
+name: 部署至 GitHub Pages
+
+on:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 設置 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: 安裝依賴
+        run: npm ci
+
+      - name: 執行程式碼品質檢查
+        run: |
+          if npm run | grep -q 'lint'; then
+            npm run lint
+          elif npm run | grep -q 'eslint'; then
+            npm run eslint
+          else
+            npx eslint .
+          fi
+
+      - name: 執行測試
+        run: npm test -- --watchAll=false
+
+      - name: 構建專案
+        run: npm run build
+
+      - name: 部署至 GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
