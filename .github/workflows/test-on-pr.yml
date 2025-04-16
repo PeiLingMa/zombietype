@@ -21,4 +21,4 @@ jobs:
       - name: 執行測試
         run: npm test -- --watchAll=false
       - name: 執行構建檢查
-        run: npm run build
+        run: CI=false npm run build

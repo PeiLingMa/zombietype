@@ -13,7 +13,7 @@ import { GAME_CONFIG } from '../gameConfig';
  * @param {Function} updateGameState - Function to update game state
  * @returns {Object} Question management API
  */
-export const useQuestionManager = (gameState) => {
+export const useQuestionManager = () => {
   // Store candidate pool (correctly answered questions) as ref for immediate updates
   const candidatePoolRef = useRef([]);
 
@@ -70,7 +70,7 @@ export const useQuestionManager = (gameState) => {
       currentSampleRef.current = processedSample;
       candidatePoolRef.current = [];
     },
-    [gameState.currentTheme, generateQuestionId]
+    [generateQuestionId]
   );
 
   /**

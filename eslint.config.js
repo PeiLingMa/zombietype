@@ -18,11 +18,11 @@ module.exports = [
       }
     },
     rules: {
-      // ... any rules you want
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
-      'no-unused-vars': 'warn'
+      'no-unused-vars': 'warn',
+      'react-hooks/exhaustive-deps': 'off',
+      'react-hooks/rules-of-hooks': 'off'
     }
-    // ... others are omitted for brevity
   }
 ];

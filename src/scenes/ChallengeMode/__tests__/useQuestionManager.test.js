@@ -11,11 +11,6 @@ jest.mock('../gameConfig', () => ({
 
 describe('useQuestionManager Hook', () => {
   // Mock dependencies
-  const mockGameState = {
-    currentTheme: 'food',
-  };
-
-  const mockUpdateGameState = jest.fn();
 
   // Sample test questions data
   const testQuestions = {
@@ -70,7 +65,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('should initialize hook correctly', () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // Check that all expected functions are returned
     expect(result.current.updateSamplePool).toBeDefined();
@@ -85,7 +80,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('updateCurrentQuestion should update current question state', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // Initial state should be null
     expect(result.current.currentQuestion).toBeNull();
@@ -122,7 +117,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('updateSamplePool should process and store questions', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     await act(async () => {
       result.current.updateSamplePool(testQuestions);
@@ -138,7 +133,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('selectQuestion should select questions with weighted difficulty based on completion rate', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     await act(async () => {
       result.current.updateSamplePool(testQuestions);
@@ -174,7 +169,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('onCorrectAnswer should move question from pool to candidate pool', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     await act(async () => {
       result.current.updateSamplePool(testQuestions);
@@ -210,7 +205,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('clearCandidatePool should empty the candidate pool', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     await act(async () => {
       result.current.updateSamplePool(testQuestions);
@@ -239,7 +234,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('getThemeAccuracy and getThemeStats should return expected values', () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // These are stub functions for backward compatibility
     expect(result.current.getThemeAccuracy()).toBe(0);
@@ -247,7 +242,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('should handle questions without explicit IDs', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // Questions without IDs
     const questionsWithoutIds = {
@@ -281,7 +276,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('should handle edge case with no questions in target difficulty', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // Questions only in hard difficulty
     const hardOnlyQuestions = {
@@ -311,7 +306,7 @@ describe('useQuestionManager Hook', () => {
   });
 
   test('should handle edge case with empty question pool', async () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // Empty questions
     const emptyQuestions = {
@@ -333,10 +328,147 @@ describe('useQuestionManager Hook', () => {
     expect(question).toBeNull();
   });
 
+  test('should remove correctly answered questions from question pool to prevent reselection', async () => {
+    const { result } = renderHook(() => useQuestionManager());
+
+    // Create test questions with more items in beginner difficulty for reliable testing
+    const manyBeginnerQuestions = {
+      beginner: [
+        { type: 'vocabulary', description: 'apple', answer: 'apple' },
+        { type: 'vocabulary', description: 'banana', answer: 'banana' },
+        { type: 'vocabulary', description: 'orange', answer: 'orange' },
+        { type: 'vocabulary', description: 'grape', answer: 'grape' },
+        { type: 'vocabulary', description: 'peach', answer: 'peach' }
+      ],
+      medium: [
+        { type: 'vocabulary', description: 'strawberry', answer: 'strawberry' }
+      ],
+      hard: [
+        { type: 'vocabulary', description: 'dragonfruit', answer: 'dragonfruit' }
+      ]
+    };
+
+    // Load questions into the pool
+    await act(async () => {
+      result.current.updateSamplePool(manyBeginnerQuestions);
+    });
+
+    // Force selection of beginner difficulty
+    jest.spyOn(global.Math, 'random').mockImplementation(() => 0.1);
+
+    // Select first question
+    let firstQuestion;
+    await act(async () => {
+      firstQuestion = result.current.selectQuestion();
+    });
+    
+    expect(firstQuestion).not.toBeNull();
+    expect(firstQuestion.difficulty).toBe('beginner');
+    
+    // Store first question ID for comparison
+    const firstQuestionId = firstQuestion._qid;
+    
+    // Mark first question as correctly answered
+    await act(async () => {
+      result.current.onCorrectAnswer({ question: firstQuestion });
+    });
+    
+    // Verify question is added to candidate pool
+    const candidateQuestions = result.current.getCandidateQuestions('beginner');
+    expect(candidateQuestions.length).toBe(1);
+    expect(candidateQuestions[0]._qid).toBe(firstQuestionId);
+    
+    // Select multiple new questions to ensure the first one never appears again
+    const selectedIds = new Set();
+    
+    // Try to select multiple questions to ensure we never get the first one again
+    for (let i = 0; i < 10; i++) {
+      let nextQuestion;
+      await act(async () => {
+        nextQuestion = result.current.selectQuestion();
+      });
+      
+      if (nextQuestion && nextQuestion.difficulty === 'beginner') {
+        // Verify we never select the first question again
+        expect(nextQuestion._qid).not.toBe(firstQuestionId);
+        selectedIds.add(nextQuestion._qid);
+      }
+    }
+    
+    // We should be able to get other questions from the pool
+    // (but not necessarily all of them in 10 attempts due to random selection)
+    expect(selectedIds.size).toBeGreaterThan(0);
+  });
+
   test('onWrongAnswer should be a no-op function', () => {
-    const { result } = renderHook(() => useQuestionManager(mockGameState, mockUpdateGameState));
+    const { result } = renderHook(() => useQuestionManager());
 
     // onWrongAnswer should exist but do nothing
     expect(() => result.current.onWrongAnswer()).not.toThrow();
+  });
+
+  test('should return null when all questions have been answered correctly', async () => {
+    const { result } = renderHook(() => useQuestionManager());
+
+    // Create a small sample with limited questions to make it easier to answer all
+    const limitedQuestions = {
+      beginner: [
+        { type: 'vocabulary', description: 'word1', answer: 'word1' },
+        { type: 'vocabulary', description: 'word2', answer: 'word2' }
+      ],
+      medium: [
+        { type: 'vocabulary', description: 'word3', answer: 'word3' }
+      ],
+      hard: [
+        { type: 'vocabulary', description: 'word4', answer: 'word4' }
+      ]
+    };
+
+    // Load the limited question set
+    await act(async () => {
+      result.current.updateSamplePool(limitedQuestions);
+    });
+
+    // Answer all questions correctly one by one
+    let question;
+    let answeredCount = 0;
+    const totalQuestions = 
+      limitedQuestions.beginner.length + 
+      limitedQuestions.medium.length + 
+      limitedQuestions.hard.length;
+
+    // Continue selecting and answering questions until we've answered them all
+    while (answeredCount < totalQuestions) {
+      await act(async () => {
+        question = result.current.selectQuestion();
+      });
+
+      // Verify we got a valid question
+      expect(question).not.toBeNull();
+      
+      // Mark it as answered correctly
+      await act(async () => {
+        result.current.onCorrectAnswer({ question });
+      });
+      
+      answeredCount++;
+    }
+    
+    // Verify that we've answered all questions
+    const allCandidates = [
+      ...result.current.getCandidateQuestions('beginner'),
+      ...result.current.getCandidateQuestions('medium'),
+      ...result.current.getCandidateQuestions('hard')
+    ];
+    expect(allCandidates.length).toBe(totalQuestions);
+
+    // Now try to select another question - should return null
+    let finalQuestion;
+    await act(async () => {
+      finalQuestion = result.current.selectQuestion();
+    });
+    
+    // Verify that selectQuestion returns null when all questions are answered
+    expect(finalQuestion).toBeNull();
   });
 });

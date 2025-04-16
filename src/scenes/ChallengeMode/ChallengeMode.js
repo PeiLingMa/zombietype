@@ -30,7 +30,7 @@ export default function ChallengeMode({ onBack }) {
   const themeManager = useThemeManager(gameState, updateGameState);
 
   // Question management
-  const questionManager = useQuestionManager(gameState);
+  const questionManager = useQuestionManager();
 
   // Zombie management
   const zombieManager = useZombieManager();
@@ -123,10 +123,6 @@ export default function ChallengeMode({ onBack }) {
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
   }, [
-    gameState.zombiesDefeated,
-    questionManager.selectQuestion,
-    questionManager.updateCurrentQuestion,
-    playerInput,
     questionManager,
     zombieManager
   ]);
@@ -142,7 +138,7 @@ export default function ChallengeMode({ onBack }) {
     }
   }, [
     themeManager.currentSample,
-    gameState.zombiesDefeated
+    gameState.gameOver
   ]);
 
   // Main game loop - handles zombie charging and lifecycle
