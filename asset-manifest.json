@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/zombietype/static/css/main.f1caf18d.css",
+    "main.js": "/zombietype/static/js/main.8048e5d7.js",
+    "static/js/453.cb905793.chunk.js": "/zombietype/static/js/453.cb905793.chunk.js",
+    "static/media/background.png": "/zombietype/static/media/background.a821481010732a515f6b.png",
+    "static/media/zombie4.png": "/zombietype/static/media/zombie4.df252ac3f8046da252dd.png",
+    "static/media/zombie1.png": "/zombietype/static/media/zombie1.fd501c655a379c7041ca.png",
+    "static/media/zombie2.png": "/zombietype/static/media/zombie2.5ea094a005b0bbf94218.png",
+    "static/media/zombie3.png": "/zombietype/static/media/zombie3.f956656fdcaa119732c7.png",
+    "index.html": "/zombietype/index.html",
+    "main.f1caf18d.css.map": "/zombietype/static/css/main.f1caf18d.css.map",
+    "main.8048e5d7.js.map": "/zombietype/static/js/main.8048e5d7.js.map",
+    "453.cb905793.chunk.js.map": "/zombietype/static/js/453.cb905793.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1caf18d.css",
+    "static/js/main.8048e5d7.js"
+  ]
+}

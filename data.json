@@ -1,0 +1,2770 @@
+{
+  "author": "cjh5958",
+  "version": "1.0",
+  "last_update": "2025-03-11",
+  "topics": {
+    "food": {
+      "beginner": [
+        {
+          "description": "apple",
+          "translation": "蘋果",
+          "PoS": "n.",
+          "answer": "apple",
+          "type": "vocabulary"
+        },
+        {
+          "description": "banana",
+          "translation": "香蕉",
+          "PoS": "n.",
+          "answer": "banana",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bread",
+          "translation": "麵包",
+          "PoS": "n.",
+          "answer": "bread",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cake",
+          "translation": "蛋糕",
+          "PoS": "n.",
+          "answer": "cake",
+          "type": "vocabulary"
+        },
+        {
+          "description": "candy",
+          "translation": "糖果",
+          "PoS": "n.",
+          "answer": "candy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cheese",
+          "translation": "起司",
+          "PoS": "n.",
+          "answer": "cheese",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chicken",
+          "translation": "雞肉",
+          "PoS": "n.",
+          "answer": "chicken",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chocolate",
+          "translation": "巧克力",
+          "PoS": "n.",
+          "answer": "chocolate",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cookie",
+          "translation": "餅乾",
+          "PoS": "n.",
+          "answer": "cookie",
+          "type": "vocabulary"
+        },
+        {
+          "description": "corn",
+          "translation": "玉米",
+          "PoS": "n.",
+          "answer": "corn",
+          "type": "vocabulary"
+        },
+        {
+          "description": "donut",
+          "translation": "甜甜圈",
+          "PoS": "n.",
+          "answer": "donut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "egg",
+          "translation": "蛋",
+          "PoS": "n.",
+          "answer": "egg",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fish",
+          "translation": "魚",
+          "PoS": "n.",
+          "answer": "fish",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fries",
+          "translation": "薯條",
+          "PoS": "n.",
+          "answer": "fries",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grape",
+          "translation": "葡萄",
+          "PoS": "n.",
+          "answer": "grape",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ham",
+          "translation": "火腿",
+          "PoS": "n.",
+          "answer": "ham",
+          "type": "vocabulary"
+        },
+        {
+          "description": "honey",
+          "translation": "蜂蜜",
+          "PoS": "n.",
+          "answer": "honey",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ice cream",
+          "translation": "冰淇淋",
+          "PoS": "n.",
+          "answer": "ice cream",
+          "type": "vocabulary"
+        },
+        {
+          "description": "jam",
+          "translation": "果醬",
+          "PoS": "n.",
+          "answer": "jam",
+          "type": "vocabulary"
+        },
+        {
+          "description": "juice",
+          "translation": "果汁",
+          "PoS": "n.",
+          "answer": "juice",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kiwi",
+          "translation": "奇異果",
+          "PoS": "n.",
+          "answer": "kiwi",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lemon",
+          "translation": "檸檬",
+          "PoS": "n.",
+          "answer": "lemon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lettuce",
+          "translation": "生菜",
+          "PoS": "n.",
+          "answer": "lettuce",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lime",
+          "translation": "萊姆",
+          "PoS": "n.",
+          "answer": "lime",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mango",
+          "translation": "芒果",
+          "PoS": "n.",
+          "answer": "mango",
+          "type": "vocabulary"
+        },
+        {
+          "description": "meat",
+          "translation": "肉",
+          "PoS": "n.",
+          "answer": "meat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "milk",
+          "translation": "牛奶",
+          "PoS": "n.",
+          "answer": "milk",
+          "type": "vocabulary"
+        },
+        {
+          "description": "noodles",
+          "translation": "麵條",
+          "PoS": "n.",
+          "answer": "noodles",
+          "type": "vocabulary"
+        },
+        {
+          "description": "nut",
+          "translation": "堅果",
+          "PoS": "n.",
+          "answer": "nut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "orange",
+          "translation": "橙子",
+          "PoS": "n.",
+          "answer": "orange",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pasta",
+          "translation": "義大利麵",
+          "PoS": "n.",
+          "answer": "pasta",
+          "type": "vocabulary"
+        },
+        {
+          "description": "peach",
+          "translation": "桃子",
+          "PoS": "n.",
+          "answer": "peach",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pear",
+          "translation": "梨子",
+          "PoS": "n.",
+          "answer": "pear",
+          "type": "vocabulary"
+        },
+        {
+          "description": "peas",
+          "translation": "豌豆",
+          "PoS": "n.",
+          "answer": "peas",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pepper",
+          "translation": "胡椒",
+          "PoS": "n.",
+          "answer": "pepper",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pineapple",
+          "translation": "鳳梨",
+          "PoS": "n.",
+          "answer": "pineapple",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pizza",
+          "translation": "披薩",
+          "PoS": "n.",
+          "answer": "pizza",
+          "type": "vocabulary"
+        },
+        {
+          "description": "plum",
+          "translation": "李子",
+          "PoS": "n.",
+          "answer": "plum",
+          "type": "vocabulary"
+        },
+        {
+          "description": "popcorn",
+          "translation": "爆米花",
+          "PoS": "n.",
+          "answer": "popcorn",
+          "type": "vocabulary"
+        },
+        {
+          "description": "potato",
+          "translation": "馬鈴薯",
+          "PoS": "n.",
+          "answer": "potato",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pumpkin",
+          "translation": "南瓜",
+          "PoS": "n.",
+          "answer": "pumpkin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "rice",
+          "translation": "米",
+          "PoS": "n.",
+          "answer": "rice",
+          "type": "vocabulary"
+        },
+        {
+          "description": "salad",
+          "translation": "沙拉",
+          "PoS": "n.",
+          "answer": "salad",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sausage",
+          "translation": "香腸",
+          "PoS": "n.",
+          "answer": "sausage",
+          "type": "vocabulary"
+        },
+        {
+          "description": "soup",
+          "translation": "湯",
+          "PoS": "n.",
+          "answer": "soup",
+          "type": "vocabulary"
+        },
+        {
+          "description": "strawberry",
+          "translation": "草莓",
+          "PoS": "n.",
+          "answer": "strawberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sugar",
+          "translation": "糖",
+          "PoS": "n.",
+          "answer": "sugar",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tea",
+          "translation": "茶",
+          "PoS": "n.",
+          "answer": "tea",
+          "type": "vocabulary"
+        },
+        {
+          "description": "toast",
+          "translation": "吐司",
+          "PoS": "n.",
+          "answer": "toast",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tomato",
+          "translation": "番茄",
+          "PoS": "n.",
+          "answer": "tomato",
+          "type": "vocabulary"
+        },
+        {
+          "description": "water",
+          "translation": "水",
+          "PoS": "n.",
+          "answer": "water",
+          "type": "vocabulary"
+        },
+        {
+          "description": "yogurt",
+          "translation": "優格",
+          "PoS": "n.",
+          "answer": "yogurt",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "almond",
+          "translation": "杏仁",
+          "PoS": "n.",
+          "answer": "almond",
+          "type": "vocabulary"
+        },
+        {
+          "description": "avocado",
+          "translation": "酪梨",
+          "PoS": "n.",
+          "answer": "avocado",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bagel",
+          "translation": "貝果",
+          "PoS": "n.",
+          "answer": "bagel",
+          "type": "vocabulary"
+        },
+        {
+          "description": "basil",
+          "translation": "羅勒",
+          "PoS": "n.",
+          "answer": "basil",
+          "type": "vocabulary"
+        },
+        {
+          "description": "beef",
+          "translation": "牛肉",
+          "PoS": "n.",
+          "answer": "beef",
+          "type": "vocabulary"
+        },
+        {
+          "description": "blueberry",
+          "translation": "藍莓",
+          "PoS": "n.",
+          "answer": "blueberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "butter",
+          "translation": "奶油",
+          "PoS": "n.",
+          "answer": "butter",
+          "type": "vocabulary"
+        },
+        {
+          "description": "carrot",
+          "translation": "胡蘿蔔",
+          "PoS": "n.",
+          "answer": "carrot",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cauliflower",
+          "translation": "花椰菜",
+          "PoS": "n.",
+          "answer": "cauliflower",
+          "type": "vocabulary"
+        },
+        {
+          "description": "celery",
+          "translation": "芹菜",
+          "PoS": "n.",
+          "answer": "celery",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cherry",
+          "translation": "櫻桃",
+          "PoS": "n.",
+          "answer": "cherry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chili",
+          "translation": "辣椒",
+          "PoS": "n.",
+          "answer": "chili",
+          "type": "vocabulary"
+        },
+        {
+          "description": "clams",
+          "translation": "蛤蜊",
+          "PoS": "n.",
+          "answer": "clams",
+          "type": "vocabulary"
+        },
+        {
+          "description": "coconut",
+          "translation": "椰子",
+          "PoS": "n.",
+          "answer": "coconut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cranberry",
+          "translation": "蔓越莓",
+          "PoS": "n.",
+          "answer": "cranberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cucumber",
+          "translation": "黃瓜",
+          "PoS": "n.",
+          "answer": "cucumber",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dill",
+          "translation": "蒔蘿",
+          "PoS": "n.",
+          "answer": "dill",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dragon fruit",
+          "translation": "火龍果",
+          "PoS": "n.",
+          "answer": "dragon fruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fig",
+          "translation": "無花果",
+          "PoS": "n.",
+          "answer": "fig",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ginger",
+          "translation": "生薑",
+          "PoS": "n.",
+          "answer": "ginger",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grapefruit",
+          "translation": "葡萄柚",
+          "PoS": "n.",
+          "answer": "grapefruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hazelnut",
+          "translation": "榛果",
+          "PoS": "n.",
+          "answer": "hazelnut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kale",
+          "translation": "羽衣甘藍",
+          "PoS": "n.",
+          "answer": "kale",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lamb",
+          "translation": "羊肉",
+          "PoS": "n.",
+          "answer": "lamb",
+          "type": "vocabulary"
+        },
+        {
+          "description": "licorice",
+          "translation": "甘草",
+          "PoS": "n.",
+          "answer": "licorice",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lobster",
+          "translation": "龍蝦",
+          "PoS": "n.",
+          "answer": "lobster",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lychee",
+          "translation": "荔枝",
+          "PoS": "n.",
+          "answer": "lychee",
+          "type": "vocabulary"
+        },
+        {
+          "description": "macadamia",
+          "translation": "澳洲堅果",
+          "PoS": "n.",
+          "answer": "macadamia",
+          "type": "vocabulary"
+        },
+        {
+          "description": "melon",
+          "translation": "瓜",
+          "PoS": "n.",
+          "answer": "melon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mozzarella",
+          "translation": "馬茲瑞拉起司",
+          "PoS": "n.",
+          "answer": "mozzarella",
+          "type": "vocabulary"
+        },
+        {
+          "description": "muffin",
+          "translation": "鬆餅",
+          "PoS": "n.",
+          "answer": "muffin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mushroom",
+          "translation": "蘑菇",
+          "PoS": "n.",
+          "answer": "mushroom",
+          "type": "vocabulary"
+        },
+        {
+          "description": "nectarine",
+          "translation": "油桃",
+          "PoS": "n.",
+          "answer": "nectarine",
+          "type": "vocabulary"
+        },
+        {
+          "description": "oatmeal",
+          "translation": "燕麥片",
+          "PoS": "n.",
+          "answer": "oatmeal",
+          "type": "vocabulary"
+        },
+        {
+          "description": "olive",
+          "translation": "橄欖",
+          "PoS": "n.",
+          "answer": "olive",
+          "type": "vocabulary"
+        },
+        {
+          "description": "onion",
+          "translation": "洋蔥",
+          "PoS": "n.",
+          "answer": "onion",
+          "type": "vocabulary"
+        },
+        {
+          "description": "oregano",
+          "translation": "牛至",
+          "PoS": "n.",
+          "answer": "oregano",
+          "type": "vocabulary"
+        },
+        {
+          "description": "papaya",
+          "translation": "木瓜",
+          "PoS": "n.",
+          "answer": "papaya",
+          "type": "vocabulary"
+        },
+        {
+          "description": "parmesan",
+          "translation": "帕瑪森起司",
+          "PoS": "n.",
+          "answer": "parmesan",
+          "type": "vocabulary"
+        },
+        {
+          "description": "parsley",
+          "translation": "香菜",
+          "PoS": "n.",
+          "answer": "parsley",
+          "type": "vocabulary"
+        },
+        {
+          "description": "passion fruit",
+          "translation": "百香果",
+          "PoS": "n.",
+          "answer": "passion fruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pea",
+          "translation": "豌豆",
+          "PoS": "n.",
+          "answer": "pea",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pecan",
+          "translation": "胡桃",
+          "PoS": "n.",
+          "answer": "pecan",
+          "type": "vocabulary"
+        },
+        {
+          "description": "peppermint",
+          "translation": "薄荷",
+          "PoS": "n.",
+          "answer": "peppermint",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pistachio",
+          "translation": "開心果",
+          "PoS": "n.",
+          "answer": "pistachio",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pomegranate",
+          "translation": "石榴",
+          "PoS": "n.",
+          "answer": "pomegranate",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pumpkin seed",
+          "translation": "南瓜籽",
+          "PoS": "n.",
+          "answer": "pumpkin seed",
+          "type": "vocabulary"
+        },
+        {
+          "description": "radish",
+          "translation": "蘿蔔",
+          "PoS": "n.",
+          "answer": "radish",
+          "type": "vocabulary"
+        },
+        {
+          "description": "raspberry",
+          "translation": "覆盆子",
+          "PoS": "n.",
+          "answer": "raspberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "rhubarb",
+          "translation": "大黃",
+          "PoS": "n.",
+          "answer": "rhubarb",
+          "type": "vocabulary"
+        },
+        {
+          "description": "rosemary",
+          "translation": "迷迭香",
+          "PoS": "n.",
+          "answer": "rosemary",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shallot",
+          "translation": "小洋蔥",
+          "PoS": "n.",
+          "answer": "shallot",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shrimp",
+          "translation": "蝦子",
+          "PoS": "n.",
+          "answer": "shrimp",
+          "type": "vocabulary"
+        },
+        {
+          "description": "soybean",
+          "translation": "大豆",
+          "PoS": "n.",
+          "answer": "soybean",
+          "type": "vocabulary"
+        },
+        {
+          "description": "spinach",
+          "translation": "菠菜",
+          "PoS": "n.",
+          "answer": "spinach",
+          "type": "vocabulary"
+        },
+        {
+          "description": "squash",
+          "translation": "南瓜",
+          "PoS": "n.",
+          "answer": "squash",
+          "type": "vocabulary"
+        },
+        {
+          "description": "starfruit",
+          "translation": "楊桃",
+          "PoS": "n.",
+          "answer": "starfruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sunflower seed",
+          "translation": "向日葵種子",
+          "PoS": "n.",
+          "answer": "sunflower seed",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tangerine",
+          "translation": "橘子",
+          "PoS": "n.",
+          "answer": "tangerine",
+          "type": "vocabulary"
+        },
+        {
+          "description": "thyme",
+          "translation": "百里香",
+          "PoS": "n.",
+          "answer": "thyme",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tofu",
+          "translation": "豆腐",
+          "PoS": "n.",
+          "answer": "tofu",
+          "type": "vocabulary"
+        },
+        {
+          "description": "truffle",
+          "translation": "松露",
+          "PoS": "n.",
+          "answer": "truffle",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tuna",
+          "translation": "金槍魚",
+          "PoS": "n.",
+          "answer": "tuna",
+          "type": "vocabulary"
+        },
+        {
+          "description": "turmeric",
+          "translation": "薑黃",
+          "PoS": "n.",
+          "answer": "turmeric",
+          "type": "vocabulary"
+        },
+        {
+          "description": "vanilla",
+          "translation": "香草",
+          "PoS": "n.",
+          "answer": "vanilla",
+          "type": "vocabulary"
+        },
+        {
+          "description": "walnut",
+          "translation": "胡桃",
+          "PoS": "n.",
+          "answer": "walnut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "watermelon",
+          "translation": "西瓜",
+          "PoS": "n.",
+          "answer": "watermelon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wheat",
+          "translation": "小麥",
+          "PoS": "n.",
+          "answer": "wheat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "zucchini",
+          "translation": "西葫蘆",
+          "PoS": "n.",
+          "answer": "zucchini",
+          "type": "vocabulary"
+        }
+      ],
+      "hard": [
+        {
+          "description": "anchovy",
+          "translation": "鯷魚",
+          "PoS": "n.",
+          "answer": "anchovy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "arugula",
+          "translation": "芝麻菜",
+          "PoS": "n.",
+          "answer": "arugula",
+          "type": "vocabulary"
+        },
+        {
+          "description": "artichoke",
+          "translation": "朝鮮薊",
+          "PoS": "n.",
+          "answer": "artichoke",
+          "type": "vocabulary"
+        },
+        {
+          "description": "asparagus",
+          "translation": "蘆筍",
+          "PoS": "n.",
+          "answer": "asparagus",
+          "type": "vocabulary"
+        },
+        {
+          "description": "beetroot",
+          "translation": "甜菜根",
+          "PoS": "n.",
+          "answer": "beetroot",
+          "type": "vocabulary"
+        },
+        {
+          "description": "blackberry",
+          "translation": "黑莓",
+          "PoS": "n.",
+          "answer": "blackberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bok choy",
+          "translation": "小白菜",
+          "PoS": "n.",
+          "answer": "bok choy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "broccoli",
+          "translation": "花椰菜",
+          "PoS": "n.",
+          "answer": "broccoli",
+          "type": "vocabulary"
+        },
+        {
+          "description": "brussels sprouts",
+          "translation": "抱子甘藍",
+          "PoS": "n.",
+          "answer": "brussels sprouts",
+          "type": "vocabulary"
+        },
+        {
+          "description": "caper",
+          "translation": "刺山柑",
+          "PoS": "n.",
+          "answer": "caper",
+          "type": "vocabulary"
+        },
+        {
+          "description": "caviar",
+          "translation": "魚子醬",
+          "PoS": "n.",
+          "answer": "caviar",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chamomile",
+          "translation": "洋甘菊",
+          "PoS": "n.",
+          "answer": "chamomile",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chard",
+          "translation": "瑞士甜菜",
+          "PoS": "n.",
+          "answer": "chard",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chickpea",
+          "translation": "鷹嘴豆",
+          "PoS": "n.",
+          "answer": "chickpea",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chive",
+          "translation": "韭菜",
+          "PoS": "n.",
+          "answer": "chive",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cinnamon",
+          "translation": "肉桂",
+          "PoS": "n.",
+          "answer": "cinnamon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "clove",
+          "translation": "丁香",
+          "PoS": "n.",
+          "answer": "clove",
+          "type": "vocabulary"
+        },
+        {
+          "description": "coriander",
+          "translation": "香菜",
+          "PoS": "n.",
+          "answer": "coriander",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cranberry sauce",
+          "translation": "蔓越莓醬",
+          "PoS": "n.",
+          "answer": "cranberry sauce",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cumin",
+          "translation": "孜然",
+          "PoS": "n.",
+          "answer": "cumin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "daikon",
+          "translation": "白蘿蔔",
+          "PoS": "n.",
+          "answer": "daikon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dragonfruit",
+          "translation": "火龍果",
+          "PoS": "n.",
+          "answer": "dragonfruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "durian",
+          "translation": "榴槤",
+          "PoS": "n.",
+          "answer": "durian",
+          "type": "vocabulary"
+        },
+        {
+          "description": "edamame",
+          "translation": "毛豆",
+          "PoS": "n.",
+          "answer": "edamame",
+          "type": "vocabulary"
+        },
+        {
+          "description": "elderberry",
+          "translation": "接骨木莓",
+          "PoS": "n.",
+          "answer": "elderberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "endive",
+          "translation": "菊苣",
+          "PoS": "n.",
+          "answer": "endive",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fennel",
+          "translation": "茴香",
+          "PoS": "n.",
+          "answer": "fennel",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fenugreek",
+          "translation": "胡芦巴",
+          "PoS": "n.",
+          "answer": "fenugreek",
+          "type": "vocabulary"
+        },
+        {
+          "description": "galangal",
+          "translation": "南薑",
+          "PoS": "n.",
+          "answer": "galangal",
+          "type": "vocabulary"
+        },
+        {
+          "description": "garbanzo bean",
+          "translation": "鷹嘴豆",
+          "PoS": "n.",
+          "answer": "garbanzo bean",
+          "type": "vocabulary"
+        },
+        {
+          "description": "goji berry",
+          "translation": "枸杞",
+          "PoS": "n.",
+          "answer": "goji berry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "gooseberry",
+          "translation": "醋栗",
+          "PoS": "n.",
+          "answer": "gooseberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "guava",
+          "translation": "番石榴",
+          "PoS": "n.",
+          "answer": "guava",
+          "type": "vocabulary"
+        },
+        {
+          "description": "habanero",
+          "translation": "哈瓦那辣椒",
+          "PoS": "n.",
+          "answer": "habanero",
+          "type": "vocabulary"
+        },
+        {
+          "description": "horseradish",
+          "translation": "辣根",
+          "PoS": "n.",
+          "answer": "horseradish",
+          "type": "vocabulary"
+        },
+        {
+          "description": "jackfruit",
+          "translation": "菠蘿蜜",
+          "PoS": "n.",
+          "answer": "jackfruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "jicama",
+          "translation": "洋蔥蘇",
+          "PoS": "n.",
+          "answer": "jicama",
+          "type": "vocabulary"
+        },
+        {
+          "description": "juniper berry",
+          "translation": "杜松果",
+          "PoS": "n.",
+          "answer": "juniper berry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kefir",
+          "translation": "克非爾",
+          "PoS": "n.",
+          "answer": "kefir",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kimchi",
+          "translation": "泡菜",
+          "PoS": "n.",
+          "answer": "kimchi",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kombucha",
+          "translation": "康普茶",
+          "PoS": "n.",
+          "answer": "kombucha",
+          "type": "vocabulary"
+        },
+        {
+          "description": "kumquat",
+          "translation": "金桔",
+          "PoS": "n.",
+          "answer": "kumquat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "litchi",
+          "translation": "荔枝",
+          "PoS": "n.",
+          "answer": "litchi",
+          "type": "vocabulary"
+        },
+        {
+          "description": "marjoram",
+          "translation": "馬郁蘭",
+          "PoS": "n.",
+          "answer": "marjoram",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mirin",
+          "translation": "味醂",
+          "PoS": "n.",
+          "answer": "mirin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "miso",
+          "translation": "味噌",
+          "PoS": "n.",
+          "answer": "miso",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mulberry",
+          "translation": "桑葚",
+          "PoS": "n.",
+          "answer": "mulberry",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mustard seed",
+          "translation": "芥菜種子",
+          "PoS": "n.",
+          "answer": "mustard seed",
+          "type": "vocabulary"
+        },
+        {
+          "description": "nori",
+          "translation": "海苔",
+          "PoS": "n.",
+          "answer": "nori",
+          "type": "vocabulary"
+        },
+        {
+          "description": "nutmeg",
+          "translation": "肉豆蔻",
+          "PoS": "n.",
+          "answer": "nutmeg",
+          "type": "vocabulary"
+        },
+        {
+          "description": "okra",
+          "translation": "秋葵",
+          "PoS": "n.",
+          "answer": "okra",
+          "type": "vocabulary"
+        },
+        {
+          "description": "paprika",
+          "translation": "紅椒粉",
+          "PoS": "n.",
+          "answer": "paprika",
+          "type": "vocabulary"
+        },
+        {
+          "description": "passionfruit",
+          "translation": "百香果",
+          "PoS": "n.",
+          "answer": "passionfruit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "persimmon",
+          "translation": "柿子",
+          "PoS": "n.",
+          "answer": "persimmon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "porcini",
+          "translation": "波奇尼蘑菇",
+          "PoS": "n.",
+          "answer": "porcini",
+          "type": "vocabulary"
+        },
+        {
+          "description": "quinoa",
+          "translation": "藜麥",
+          "PoS": "n.",
+          "answer": "quinoa",
+          "type": "vocabulary"
+        },
+        {
+          "description": "radicchio",
+          "translation": "紅菜頭",
+          "PoS": "n.",
+          "answer": "radicchio",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ramen",
+          "translation": "拉麵",
+          "PoS": "n.",
+          "answer": "ramen",
+          "type": "vocabulary"
+        },
+        {
+          "description": "reishi mushroom",
+          "translation": "靈芝",
+          "PoS": "n.",
+          "answer": "reishi mushroom",
+          "type": "vocabulary"
+        },
+        {
+          "description": "rutabaga",
+          "translation": "蘿蔔",
+          "PoS": "n.",
+          "answer": "rutabaga",
+          "type": "vocabulary"
+        },
+        {
+          "description": "saffron",
+          "translation": "藏紅花",
+          "PoS": "n.",
+          "answer": "saffron",
+          "type": "vocabulary"
+        },
+        {
+          "description": "salsify",
+          "translation": "羅蔔",
+          "PoS": "n.",
+          "answer": "salsify",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sauerkraut",
+          "translation": "酸菜",
+          "PoS": "n.",
+          "answer": "sauerkraut",
+          "type": "vocabulary"
+        },
+        {
+          "description": "scallion",
+          "translation": "蔥",
+          "PoS": "n.",
+          "answer": "scallion",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sesame",
+          "translation": "芝麻",
+          "PoS": "n.",
+          "answer": "sesame",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shallots",
+          "translation": "小洋蔥",
+          "PoS": "n.",
+          "answer": "shallots",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sorrel",
+          "translation": "酢漿草",
+          "PoS": "n.",
+          "answer": "sorrel",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tamarind",
+          "translation": "羅望子",
+          "PoS": "n.",
+          "answer": "tamarind",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tapioca",
+          "translation": "木薯",
+          "PoS": "n.",
+          "answer": "tapioca",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tempeh",
+          "translation": "天貝",
+          "PoS": "n.",
+          "answer": "tempeh",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wasabi",
+          "translation": "山葵",
+          "PoS": "n.",
+          "answer": "wasabi",
+          "type": "vocabulary"
+        },
+        {
+          "description": "watercress",
+          "translation": "水田芥",
+          "PoS": "n.",
+          "answer": "watercress",
+          "type": "vocabulary"
+        },
+        {
+          "description": "yuzu",
+          "translation": "柚子",
+          "PoS": "n.",
+          "answer": "yuzu",
+          "type": "vocabulary"
+        }
+      ]
+    },
+    "animal": {
+      "beginner": [
+        {
+          "description": "dog",
+          "translation": "狗",
+          "PoS": "n.",
+          "answer": "dog",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cat",
+          "translation": "貓",
+          "PoS": "n.",
+          "answer": "cat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "rabbit",
+          "translation": "兔子",
+          "PoS": "n.",
+          "answer": "rabbit",
+          "type": "vocabulary"
+        },
+        {
+          "description": "horse",
+          "translation": "馬",
+          "PoS": "n.",
+          "answer": "horse",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cow",
+          "translation": "牛",
+          "PoS": "n.",
+          "answer": "cow",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pig",
+          "translation": "豬",
+          "PoS": "n.",
+          "answer": "pig",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sheep",
+          "translation": "綿羊",
+          "PoS": "n.",
+          "answer": "sheep",
+          "type": "vocabulary"
+        },
+        {
+          "description": "goat",
+          "translation": "山羊",
+          "PoS": "n.",
+          "answer": "goat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chicken",
+          "translation": "雞",
+          "PoS": "n.",
+          "answer": "chicken",
+          "type": "vocabulary"
+        },
+        {
+          "description": "duck",
+          "translation": "鴨",
+          "PoS": "n.",
+          "answer": "duck",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bird",
+          "translation": "鳥",
+          "PoS": "n.",
+          "answer": "bird",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fish",
+          "translation": "魚",
+          "PoS": "n.",
+          "answer": "fish",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dolphin",
+          "translation": "海豚",
+          "PoS": "n.",
+          "answer": "dolphin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "whale",
+          "translation": "鯨魚",
+          "PoS": "n.",
+          "answer": "whale",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shark",
+          "translation": "鯊魚",
+          "PoS": "n.",
+          "answer": "shark",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tiger",
+          "translation": "老虎",
+          "PoS": "n.",
+          "answer": "tiger",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lion",
+          "translation": "獅子",
+          "PoS": "n.",
+          "answer": "lion",
+          "type": "vocabulary"
+        },
+        {
+          "description": "elephant",
+          "translation": "大象",
+          "PoS": "n.",
+          "answer": "elephant",
+          "type": "vocabulary"
+        },
+        {
+          "description": "monkey",
+          "translation": "猴子",
+          "PoS": "n.",
+          "answer": "monkey",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bear",
+          "translation": "熊",
+          "PoS": "n.",
+          "answer": "bear",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wolf",
+          "translation": "狼",
+          "PoS": "n.",
+          "answer": "wolf",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fox",
+          "translation": "狐狸",
+          "PoS": "n.",
+          "answer": "fox",
+          "type": "vocabulary"
+        },
+        {
+          "description": "snake",
+          "translation": "蛇",
+          "PoS": "n.",
+          "answer": "snake",
+          "type": "vocabulary"
+        },
+        {
+          "description": "frog",
+          "translation": "青蛙",
+          "PoS": "n.",
+          "answer": "frog",
+          "type": "vocabulary"
+        },
+        {
+          "description": "turtle",
+          "translation": "烏龜",
+          "PoS": "n.",
+          "answer": "turtle",
+          "type": "vocabulary"
+        },
+        {
+          "description": "butterfly",
+          "translation": "蝴蝶",
+          "PoS": "n.",
+          "answer": "butterfly",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bee",
+          "translation": "蜜蜂",
+          "PoS": "n.",
+          "answer": "bee",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "clothing": {
+      "beginner": [
+        {
+          "description": "shirt",
+          "translation": "襯衫",
+          "PoS": "n.",
+          "answer": "shirt",
+          "type": "vocabulary"
+        },
+        {
+          "description": "T-shirt",
+          "translation": "短袖上衣",
+          "PoS": "n.",
+          "answer": "T-shirt",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sweater",
+          "translation": "毛衣",
+          "PoS": "n.",
+          "answer": "sweater",
+          "type": "vocabulary"
+        },
+        {
+          "description": "jacket",
+          "translation": "夾克",
+          "PoS": "n.",
+          "answer": "jacket",
+          "type": "vocabulary"
+        },
+        {
+          "description": "coat",
+          "translation": "外套",
+          "PoS": "n.",
+          "answer": "coat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "jeans",
+          "translation": "牛仔褲",
+          "PoS": "n.",
+          "answer": "jeans",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pants",
+          "translation": "長褲",
+          "PoS": "n.",
+          "answer": "pants",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shorts",
+          "translation": "短褲",
+          "PoS": "n.",
+          "answer": "shorts",
+          "type": "vocabulary"
+        },
+        {
+          "description": "skirt",
+          "translation": "裙子",
+          "PoS": "n.",
+          "answer": "skirt",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dress",
+          "translation": "洋裝",
+          "PoS": "n.",
+          "answer": "dress",
+          "type": "vocabulary"
+        },
+        {
+          "description": "socks",
+          "translation": "襪子",
+          "PoS": "n.",
+          "answer": "socks",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shoes",
+          "translation": "鞋子",
+          "PoS": "n.",
+          "answer": "shoes",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sandals",
+          "translation": "涼鞋",
+          "PoS": "n.",
+          "answer": "sandals",
+          "type": "vocabulary"
+        },
+        {
+          "description": "boots",
+          "translation": "靴子",
+          "PoS": "n.",
+          "answer": "boots",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hat",
+          "translation": "帽子",
+          "PoS": "n.",
+          "answer": "hat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cap",
+          "translation": "鴨舌帽",
+          "PoS": "n.",
+          "answer": "cap",
+          "type": "vocabulary"
+        },
+        {
+          "description": "scarf",
+          "translation": "圍巾",
+          "PoS": "n.",
+          "answer": "scarf",
+          "type": "vocabulary"
+        },
+        {
+          "description": "gloves",
+          "translation": "手套",
+          "PoS": "n.",
+          "answer": "gloves",
+          "type": "vocabulary"
+        },
+        {
+          "description": "belt",
+          "translation": "皮帶",
+          "PoS": "n.",
+          "answer": "belt",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tie",
+          "translation": "領帶",
+          "PoS": "n.",
+          "answer": "tie",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sunglasses",
+          "translation": "太陽眼鏡",
+          "PoS": "n.",
+          "answer": "sunglasses",
+          "type": "vocabulary"
+        },
+        {
+          "description": "glasses",
+          "translation": "眼鏡",
+          "PoS": "n.",
+          "answer": "glasses",
+          "type": "vocabulary"
+        },
+        {
+          "description": "watch",
+          "translation": "手錶",
+          "PoS": "n.",
+          "answer": "watch",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bracelet",
+          "translation": "手鍊",
+          "PoS": "n.",
+          "answer": "bracelet",
+          "type": "vocabulary"
+        },
+        {
+          "description": "necklace",
+          "translation": "項鍊",
+          "PoS": "n.",
+          "answer": "necklace",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ring",
+          "translation": "戒指",
+          "PoS": "n.",
+          "answer": "ring",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "color": {
+      "beginner": [
+        {
+          "description": "red",
+          "translation": "紅色",
+          "PoS": "adj.",
+          "answer": "red",
+          "type": "vocabulary"
+        },
+        {
+          "description": "blue",
+          "translation": "藍色",
+          "PoS": "adj.",
+          "answer": "blue",
+          "type": "vocabulary"
+        },
+        {
+          "description": "yellow",
+          "translation": "黃色",
+          "PoS": "adj.",
+          "answer": "yellow",
+          "type": "vocabulary"
+        },
+        {
+          "description": "green",
+          "translation": "綠色",
+          "PoS": "adj.",
+          "answer": "green",
+          "type": "vocabulary"
+        },
+        {
+          "description": "orange",
+          "translation": "橙色",
+          "PoS": "adj.",
+          "answer": "orange",
+          "type": "vocabulary"
+        },
+        {
+          "description": "purple",
+          "translation": "紫色",
+          "PoS": "adj.",
+          "answer": "purple",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pink",
+          "translation": "粉紅色",
+          "PoS": "adj.",
+          "answer": "pink",
+          "type": "vocabulary"
+        },
+        {
+          "description": "brown",
+          "translation": "棕色",
+          "PoS": "adj.",
+          "answer": "brown",
+          "type": "vocabulary"
+        },
+        {
+          "description": "black",
+          "translation": "黑色",
+          "PoS": "adj.",
+          "answer": "black",
+          "type": "vocabulary"
+        },
+        {
+          "description": "white",
+          "translation": "白色",
+          "PoS": "adj.",
+          "answer": "white",
+          "type": "vocabulary"
+        },
+        {
+          "description": "gray",
+          "translation": "灰色",
+          "PoS": "adj.",
+          "answer": "gray",
+          "type": "vocabulary"
+        },
+        {
+          "description": "silver",
+          "translation": "銀色",
+          "PoS": "adj.",
+          "answer": "silver",
+          "type": "vocabulary"
+        },
+        {
+          "description": "gold",
+          "translation": "金色",
+          "PoS": "adj.",
+          "answer": "gold",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "body": {
+      "beginner": [
+        {
+          "description": "head",
+          "translation": "頭",
+          "PoS": "n.",
+          "answer": "head",
+          "type": "vocabulary"
+        },
+        {
+          "description": "face",
+          "translation": "臉",
+          "PoS": "n.",
+          "answer": "face",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hair",
+          "translation": "頭髮",
+          "PoS": "n.",
+          "answer": "hair",
+          "type": "vocabulary"
+        },
+        {
+          "description": "eye",
+          "translation": "眼睛",
+          "PoS": "n.",
+          "answer": "eye",
+          "type": "vocabulary"
+        },
+        {
+          "description": "ear",
+          "translation": "耳朵",
+          "PoS": "n.",
+          "answer": "ear",
+          "type": "vocabulary"
+        },
+        {
+          "description": "nose",
+          "translation": "鼻子",
+          "PoS": "n.",
+          "answer": "nose",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mouth",
+          "translation": "嘴巴",
+          "PoS": "n.",
+          "answer": "mouth",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lip",
+          "translation": "嘴唇",
+          "PoS": "n.",
+          "answer": "lip",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tooth",
+          "translation": "牙齒",
+          "PoS": "n.",
+          "answer": "tooth",
+          "type": "vocabulary"
+        },
+        {
+          "description": "teeth",
+          "translation": "牙齒（複數）",
+          "PoS": "n.",
+          "answer": "teeth",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tongue",
+          "translation": "舌頭",
+          "PoS": "n.",
+          "answer": "tongue",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chin",
+          "translation": "下巴",
+          "PoS": "n.",
+          "answer": "chin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "neck",
+          "translation": "脖子",
+          "PoS": "n.",
+          "answer": "neck",
+          "type": "vocabulary"
+        },
+        {
+          "description": "shoulder",
+          "translation": "肩膀",
+          "PoS": "n.",
+          "answer": "shoulder",
+          "type": "vocabulary"
+        },
+        {
+          "description": "arm",
+          "translation": "手臂",
+          "PoS": "n.",
+          "answer": "arm",
+          "type": "vocabulary"
+        },
+        {
+          "description": "elbow",
+          "translation": "手肘",
+          "PoS": "n.",
+          "answer": "elbow",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hand",
+          "translation": "手",
+          "PoS": "n.",
+          "answer": "hand",
+          "type": "vocabulary"
+        },
+        {
+          "description": "finger",
+          "translation": "手指",
+          "PoS": "n.",
+          "answer": "finger",
+          "type": "vocabulary"
+        },
+        {
+          "description": "thumb",
+          "translation": "拇指",
+          "PoS": "n.",
+          "answer": "thumb",
+          "type": "vocabulary"
+        },
+        {
+          "description": "chest",
+          "translation": "胸部",
+          "PoS": "n.",
+          "answer": "chest",
+          "type": "vocabulary"
+        },
+        {
+          "description": "stomach",
+          "translation": "胃",
+          "PoS": "n.",
+          "answer": "stomach",
+          "type": "vocabulary"
+        },
+        {
+          "description": "back",
+          "translation": "背部",
+          "PoS": "n.",
+          "answer": "back",
+          "type": "vocabulary"
+        },
+        {
+          "description": "leg",
+          "translation": "腿",
+          "PoS": "n.",
+          "answer": "leg",
+          "type": "vocabulary"
+        },
+        {
+          "description": "knee",
+          "translation": "膝蓋",
+          "PoS": "n.",
+          "answer": "knee",
+          "type": "vocabulary"
+        },
+        {
+          "description": "foot",
+          "translation": "腳",
+          "PoS": "n.",
+          "answer": "foot",
+          "type": "vocabulary"
+        },
+        {
+          "description": "feet",
+          "translation": "腳（複數）",
+          "PoS": "n.",
+          "answer": "feet",
+          "type": "vocabulary"
+        },
+        {
+          "description": "toe",
+          "translation": "腳趾",
+          "PoS": "n.",
+          "answer": "toe",
+          "type": "vocabulary"
+        },
+        {
+          "description": "skin",
+          "translation": "皮膚",
+          "PoS": "n.",
+          "answer": "skin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "heart",
+          "translation": "心臟",
+          "PoS": "n.",
+          "answer": "heart",
+          "type": "vocabulary"
+        },
+        {
+          "description": "brain",
+          "translation": "大腦",
+          "PoS": "n.",
+          "answer": "brain",
+          "type": "vocabulary"
+        },
+        {
+          "description": "bone",
+          "translation": "骨頭",
+          "PoS": "n.",
+          "answer": "bone",
+          "type": "vocabulary"
+        },
+        {
+          "description": "muscle",
+          "translation": "肌肉",
+          "PoS": "n.",
+          "answer": "muscle",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "relationship": {
+      "beginner": [
+        {
+          "description": "father",
+          "translation": "父親",
+          "PoS": "n.",
+          "answer": "father",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mother",
+          "translation": "母親",
+          "PoS": "n.",
+          "answer": "mother",
+          "type": "vocabulary"
+        },
+        {
+          "description": "dad",
+          "translation": "爸爸",
+          "PoS": "n.",
+          "answer": "dad",
+          "type": "vocabulary"
+        },
+        {
+          "description": "mom",
+          "translation": "媽媽",
+          "PoS": "n.",
+          "answer": "mom",
+          "type": "vocabulary"
+        },
+        {
+          "description": "brother",
+          "translation": "兄弟",
+          "PoS": "n.",
+          "answer": "brother",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sister",
+          "translation": "姐妹",
+          "PoS": "n.",
+          "answer": "sister",
+          "type": "vocabulary"
+        },
+        {
+          "description": "son",
+          "translation": "兒子",
+          "PoS": "n.",
+          "answer": "son",
+          "type": "vocabulary"
+        },
+        {
+          "description": "daughter",
+          "translation": "女兒",
+          "PoS": "n.",
+          "answer": "daughter",
+          "type": "vocabulary"
+        },
+        {
+          "description": "uncle",
+          "translation": "叔叔",
+          "PoS": "n.",
+          "answer": "uncle",
+          "type": "vocabulary"
+        },
+        {
+          "description": "aunt",
+          "translation": "阿姨",
+          "PoS": "n.",
+          "answer": "aunt",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cousin",
+          "translation": "堂表兄弟姐妹",
+          "PoS": "n.",
+          "answer": "cousin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grandfather",
+          "translation": "祖父",
+          "PoS": "n.",
+          "answer": "grandfather",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grandmother",
+          "translation": "祖母",
+          "PoS": "n.",
+          "answer": "grandmother",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grandpa",
+          "translation": "爺爺",
+          "PoS": "n.",
+          "answer": "grandpa",
+          "type": "vocabulary"
+        },
+        {
+          "description": "grandma",
+          "translation": "奶奶",
+          "PoS": "n.",
+          "answer": "grandma",
+          "type": "vocabulary"
+        },
+        {
+          "description": "baby",
+          "translation": "嬰兒",
+          "PoS": "n.",
+          "answer": "baby",
+          "type": "vocabulary"
+        },
+        {
+          "description": "child",
+          "translation": "孩子",
+          "PoS": "n.",
+          "answer": "child",
+          "type": "vocabulary"
+        },
+        {
+          "description": "children",
+          "translation": "孩子們",
+          "PoS": "n.",
+          "answer": "children",
+          "type": "vocabulary"
+        },
+        {
+          "description": "boy",
+          "translation": "男孩",
+          "PoS": "n.",
+          "answer": "boy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "girl",
+          "translation": "女孩",
+          "PoS": "n.",
+          "answer": "girl",
+          "type": "vocabulary"
+        },
+        {
+          "description": "man",
+          "translation": "男人",
+          "PoS": "n.",
+          "answer": "man",
+          "type": "vocabulary"
+        },
+        {
+          "description": "woman",
+          "translation": "女人",
+          "PoS": "n.",
+          "answer": "woman",
+          "type": "vocabulary"
+        },
+        {
+          "description": "friend",
+          "translation": "朋友",
+          "PoS": "n.",
+          "answer": "friend",
+          "type": "vocabulary"
+        },
+        {
+          "description": "best friend",
+          "translation": "摯友",
+          "PoS": "n.",
+          "answer": "best friend",
+          "type": "vocabulary"
+        },
+        {
+          "description": "neighbor",
+          "translation": "鄰居",
+          "PoS": "n.",
+          "answer": "neighbor",
+          "type": "vocabulary"
+        },
+        {
+          "description": "teacher",
+          "translation": "老師",
+          "PoS": "n.",
+          "answer": "teacher",
+          "type": "vocabulary"
+        },
+        {
+          "description": "student",
+          "translation": "學生",
+          "PoS": "n.",
+          "answer": "student",
+          "type": "vocabulary"
+        },
+        {
+          "description": "classmate",
+          "translation": "同學",
+          "PoS": "n.",
+          "answer": "classmate",
+          "type": "vocabulary"
+        },
+        {
+          "description": "roommate",
+          "translation": "室友",
+          "PoS": "n.",
+          "answer": "roommate",
+          "type": "vocabulary"
+        },
+        {
+          "description": "husband",
+          "translation": "丈夫",
+          "PoS": "n.",
+          "answer": "husband",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wife",
+          "translation": "妻子",
+          "PoS": "n.",
+          "answer": "wife",
+          "type": "vocabulary"
+        },
+        {
+          "description": "couple",
+          "translation": "夫妻",
+          "PoS": "n.",
+          "answer": "couple",
+          "type": "vocabulary"
+        },
+        {
+          "description": "family",
+          "translation": "家庭",
+          "PoS": "n.",
+          "answer": "family",
+          "type": "vocabulary"
+        },
+        {
+          "description": "love",
+          "translation": "愛",
+          "PoS": "n.",
+          "answer": "love",
+          "type": "vocabulary"
+        },
+        {
+          "description": "home",
+          "translation": "家",
+          "PoS": "n.",
+          "answer": "home",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [],
+      "hard": []
+    },
+    "weather": {
+      "beginner": [
+        {
+          "description": "rain",
+          "translation": "雨",
+          "PoS": "n.",
+          "answer": "rain",
+          "type": "vocabulary"
+        },
+        {
+          "description": "snow",
+          "translation": "雪",
+          "PoS": "n.",
+          "answer": "snow",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wind",
+          "translation": "風",
+          "PoS": "n.",
+          "answer": "wind",
+          "type": "vocabulary"
+        },
+        {
+          "description": "sunny",
+          "translation": "晴朗的",
+          "PoS": "adj.",
+          "answer": "sunny",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cloudy",
+          "translation": "多雲的",
+          "PoS": "adj.",
+          "answer": "cloudy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "foggy",
+          "translation": "有霧的",
+          "PoS": "adj.",
+          "answer": "foggy",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cold",
+          "translation": "冷的",
+          "PoS": "adj.",
+          "answer": "cold",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hot",
+          "translation": "熱的",
+          "PoS": "adj.",
+          "answer": "hot",
+          "type": "vocabulary"
+        },
+        {
+          "description": "warm",
+          "translation": "溫暖的",
+          "PoS": "adj.",
+          "answer": "warm",
+          "type": "vocabulary"
+        },
+        {
+          "description": "storm",
+          "translation": "暴風雨",
+          "PoS": "n.",
+          "answer": "storm",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "hurricane",
+          "translation": "颶風",
+          "PoS": "n.",
+          "answer": "hurricane",
+          "type": "vocabulary"
+        },
+        {
+          "description": "typhoon",
+          "translation": "颱風",
+          "PoS": "n.",
+          "answer": "typhoon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tornado",
+          "translation": "龍捲風",
+          "PoS": "n.",
+          "answer": "tornado",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lightning",
+          "translation": "閃電",
+          "PoS": "n.",
+          "answer": "lightning",
+          "type": "vocabulary"
+        },
+        {
+          "description": "thunder",
+          "translation": "雷",
+          "PoS": "n.",
+          "answer": "thunder",
+          "type": "vocabulary"
+        },
+        {
+          "description": "drizzle",
+          "translation": "毛毛雨",
+          "PoS": "n.",
+          "answer": "drizzle",
+          "type": "vocabulary"
+        },
+        {
+          "description": "downpour",
+          "translation": "傾盆大雨",
+          "PoS": "n.",
+          "answer": "downpour",
+          "type": "vocabulary"
+        },
+        {
+          "description": "humidity",
+          "translation": "濕度",
+          "PoS": "n.",
+          "answer": "humidity",
+          "type": "vocabulary"
+        },
+        {
+          "description": "drought",
+          "translation": "乾旱",
+          "PoS": "n.",
+          "answer": "drought",
+          "type": "vocabulary"
+        },
+        {
+          "description": "blizzard",
+          "translation": "暴風雪",
+          "PoS": "n.",
+          "answer": "blizzard",
+          "type": "vocabulary"
+        }
+      ],
+      "hard": [
+        {
+          "description": "sleet",
+          "translation": "雨夾雪",
+          "PoS": "n.",
+          "answer": "sleet",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hail",
+          "translation": "冰雹",
+          "PoS": "n.",
+          "answer": "hail",
+          "type": "vocabulary"
+        },
+        {
+          "description": "avalanche",
+          "translation": "雪崩",
+          "PoS": "n.",
+          "answer": "avalanche",
+          "type": "vocabulary"
+        },
+        {
+          "description": "meteorology",
+          "translation": "氣象學",
+          "PoS": "n.",
+          "answer": "meteorology",
+          "type": "vocabulary"
+        },
+        {
+          "description": "precipitation",
+          "translation": "降水",
+          "PoS": "n.",
+          "answer": "precipitation",
+          "type": "vocabulary"
+        },
+        {
+          "description": "barometer",
+          "translation": "氣壓計",
+          "PoS": "n.",
+          "answer": "barometer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "thermometer",
+          "translation": "溫度計",
+          "PoS": "n.",
+          "answer": "thermometer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "forecast",
+          "translation": "預報",
+          "PoS": "n.",
+          "answer": "forecast",
+          "type": "vocabulary"
+        },
+        {
+          "description": "overcast",
+          "translation": "陰天",
+          "PoS": "adj.",
+          "answer": "overcast",
+          "type": "vocabulary"
+        },
+        {
+          "description": "microburst",
+          "translation": "微下擊暴流",
+          "PoS": "n.",
+          "answer": "microburst",
+          "type": "vocabulary"
+        }
+      ]
+    },
+    "sports": {
+      "beginner": [
+        {
+          "description": "soccer",
+          "translation": "足球",
+          "PoS": "n.",
+          "answer": "soccer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "basketball",
+          "translation": "籃球",
+          "PoS": "n.",
+          "answer": "basketball",
+          "type": "vocabulary"
+        },
+        {
+          "description": "baseball",
+          "translation": "棒球",
+          "PoS": "n.",
+          "answer": "baseball",
+          "type": "vocabulary"
+        },
+        {
+          "description": "football",
+          "translation": "美式足球",
+          "PoS": "n.",
+          "answer": "football",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tennis",
+          "translation": "網球",
+          "PoS": "n.",
+          "answer": "tennis",
+          "type": "vocabulary"
+        },
+        {
+          "description": "swimming",
+          "translation": "游泳",
+          "PoS": "n.",
+          "answer": "swimming",
+          "type": "vocabulary"
+        },
+        {
+          "description": "running",
+          "translation": "跑步",
+          "PoS": "n.",
+          "answer": "running",
+          "type": "vocabulary"
+        },
+        {
+          "description": "volleyball",
+          "translation": "排球",
+          "PoS": "n.",
+          "answer": "volleyball",
+          "type": "vocabulary"
+        },
+        {
+          "description": "golf",
+          "translation": "高爾夫",
+          "PoS": "n.",
+          "answer": "golf",
+          "type": "vocabulary"
+        },
+        {
+          "description": "skating",
+          "translation": "溜冰",
+          "PoS": "n.",
+          "answer": "skating",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "badminton",
+          "translation": "羽毛球",
+          "PoS": "n.",
+          "answer": "badminton",
+          "type": "vocabulary"
+        },
+        {
+          "description": "skiing",
+          "translation": "滑雪",
+          "PoS": "n.",
+          "answer": "skiing",
+          "type": "vocabulary"
+        },
+        {
+          "description": "snowboarding",
+          "translation": "滑雪板",
+          "PoS": "n.",
+          "answer": "snowboarding",
+          "type": "vocabulary"
+        },
+        {
+          "description": "gymnastics",
+          "translation": "體操",
+          "PoS": "n.",
+          "answer": "gymnastics",
+          "type": "vocabulary"
+        },
+        {
+          "description": "boxing",
+          "translation": "拳擊",
+          "PoS": "n.",
+          "answer": "boxing",
+          "type": "vocabulary"
+        },
+        {
+          "description": "wrestling",
+          "translation": "摔跤",
+          "PoS": "n.",
+          "answer": "wrestling",
+          "type": "vocabulary"
+        },
+        {
+          "description": "martial arts",
+          "translation": "武術",
+          "PoS": "n.",
+          "answer": "martial arts",
+          "type": "vocabulary"
+        },
+        {
+          "description": "cycling",
+          "translation": "騎自行車",
+          "PoS": "n.",
+          "answer": "cycling",
+          "type": "vocabulary"
+        },
+        {
+          "description": "surfing",
+          "translation": "衝浪",
+          "PoS": "n.",
+          "answer": "surfing",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hockey",
+          "translation": "曲棍球",
+          "PoS": "n.",
+          "answer": "hockey",
+          "type": "vocabulary"
+        }
+      ],
+      "hard": [
+        {
+          "description": "lacrosse",
+          "translation": "長曲棍球",
+          "PoS": "n.",
+          "answer": "lacrosse",
+          "type": "vocabulary"
+        },
+        {
+          "description": "javelin",
+          "translation": "標槍",
+          "PoS": "n.",
+          "answer": "javelin",
+          "type": "vocabulary"
+        },
+        {
+          "description": "archery",
+          "translation": "射箭",
+          "PoS": "n.",
+          "answer": "archery",
+          "type": "vocabulary"
+        },
+        {
+          "description": "fencing",
+          "translation": "擊劍",
+          "PoS": "n.",
+          "answer": "fencing",
+          "type": "vocabulary"
+        },
+        {
+          "description": "biathlon",
+          "translation": "冬季兩項",
+          "PoS": "n.",
+          "answer": "biathlon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "decathlon",
+          "translation": "十項全能",
+          "PoS": "n.",
+          "answer": "decathlon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pentathlon",
+          "translation": "五項全能",
+          "PoS": "n.",
+          "answer": "pentathlon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "curling",
+          "translation": "冰壺",
+          "PoS": "n.",
+          "answer": "curling",
+          "type": "vocabulary"
+        },
+        {
+          "description": "equestrian",
+          "translation": "馬術",
+          "PoS": "n.",
+          "answer": "equestrian",
+          "type": "vocabulary"
+        },
+        {
+          "description": "synchronized swimming",
+          "translation": "花樣游泳",
+          "PoS": "n.",
+          "answer": "synchronized swimming",
+          "type": "vocabulary"
+        }
+      ]
+    }
+  }
+}
