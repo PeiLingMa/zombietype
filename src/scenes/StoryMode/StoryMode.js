@@ -4,6 +4,9 @@ import Navbar from './component/Navbar';
 import './test.css';
 import Question from './component/Question';
 
+// TODO: 加入選單介面 UX邏輯應該是玩家先進入選單然後，選擇要進入的故事，然後再進入對話模式 does not have to do this at this script
+// TODO: StoryEditor page 介面，讓USER可以創建和編輯對話內容和題目 does not have to do this at this script
+
 export default function StoryMode({ onBack }) {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -17,9 +20,9 @@ export default function StoryMode({ onBack }) {
     if (currentScene) {
       setDialogueHistory((prevHistory) => [
         ...prevHistory,
-        { character: currentScene.character, dialogue: currentScene.dialogue } // 將當前對話加入紀錄
+        { character: character, dialogue: dialogue } // 將當前對話加入紀錄
       ]);
-      console.log('對話紀錄', currentScene.character, currentScene.dialogue);
+      // console.log('對話紀錄', currentScene.character, currentScene.dialogue);
     }
   };
 
@@ -33,12 +36,27 @@ export default function StoryMode({ onBack }) {
   const handleSkip = () => {
     if (isTyping) {
       // 完成打字效果
-      setDisplayText(`${currentScene.dialogue}\n`);
+      // setDisplayText(`${currentScene.dialogue}\n`);
       setIsTyping(false);
       return;
     }
-    // 跳到最後一個場景 (無論之前是否正在打字，都會跳到最後)
-    setIndex(sceneData.length - 1);
+    let tempIndex = index;
+
+    while (tempIndex < sceneData.length - 1) {
+      const sceneToSkip = sceneData[tempIndex];
+      if (sceneToSkip) {
+        updateDialogueHistory(sceneToSkip.character, sceneToSkip.dialogue); // 更新對話紀錄
+        console.log('對話紀錄', sceneToSkip.character, sceneToSkip.dialogue);
+        setDisplayText(`${sceneToSkip.dialogue}\n`); // 立即顯示完整對話
+      }
+      if (sceneData[tempIndex + 1]?.type === 'question') {
+        // 預先檢查下一個場景是否為問題，如果是則停止跳過
+        break;
+      }
+      tempIndex++;
+    }
+    setIndex(tempIndex < sceneData.length - 1 ? tempIndex + 1 : sceneData.length - 1); // 確保 index 不超出範圍
+    setIsTyping(false);
   };
 
   const handleAuto = () => {
@@ -46,7 +64,7 @@ export default function StoryMode({ onBack }) {
   };
 
   const handleChoiceSelect = (choice) => {
-    // TODO:暫時先點擊選項後 handleNext
+    // TODO:暫時先點擊選項後 handleNext 反正題目還沒確定
     handleNext();
   };
 
