@@ -111,7 +111,8 @@ export default function ChallengeMode({ onBack }) {
     const question = questionManager.selectQuestion();
 
     if (!question) {
-      console.warn('No questions available in the current pool');
+      console.warn('題庫中沒有題目了，進行主題輪替中...');
+      themeManager.rotateToNextTheme();
       return;
     }
 
@@ -129,17 +130,18 @@ export default function ChallengeMode({ onBack }) {
 
   // Initialize game, generate first zombie
   useEffect(() => {
-    if (themeManager.currentSample && !gameState.gameOver) {
-      // Update QuestionManager's sample pool
+    // 檢查 currentSample 不只是存在，而且有內容
+    const hasSamples = themeManager.currentSample && (
+      themeManager.currentSample.beginner.length > 0 ||
+      themeManager.currentSample.medium.length > 0 ||
+      themeManager.currentSample.hard.length > 0
+    );
+    
+    if (hasSamples && !gameState.gameOver) {
       questionManager.updateSamplePool(themeManager.currentSample);
-
-      // Generate zombie and question
       generateNewZombie();
     }
-  }, [
-    themeManager.currentSample,
-    gameState.gameOver
-  ]);
+  }, [themeManager.currentSample, gameState.gameOver]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {

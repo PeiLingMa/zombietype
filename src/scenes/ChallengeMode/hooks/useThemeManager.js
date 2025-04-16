@@ -12,6 +12,8 @@ import { GAME_CONFIG } from '../gameConfig';
 export const useThemeManager = (gameState, updateGameState) => {
   // Reference to store all available data from data.json
   const allThemeData = useRef(null);
+  // 追蹤初始化狀態的 ref
+  const isInitialized = useRef(false);
 
   // Current theme sample (subset of questions selected for current theme)
   const [currentSample, setCurrentSample] = useState({
@@ -42,21 +44,33 @@ export const useThemeManager = (gameState, updateGameState) => {
    * @returns {string} Selected theme name
    */
   const selectNextTheme = useCallback(() => {
+    // 使用臨時變數 themeList 來跟踪正確的值
+    let themeList = [];
+    
     if (!gameState.remainingThemes || gameState.remainingThemes.length === 0) {
-      // If all themes have been used, refill the pool
+      console.log('refilling the pool');
+      // 如果題庫為空，使用完整的主題池
+      themeList = [...GAME_CONFIG.THEME_POOL];
+      
+      // 更新狀態 (這不會立即生效，但沒關係，因為我們已經有正確的值在 themeList)
       updateGameState({
-        remainingThemes: [...GAME_CONFIG.THEME_POOL]
+        remainingThemes: [...themeList]
       });
+    } else {
+      // 否則使用現有的主題列表
+      themeList = [...gameState.remainingThemes];
     }
 
-    // Select the first theme from remaining themes
-    const remainingThemes = [...gameState.remainingThemes];
-    const nextTheme = remainingThemes.shift();
-
-    // Update game state with new theme and remaining themes
+    // 從臨時變數中選擇第一個主題
+    const nextTheme = themeList[0];
+    
+    // 從臨時變數中移除第一個主題
+    const updatedThemes = themeList.slice(1);
+    
+    // 更新狀態中的剩餘主題
     updateGameState({
       currentTheme: nextTheme,
-      remainingThemes: remainingThemes
+      remainingThemes: updatedThemes
     });
 
     return nextTheme;
@@ -104,8 +118,6 @@ export const useThemeManager = (gameState, updateGameState) => {
    */
   const createThemeSample = useCallback(
     (theme) => {
-      if (!allThemeData.current || !theme) return;
-
       // Get data for the current theme
       const themeData = allThemeData.current.topics[theme];
       if (!themeData) return;
@@ -158,14 +170,23 @@ export const useThemeManager = (gameState, updateGameState) => {
   // Initialize theme data on first load
   useEffect(() => {
     async function initializeThemeData() {
+      if (isInitialized.current) return;
+      
+      console.log('Fetching theme data...');
       const data = await loadThemeData();
-      console.log('Fetched theme data');
-      if (data && (!gameState.currentTheme || gameState.currentTheme === '')) {
-        selectNextTheme();
+      
+      if (data) {
+        isInitialized.current = true;
+        
+        // 只有在尚未設置主題時才設置
+        if (!gameState.currentTheme || gameState.currentTheme === '') {
+          selectNextTheme();
+        }
       }
     }
+    
     initializeThemeData();
-  }, [loadThemeData, selectNextTheme, gameState.currentTheme]);
+  }, []); // 空依賴陣列，確保只執行一次
 
   // Create sample when theme changes
   useEffect(() => {
