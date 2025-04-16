@@ -6,6 +6,9 @@
   left: 65%;
   cursor: pointer;
 }
+.navbar-auto.active {
+  color: #ffd700;
+}
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
   .navbar {

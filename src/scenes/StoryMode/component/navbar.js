@@ -3,7 +3,7 @@ import Options from '../../Option/Option';
 import './Navbar.css';
 import Log from './Log';
 
-export default function Navbar({ dialogueHistory }) {
+export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto }) {
   const [isLogVisible, setIsLogVisible] = useState(false);
 
   const handleLogClick = () => {
@@ -15,10 +15,16 @@ export default function Navbar({ dialogueHistory }) {
   };
   return (
     <div class="navbar">
-      <button className="navbar-auto">
+      <button
+        className={`navbar-auto ${isAuto ? 'active' : ''}`}
+        onClick={onAuto}
+      >
         <p>auto</p>
       </button>
-      <button className="navbar-skip">
+      <button
+        className="navbar-skip"
+        onClick={onSkip}
+      >
         <p>skip</p>
       </button>
       <button

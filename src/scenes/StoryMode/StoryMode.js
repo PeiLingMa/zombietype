@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import sceneData from './script';
 import Navbar from './component/Navbar';
 import './test.css';
+import Question from './component/Question';
 
 export default function StoryMode({ onBack }) {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [dialogueHistory, setDialogueHistory] = useState([]);
+  const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
   const currentScene = sceneData[index];
 
@@ -21,10 +23,37 @@ export default function StoryMode({ onBack }) {
     }
   };
 
+  const handleNext = useCallback(() => {
+    if (isTyping) return;
+    if (index < sceneData.length - 1) {
+      setIndex(index + 1);
+    }
+  });
+
+  const handleSkip = () => {
+    if (isTyping) {
+      // 完成打字效果
+      setDisplayText(`${currentScene.dialogue}\n`);
+      setIsTyping(false);
+      return;
+    }
+    // 跳到最後一個場景 (無論之前是否正在打字，都會跳到最後)
+    setIndex(sceneData.length - 1);
+  };
+
+  const handleAuto = () => {
+    setIsAuto(!isAuto);
+  };
+
+  const handleChoiceSelect = (choice) => {
+    // TODO:暫時先點擊選項後 handleNext
+    handleNext();
+  };
+
   useEffect(() => {
-    let i = 0;
     setDisplayText('');
     setIsTyping(true);
+    let i = -1; // avoid missing first word
     const interval = setInterval(() => {
       if (currentScene && currentScene.dialogue && i < currentScene.dialogue.length - 1) {
         // 確保 currentScene 和 currentScene.dialogue 存在
@@ -39,12 +68,15 @@ export default function StoryMode({ onBack }) {
     return () => clearInterval(interval);
   }, [index]);
 
-  const handleNext = () => {
-    if (isTyping) return;
-    if (index < sceneData.length - 1) {
-      setIndex(index + 1);
+  useEffect(() => {
+    if (currentScene?.type === 'question') return; // 遇到問題時，則不執行自動播放
+    if (isAuto && !isTyping) {
+      const timer = setTimeout(() => {
+        handleNext();
+      }, 500); // 使用自動播放時，各句子間隔時間
+      return () => clearTimeout(timer);
     }
-  };
+  }, [currentScene.type, isAuto, isTyping, handleNext]);
 
   return (
     <div className="cutscene-container">
@@ -56,16 +88,31 @@ export default function StoryMode({ onBack }) {
           alt={currentScene.character}
           className="character"
         />
-        <Navbar dialogueHistory={dialogueHistory} />
-        {/* 對話框 */}
-        <div
-          className="dialogue-box"
-          onClick={handleNext}
-        >
-          <h3>{currentScene.character}</h3>
-          <p className="content">{displayText}</p>
-          {!isTyping && <span style={{ fontSize: '0.9rem', opacity: 0.5 }}></span>}
-        </div>
+        <Navbar
+          dialogueHistory={dialogueHistory}
+          onAuto={handleAuto}
+          onSkip={handleSkip}
+          isAuto={isAuto}
+        />
+        {/* 對話框 或 Question */}
+        {currentScene.type === 'question' ? (
+          <Question
+            currentScene={currentScene}
+            onChoiceSelect={handleChoiceSelect}
+            questionText={displayText}
+          /> // 渲染 Question 元件
+        ) : (
+          <div
+            className="dialogue-box"
+            onClick={handleNext}
+          >
+            {' '}
+            {/* 對話框 UI */}
+            <h3>{currentScene.character}</h3>
+            <p className="content">{displayText}</p>
+            {!isTyping && <span style={{ fontSize: '0.9rem', opacity: 0.5 }}></span>}
+          </div>
+        )}
         {/* 返回按鈕放在畫面外 */}
         <div style={{ position: 'absolute', top: 20, right: 20 }}>
           {' '}

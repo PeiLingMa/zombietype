@@ -1,0 +1,34 @@
+.question-box {
+  position: absolute;
+  bottom: 3%;
+  width: 100vw;
+  height: 40%; /* 問題框高度可以稍微高一點 */
+  min-width: 100vw;
+  background: rgba(73, 59, 59, 0.85);
+  z-index: 1;
+  padding: 20px; /* 增加內邊距 */
+  display: flex;
+  flex-direction: column; /* 垂直排列內容 */
+  justify-content: space-around; /* 讓內容平均分配空間 */
+}
+
+.question-box h3,
+.question-box .question-content {
+  color: rgb(255, 255, 255); /* 問題文字顏色 */
+  text-align: left; /* 文字靠左對齊 */
+  margin-left: 5%; /* 保持與對話框標題的水平對齊 */
+}
+
+.question-box .question-content {
+  font-size: 1.5rem; /* 問題內容字體大小 */
+}
+
+.choices-container {
+  display: flex;
+  justify-content: space-around; /* 選項按鈕平均分配空間 */
+}
+
+.choice-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+}
