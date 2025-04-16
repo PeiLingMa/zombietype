@@ -14,7 +14,6 @@ describe('useQuestionManager Hook', () => {
   // Mock dependencies
   const mockGameState = {
     currentTheme: 'food',
-    currentDifficulty: 'beginner'
   };
 
   const mockUpdateGameState = jest.fn();

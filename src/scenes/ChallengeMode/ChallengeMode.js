@@ -129,7 +129,7 @@ export default function ChallengeMode({ onBack }) {
     const question = questionManager.selectQuestion();
 
     if (!question) {
-      console.warn('No question available for difficulty:', gameState.currentDifficulty);
+      console.warn('No questions available in the current pool');
       return;
     }
 
@@ -141,10 +141,11 @@ export default function ChallengeMode({ onBack }) {
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
   }, [
-    gameState.currentDifficulty,
     gameState.zombiesDefeated,
     questionManager.selectQuestion,
-    playerInput
+    questionManager.updateCurrentQuestion,
+    playerInput,
+    zombieManager
   ]);
 
   // Initialize game, generate first zombie

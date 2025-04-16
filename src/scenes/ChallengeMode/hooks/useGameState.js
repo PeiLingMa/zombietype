@@ -31,7 +31,6 @@ export const useGameState = () => {
     zombiesDefeated: 0,
     gameOver: false,
     currentTheme: '',
-    currentDifficulty: GAME_CONFIG.INITIAL_DIFFICULTY,
     remainingThemes: [...GAME_CONFIG.THEME_POOL]
   };
 
