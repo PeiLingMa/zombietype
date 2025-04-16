@@ -1,7 +1,6 @@
-import React, { act } from 'react';
+import { act } from 'react';
 import { renderHook } from '@testing-library/react';
 import { useQuestionManager } from '../hooks/useQuestionManager';
-import { GAME_CONFIG } from '../gameConfig';
 
 // Mock GAME_CONFIG
 jest.mock('../gameConfig', () => ({

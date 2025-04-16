@@ -1,6 +1,5 @@
 import { useCallback, useReducer } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
-import { useGameSettings } from '../../../context/GameSettingsContext';
 
 /**
  * Game state reducer function

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useGameState } from './hooks/useGameState';
 import { useLevelManager } from './hooks/useLevelManager';
 import { usePlayerInput } from './hooks/usePlayerInput';
@@ -30,10 +30,10 @@ export default function ChallengeMode({ onBack }) {
   const themeManager = useThemeManager(gameState, updateGameState);
 
   // Question management
-  const questionManager = useQuestionManager(gameState, updateGameState);
+  const questionManager = useQuestionManager(gameState);
 
   // Zombie management
-  const zombieManager = useZombieManager(gameState, updateGameState);
+  const zombieManager = useZombieManager();
 
   // Sound management
   const soundManager = useSoundManager();
@@ -104,24 +104,6 @@ export default function ChallengeMode({ onBack }) {
   );
 
   /**
-   * Fetch the type of zombie to spawn and request question(s)
-   *
-   * For future use:
-   *   1. Replace generateNewZombie
-   *   2. More powerful function
-   *   3. Request question(s) based on zombie type
-   *   4. Update zombieManager with the new zombie type
-   *
-   * This function will be called when the player defeats a zombie
-   */
-  const requestNextZombie = useCallback(() => {
-    // TODO: Fetch or deside the type of zombie to spawn
-    // TODO: Request question(s) based on zombie type
-    // TODO: Update zombieManager with the new zombie type
-    // TODO: Notify playerInput to update the current answer
-  }, []);
-
-  /**
    * Generate new zombie and question
    */
   const generateNewZombie = useCallback(() => {
@@ -145,6 +127,7 @@ export default function ChallengeMode({ onBack }) {
     questionManager.selectQuestion,
     questionManager.updateCurrentQuestion,
     playerInput,
+    questionManager,
     zombieManager
   ]);
 
@@ -157,7 +140,10 @@ export default function ChallengeMode({ onBack }) {
       // Generate zombie and question
       generateNewZombie();
     }
-  }, [themeManager.currentSample]);
+  }, [
+    themeManager.currentSample,
+    gameState.zombiesDefeated
+  ]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {

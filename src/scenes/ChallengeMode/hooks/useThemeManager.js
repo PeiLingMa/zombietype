@@ -139,18 +139,6 @@ export const useThemeManager = (gameState, updateGameState) => {
   );
 
   /**
-   * Gets questions filtered by difficulty
-   * @param {string} difficulty - Difficulty level to filter by
-   * @returns {Array} Filtered questions
-   */
-  const getQuestionsByDifficulty = useCallback(
-    (difficulty) => {
-      return currentSample[difficulty] || [];
-    },
-    [currentSample]
-  );
-
-  /**
    * Rotates to the next theme
    * Creates a new sample for the next theme
    */
@@ -187,6 +175,7 @@ export const useThemeManager = (gameState, updateGameState) => {
   }, [gameState.currentTheme, createThemeSample]);
 
   return {
-    currentSample
+    currentSample,
+    rotateToNextTheme
   };
 };
