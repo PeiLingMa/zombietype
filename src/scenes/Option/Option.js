@@ -1,12 +1,10 @@
 // src/scenes/Option/Option.js
-
-import { useState } from 'react';
 import { useGameSettings } from '../../context/GameSettingsContext';
 import './Option.css';
 
 export default function Option({ onBack }) {
   // 從 Context 獲取狀態和更新函數
-  const { difficulty, updateDifficulty, volume, updateVolume, gameConfig } = useGameSettings();
+  const { volume, updateVolume } = useGameSettings();
 
   const handleVolumeChange = (e) => {
     updateVolume(e.target.value);

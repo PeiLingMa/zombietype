@@ -4,7 +4,7 @@ import StoryMode from '../StoryMode/StoryMode';
 import Options from '../Option/Option';
 import './App.css';
 
-export default function MainMenu() {
+export default function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
 
   if (currentScreen !== 'menu') {

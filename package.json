@@ -16,9 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:coverage": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
-    "lint": "eslint . --fix",
+    "lint": "eslint ./src --fix",
     "format": "prettier --write src/"
   },
   "eslintConfig": {
@@ -46,5 +47,6 @@
     "eslint-plugin-react": "^7.37.4",
     "jest": "^27.5.1",
     "prettier": "^3.5.3"
-  }
+  },
+  "homepage": "https://PeiLingMa.github.io/zombietype/"
 }

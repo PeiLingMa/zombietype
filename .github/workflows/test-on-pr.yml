@@ -1,0 +1,24 @@
+name: Pull Request Testing
+
+on:
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: 設置 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: 安裝依賴
+        run: npm ci
+      - name: 執行程式碼品質檢查
+        run: npm run lint
+      - name: 執行測試
+        run: npm test -- --watchAll=false
+      - name: 執行構建檢查
+        run: CI=false npm run build

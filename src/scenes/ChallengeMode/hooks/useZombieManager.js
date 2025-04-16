@@ -15,7 +15,7 @@ const zombieImages = [zombie1, zombie2, zombie3, zombie4];
  * @param {Object} gameState - Current game state
  * @param {Function} updateGameState - Function to update game state
  */
-export const useZombieManager = (gameState, updateGameState) => {
+export const useZombieManager = () => {
   const [zombieState, setZombieState] = useState({
     currentZombie: zombieImages[Math.floor(Math.random() * zombieImages.length)],
     currentChargeRate: 0.0
