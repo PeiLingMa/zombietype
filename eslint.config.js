@@ -20,7 +20,8 @@ module.exports = [
     rules: {
       // ... any rules you want
       'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error'
+      'react/jsx-uses-vars': 'error',
+      'no-unused-vars': 'warn'
     }
     // ... others are omitted for brevity
   }

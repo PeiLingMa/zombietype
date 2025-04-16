@@ -1,4 +1,4 @@
-name: Pull Request 測試
+name: Pull Request Testing
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
       - name: 安裝依賴
         run: npm ci
       - name: 執行程式碼品質檢查
-        run: npm run lint || npm run eslint || npx eslint .
+        run: npm run lint
       - name: 執行測試
         run: npm test -- --watchAll=false
       - name: 執行構建檢查

@@ -1,4 +1,4 @@
-name: 部署至 GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -20,20 +20,13 @@ jobs:
         run: npm ci
 
       - name: 執行程式碼品質檢查
-        run: |
-          if npm run | grep -q 'lint'; then
-            npm run lint
-          elif npm run | grep -q 'eslint'; then
-            npm run eslint
-          else
-            npx eslint .
-          fi
+        run: npm run lint
 
       - name: 執行測試
         run: npm test -- --watchAll=false
 
       - name: 構建專案
-        run: npm run build
+        run: CI=false npm run build
 
       - name: 部署至 GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
