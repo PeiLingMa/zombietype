@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import App from './scenes/MainMenu/App';
-import { GameSettingsProvider } from './context/GameSettingsContext';
+import App from './App';
+import { GameSettingsProvider } from '../../context/GameSettingsContext';
 
 test('renders main menu title', () => {
   render(
