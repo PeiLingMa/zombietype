@@ -1,7 +1,8 @@
 {
   "author": "cjh5958",
-  "version": "1.0",
-  "last_update": "2025-03-11",
+  "version": "1.1",
+  "last_update": "2025-04-17",
+  "source": "Claude 3.7 Sonnet",
   "topics": {
     "food": {
       "beginner": [
@@ -1369,201 +1370,6 @@
         }
       ]
     },
-    "animal": {
-      "beginner": [
-        {
-          "description": "dog",
-          "translation": "狗",
-          "PoS": "n.",
-          "answer": "dog",
-          "type": "vocabulary"
-        },
-        {
-          "description": "cat",
-          "translation": "貓",
-          "PoS": "n.",
-          "answer": "cat",
-          "type": "vocabulary"
-        },
-        {
-          "description": "rabbit",
-          "translation": "兔子",
-          "PoS": "n.",
-          "answer": "rabbit",
-          "type": "vocabulary"
-        },
-        {
-          "description": "horse",
-          "translation": "馬",
-          "PoS": "n.",
-          "answer": "horse",
-          "type": "vocabulary"
-        },
-        {
-          "description": "cow",
-          "translation": "牛",
-          "PoS": "n.",
-          "answer": "cow",
-          "type": "vocabulary"
-        },
-        {
-          "description": "pig",
-          "translation": "豬",
-          "PoS": "n.",
-          "answer": "pig",
-          "type": "vocabulary"
-        },
-        {
-          "description": "sheep",
-          "translation": "綿羊",
-          "PoS": "n.",
-          "answer": "sheep",
-          "type": "vocabulary"
-        },
-        {
-          "description": "goat",
-          "translation": "山羊",
-          "PoS": "n.",
-          "answer": "goat",
-          "type": "vocabulary"
-        },
-        {
-          "description": "chicken",
-          "translation": "雞",
-          "PoS": "n.",
-          "answer": "chicken",
-          "type": "vocabulary"
-        },
-        {
-          "description": "duck",
-          "translation": "鴨",
-          "PoS": "n.",
-          "answer": "duck",
-          "type": "vocabulary"
-        },
-        {
-          "description": "bird",
-          "translation": "鳥",
-          "PoS": "n.",
-          "answer": "bird",
-          "type": "vocabulary"
-        },
-        {
-          "description": "fish",
-          "translation": "魚",
-          "PoS": "n.",
-          "answer": "fish",
-          "type": "vocabulary"
-        },
-        {
-          "description": "dolphin",
-          "translation": "海豚",
-          "PoS": "n.",
-          "answer": "dolphin",
-          "type": "vocabulary"
-        },
-        {
-          "description": "whale",
-          "translation": "鯨魚",
-          "PoS": "n.",
-          "answer": "whale",
-          "type": "vocabulary"
-        },
-        {
-          "description": "shark",
-          "translation": "鯊魚",
-          "PoS": "n.",
-          "answer": "shark",
-          "type": "vocabulary"
-        },
-        {
-          "description": "tiger",
-          "translation": "老虎",
-          "PoS": "n.",
-          "answer": "tiger",
-          "type": "vocabulary"
-        },
-        {
-          "description": "lion",
-          "translation": "獅子",
-          "PoS": "n.",
-          "answer": "lion",
-          "type": "vocabulary"
-        },
-        {
-          "description": "elephant",
-          "translation": "大象",
-          "PoS": "n.",
-          "answer": "elephant",
-          "type": "vocabulary"
-        },
-        {
-          "description": "monkey",
-          "translation": "猴子",
-          "PoS": "n.",
-          "answer": "monkey",
-          "type": "vocabulary"
-        },
-        {
-          "description": "bear",
-          "translation": "熊",
-          "PoS": "n.",
-          "answer": "bear",
-          "type": "vocabulary"
-        },
-        {
-          "description": "wolf",
-          "translation": "狼",
-          "PoS": "n.",
-          "answer": "wolf",
-          "type": "vocabulary"
-        },
-        {
-          "description": "fox",
-          "translation": "狐狸",
-          "PoS": "n.",
-          "answer": "fox",
-          "type": "vocabulary"
-        },
-        {
-          "description": "snake",
-          "translation": "蛇",
-          "PoS": "n.",
-          "answer": "snake",
-          "type": "vocabulary"
-        },
-        {
-          "description": "frog",
-          "translation": "青蛙",
-          "PoS": "n.",
-          "answer": "frog",
-          "type": "vocabulary"
-        },
-        {
-          "description": "turtle",
-          "translation": "烏龜",
-          "PoS": "n.",
-          "answer": "turtle",
-          "type": "vocabulary"
-        },
-        {
-          "description": "butterfly",
-          "translation": "蝴蝶",
-          "PoS": "n.",
-          "answer": "butterfly",
-          "type": "vocabulary"
-        },
-        {
-          "description": "bee",
-          "translation": "蜜蜂",
-          "PoS": "n.",
-          "answer": "bee",
-          "type": "vocabulary"
-        }
-      ],
-      "medium": [],
-      "hard": []
-    },
     "clothing": {
       "beginner": [
         {
@@ -1589,23 +1395,9 @@
         },
         {
           "description": "jacket",
-          "translation": "夾克",
-          "PoS": "n.",
-          "answer": "jacket",
-          "type": "vocabulary"
-        },
-        {
-          "description": "coat",
           "translation": "外套",
           "PoS": "n.",
-          "answer": "coat",
-          "type": "vocabulary"
-        },
-        {
-          "description": "jeans",
-          "translation": "牛仔褲",
-          "PoS": "n.",
-          "answer": "jeans",
+          "answer": "jacket",
           "type": "vocabulary"
         },
         {
@@ -1616,24 +1408,10 @@
           "type": "vocabulary"
         },
         {
-          "description": "shorts",
-          "translation": "短褲",
+          "description": "jeans",
+          "translation": "牛仔褲",
           "PoS": "n.",
-          "answer": "shorts",
-          "type": "vocabulary"
-        },
-        {
-          "description": "skirt",
-          "translation": "裙子",
-          "PoS": "n.",
-          "answer": "skirt",
-          "type": "vocabulary"
-        },
-        {
-          "description": "dress",
-          "translation": "洋裝",
-          "PoS": "n.",
-          "answer": "dress",
+          "answer": "jeans",
           "type": "vocabulary"
         },
         {
@@ -1649,108 +1427,89 @@
           "PoS": "n.",
           "answer": "shoes",
           "type": "vocabulary"
-        },
+        }
+      ],
+      "medium": [
         {
-          "description": "sandals",
-          "translation": "涼鞋",
+          "description": "dress",
+          "translation": "洋裝",
           "PoS": "n.",
-          "answer": "sandals",
+          "answer": "dress",
           "type": "vocabulary"
         },
         {
-          "description": "boots",
-          "translation": "靴子",
+          "description": "skirt",
+          "translation": "裙子",
           "PoS": "n.",
-          "answer": "boots",
+          "answer": "skirt",
           "type": "vocabulary"
         },
         {
-          "description": "hat",
-          "translation": "帽子",
+          "description": "blouse",
+          "translation": "女式襯衫",
           "PoS": "n.",
-          "answer": "hat",
+          "answer": "blouse",
           "type": "vocabulary"
         },
         {
-          "description": "cap",
-          "translation": "鴨舌帽",
+          "description": "coat",
+          "translation": "大衣",
           "PoS": "n.",
-          "answer": "cap",
+          "answer": "coat",
           "type": "vocabulary"
         },
         {
-          "description": "scarf",
-          "translation": "圍巾",
+          "description": "suit",
+          "translation": "西裝",
           "PoS": "n.",
-          "answer": "scarf",
+          "answer": "suit",
           "type": "vocabulary"
         },
         {
-          "description": "gloves",
-          "translation": "手套",
+          "description": "shorts",
+          "translation": "短褲",
           "PoS": "n.",
-          "answer": "gloves",
-          "type": "vocabulary"
-        },
-        {
-          "description": "belt",
-          "translation": "皮帶",
-          "PoS": "n.",
-          "answer": "belt",
-          "type": "vocabulary"
-        },
-        {
-          "description": "tie",
-          "translation": "領帶",
-          "PoS": "n.",
-          "answer": "tie",
-          "type": "vocabulary"
-        },
-        {
-          "description": "sunglasses",
-          "translation": "太陽眼鏡",
-          "PoS": "n.",
-          "answer": "sunglasses",
-          "type": "vocabulary"
-        },
-        {
-          "description": "glasses",
-          "translation": "眼鏡",
-          "PoS": "n.",
-          "answer": "glasses",
-          "type": "vocabulary"
-        },
-        {
-          "description": "watch",
-          "translation": "手錶",
-          "PoS": "n.",
-          "answer": "watch",
-          "type": "vocabulary"
-        },
-        {
-          "description": "bracelet",
-          "translation": "手鍊",
-          "PoS": "n.",
-          "answer": "bracelet",
-          "type": "vocabulary"
-        },
-        {
-          "description": "necklace",
-          "translation": "項鍊",
-          "PoS": "n.",
-          "answer": "necklace",
-          "type": "vocabulary"
-        },
-        {
-          "description": "ring",
-          "translation": "戒指",
-          "PoS": "n.",
-          "answer": "ring",
+          "answer": "shorts",
           "type": "vocabulary"
         }
       ],
-      "medium": [],
-      "hard": []
+      "hard": [
+        {
+          "description": "cardigan",
+          "translation": "開襟毛衣",
+          "PoS": "n.",
+          "answer": "cardigan",
+          "type": "vocabulary"
+        },
+        {
+          "description": "turtleneck",
+          "translation": "高領毛衣",
+          "PoS": "n.",
+          "answer": "turtleneck",
+          "type": "vocabulary"
+        },
+        {
+          "description": "overcoat",
+          "translation": "長大衣",
+          "PoS": "n.",
+          "answer": "overcoat",
+          "type": "vocabulary"
+        },
+        {
+          "description": "pajamas",
+          "translation": "睡衣",
+          "PoS": "n.",
+          "answer": "pajamas",
+          "type": "vocabulary"
+        },
+        {
+          "description": "suspenders",
+          "translation": "吊帶",
+          "PoS": "n.",
+          "answer": "suspenders",
+          "type": "vocabulary"
+        }
+      ]
     },
     "color": {
       "beginner": [
@@ -1769,13 +1528,6 @@
           "type": "vocabulary"
         },
         {
-          "description": "yellow",
-          "translation": "黃色",
-          "PoS": "adj.",
-          "answer": "yellow",
-          "type": "vocabulary"
-        },
-        {
           "description": "green",
           "translation": "綠色",
           "PoS": "adj.",
@@ -1783,31 +1535,10 @@
           "type": "vocabulary"
         },
         {
-          "description": "orange",
-          "translation": "橙色",
+          "description": "yellow",
+          "translation": "黃色",
           "PoS": "adj.",
-          "answer": "orange",
-          "type": "vocabulary"
-        },
-        {
-          "description": "purple",
-          "translation": "紫色",
-          "PoS": "adj.",
-          "answer": "purple",
-          "type": "vocabulary"
-        },
-        {
-          "description": "pink",
-          "translation": "粉紅色",
-          "PoS": "adj.",
-          "answer": "pink",
-          "type": "vocabulary"
-        },
-        {
-          "description": "brown",
-          "translation": "棕色",
-          "PoS": "adj.",
-          "answer": "brown",
+          "answer": "yellow",
           "type": "vocabulary"
         },
         {
@@ -1823,6 +1554,29 @@
           "PoS": "adj.",
           "answer": "white",
           "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "purple",
+          "translation": "紫色",
+          "PoS": "adj.",
+          "answer": "purple",
+          "type": "vocabulary"
+        },
+        {
+          "description": "orange",
+          "translation": "橙色",
+          "PoS": "adj.",
+          "answer": "orange",
+          "type": "vocabulary"
+        },
+        {
+          "description": "brown",
+          "translation": "棕色",
+          "PoS": "adj.",
+          "answer": "brown",
+          "type": "vocabulary"
         },
         {
           "description": "gray",
@@ -1832,22 +1586,50 @@
           "type": "vocabulary"
         },
         {
-          "description": "silver",
-          "translation": "銀色",
+          "description": "pink",
+          "translation": "粉紅色",
           "PoS": "adj.",
-          "answer": "silver",
-          "type": "vocabulary"
-        },
-        {
-          "description": "gold",
-          "translation": "金色",
-          "PoS": "adj.",
-          "answer": "gold",
+          "answer": "pink",
           "type": "vocabulary"
         }
       ],
-      "medium": [],
-      "hard": []
+      "hard": [
+        {
+          "description": "turquoise",
+          "translation": "青綠色",
+          "PoS": "adj.",
+          "answer": "turquoise",
+          "type": "vocabulary"
+        },
+        {
+          "description": "indigo",
+          "translation": "靛藍色",
+          "PoS": "adj.",
+          "answer": "indigo",
+          "type": "vocabulary"
+        },
+        {
+          "description": "magenta",
+          "translation": "洋紅色",
+          "PoS": "adj.",
+          "answer": "magenta",
+          "type": "vocabulary"
+        },
+        {
+          "description": "maroon",
+          "translation": "栗色",
+          "PoS": "adj.",
+          "answer": "maroon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "beige",
+          "translation": "米色",
+          "PoS": "adj.",
+          "answer": "beige",
+          "type": "vocabulary"
+        }
+      ]
     },
     "body": {
       "beginner": [
@@ -2073,257 +1855,6 @@
           "translation": "肌肉",
           "PoS": "n.",
           "answer": "muscle",
-          "type": "vocabulary"
-        }
-      ],
-      "medium": [],
-      "hard": []
-    },
-    "relationship": {
-      "beginner": [
-        {
-          "description": "father",
-          "translation": "父親",
-          "PoS": "n.",
-          "answer": "father",
-          "type": "vocabulary"
-        },
-        {
-          "description": "mother",
-          "translation": "母親",
-          "PoS": "n.",
-          "answer": "mother",
-          "type": "vocabulary"
-        },
-        {
-          "description": "dad",
-          "translation": "爸爸",
-          "PoS": "n.",
-          "answer": "dad",
-          "type": "vocabulary"
-        },
-        {
-          "description": "mom",
-          "translation": "媽媽",
-          "PoS": "n.",
-          "answer": "mom",
-          "type": "vocabulary"
-        },
-        {
-          "description": "brother",
-          "translation": "兄弟",
-          "PoS": "n.",
-          "answer": "brother",
-          "type": "vocabulary"
-        },
-        {
-          "description": "sister",
-          "translation": "姐妹",
-          "PoS": "n.",
-          "answer": "sister",
-          "type": "vocabulary"
-        },
-        {
-          "description": "son",
-          "translation": "兒子",
-          "PoS": "n.",
-          "answer": "son",
-          "type": "vocabulary"
-        },
-        {
-          "description": "daughter",
-          "translation": "女兒",
-          "PoS": "n.",
-          "answer": "daughter",
-          "type": "vocabulary"
-        },
-        {
-          "description": "uncle",
-          "translation": "叔叔",
-          "PoS": "n.",
-          "answer": "uncle",
-          "type": "vocabulary"
-        },
-        {
-          "description": "aunt",
-          "translation": "阿姨",
-          "PoS": "n.",
-          "answer": "aunt",
-          "type": "vocabulary"
-        },
-        {
-          "description": "cousin",
-          "translation": "堂表兄弟姐妹",
-          "PoS": "n.",
-          "answer": "cousin",
-          "type": "vocabulary"
-        },
-        {
-          "description": "grandfather",
-          "translation": "祖父",
-          "PoS": "n.",
-          "answer": "grandfather",
-          "type": "vocabulary"
-        },
-        {
-          "description": "grandmother",
-          "translation": "祖母",
-          "PoS": "n.",
-          "answer": "grandmother",
-          "type": "vocabulary"
-        },
-        {
-          "description": "grandpa",
-          "translation": "爺爺",
-          "PoS": "n.",
-          "answer": "grandpa",
-          "type": "vocabulary"
-        },
-        {
-          "description": "grandma",
-          "translation": "奶奶",
-          "PoS": "n.",
-          "answer": "grandma",
-          "type": "vocabulary"
-        },
-        {
-          "description": "baby",
-          "translation": "嬰兒",
-          "PoS": "n.",
-          "answer": "baby",
-          "type": "vocabulary"
-        },
-        {
-          "description": "child",
-          "translation": "孩子",
-          "PoS": "n.",
-          "answer": "child",
-          "type": "vocabulary"
-        },
-        {
-          "description": "children",
-          "translation": "孩子們",
-          "PoS": "n.",
-          "answer": "children",
-          "type": "vocabulary"
-        },
-        {
-          "description": "boy",
-          "translation": "男孩",
-          "PoS": "n.",
-          "answer": "boy",
-          "type": "vocabulary"
-        },
-        {
-          "description": "girl",
-          "translation": "女孩",
-          "PoS": "n.",
-          "answer": "girl",
-          "type": "vocabulary"
-        },
-        {
-          "description": "man",
-          "translation": "男人",
-          "PoS": "n.",
-          "answer": "man",
-          "type": "vocabulary"
-        },
-        {
-          "description": "woman",
-          "translation": "女人",
-          "PoS": "n.",
-          "answer": "woman",
-          "type": "vocabulary"
-        },
-        {
-          "description": "friend",
-          "translation": "朋友",
-          "PoS": "n.",
-          "answer": "friend",
-          "type": "vocabulary"
-        },
-        {
-          "description": "best friend",
-          "translation": "摯友",
-          "PoS": "n.",
-          "answer": "best friend",
-          "type": "vocabulary"
-        },
-        {
-          "description": "neighbor",
-          "translation": "鄰居",
-          "PoS": "n.",
-          "answer": "neighbor",
-          "type": "vocabulary"
-        },
-        {
-          "description": "teacher",
-          "translation": "老師",
-          "PoS": "n.",
-          "answer": "teacher",
-          "type": "vocabulary"
-        },
-        {
-          "description": "student",
-          "translation": "學生",
-          "PoS": "n.",
-          "answer": "student",
-          "type": "vocabulary"
-        },
-        {
-          "description": "classmate",
-          "translation": "同學",
-          "PoS": "n.",
-          "answer": "classmate",
-          "type": "vocabulary"
-        },
-        {
-          "description": "roommate",
-          "translation": "室友",
-          "PoS": "n.",
-          "answer": "roommate",
-          "type": "vocabulary"
-        },
-        {
-          "description": "husband",
-          "translation": "丈夫",
-          "PoS": "n.",
-          "answer": "husband",
-          "type": "vocabulary"
-        },
-        {
-          "description": "wife",
-          "translation": "妻子",
-          "PoS": "n.",
-          "answer": "wife",
-          "type": "vocabulary"
-        },
-        {
-          "description": "couple",
-          "translation": "夫妻",
-          "PoS": "n.",
-          "answer": "couple",
-          "type": "vocabulary"
-        },
-        {
-          "description": "family",
-          "translation": "家庭",
-          "PoS": "n.",
-          "answer": "family",
-          "type": "vocabulary"
-        },
-        {
-          "description": "love",
-          "translation": "愛",
-          "PoS": "n.",
-          "answer": "love",
-          "type": "vocabulary"
-        },
-        {
-          "description": "home",
-          "translation": "家",
-          "PoS": "n.",
-          "answer": "home",
           "type": "vocabulary"
         }
       ],
@@ -2572,13 +2103,6 @@
           "type": "vocabulary"
         },
         {
-          "description": "football",
-          "translation": "美式足球",
-          "PoS": "n.",
-          "answer": "football",
-          "type": "vocabulary"
-        },
-        {
           "description": "tennis",
           "translation": "網球",
           "PoS": "n.",
@@ -2591,14 +2115,9 @@
           "PoS": "n.",
           "answer": "swimming",
           "type": "vocabulary"
-        },
-        {
-          "description": "running",
-          "translation": "跑步",
-          "PoS": "n.",
-          "answer": "running",
-          "type": "vocabulary"
-        },
+        }
+      ],
+      "medium": [
         {
           "description": "volleyball",
           "translation": "排球",
@@ -2607,22 +2126,6 @@
           "type": "vocabulary"
         },
         {
-          "description": "golf",
-          "translation": "高爾夫",
-          "PoS": "n.",
-          "answer": "golf",
-          "type": "vocabulary"
-        },
-        {
-          "description": "skating",
-          "translation": "溜冰",
-          "PoS": "n.",
-          "answer": "skating",
-          "type": "vocabulary"
-        }
-      ],
-      "medium": [
-        {
           "description": "badminton",
           "translation": "羽毛球",
           "PoS": "n.",
@@ -2630,82 +2133,47 @@
           "type": "vocabulary"
         },
         {
-          "description": "skiing",
-          "translation": "滑雪",
+          "description": "table tennis",
+          "translation": "桌球",
           "PoS": "n.",
-          "answer": "skiing",
+          "answer": "table tennis",
           "type": "vocabulary"
         },
         {
-          "description": "snowboarding",
-          "translation": "滑雪板",
+          "description": "marathon",
+          "translation": "馬拉松",
           "PoS": "n.",
-          "answer": "snowboarding",
-          "type": "vocabulary"
-        },
-        {
-          "description": "gymnastics",
-          "translation": "體操",
-          "PoS": "n.",
-          "answer": "gymnastics",
-          "type": "vocabulary"
-        },
-        {
-          "description": "boxing",
-          "translation": "拳擊",
-          "PoS": "n.",
-          "answer": "boxing",
-          "type": "vocabulary"
-        },
-        {
-          "description": "wrestling",
-          "translation": "摔跤",
-          "PoS": "n.",
-          "answer": "wrestling",
-          "type": "vocabulary"
-        },
-        {
-          "description": "martial arts",
-          "translation": "武術",
-          "PoS": "n.",
-          "answer": "martial arts",
+          "answer": "marathon",
           "type": "vocabulary"
         },
         {
           "description": "cycling",
-          "translation": "騎自行車",
+          "translation": "自行車運動",
           "PoS": "n.",
           "answer": "cycling",
-          "type": "vocabulary"
-        },
-        {
-          "description": "surfing",
-          "translation": "衝浪",
-          "PoS": "n.",
-          "answer": "surfing",
-          "type": "vocabulary"
-        },
-        {
-          "description": "hockey",
-          "translation": "曲棍球",
-          "PoS": "n.",
-          "answer": "hockey",
           "type": "vocabulary"
         }
       ],
       "hard": [
         {
-          "description": "lacrosse",
-          "translation": "長曲棍球",
+          "description": "triathlon",
+          "translation": "三項全能",
           "PoS": "n.",
-          "answer": "lacrosse",
+          "answer": "triathlon",
           "type": "vocabulary"
         },
         {
-          "description": "javelin",
-          "translation": "標槍",
+          "description": "synchronized swimming",
+          "translation": "水上芭蕾",
           "PoS": "n.",
-          "answer": "javelin",
+          "answer": "synchronized swimming",
+          "type": "vocabulary"
+        },
+        {
+          "description": "equestrian",
+          "translation": "馬術",
+          "PoS": "n.",
+          "answer": "equestrian",
           "type": "vocabulary"
         },
         {
@@ -2721,47 +2189,238 @@
           "PoS": "n.",
           "answer": "fencing",
           "type": "vocabulary"
-        },
+        }
+      ]
+    },
+    "professions": {
+      "beginner": [
         {
-          "description": "biathlon",
-          "translation": "冬季兩項",
+          "description": "teacher",
+          "translation": "教師",
           "PoS": "n.",
-          "answer": "biathlon",
+          "answer": "teacher",
           "type": "vocabulary"
         },
         {
-          "description": "decathlon",
-          "translation": "十項全能",
+          "description": "doctor",
+          "translation": "醫生",
           "PoS": "n.",
-          "answer": "decathlon",
+          "answer": "doctor",
           "type": "vocabulary"
         },
         {
-          "description": "pentathlon",
-          "translation": "五項全能",
+          "description": "nurse",
+          "translation": "護士",
           "PoS": "n.",
-          "answer": "pentathlon",
+          "answer": "nurse",
           "type": "vocabulary"
         },
         {
-          "description": "curling",
-          "translation": "冰壺",
+          "description": "police officer",
+          "translation": "警察",
           "PoS": "n.",
-          "answer": "curling",
+          "answer": "police officer",
           "type": "vocabulary"
         },
         {
-          "description": "equestrian",
-          "translation": "馬術",
+          "description": "student",
+          "translation": "學生",
           "PoS": "n.",
-          "answer": "equestrian",
+          "answer": "student",
           "type": "vocabulary"
         },
         {
-          "description": "synchronized swimming",
-          "translation": "花樣游泳",
+          "description": "driver",
+          "translation": "司機",
           "PoS": "n.",
-          "answer": "synchronized swimming",
+          "answer": "driver",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "engineer",
+          "translation": "工程師",
+          "PoS": "n.",
+          "answer": "engineer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "lawyer",
+          "translation": "律師",
+          "PoS": "n.",
+          "answer": "lawyer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "journalist",
+          "translation": "記者",
+          "PoS": "n.",
+          "answer": "journalist",
+          "type": "vocabulary"
+        },
+        {
+          "description": "programmer",
+          "translation": "程式設計師",
+          "PoS": "n.",
+          "answer": "programmer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "accountant",
+          "translation": "會計師",
+          "PoS": "n.",
+          "answer": "accountant",
+          "type": "vocabulary"
+        }
+      ],
+      "hard": [
+        {
+          "description": "archaeologist",
+          "translation": "考古學家",
+          "PoS": "n.",
+          "answer": "archaeologist",
+          "type": "vocabulary"
+        },
+        {
+          "description": "neurosurgeon",
+          "translation": "神經外科醫生",
+          "PoS": "n.",
+          "answer": "neurosurgeon",
+          "type": "vocabulary"
+        },
+        {
+          "description": "meteorologist",
+          "translation": "氣象學家",
+          "PoS": "n.",
+          "answer": "meteorologist",
+          "type": "vocabulary"
+        },
+        {
+          "description": "paleontologist",
+          "translation": "古生物學家",
+          "PoS": "n.",
+          "answer": "paleontologist",
+          "type": "vocabulary"
+        },
+        {
+          "description": "epidemiologist",
+          "translation": "流行病學家",
+          "PoS": "n.",
+          "answer": "epidemiologist",
+          "type": "vocabulary"
+        }
+      ]
+    },
+    "technology": {
+      "beginner": [
+        {
+          "description": "computer",
+          "translation": "電腦",
+          "PoS": "n.",
+          "answer": "computer",
+          "type": "vocabulary"
+        },
+        {
+          "description": "smartphone",
+          "translation": "智慧型手機",
+          "PoS": "n.",
+          "answer": "smartphone",
+          "type": "vocabulary"
+        },
+        {
+          "description": "laptop",
+          "translation": "筆記型電腦",
+          "PoS": "n.",
+          "answer": "laptop",
+          "type": "vocabulary"
+        },
+        {
+          "description": "tablet",
+          "translation": "平板電腦",
+          "PoS": "n.",
+          "answer": "tablet",
+          "type": "vocabulary"
+        },
+        {
+          "description": "internet",
+          "translation": "網際網路",
+          "PoS": "n.",
+          "answer": "internet",
+          "type": "vocabulary"
+        }
+      ],
+      "medium": [
+        {
+          "description": "software",
+          "translation": "軟體",
+          "PoS": "n.",
+          "answer": "software",
+          "type": "vocabulary"
+        },
+        {
+          "description": "hardware",
+          "translation": "硬體",
+          "PoS": "n.",
+          "answer": "hardware",
+          "type": "vocabulary"
+        },
+        {
+          "description": "application",
+          "translation": "應用程式",
+          "PoS": "n.",
+          "answer": "application",
+          "type": "vocabulary"
+        },
+        {
+          "description": "database",
+          "translation": "資料庫",
+          "PoS": "n.",
+          "answer": "database",
+          "type": "vocabulary"
+        },
+        {
+          "description": "algorithm",
+          "translation": "演算法",
+          "PoS": "n.",
+          "answer": "algorithm",
+          "type": "vocabulary"
+        }
+      ],
+      "hard": [
+        {
+          "description": "cryptocurrency",
+          "translation": "加密貨幣",
+          "PoS": "n.",
+          "answer": "cryptocurrency",
+          "type": "vocabulary"
+        },
+        {
+          "description": "blockchain",
+          "translation": "區塊鏈",
+          "PoS": "n.",
+          "answer": "blockchain",
+          "type": "vocabulary"
+        },
+        {
+          "description": "artificial intelligence",
+          "translation": "人工智慧",
+          "PoS": "n.",
+          "answer": "artificial intelligence",
+          "type": "vocabulary"
+        },
+        {
+          "description": "neural network",
+          "translation": "神經網路",
+          "PoS": "n.",
+          "answer": "neural network",
+          "type": "vocabulary"
+        },
+        {
+          "description": "quantum computing",
+          "translation": "量子計算",
+          "PoS": "n.",
+          "answer": "quantum computing",
           "type": "vocabulary"
         }
       ]
