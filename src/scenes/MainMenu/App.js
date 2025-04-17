@@ -1,11 +1,31 @@
 import { useState } from 'react';
 import ChallengeMode from '../ChallengeMode/ChallengeMode';
 import StoryMode from '../StoryMode/StoryMode';
+import StoryMenu from '../StoryMode/StoryMenu';
 import Options from '../Option/Option';
+
+import Dropdown from './Dropdown';
 import './App.css';
 
 export default function MainMenu() {
   const [currentScreen, setCurrentScreen] = useState('menu');
+  const [selectedStoryScenes, setSelectedStoryScenes] = useState(null); // State to hold selected story scenes
+
+  // Function to handle story selection from StoryMenu
+  const handleStorySelect = (scenes) => {
+    setSelectedStoryScenes(scenes); // Store the selected story scenes
+    setCurrentScreen('story'); // Navigate to StoryMode (or adjust as needed)
+  };
+
+  const handleBackToMenu = () => {
+    setCurrentScreen('menu');
+    setSelectedStoryScenes(null); // Clear selected scenes when going back to menu
+  };
+
+  const handleBackToStoryMenu = () => {
+    setCurrentScreen('storyMenu'); // Go back to StoryMenu
+    setSelectedStoryScenes(null); // Clear selected scenes
+  };
 
   if (currentScreen !== 'menu') {
     const Component =
@@ -13,8 +33,27 @@ export default function MainMenu() {
         ? StoryMode
         : currentScreen === 'challenge'
           ? ChallengeMode
-          : Options;
-    return <Component onBack={() => setCurrentScreen('menu')} />;
+          : currentScreen === 'storyMenu'
+            ? StoryMenu
+            : Options;
+
+    if (currentScreen === 'story' && selectedStoryScenes) {
+      return (
+        <StoryMode
+          scenes={selectedStoryScenes} // Pass the selected story scenes as prop
+          onBack={handleBackToStoryMenu} // Use handleBackToStoryMenu to go back to StoryMenu
+        />
+      );
+    } else if (currentScreen === 'storyMenu') {
+      return (
+        <StoryMenu
+          onStorySelect={handleStorySelect} // Pass the handleStorySelect function as prop
+          onBack={handleBackToMenu} // Keep onBack to go back to main menu
+        />
+      );
+    }
+
+    return <Component onBack={handleBackToMenu} />; // Use handleBackToMenu for other components
   }
 
   return (
@@ -22,12 +61,22 @@ export default function MainMenu() {
       <h1 className="display-3 mb-4">Monster Typing Game</h1>
       <p className="lead mb-5 fw-bold">- Choose your mode -</p>
       <div className="menu-buttons">
-        <button
-          className="btn btn-warning my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
-          onClick={() => setCurrentScreen('story')}
-        >
-          STORY MODE
-        </button>
+        <Dropdown
+          buttonText="STORY MODE"
+          options={[
+            { label: 'Start Story', value: 'startStory' },
+            { label: 'Story Menu', value: 'storyMenu' }
+          ]}
+          onOptionSelect={async (value) => {
+            if (value === 'startStory') {
+              const { default: storyScenes } = await import('../StoryMode/script'); // use default to avoid error
+              setSelectedStoryScenes(storyScenes); // Load the default story scenes
+              setCurrentScreen('story');
+            } else if (value === 'storyMenu') {
+              setCurrentScreen('storyMenu');
+            }
+          }}
+        />
         <button
           className="btn btn-danger my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
           onClick={() => setCurrentScreen('challenge')}

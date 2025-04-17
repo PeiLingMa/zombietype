@@ -2,17 +2,27 @@
   position: absolute;
   bottom: 3%;
   width: 100vw;
-  height: 40%; /* 問題框高度可以稍微高一點 */
+  height: 30%; /* 問題框高度可以稍微高一點 */
   min-width: 100vw;
   background: rgba(73, 59, 59, 0.85);
   z-index: 1;
-  padding: 20px; /* 增加內邊距 */
+  /* padding: 20px; */
   display: flex;
-  flex-direction: column; /* 垂直排列內容 */
-  justify-content: space-around; /* 讓內容平均分配空間 */
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
-.question-box h3,
+.question-box h3 {
+  /* position: absolute; */
+  margin-left: 5%;
+  width: fit-content;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
 .question-box .question-content {
   color: rgb(255, 255, 255); /* 問題文字顏色 */
   text-align: left; /* 文字靠左對齊 */
@@ -29,6 +39,6 @@
 }
 
 .choice-button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 1.2rem;
 }

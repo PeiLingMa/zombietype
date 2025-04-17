@@ -1,0 +1,75 @@
+.dropdown {
+  position: relative; /* 確保下拉選單相對於按鈕定位 */
+  display: inline-block; /* 讓 dropdown 元素表現為 inline block */
+}
+
+.dropdown-button {
+  /* 這裡保持您原先按鈕的樣式 */
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* 選單在按鈕下方 */
+  left: 0;
+  z-index: 10; /* 確保在其他內容之上 */
+  display: none; /* 預設隱藏 */
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.5rem 0;
+  margin-top: 0.125rem;
+  min-width: 100%; /* 至少和按鈕一樣寬 */
+  list-style: none; /* 移除 list 預設樣式 */
+  padding-left: 0; /* 移除 list 預設 padding */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+
+  opacity: 0; /* 初始透明度設為 0，讓選單預設是隱藏的 */
+  transform: translateY(-10px); /* 初始位置稍微向上偏移，做出滑入效果 */
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out,
+    display 0.2s ease-out; /* 加入 transition 效果 */
+  /* transition: all 0.3s ease-out;  <-- 也可以用 all，但個別設定屬性通常效能更好 */
+  pointer-events: none; /* 預設關閉 pointer 事件，避免選單隱藏時還能被點擊 */
+  display: block; /* 先設定 display: block; 才能讓 transition 生效，之後再用條件式控制 display: none; */
+  visibility: hidden; /* 初始狀態隱藏選單 */
+}
+
+.dropdown-menu.open {
+  display: block; /* 顯示選單 */
+  opacity: 1; /* 打開時透明度變回 1，顯示選單 */
+  transform: translateY(0); /* 打開時位置恢復正常 */
+  pointer-events: auto; /* 打開時啟用 pointer 事件 */
+  visibility: visible; /* 打開時顯示選單 */
+}
+
+.dropdown-item {
+  display: block; /* 確保 li 佔滿寬度 */
+  padding: 0; /* 移除 li 預設 padding */
+}
+
+.dropdown-option-button {
+  display: block; /* 讓 button 佔滿 li 寬度 */
+  width: 100%;
+  padding: 0.5rem 1rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.dropdown-option-button:hover,
+.dropdown-option-button:focus {
+  color: #1e2125;
+  background-color: #f8f9fa;
+}
+
+.dropdown-option-button:active {
+  color: #fff;
+  background-color: #007bff;
+}
