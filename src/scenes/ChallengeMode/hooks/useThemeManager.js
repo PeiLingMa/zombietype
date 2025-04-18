@@ -2,6 +2,20 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
 
 /**
+ * Shuffle algorithm - randomly orders an array
+ * @param {Array} array - Array to be shuffled
+ * @returns {Array} New shuffled array
+ */
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+/**
  * Custom hook to manage theme rotation and sampling in Challenge Mode
  * Handles theme selection, rotation, and sampling from the question pool
  *
@@ -12,7 +26,7 @@ import { GAME_CONFIG } from '../gameConfig';
 export const useThemeManager = (gameState, updateGameState) => {
   // Reference to store all available data from data.json
   const allThemeData = useRef(null);
-  // 追蹤初始化狀態的 ref
+  // Track initialization state
   const isInitialized = useRef(false);
 
   // Current theme sample (subset of questions selected for current theme)
@@ -44,30 +58,30 @@ export const useThemeManager = (gameState, updateGameState) => {
    * @returns {string} Selected theme name
    */
   const selectNextTheme = useCallback(() => {
-    // 使用臨時變數 themeList 來跟踪正確的值
+    // Use temporary themeList variable to track correct values
     let themeList = [];
     
     if (!gameState.remainingThemes || gameState.remainingThemes.length === 0) {
-      console.log('refilling the pool');
-      // 如果題庫為空，使用完整的主題池
-      themeList = [...GAME_CONFIG.THEME_POOL];
+      console.log('useThemeManager: Refilling the pool');
+      // If theme pool is empty, use the complete theme pool and shuffle it
+      themeList = shuffleArray([...GAME_CONFIG.THEME_POOL]);
       
-      // 更新狀態 (這不會立即生效，但沒關係，因為我們已經有正確的值在 themeList)
+      // Update state (this won't take effect immediately, but it's fine as we have correct values in themeList)
       updateGameState({
         remainingThemes: [...themeList]
       });
     } else {
-      // 否則使用現有的主題列表
+      // Otherwise use existing theme list
       themeList = [...gameState.remainingThemes];
     }
 
-    // 從臨時變數中選擇第一個主題
+    // Select first theme from temporary variable
     const nextTheme = themeList[0];
     
-    // 從臨時變數中移除第一個主題
+    // Remove first theme from temporary variable
     const updatedThemes = themeList.slice(1);
     
-    // 更新狀態中的剩餘主題
+    // Update remaining themes in state
     updateGameState({
       currentTheme: nextTheme,
       remainingThemes: updatedThemes
@@ -122,6 +136,8 @@ export const useThemeManager = (gameState, updateGameState) => {
       const themeData = allThemeData.current.topics[theme];
       if (!themeData) return;
 
+      console.log('useThemeManager: Creating sample...');
+
       // Use theme rotation count to determine sampling ratios
       const themeRound = gameState.completedThemes ? gameState.completedThemes.length : 0;
       const samplingRatios =
@@ -172,13 +188,14 @@ export const useThemeManager = (gameState, updateGameState) => {
     async function initializeThemeData() {
       if (isInitialized.current) return;
       
-      console.log('Fetching theme data...');
+      console.log('useThemeManager: Fetching raw data...');
       const data = await loadThemeData();
       
       if (data) {
+        console.log('useThemeManager: Data loaded.');
         isInitialized.current = true;
         
-        // 只有在尚未設置主題時才設置
+        // Only set theme if not already set
         if (!gameState.currentTheme || gameState.currentTheme === '') {
           selectNextTheme();
         }
@@ -186,11 +203,11 @@ export const useThemeManager = (gameState, updateGameState) => {
     }
     
     initializeThemeData();
-  }, []); // 空依賴陣列，確保只執行一次
+  }, []); // Empty dependency array to ensure it runs only once
 
   // Create sample when theme changes
   useEffect(() => {
-    if (gameState.currentTheme && allThemeData.current) {
+    if (gameState.currentTheme !== '' && allThemeData.current) {
       createThemeSample(gameState.currentTheme);
     }
   }, [gameState.currentTheme, createThemeSample]);

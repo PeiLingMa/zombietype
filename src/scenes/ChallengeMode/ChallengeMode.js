@@ -111,7 +111,7 @@ export default function ChallengeMode({ onBack }) {
     const question = questionManager.selectQuestion();
 
     if (!question) {
-      console.warn('題庫中沒有題目了，進行主題輪替中...');
+      console.warn('ChallengeMode: No questions available in pool, rotating to next theme...');
       themeManager.rotateToNextTheme();
       return;
     }
@@ -130,7 +130,7 @@ export default function ChallengeMode({ onBack }) {
 
   // Initialize game, generate first zombie
   useEffect(() => {
-    // 檢查 currentSample 不只是存在，而且有內容
+    // Check that currentSample not only exists but has content
     const hasSamples = themeManager.currentSample && (
       themeManager.currentSample.beginner.length > 0 ||
       themeManager.currentSample.medium.length > 0 ||

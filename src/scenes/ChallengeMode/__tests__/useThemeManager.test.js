@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { useThemeManager } from '../hooks/useThemeManager';
 
-// 模擬 GAME_CONFIG (必須在頂部)
+// Mock GAME_CONFIG (must be at the top)
 jest.mock('../gameConfig', () => ({
   GAME_CONFIG: {
     SAMPLE_SIZE: 5,
@@ -21,11 +21,11 @@ jest.mock('../gameConfig', () => ({
   }
 }));
 
-// 模擬 fetch API
+// Mock fetch API
 global.fetch = jest.fn();
 
 describe('useThemeManager Hook', () => {
-  // 使用簡化的主題數據，減少記憶體使用
+  // Use simplified theme data to reduce memory usage
   const mockThemeData = {
     topics: {
       food: {
@@ -41,18 +41,18 @@ describe('useThemeManager Hook', () => {
     }
   };
 
-  // 每個測試前重置所有 mock
+  // Reset all mocks before each test
   beforeEach(() => {
     jest.clearAllMocks();
     
-    // 模擬 fetch 返回
+    // Mock fetch response
     global.fetch.mockImplementation(() => 
       Promise.resolve({
         json: () => Promise.resolve(mockThemeData)
       })
     );
     
-    // 使用固定的隨機數，避免隨機性問題
+    // Use fixed random numbers to avoid randomness issues
     jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
   });
 
@@ -60,97 +60,97 @@ describe('useThemeManager Hook', () => {
     jest.restoreAllMocks();
   });
 
-  // 測試 1: 初始化
-  test('應該正確初始化主題管理器', async () => {
-    // 簡化的遊戲狀態
+  // Test 1: Initialization
+  test('should correctly initialize theme manager', async () => {
+    // Simplified game state
     const mockGameState = {
       currentTheme: '',
       remainingThemes: ['food', 'animals'],
       completedThemes: []
     };
     
-    // 使用簡單的 mock 函數，避免複雜的狀態更新邏輯
+    // Use simple mock function to avoid complex state update logic
     const mockUpdateGameState = jest.fn();
 
     const { result } = renderHook(() => 
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 驗證初始返回值
+    // Verify initial return values
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.rotateToNextTheme).toBeDefined();
 
-    // 等待異步加載完成 - 使用更短的等待時間
+    // Wait for async loading to complete - use shorter wait time
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 驗證 fetch 被調用
+    // Verify fetch was called
     expect(global.fetch).toHaveBeenCalled();
   });
 
-  // 測試 2: 抽樣功能
-  test('應該能從主題中抽取樣本', async () => {
-    // 設置已有主題的遊戲狀態
+  // Test 2: Sampling functionality
+  test('should be able to sample from themes', async () => {
+    // Setup game state with existing theme
     const mockGameState = {
       currentTheme: 'food',
       remainingThemes: ['animals'],
       completedThemes: []
     };
     
-    // 簡化的 mock 函數
+    // Simplified mock function
     const mockUpdateGameState = jest.fn();
 
     const { result } = renderHook(() => 
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待異步加載完成
+    // Wait for async loading to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 驗證現有樣本是否有內容
+    // Verify sample has content
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.currentSample.beginner).toBeDefined();
   });
 
-  // 測試 3: 主題輪替 - 修正變量錯誤
-  test('主題輪替函數應該存在並可被調用', async () => {
-    // 使用最小的遊戲狀態
+  // Test 3: Theme rotation - fix variable errors
+  test('theme rotation function should exist and be callable', async () => {
+    // Use minimal game state
     const mockGameState = {
       currentTheme: 'food',
       remainingThemes: ['animals'],
       completedThemes: []
     };
     
-    // 不需要計數器，直接使用簡單的 mock 函數
+    // No counter needed, use simple mock function
     const mockUpdateGameState = jest.fn();
 
     const { result } = renderHook(() => 
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待異步加載完成
+    // Wait for async loading to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
     
-    // 測試函數是否存在
+    // Test if function exists
     expect(typeof result.current.rotateToNextTheme).toBe('function');
     
-    // 使用 act 包裝調用，避免 React 警告
+    // Wrap call with act to avoid React warnings
     act(() => {
       result.current.rotateToNextTheme();
     });
     
-    // 驗證更新函數被調用
+    // Verify update function was called
     expect(mockUpdateGameState).toHaveBeenCalled();
   });
   
-  // 測試 4: 空題庫處理
-  test('當主題池為空時應該能正確處理', () => {
-    // 設置空主題池
+  // Test 4: Empty pool handling
+  test('should handle empty theme pool correctly', () => {
+    // Setup empty theme pool
     const mockGameState = {
       currentTheme: 'food',
       remainingThemes: [],
@@ -163,15 +163,15 @@ describe('useThemeManager Hook', () => {
       useThemeManager(mockGameState, mockUpdateGameState)
     );
     
-    // 驗證 hook 正常返回
+    // Verify hook returns normally
     expect(result.current).toBeDefined();
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.rotateToNextTheme).toBeDefined();
   });
 
-  // 測試 5: 網絡錯誤處理
-  test('應該優雅地處理網絡錯誤', async () => {
-    // 模擬網絡錯誤
+  // Test 5: Network error handling
+  test('should gracefully handle network errors', async () => {
+    // Mock network error
     global.fetch.mockRejectedValueOnce(new Error('Network Error'));
     
     const mockGameState = {
@@ -182,35 +182,35 @@ describe('useThemeManager Hook', () => {
     
     const mockUpdateGameState = jest.fn();
     
-    // 捕獲控制台錯誤
+    // Capture console errors
     const originalConsoleError = console.error;
     console.error = jest.fn();
 
-    // 存儲 result 用於檢查
+    // Store result for checking
     const { result } = renderHook(() => 
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待異步操作完成
+    // Wait for async operations to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 驗證錯誤被正確記錄
+    // Verify error was logged correctly
     expect(console.error).toHaveBeenCalled();
     
-    // 即使遇到錯誤，hook 也應該返回有效 API
+    // Hook should still return valid API even with error
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.rotateToNextTheme).toBeDefined();
     
-    // 恢復原始控制台錯誤函數
+    // Restore original console error function
     console.error = originalConsoleError;
   });
 
-  // 測試 6: 無效主題
-  test('應該處理無效主題', async () => {
+  // Test 6: Invalid theme
+  test('should handle invalid themes', async () => {
     const mockGameState = {
-      currentTheme: 'invalid_theme', // 不存在的主題
+      currentTheme: 'invalid_theme', // Non-existent theme
       remainingThemes: ['food'],
       completedThemes: []
     };
@@ -221,27 +221,27 @@ describe('useThemeManager Hook', () => {
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待異步加載完成
+    // Wait for async loading to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 即使主題無效，hook 也應該返回有效的 API
+    // Hook should return valid API even with invalid theme
     expect(result.current.currentSample).toBeDefined();
-    // 樣本可能為空陣列但仍應存在
+    // Samples may be empty arrays but should exist
     expect(Array.isArray(result.current.currentSample.beginner)).toBe(true);
   });
 
-  // 測試 7: 反覆主題輪替
-  test('應該支持連續多次主題輪替', async () => {
-    // 設置有多個主題的遊戲狀態
+  // Test 7: Multiple theme rotations
+  test('should support multiple consecutive theme rotations', async () => {
+    // Setup game state with multiple themes
     const mockGameState = {
       currentTheme: 'food',
       remainingThemes: ['animals', 'sports'],
       completedThemes: []
     };
     
-    // 用陣列收集更新，而不是修改原始狀態
+    // Collect updates in array instead of modifying original state
     const updateCalls = [];
     const mockUpdateGameState = jest.fn(update => {
       updateCalls.push(update);
@@ -251,31 +251,31 @@ describe('useThemeManager Hook', () => {
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待初始化完成
+    // Wait for initialization to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
     
-    // 第一次輪替
+    // First rotation
     act(() => {
       result.current.rotateToNextTheme();
     });
     
-    // 應該調用 updateGameState 至少一次
+    // Should call updateGameState at least once
     expect(updateCalls.length).toBeGreaterThan(0);
     
-    // 第二次輪替，確保不會崩潰
+    // Second rotation, ensure it doesn't crash
     act(() => {
       result.current.rotateToNextTheme();
     });
     
-    // 應該再次調用 updateGameState
+    // Should call updateGameState again
     expect(updateCalls.length).toBeGreaterThan(1);
   });
 
-  // 測試 8: 異常數據格式處理
-  test('應該處理異常數據格式', async () => {
-    // 模擬不符合預期格式的數據
+  // Test 8: Abnormal data format handling
+  test('should handle abnormal data format', async () => {
+    // Mock data not matching expected format
     global.fetch.mockImplementationOnce(() => 
       Promise.resolve({
         json: () => Promise.resolve({ invalidFormat: true })
@@ -294,25 +294,25 @@ describe('useThemeManager Hook', () => {
       useThemeManager(mockGameState, mockUpdateGameState)
     );
 
-    // 等待異步加載完成
+    // Wait for async loading to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 即使數據格式異常，hook 仍應返回有效的 API
+    // Hook should still return valid API even with abnormal data
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.rotateToNextTheme).toBeDefined();
   });
 
-  // 測試 9: 抽樣比例 - 簡化版本，避免模組重置問題
-  test('應該根據遊戲進度調整抽樣比例', async () => {
-    // 不再嘗試動態修改 GAME_CONFIG，而是直接測試 hook 行為
+  // Test 9: Sampling ratios - simplified version to avoid module reset issues
+  test('should adjust sampling ratios based on game progress', async () => {
+    // Don't try to dynamically modify GAME_CONFIG, test hook behavior directly
     
-    // 模擬初期玩家
+    // Mock early player
     const earlyGameState = {
       currentTheme: 'food',
       remainingThemes: ['animals'],
-      completedThemes: [] // 無完成主題 = 初期階段
+      completedThemes: [] // No completed themes = early stage
     };
     
     const mockUpdateGameState = jest.fn();
@@ -325,8 +325,60 @@ describe('useThemeManager Hook', () => {
       await new Promise(resolve => setTimeout(resolve, 10));
     });
 
-    // 不測試具體數值，只測試功能正常
+    // Don't test specific values, just that the function works
     expect(result.current.currentSample).toBeDefined();
     expect(result.current.currentSample.beginner).toBeDefined();
+  });
+
+  // Test 10: Theme pool shuffling
+  test('should shuffle the theme pool when empty', async () => {
+    // Setup game state with empty theme pool to trigger shuffling
+    const mockGameState = {
+      currentTheme: 'food',
+      remainingThemes: [],
+      completedThemes: ['animals']
+    };
+    
+    // Mock Math.random to control shuffle results
+    const mockRandom = jest.spyOn(global.Math, 'random');
+    mockRandom.mockReturnValueOnce(0.1)  // First call in shuffleArray
+             .mockReturnValueOnce(0.9)   // Second call in shuffleArray
+             .mockReturnValueOnce(0.5);  // Third call in shuffleArray
+    
+    // Store update calls to verify shuffling occurred
+    const updateCalls = [];
+    const mockUpdateGameState = jest.fn(update => {
+      updateCalls.push(update);
+    });
+
+    const { result } = renderHook(() => 
+      useThemeManager(mockGameState, mockUpdateGameState)
+    );
+
+    // Wait for initialization
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 10));
+    });
+    
+    // Trigger theme rotation which should refill and shuffle the pool
+    act(() => {
+      result.current.rotateToNextTheme();
+    });
+    
+    // Verify update was called and Math.random was used (for shuffling)
+    expect(mockUpdateGameState).toHaveBeenCalled();
+    expect(mockRandom).toHaveBeenCalled();
+    
+    // Check if the first update contains remainingThemes (refilled pool)
+    const remainingThemesUpdate = updateCalls.find(update => 
+      update.remainingThemes !== undefined
+    );
+    
+    expect(remainingThemesUpdate).toBeDefined();
+    
+    // Check that the theme pool was actually refilled
+    if (remainingThemesUpdate) {
+      expect(remainingThemesUpdate.remainingThemes.length).toBeGreaterThan(0);
+    }
   });
 });
