@@ -111,7 +111,8 @@ export default function ChallengeMode({ onBack }) {
     const question = questionManager.selectQuestion();
 
     if (!question) {
-      console.warn('No questions available in the current pool');
+      console.warn('ChallengeMode: No questions available in pool, rotating to next theme...');
+      themeManager.rotateToNextTheme();
       return;
     }
 
@@ -129,17 +130,18 @@ export default function ChallengeMode({ onBack }) {
 
   // Initialize game, generate first zombie
   useEffect(() => {
-    if (themeManager.currentSample && !gameState.gameOver) {
-      // Update QuestionManager's sample pool
+    // Check that currentSample not only exists but has content
+    const hasSamples = themeManager.currentSample && (
+      themeManager.currentSample.beginner.length > 0 ||
+      themeManager.currentSample.medium.length > 0 ||
+      themeManager.currentSample.hard.length > 0
+    );
+    
+    if (hasSamples && !gameState.gameOver) {
       questionManager.updateSamplePool(themeManager.currentSample);
-
-      // Generate zombie and question
       generateNewZombie();
     }
-  }, [
-    themeManager.currentSample,
-    gameState.gameOver
-  ]);
+  }, [themeManager.currentSample, gameState.gameOver]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {

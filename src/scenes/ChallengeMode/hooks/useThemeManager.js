@@ -2,6 +2,20 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { GAME_CONFIG } from '../gameConfig';
 
 /**
+ * Shuffle algorithm - randomly orders an array
+ * @param {Array} array - Array to be shuffled
+ * @returns {Array} New shuffled array
+ */
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+/**
  * Custom hook to manage theme rotation and sampling in Challenge Mode
  * Handles theme selection, rotation, and sampling from the question pool
  *
@@ -12,6 +26,8 @@ import { GAME_CONFIG } from '../gameConfig';
 export const useThemeManager = (gameState, updateGameState) => {
   // Reference to store all available data from data.json
   const allThemeData = useRef(null);
+  // Track initialization state
+  const isInitialized = useRef(false);
 
   // Current theme sample (subset of questions selected for current theme)
   const [currentSample, setCurrentSample] = useState({
@@ -42,21 +58,33 @@ export const useThemeManager = (gameState, updateGameState) => {
    * @returns {string} Selected theme name
    */
   const selectNextTheme = useCallback(() => {
+    // Use temporary themeList variable to track correct values
+    let themeList = [];
+    
     if (!gameState.remainingThemes || gameState.remainingThemes.length === 0) {
-      // If all themes have been used, refill the pool
+      console.log('useThemeManager: Refilling the pool');
+      // If theme pool is empty, use the complete theme pool and shuffle it
+      themeList = shuffleArray([...GAME_CONFIG.THEME_POOL]);
+      
+      // Update state (this won't take effect immediately, but it's fine as we have correct values in themeList)
       updateGameState({
-        remainingThemes: [...GAME_CONFIG.THEME_POOL]
+        remainingThemes: [...themeList]
       });
+    } else {
+      // Otherwise use existing theme list
+      themeList = [...gameState.remainingThemes];
     }
 
-    // Select the first theme from remaining themes
-    const remainingThemes = [...gameState.remainingThemes];
-    const nextTheme = remainingThemes.shift();
-
-    // Update game state with new theme and remaining themes
+    // Select first theme from temporary variable
+    const nextTheme = themeList[0];
+    
+    // Remove first theme from temporary variable
+    const updatedThemes = themeList.slice(1);
+    
+    // Update remaining themes in state
     updateGameState({
       currentTheme: nextTheme,
-      remainingThemes: remainingThemes
+      remainingThemes: updatedThemes
     });
 
     return nextTheme;
@@ -104,11 +132,11 @@ export const useThemeManager = (gameState, updateGameState) => {
    */
   const createThemeSample = useCallback(
     (theme) => {
-      if (!allThemeData.current || !theme) return;
-
       // Get data for the current theme
       const themeData = allThemeData.current.topics[theme];
       if (!themeData) return;
+
+      console.log('useThemeManager: Creating sample...');
 
       // Use theme rotation count to determine sampling ratios
       const themeRound = gameState.completedThemes ? gameState.completedThemes.length : 0;
@@ -158,18 +186,28 @@ export const useThemeManager = (gameState, updateGameState) => {
   // Initialize theme data on first load
   useEffect(() => {
     async function initializeThemeData() {
+      if (isInitialized.current) return;
+      
+      console.log('useThemeManager: Fetching raw data...');
       const data = await loadThemeData();
-      console.log('Fetched theme data');
-      if (data && (!gameState.currentTheme || gameState.currentTheme === '')) {
-        selectNextTheme();
+      
+      if (data) {
+        console.log('useThemeManager: Data loaded.');
+        isInitialized.current = true;
+        
+        // Only set theme if not already set
+        if (!gameState.currentTheme || gameState.currentTheme === '') {
+          selectNextTheme();
+        }
       }
     }
+    
     initializeThemeData();
-  }, [loadThemeData, selectNextTheme, gameState.currentTheme]);
+  }, []); // Empty dependency array to ensure it runs only once
 
   // Create sample when theme changes
   useEffect(() => {
-    if (gameState.currentTheme && allThemeData.current) {
+    if (gameState.currentTheme !== '' && allThemeData.current) {
       createThemeSample(gameState.currentTheme);
     }
   }, [gameState.currentTheme, createThemeSample]);
