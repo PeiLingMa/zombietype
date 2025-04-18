@@ -1,24 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './test.css';
-// TODO: 可能使用 React Router
-// TODO: assuming story datastructure
-// const stories = [
-//   {
-//     id: 'story1',
-//     title: '謎題遊戲',
-//     description: '和 Joker 一起玩猜謎遊戲！你能猜出他心裡想的是什麼嗎？',
-//     previewImage: '/images/story1-preview.png', // 預覽圖片路徑，需要實際圖片
-//     scenes: sceneData // 假設 sceneData 是這個故事的劇情資料
-//   },
-//   {
-//     id: 'story2',
-//     title: '故事二標題',
-//     description: '故事二的簡短描述...',
-//     previewImage: '/images/story2-preview.png', // 預覽圖片路徑，需要實際圖片
-//     scenes: [] // 故事二的劇情資料
-//   },
-//   // ... 更多故事
-// ];
 
 import sceneData from './script';
 
@@ -38,7 +19,6 @@ export default function StoryMenu({ onStorySelect, onBack }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // TODO: fetch stories from API if available
     // fetch('/api/stories')
     //   .then(response => {
     //     if (!response.ok) {

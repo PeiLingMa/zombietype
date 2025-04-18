@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 // import scenes from './script';
 import Navbar from './component/Navbar';
 import './test.css';
@@ -24,6 +24,7 @@ export default function StoryMode({ scenes, onBack }) {
   };
 
   const handleNext = useCallback(() => {
+    // TODO: Add story end handling
     if (isTyping) return;
     if (index < scenes.length - 1) {
       setIndex(index + 1);
@@ -33,7 +34,6 @@ export default function StoryMode({ scenes, onBack }) {
   const handleSkip = () => {
     if (isTyping) {
       // 完成打字效果
-      // setDisplayText(`${currentScene.dialogue}\n`);
       setIsTyping(false);
       return;
     }
@@ -61,8 +61,17 @@ export default function StoryMode({ scenes, onBack }) {
   };
 
   const handleChoiceSelect = (choice) => {
-    // TODO:暫時先點擊選項後 handleNext 因為題目還沒確定
-    handleNext();
+    updateDialogueHistory('You choosed: ', `[${choice.text}]`); // save choice to history
+    const nextIndex = choice.nextIndex; // get nextIndex from choice
+
+    // validate nextIndex
+    if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
+      setIndex(nextIndex); // 跳轉到指定的索引
+    } else {
+      // if nextIndex is invalid or not specified then forward to next scene and log error
+      if (index < scenes.length - 1) setIndex(index + 1); // 默認前進
+      console.error('Invalid nextIndex:', nextIndex);
+    }
   };
 
   useEffect(() => {
@@ -110,7 +119,6 @@ export default function StoryMode({ scenes, onBack }) {
           isAuto={isAuto}
         />
         {/* 對話框 或 Question */}
-        {/* FIXME: Question高度會覆蓋過Navbar 需重新設計它的Layout  */}
         {currentScene.type === 'question' ? (
           <Question
             currentScene={currentScene}
@@ -137,7 +145,7 @@ export default function StoryMode({ scenes, onBack }) {
             className="btn btn-info px-4 py-2 fw-bold"
             onClick={(e) => {
               e.stopPropagation(); // 避免點擊觸發對話切換
-              onBack(); // TODO: this will back to StoryMenu, may need to change
+              onBack();
             }}
           >
             Back Menu

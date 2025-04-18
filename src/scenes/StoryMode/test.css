@@ -86,7 +86,6 @@
 }
 
 /* StoryMenu section */
-/* TODO: 統一UI樣式 */
 .story-menu-container {
   display: flex;
   flex-direction: column;
