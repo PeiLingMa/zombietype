@@ -7,7 +7,7 @@ import Options from '../Option/Option';
 import Dropdown from './Dropdown';
 import './App.css';
 
-export default function MainMenu() {
+export default function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
   const [selectedStoryScenes, setSelectedStoryScenes] = useState(null); // State to hold selected story scenes
 

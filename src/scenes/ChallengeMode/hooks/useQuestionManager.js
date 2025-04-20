@@ -3,7 +3,7 @@ import { GAME_CONFIG } from '../gameConfig';
 
 /**
  * Custom hook to manage question selection and difficulty progression
- * 
+ *
  * Core features:
  * - Selects questions with difficulty based on completion rate
  * - Tracks correctly answered questions
@@ -13,7 +13,7 @@ import { GAME_CONFIG } from '../gameConfig';
  * @param {Function} updateGameState - Function to update game state
  * @returns {Object} Question management API
  */
-export const useQuestionManager = (gameState, updateGameState) => {
+export const useQuestionManager = () => {
   // Store candidate pool (correctly answered questions) as ref for immediate updates
   const candidatePoolRef = useRef([]);
 
@@ -32,13 +32,13 @@ export const useQuestionManager = (gameState, updateGameState) => {
    */
   const generateQuestionId = useCallback((question) => {
     if (question.id) return question.id;
-    
+
     // Generate ID from key properties for stability
     const idParts = [];
     if (question.type) idParts.push(question.type);
     if (question.description) idParts.push(question.description);
     if (question.answer) idParts.push(question.answer);
-    
+
     return idParts.length > 0 ? idParts.join('_') : JSON.stringify(question);
   }, []);
 
@@ -46,29 +46,32 @@ export const useQuestionManager = (gameState, updateGameState) => {
    * Updates the question pool with a new set of questions
    * Resets candidate pool when theme changes
    */
-  const updateSamplePool = useCallback((sample) => {
-    // Add IDs and difficulty markers to all questions
-    const processedSample = {
-      beginner: (sample.beginner || []).map(q => ({ 
-        ...q, 
-        _qid: generateQuestionId(q),
-        difficulty: 'beginner' 
-      })),
-      medium: (sample.medium || []).map(q => ({ 
-        ...q, 
-        _qid: generateQuestionId(q),
-        difficulty: 'medium' 
-      })),
-      hard: (sample.hard || []).map(q => ({ 
-        ...q, 
-        _qid: generateQuestionId(q),
-        difficulty: 'hard' 
-      }))
-    };
-    
-    currentSampleRef.current = processedSample;
-    candidatePoolRef.current = [];
-  }, [gameState.currentTheme, generateQuestionId]);
+  const updateSamplePool = useCallback(
+    (sample) => {
+      // Add IDs and difficulty markers to all questions
+      const processedSample = {
+        beginner: (sample.beginner || []).map((q) => ({
+          ...q,
+          _qid: generateQuestionId(q),
+          difficulty: 'beginner'
+        })),
+        medium: (sample.medium || []).map((q) => ({
+          ...q,
+          _qid: generateQuestionId(q),
+          difficulty: 'medium'
+        })),
+        hard: (sample.hard || []).map((q) => ({
+          ...q,
+          _qid: generateQuestionId(q),
+          difficulty: 'hard'
+        }))
+      };
+
+      currentSampleRef.current = processedSample;
+      candidatePoolRef.current = [];
+    },
+    [generateQuestionId]
+  );
 
   /**
    * Calculates completion rate based on answered questions
@@ -77,6 +80,13 @@ export const useQuestionManager = (gameState, updateGameState) => {
     const total = GAME_CONFIG.SAMPLE_SIZE;
     const answered = candidatePoolRef.current.length;
     return total > 0 ? answered / total : 0;
+  }, []);
+
+  /**
+   * Updates the current question
+   */
+  const updateCurrentQuestion = useCallback((question) => {
+    setCurrentQuestion(question);
   }, []);
 
   /**
@@ -90,20 +100,19 @@ export const useQuestionManager = (gameState, updateGameState) => {
       medium: currentSampleRef.current.medium?.length || 0,
       hard: currentSampleRef.current.hard?.length || 0
     };
-    
-    const totalRemaining = remainingByDifficulty.beginner + 
-                           remainingByDifficulty.medium + 
-                           remainingByDifficulty.hard;
-    
+
+    const totalRemaining =
+      remainingByDifficulty.beginner + remainingByDifficulty.medium + remainingByDifficulty.hard;
+
     // Handle edge case: no questions remaining
     if (totalRemaining === 0) return null;
-    
+
     // Get current completion rate
     const completionRate = getCompletionRate();
-    
+
     // Determine weights based on completion rate (progression curve)
     let weights;
-    
+
     if (completionRate < 0.2) {
       // Early stage: mostly beginner questions
       weights = { beginner: 0.8, medium: 0.15, hard: 0.05 };
@@ -120,33 +129,25 @@ export const useQuestionManager = (gameState, updateGameState) => {
       // Final stage: focus on hard questions
       weights = { beginner: 0.1, medium: 0.3, hard: 0.6 };
     }
-    
+
     // Adjust weights based on available questions
     const adjustedWeights = {
       beginner: remainingByDifficulty.beginner > 0 ? weights.beginner : 0,
       medium: remainingByDifficulty.medium > 0 ? weights.medium : 0,
       hard: remainingByDifficulty.hard > 0 ? weights.hard : 0
     };
-    
+
     // Normalize weights to sum to 1
     const sumWeights = adjustedWeights.beginner + adjustedWeights.medium + adjustedWeights.hard;
-    
-    if (sumWeights === 0) {
-      // Edge case: use remaining question counts as weights
-      adjustedWeights.beginner = remainingByDifficulty.beginner / totalRemaining;
-      adjustedWeights.medium = remainingByDifficulty.medium / totalRemaining;
-      adjustedWeights.hard = remainingByDifficulty.hard / totalRemaining;
-    } else {
-      // Standard normalization
-      adjustedWeights.beginner /= sumWeights;
-      adjustedWeights.medium /= sumWeights;
-      adjustedWeights.hard /= sumWeights;
-    }
-    
+
+    adjustedWeights.beginner /= sumWeights;
+    adjustedWeights.medium /= sumWeights;
+    adjustedWeights.hard /= sumWeights;
+
     // Roulette wheel selection for difficulty
     const random = Math.random();
     let targetDifficulty;
-    
+
     if (random < adjustedWeights.beginner) {
       targetDifficulty = 'beginner';
     } else if (random < adjustedWeights.beginner + adjustedWeights.medium) {
@@ -154,10 +155,10 @@ export const useQuestionManager = (gameState, updateGameState) => {
     } else {
       targetDifficulty = 'hard';
     }
-    
+
     // Find questions of selected difficulty or fallback to any available difficulty
     let finalPool = currentSampleRef.current[targetDifficulty];
-    
+
     if (!finalPool || finalPool.length === 0) {
       // Try alternative difficulties if target has no questions
       const difficulties = ['beginner', 'medium', 'hard'];
@@ -168,18 +169,13 @@ export const useQuestionManager = (gameState, updateGameState) => {
           break;
         }
       }
-      
-      // If still no questions available, return null
-      if (!finalPool?.length) {
-        return null;
-      }
     }
-    
+
     // Randomly select a question from the chosen difficulty
     const randomIndex = Math.floor(Math.random() * finalPool.length);
     const selectedQuestion = { ...finalPool[randomIndex] };
-    
-    setCurrentQuestion(selectedQuestion);
+
+    // setCurrentQuestion(selectedQuestion);
     return selectedQuestion;
   }, [getCompletionRate]);
 
@@ -192,24 +188,24 @@ export const useQuestionManager = (gameState, updateGameState) => {
     (answerData) => {
       const { question } = answerData;
       if (!question) return;
-      
+
       const difficulty = question.difficulty;
       if (!difficulty || !currentSampleRef.current[difficulty]) return;
-      
+
       const questionId = question._qid || generateQuestionId(question);
-      
+
       // Remove from question pool
-      currentSampleRef.current[difficulty] = currentSampleRef.current[difficulty].filter(q => 
-        q._qid !== questionId
+      currentSampleRef.current[difficulty] = currentSampleRef.current[difficulty].filter(
+        (q) => q._qid !== questionId
       );
-      
+
       // Add to candidate pool
       const questionToAdd = {
         ...question,
         _qid: questionId,
         difficulty
       };
-      
+
       candidatePoolRef.current.push(questionToAdd);
     },
     [generateQuestionId]
@@ -224,7 +220,7 @@ export const useQuestionManager = (gameState, updateGameState) => {
    * Returns questions from candidate pool for specific difficulty
    */
   const getCandidateQuestions = useCallback(
-    (difficulty) => candidatePoolRef.current.filter(q => q.difficulty === difficulty),
+    (difficulty) => candidatePoolRef.current.filter((q) => q.difficulty === difficulty),
     []
   );
 
@@ -241,6 +237,7 @@ export const useQuestionManager = (gameState, updateGameState) => {
 
   return {
     updateSamplePool,
+    updateCurrentQuestion,
     selectQuestion,
     onCorrectAnswer,
     onWrongAnswer,
