@@ -3,8 +3,9 @@ import { useState, useEffect, useCallback } from 'react';
 import Navbar from './component/Navbar';
 import './test.css';
 import Question from './component/Question';
+import StoryEndPopup from './component/StoryEndPopup';
 
-export default function StoryMode({ scenes, onBack }) {
+export default function StoryMode({ scenes, onBack, onStoryEnd }) {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -12,6 +13,15 @@ export default function StoryMode({ scenes, onBack }) {
   const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
   const currentScene = scenes[index];
+
+  const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
+  if (!onStoryEnd) {
+    onStoryEnd = () => {
+      if (showStoryEndPopup) return;
+      console.log('故事結束');
+      setShowStoryEndPopup(true);
+    };
+  }
 
   const updateDialogueHistory = (character, dialogue) => {
     if (currentScene) {
@@ -24,18 +34,17 @@ export default function StoryMode({ scenes, onBack }) {
   };
 
   const handleNext = useCallback(() => {
-    // TODO: Add story end handling
     if (isTyping) return;
     if (index < scenes.length - 1) {
       setIndex(index + 1);
+    } else {
+      if (onStoryEnd) onStoryEnd();
     }
   });
 
   const handleSkip = () => {
     if (isTyping) {
-      // 完成打字效果
-      setIsTyping(false);
-      return;
+      // do nothing here}
     }
     let tempIndex = index;
 
@@ -52,7 +61,12 @@ export default function StoryMode({ scenes, onBack }) {
       }
       tempIndex++;
     }
-    setIndex(tempIndex < scenes.length - 1 ? tempIndex + 1 : scenes.length - 1); // 確保 index 不超出範圍
+
+    if (tempIndex < scenes.length - 1) {
+      setIndex(tempIndex + 1);
+    } else {
+      if (onStoryEnd) onStoryEnd();
+    }
     setIsTyping(false);
   };
 
@@ -69,19 +83,25 @@ export default function StoryMode({ scenes, onBack }) {
       setIndex(nextIndex); // 跳轉到指定的索引
     } else {
       // if nextIndex is invalid or not specified then forward to next scene and log error
-      if (index < scenes.length - 1) setIndex(index + 1); // 默認前進
+      if (index < scenes.length - 1)
+        setIndex(index + 1); // 默認前進
+      else if (onStoryEnd) onStoryEnd(); // 如果已經到最後一個場景，則結束故事
       console.error('Invalid nextIndex:', nextIndex);
     }
   };
 
   useEffect(() => {
+    if (!currentScene) return;
+
     setDisplayText('');
     setIsTyping(true);
     let i = -1; // avoid missing first word
+    const dialogueText = currentScene.dialogue ?? '';
+
     const interval = setInterval(() => {
-      if (currentScene && currentScene.dialogue && i < currentScene.dialogue.length - 1) {
+      if (i < currentScene.dialogue.length - 1) {
         // 確保 currentScene 和 currentScene.dialogue 存在
-        setDisplayText((prev) => prev + currentScene.dialogue[i]);
+        setDisplayText((prev) => prev + dialogueText[i]);
         i++;
       } else {
         clearInterval(interval);
@@ -92,6 +112,7 @@ export default function StoryMode({ scenes, onBack }) {
     return () => clearInterval(interval);
   }, [index]);
 
+  // auto play
   useEffect(() => {
     if (currentScene?.type === 'question') return;
     if (isAuto && !isTyping) {
@@ -151,6 +172,11 @@ export default function StoryMode({ scenes, onBack }) {
             Back Menu
           </button>
         </div>
+        <StoryEndPopup
+          isVisible={showStoryEndPopup}
+          message="故事結束"
+          onConfirm={onBack}
+        />
       </div>
     </div>
   );
