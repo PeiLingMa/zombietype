@@ -59,6 +59,21 @@ const sceneData = [
     character: 'Morgana',
     image: morganaImg,
     dialogue: '喵?你想到什麼了嗎?'
+  },
+  {
+    character: 'Joker',
+    image: jokerImg,
+    dialogue: '答對了一半。但還不完全是。'
+  },
+  {
+    character: 'Morgana',
+    image: morganaImg,
+    dialogue: '喵... 還有什麼是圓形的呢?'
+  },
+  {
+    character: 'Morgana',
+    image: morganaImg,
+    dialogue: '喵?你想到什麼了嗎?'
   }
 ];
 

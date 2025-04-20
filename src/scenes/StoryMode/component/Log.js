@@ -1,6 +1,13 @@
+import { useRef, useEffect } from 'react';
 import './Log.css';
 
 export default function Log({ dialogueHistory, onClose }) {
+  const logContentRef = useRef(null);
+  useEffect(() => {
+    if (logContentRef.current) {
+      logContentRef.current.scrollTop = logContentRef.current.scrollHeight;
+    }
+  }, [dialogueHistory]);
   return (
     <div className="log-overlay">
       <div className="log-dialog">
@@ -13,7 +20,10 @@ export default function Log({ dialogueHistory, onClose }) {
             X
           </button>
         </div>
-        <div className="log-content">
+        <div
+          className="log-content"
+          ref={logContentRef}
+        >
           {dialogueHistory?.map((item, index) => (
             <div
               key={index}
