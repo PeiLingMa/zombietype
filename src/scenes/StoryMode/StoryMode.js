@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
-// import scenes from './script';
 import Navbar from './component/Navbar';
 import './test.css';
-import Question from './component/Question';
+import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
 
 export default function StoryMode({ scenes, onBack, onStoryEnd }) {
@@ -141,11 +140,13 @@ export default function StoryMode({ scenes, onBack, onStoryEnd }) {
         />
         {/* 對話框 或 Question */}
         {currentScene.type === 'question' ? (
-          <Question
+          <InputFrame
             currentScene={currentScene}
-            onChoiceSelect={handleChoiceSelect}
             questionText={displayText}
-          /> // 渲染 Question 元件
+            isTyping={isTyping}
+            onChoiceSelect={handleChoiceSelect}
+            updateDialogueHistory={updateDialogueHistory}
+          />
         ) : (
           <div
             className="dialogue-box"

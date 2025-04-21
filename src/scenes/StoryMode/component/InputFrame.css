@@ -1,0 +1,110 @@
+.question-box {
+  position: absolute;
+  bottom: 3%;
+  width: 100vw;
+
+  min-height: 30%;
+  height: auto;
+  min-width: 100vw;
+  background: rgba(73, 59, 59, 0.85);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+}
+
+.question-box h3 {
+  position: static;
+  margin-left: 5%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: fit-content;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
+
+.question-box .question-content {
+  position: static;
+  color: rgb(255, 255, 255);
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.choice-input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.choice-input-container input[type='text'] {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  max-width: 600px;
+}
+
+.choice-input-container button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.choice-input-container button:hover {
+  background-color: #0056b3;
+}
+
+.choice-input-container input[type='text']:disabled,
+.choice-input-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.choices-hint {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .question-box h3 {
+    font-size: 1.5rem;
+  }
+  .question-box .question-content {
+    font-size: 1.2rem;
+  }
+  .choice-input-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .choice-input-container input[type='text'] {
+    width: 90%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .choice-input-container button {
+    width: 90%;
+  }
+}

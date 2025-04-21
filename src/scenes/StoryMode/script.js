@@ -40,9 +40,9 @@ const sceneData = [
     image: jokerImg,
     dialogue: '那麼，最後一個提示。它是黃色的，而且早上會出現。你猜到是什麼了嗎？',
     choices: [
-      { text: '月亮', nextIndex: 8 },
-      { text: '太陽', nextIndex: 9 },
-      { text: '星星', nextIndex: 7 }
+      { text: 'moon', nextIndex: 8 },
+      { text: 'sun', nextIndex: 9 },
+      { text: 'star', nextIndex: 7 }
     ]
   },
   {
