@@ -6,12 +6,6 @@ import { GAME_CONFIG as BASE_GAME_CONFIG } from '../scenes/ChallengeMode/gameCon
 const GameSettingsContext = createContext();
 
 /**
- * Checks if the provided difficulty is a valid difficulty level.
- *
- * @returns {boolean} - Returns true if the difficulty is valid, otherwise false.
- */
-
-/**
  * Provides the current game settings to the children components.
  *
  * The provided value is an object with the following properties:

@@ -7,6 +7,7 @@ import { useQuestionManager } from './hooks/useQuestionManager';
 import { useZombieManager } from './hooks/useZombieManager';
 import { useSoundManager } from './hooks/useSoundManager';
 import { GAME_CONFIG } from './gameConfig';
+import { useVolumeControl } from '../../context/GameSettingsContext';
 
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,6 +38,8 @@ export default function ChallengeMode({ onBack }) {
 
   // Sound management
   const soundManager = useSoundManager();
+  const { volume } = useVolumeControl();
+  soundManager.setMasterVolume(volume);
 
   /**
    * Handles correct answer events
@@ -123,20 +126,17 @@ export default function ChallengeMode({ onBack }) {
 
     // Set the question
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [
-    questionManager,
-    zombieManager
-  ]);
+  }, [questionManager, zombieManager]);
 
   // Initialize game, generate first zombie
   useEffect(() => {
     // Check that currentSample not only exists but has content
-    const hasSamples = themeManager.currentSample && (
-      themeManager.currentSample.beginner.length > 0 ||
-      themeManager.currentSample.medium.length > 0 ||
-      themeManager.currentSample.hard.length > 0
-    );
-    
+    const hasSamples =
+      themeManager.currentSample &&
+      (themeManager.currentSample.beginner.length > 0 ||
+        themeManager.currentSample.medium.length > 0 ||
+        themeManager.currentSample.hard.length > 0);
+
     if (hasSamples && !gameState.gameOver) {
       questionManager.updateSamplePool(themeManager.currentSample);
       generateNewZombie();
