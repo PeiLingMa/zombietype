@@ -99,6 +99,9 @@ export default function ChallengeMode({ onBack }) {
         }
         return;
       }
+      else{
+        themeManager.rotateToNextTheme();
+      }
     }
 
     // Update zombie defeat count in game state using functional update pattern
