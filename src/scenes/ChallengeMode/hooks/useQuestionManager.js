@@ -246,5 +246,6 @@ export const useQuestionManager = () => {
     getCandidateQuestions,
     clearCandidatePool,
     currentQuestion,
+    getCompletionRate,
   };
 };

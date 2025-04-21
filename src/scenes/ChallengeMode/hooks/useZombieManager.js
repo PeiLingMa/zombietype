@@ -41,6 +41,7 @@ const zombieTypes = [
     image: zombie4,
     chargeSpeedMultiplier: 0.4,
     behavior: 'boss',
+    appearsAfterLevel: 1,
     description: '需要三題才會被消滅，通過後換主題並升級',
     extraState:{
       bossHp: 3,
@@ -57,6 +58,9 @@ const zombieTypes = [
  * @param {Function} updateGameState - Function to update game state
  */
 export const useZombieManager = (gameState, updateGameState) => {
+  if (!gameState || typeof gameState.level === 'undefined') {
+    console.warn('❗ gameState is undefined or incomplete in useZombieManager');
+  }
   const getAvailableZombies = (level) => {
     return zombieTypes.filter(z => !z.appearsAfterLevel || level >= z.appearsAfterLevel);
   };
@@ -69,7 +73,7 @@ export const useZombieManager = (gameState, updateGameState) => {
   const [zombieState, setZombieState] = useState({
     currentZombie: getRandomZombie(gameState.level),
     currentChargeRate: 0.0,
-    extraState: {} // for things like shieldHit, mimicRevealed, etc.
+    extraState: {}
   });
 
   /**
@@ -83,16 +87,43 @@ export const useZombieManager = (gameState, updateGameState) => {
   /**
    * Changes the current zombie to a random one from the available images
    */
-  const changeCurrentZombie = useCallback(() => {
-    const newZombie = getRandomZombie(gameState.level);
-    console.log('Changing current zombie', newZombie.name);
+  const changeCurrentZombie = useCallback((completionRate = 0) => {
+    let filtered;
+    if (completionRate < 0.9) {
+      if (completionRate === 0) {
+        // ⛔ 0% 完成度 → 連 mimic 都不給
+        filtered = getAvailableZombies(gameState.level).filter(
+          z => z.behavior !== 'mimic' && z.behavior !== 'boss'
+        );
+      } else {
+        // ⛔ 完成度未滿 0.9 → 排除 boss
+        filtered = getAvailableZombies(gameState.level).filter(
+          z => z.behavior !== 'boss'
+        );
+      }
+      const selected = filtered[Math.floor(Math.random() * filtered.length)];
+  
+      setZombieState((prev) => ({
+        ...prev,
+        currentZombie: selected,
+        extraState: {}
+      }));
+  
+      return selected;
+    }
+  
+    // ✅ 完成度達標 → 強制出 Boss
+    const boss = zombieTypes.find(z => z.behavior === 'boss');
     setZombieState((prev) => ({
       ...prev,
-      currentZombie: newZombie,
-      extraState: {}
+      currentZombie: boss,
+      extraState: {
+        bossHp: 3,
+        bossStage: 0
+      }
     }));
-    return newZombie;
-  }, [getRandomZombie, gameState.level]);
+    return boss;
+  }, [gameState.level]);
 
   /**
    * Returns the current charge rate of the zombie

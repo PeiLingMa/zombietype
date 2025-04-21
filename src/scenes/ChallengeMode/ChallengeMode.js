@@ -34,7 +34,7 @@ export default function ChallengeMode({ onBack }) {
   const questionManager = useQuestionManager();
 
   // Zombie management
-  const zombieManager = useZombieManager();
+  const zombieManager = useZombieManager(gameState, updateGameState);
 
   // Sound management
   const soundManager = useSoundManager();
@@ -50,12 +50,22 @@ export default function ChallengeMode({ onBack }) {
     const currentZombie = zombieManager.getCurrentZombie();
     const behavior = currentZombie?.behavior;
     // Update accuracy statistics
-    if (questionManager.currentQuestion) {
-      questionManager.onCorrectAnswer({
-        ...answerData,
-        question: questionManager.currentQuestion,
-        isCorrect: true
-      });
+    if (behavior === 'mimic'){
+      if (questionManager.currentQuestion) {
+        questionManager.onCorrectAnswer({
+          ...answerData,
+          question: zombieManager.getExtraState('realAnswer'),
+          isCorrect: true
+        });
+      }
+    }else{
+      if (questionManager.currentQuestion) {
+        questionManager.onCorrectAnswer({
+          ...answerData,
+          question: questionManager.currentQuestion,
+          isCorrect: true
+        });
+      }
     }
     // 處理護盾殭屍
     if (behavior === 'shield') {
@@ -63,6 +73,7 @@ export default function ChallengeMode({ onBack }) {
         zombieManager.setExtraState('shieldHit', true);
         const newQuestion = questionManager.selectQuestion();
         if (newQuestion) {
+          questionManager.updateCurrentQuestion(newQuestion);
           playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
         }
         return;
@@ -80,6 +91,7 @@ export default function ChallengeMode({ onBack }) {
         zombieManager.setExtraState('bossHp', hp - 1);
         zombieManager.setExtraState('bossStage', nextStage);
         const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
+        console.log(newQuestionArray);
         const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];   
         if (newQuestion) {
           questionManager.updateCurrentQuestion(newQuestion);
@@ -132,6 +144,7 @@ export default function ChallengeMode({ onBack }) {
     if (behavior === 'chameleon') {
       const newQuestion = questionManager.selectQuestion();
       if (newQuestion) {
+        questionManager.updateCurrentQuestion(newQuestion);
         playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
       }
       return;
@@ -172,8 +185,9 @@ export default function ChallengeMode({ onBack }) {
    * Generate new zombie and question
    */
   const generateNewZombie = useCallback(() => {
+    console.log(questionManager.getCompletionRate());
     // Update random zombie 
-    const zombie = zombieManager.changeCurrentZombie();
+    const zombie = zombieManager.changeCurrentZombie(questionManager.getCompletionRate());
 
     if (zombie.behavior === 'boss') {
       const boss_questionArray = questionManager.getCandidateQuestions('beginner');
@@ -193,17 +207,14 @@ export default function ChallengeMode({ onBack }) {
         console.warn('No question available for difficulty:', gameState.currentDifficulty);
         return;
       }
+      //mimic假題
       if(zombie.behavior === 'mimic'){
-        const question1 = questionManager.selectQuestion();
-        const question2 = questionManager.selectQuestion();
-        console.log(question1.answer);
-        console.log(question2.answer);
-        playerInput.updateCurrentAnswer(question1.answer, question.difficulty);
+        const fakeQuestionArray = questionManager.getCandidateQuestions('beginner');
+        const fakeQuestion = fakeQuestionArray[Math.floor(Math.random() * fakeQuestionArray.length)];
+        questionManager.updateCurrentQuestion(fakeQuestion);
+        playerInput.updateCurrentAnswer(question.answer, question.difficulty);
         zombieManager.setExtraState('mimicRevealed', false);
-        zombieManager.setExtraState('realAnswer', question1.answer);
-        setTimeout(() => {
-          questionManager.updateCurrentQuestion(question1);
-        }, 3000);
+        zombieManager.setExtraState('realAnswer', question);
       }
       else{
         questionManager.updateCurrentQuestion(question);
@@ -214,6 +225,26 @@ export default function ChallengeMode({ onBack }) {
     questionManager,
     zombieManager
   ]);
+
+  //mimic 專用處理邏輯
+  const handleInputWithMimic = (e) => {
+    const value = e.target.value;
+    const currentZombie = zombieManager.getCurrentZombie();
+    const behavior = currentZombie?.behavior;
+  
+    if (behavior === 'mimic') {
+      const revealed = zombieManager.getExtraState('mimicRevealed');
+      const realQuestion = zombieManager.getExtraState('realAnswer');
+      if (!revealed && value.length > 0) {
+        zombieManager.setExtraState('mimicRevealed', true);
+        questionManager.updateCurrentQuestion(realQuestion);
+        return;
+      }
+    }
+  
+    // 其他交給原本的 playerInput 處理
+    playerInput.handleInputChange(e);
+  };
 
   // Initialize game, generate first zombie
   useEffect(() => {
@@ -367,7 +398,7 @@ export default function ChallengeMode({ onBack }) {
           <input
             type="text"
             ref={playerInput.registerInputRef}
-            onChange={playerInput.handleInputChange}
+            onChange={handleInputWithMimic}
             className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${playerInput.isWrong ? 'shake' : ''}`}
             autoFocus
             disabled={gameState.gameOver}
