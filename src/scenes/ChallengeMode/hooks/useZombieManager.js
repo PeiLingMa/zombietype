@@ -6,20 +6,21 @@ import zombie2 from '../zombie2.png';
 import zombie3 from '../zombie3.png';
 import zombie4 from '../zombie4.png';
 
+// setting 4 types of zombies
 const zombieTypes = [
   {
     name: 'normal',
     image: zombie1,
     chargeSpeedMultiplier: 1,
     behavior: 'normal',
-    description: '最常出現的殭屍種類'
+    spawnWeight: 500,
   },
   {
     name: 'chameleon',
     image: zombie2,
     chargeSpeedMultiplier: 1,
     behavior: 'chameleon',
-    description: '輸入錯誤會改變題目內容'
+    spawnWeight: 20,
   },
   {
     name: 'shield',
@@ -27,14 +28,14 @@ const zombieTypes = [
     chargeSpeedMultiplier: 0.6,
     behavior: 'shield',
     appearsAfterLevel: 1,
-    description: '需要兩次正確答案才能消滅（護盾）'
+    spawnWeight: 15,
   },
   {
     name: 'mimic',
     image: zombie4,
     chargeSpeedMultiplier: 1,
     behavior: 'mimic',
-    description: '輸入第一個字後才會顯示真正的題目'
+    spawnWeight: 15,
   },
   {
     name: 'boss',
@@ -42,7 +43,7 @@ const zombieTypes = [
     chargeSpeedMultiplier: 0.4,
     behavior: 'boss',
     appearsAfterLevel: 1,
-    description: '需要三題才會被消滅，通過後換主題並升級',
+    spawnWeight: 0,
     extraState:{
       bossHp: 3,
       bossState: 0
@@ -65,9 +66,22 @@ export const useZombieManager = (gameState, updateGameState) => {
     return zombieTypes.filter(z => !z.appearsAfterLevel || level >= z.appearsAfterLevel);
   };
 
+  // randomly return zombie type by weight
+  const weightedRandom = useCallback((items) => {
+    const totalWeight = items.reduce((sum, item) => sum + item.spawnWeight, 0);
+    const r = Math.random() * totalWeight;
+    console.log(r);
+    let acc = 0;
+    for (const item of items) {
+      acc += item.spawnWeight;
+      if (r <= acc)return item;
+    }
+    return items[items.length - 1]; // fallback
+  },[]);
+
   const getRandomZombie = useCallback((level) => {
     const available = getAvailableZombies(level);
-    return available[Math.floor(Math.random() * available.length)];
+    return weightedRandom(available);
   },[]);
 
   const [zombieState, setZombieState] = useState({
@@ -91,12 +105,12 @@ export const useZombieManager = (gameState, updateGameState) => {
     let filtered;
     if (completionRate < 0.3) {
       if (completionRate === 0) {
-        // ⛔ 0% 完成度 → 連 mimic 都不給
+        // 0 completionRate -> no mimic
         filtered = getAvailableZombies(gameState.level).filter(
           z => z.behavior !== 'mimic' && z.behavior !== 'boss'
         );
       } else {
-        // ⛔ 完成度未滿 0.9 → 排除 boss
+        // completionRate under 0.3 -> no boss
         filtered = getAvailableZombies(gameState.level).filter(
           z => z.behavior !== 'boss'
         );
@@ -112,7 +126,7 @@ export const useZombieManager = (gameState, updateGameState) => {
       return selected;
     }
   
-    // ✅ 完成度達標 → 強制出 Boss
+    // complationRate >= 0.3 -> only boss
     const boss = zombieTypes.find(z => z.behavior === 'boss');
     setZombieState((prev) => ({
       ...prev,

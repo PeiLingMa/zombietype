@@ -40,69 +40,28 @@ export default function ChallengeMode({ onBack }) {
   const soundManager = useSoundManager();
   const { volume } = useVolumeControl();
   soundManager.setMasterVolume(volume);
-
+  
+  // decide zombie bahavior from their types
+  
   /**
    * Handles correct answer events
    * Updates accuracy statistics and spawns a new word
    * @param {Object} answerData - Data about the correct answer
    */
   const handleCorrectAnswer = (answerData) => {
-    const currentZombie = zombieManager.getCurrentZombie();
-    const behavior = currentZombie?.behavior;
+    let answer = questionManager.currentQuestion;
     // Update accuracy statistics
-    if (behavior === 'mimic'){
-      if (questionManager.currentQuestion) {
-        questionManager.onCorrectAnswer({
-          ...answerData,
-          question: zombieManager.getExtraState('realAnswer'),
-          isCorrect: true
-        });
-      }
-    }else{
-      if (questionManager.currentQuestion) {
-        questionManager.onCorrectAnswer({
-          ...answerData,
-          question: questionManager.currentQuestion,
-          isCorrect: true
-        });
-      }
+    if (zombieManager.getCurrentZombie()?.behavior === 'mimic'){
+      answer = zombieManager.getExtraState('realAnswer');
     }
-    // 處理護盾殭屍
-    if (behavior === 'shield') {
-      if (!zombieManager.getExtraState('shieldHit')) {
-        zombieManager.setExtraState('shieldHit', true);
-        const newQuestion = questionManager.selectQuestion();
-        if (newQuestion) {
-          questionManager.updateCurrentQuestion(newQuestion);
-          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
-        }
-        return;
-      }
+    if (questionManager.currentQuestion) {
+      questionManager.onCorrectAnswer({
+        ...answerData,
+        question: answer,
+        isCorrect: true
+      });
     }
-
-    if (behavior === 'boss') {
-      const hp = zombieManager.getExtraState('bossHp') ?? 3;
-      const stage = zombieManager.getExtraState('bossStage') ?? 0;
-      if (hp > 1) {
-        const nextStage = stage + 1;
-        const difficultyOrder = ['beginner', 'medium', 'hard'];
-        const nextDifficulty = difficultyOrder[nextStage];
-
-        zombieManager.setExtraState('bossHp', hp - 1);
-        zombieManager.setExtraState('bossStage', nextStage);
-        const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
-        console.log(newQuestionArray);
-        const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];   
-        if (newQuestion) {
-          questionManager.updateCurrentQuestion(newQuestion);
-          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
-        }
-        return;
-      }
-      else{
-        themeManager.rotateToNextTheme();
-      }
-    }
+    if (zombieBehaviors(zombieManager.getCurrentZombie(),'correct')) return;
 
     // Update zombie defeat count in game state using functional update pattern
     updateGameState((prevState) => {
@@ -128,8 +87,6 @@ export default function ChallengeMode({ onBack }) {
    * @param {Object} answerData - Data about the wrong answer
    */
   const handleWrongAnswer = (answerData) => {
-    const currentZombie = zombieManager.getCurrentZombie();
-    const behavior = currentZombie?.behavior;
     // Update accuracy statistics
     if (questionManager.currentQuestion) {
       questionManager.onWrongAnswer({
@@ -144,14 +101,7 @@ export default function ChallengeMode({ onBack }) {
       zombieManager.charge(0.3);
     }
 
-    if (behavior === 'chameleon') {
-      const newQuestion = questionManager.selectQuestion();
-      if (newQuestion) {
-        questionManager.updateCurrentQuestion(newQuestion);
-        playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
-      }
-      return;
-    }
+    zombieBehaviors(zombieManager.getCurrentZombie(),'wrong');
 
     // Play error sound effect
     soundManager.playSound('wrongAnswer');
@@ -188,48 +138,24 @@ export default function ChallengeMode({ onBack }) {
    * Generate new zombie and question
    */
   const generateNewZombie = useCallback(() => {
-    console.log(questionManager.getCompletionRate());
-    // Update random zombie 
     const zombie = zombieManager.changeCurrentZombie(questionManager.getCompletionRate());
-
-    if (zombie.behavior === 'boss') {
-      const boss_questionArray = questionManager.getCandidateQuestions('beginner');
-      console.log(boss_questionArray);
-      const boss_question = boss_questionArray[Math.floor(Math.random() * boss_questionArray.length)];
-      if (!boss_question) {
-        console.warn('No question available for difficulty:', gameState.currentDifficulty);
-        return;
-      }
-      questionManager.updateCurrentQuestion(boss_question);
-      playerInput.updateCurrentAnswer(boss_question.answer, boss_question.difficulty);
+    if (zombieBehaviors(zombie, 'generate')) return;
+  
+    const question = questionManager.selectQuestion();
+    if (!question) {
+      console.warn('No question available for difficulty:', gameState.currentDifficulty);
+      return;
     }
-    else{
-      // Select question with current difficulty and zombie count
-      const question = questionManager.selectQuestion();
-      if (!question) {
-        console.warn('No question available for difficulty:', gameState.currentDifficulty);
-        return;
-      }
-      //mimic假題
-      if(zombie.behavior === 'mimic'){
-        const fakeQuestionArray = questionManager.getCandidateQuestions('beginner');
-        const fakeQuestion = fakeQuestionArray[Math.floor(Math.random() * fakeQuestionArray.length)];
-        questionManager.updateCurrentQuestion(fakeQuestion);
-        playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-        zombieManager.setExtraState('mimicRevealed', false);
-        zombieManager.setExtraState('realAnswer', question);
-      }
-      else{
-        questionManager.updateCurrentQuestion(question);
-        playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-      }
-    }
+    questionManager.updateCurrentQuestion(question);
+    playerInput.updateCurrentAnswer(question.answer, question.difficulty);
   }, [
     questionManager,
-    zombieManager
+    playerInput,
+    zombieManager,
+    gameState.currentDifficulty,
   ]);
 
-  //mimic 專用處理邏輯
+  //extra handleinput for mimic
   const handleInputWithMimic = (e) => {
     const value = e.target.value;
     const currentZombie = zombieManager.getCurrentZombie();
@@ -245,10 +171,89 @@ export default function ChallengeMode({ onBack }) {
       }
     }
   
-    // 其他交給原本的 playerInput 處理
+    // if not mimic use origin handleinput
     playerInput.handleInputChange(e);
   };
 
+  const zombieBehaviors = useCallback((zombie, situation) => {
+    const behavior = zombie.behavior;
+  
+    // Boss zombie generation logic
+    if (behavior === 'boss' && situation === 'generate') {
+      const boss_questionArray = questionManager.getCandidateQuestions('beginner');
+      const boss_question = boss_questionArray[Math.floor(Math.random() * boss_questionArray.length)];
+      if (!boss_question) {
+        console.warn('No question available for difficulty:', gameState.currentDifficulty);
+        return true;
+      }
+      questionManager.updateCurrentQuestion(boss_question);
+      playerInput.updateCurrentAnswer(boss_question.answer, boss_question.difficulty);
+      return true;
+    }
+  
+    // Mimic zombie fake question logic
+    if (behavior === 'mimic' && situation === 'generate') {
+      const realQuestion = questionManager.selectQuestion();
+      if (!realQuestion) {
+        console.warn('No question available for difficulty:', gameState.currentDifficulty);
+        return true;
+      }
+      const fakeQuestionArray = questionManager.getCandidateQuestions('beginner');
+      const fakeQuestion = fakeQuestionArray[Math.floor(Math.random() * fakeQuestionArray.length)];
+      questionManager.updateCurrentQuestion(fakeQuestion);
+      playerInput.updateCurrentAnswer(realQuestion.answer, realQuestion.difficulty);
+      zombieManager.setExtraState('mimicRevealed', false);
+      zombieManager.setExtraState('realAnswer', realQuestion);
+      return true;
+    }
+
+    if (behavior === 'chameleon' && situation === 'wrong') {
+      const newQuestion = questionManager.selectQuestion();
+      if (newQuestion) {
+        questionManager.updateCurrentQuestion(newQuestion);
+        playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+      }
+      return;
+    }
+    // shield zombie break shield logic
+    if (behavior === 'shield' && situation === 'correct') {
+      if (!zombieManager.getExtraState('shieldHit')) {
+        zombieManager.setExtraState('shieldHit', true);
+        const newQuestion = questionManager.selectQuestion();
+        if (newQuestion) {
+          questionManager.updateCurrentQuestion(newQuestion);
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+        return true;
+      }
+      return false;
+    }
+    // boss zombie three question logic with theme change
+    if (behavior === 'boss' && situation === 'correct') {
+      const hp = zombieManager.getExtraState('bossHp') ?? 3;
+      const stage = zombieManager.getExtraState('bossStage') ?? 0;
+      if (hp > 1) {
+        const nextStage = stage + 1;
+        const difficultyOrder = ['beginner', 'medium', 'hard'];
+        const nextDifficulty = difficultyOrder[nextStage];
+  
+        zombieManager.setExtraState('bossHp', hp - 1);
+        zombieManager.setExtraState('bossStage', nextStage);
+        const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
+        const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];   
+        if (newQuestion) {
+          questionManager.updateCurrentQuestion(newQuestion);
+          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+        }
+        return true;
+      }
+      else{
+        themeManager.rotateToNextTheme();
+      }
+      return false;
+    }
+  }, [questionManager, playerInput, zombieManager, gameState.currentDifficulty]);
+  
   // Initialize game, generate first zombie
   useEffect(() => {
     // Check that currentSample not only exists but has content
