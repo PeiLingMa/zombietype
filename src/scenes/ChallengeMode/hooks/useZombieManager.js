@@ -58,7 +58,7 @@ const zombieTypes = [
  * @param {Object} gameState - Current game state
  * @param {Function} updateGameState - Function to update game state
  */
-export const useZombieManager = (gameState, updateGameState) => {
+export const useZombieManager = (gameState/*, updateGameState*/) => {
   if (!gameState || typeof gameState.level === 'undefined') {
     console.warn('❗ gameState is undefined or incomplete in useZombieManager');
   }

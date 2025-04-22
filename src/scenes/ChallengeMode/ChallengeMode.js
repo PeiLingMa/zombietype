@@ -127,12 +127,14 @@ export default function ChallengeMode({ onBack }) {
    * 
    * This function will be called when the player defeats a zombie
    */
+  /*
   const requestNextZombie = useCallback(() => {
     // TODO: Fetch or deside the type of zombie to spawn
     // TODO: Request question(s) based on zombie type
     // TODO: Update zombieManager with the new zombie type
     // TODO: Notify playerInput to update the current answer
   }, []);
+  */
 
   /**
    * Generate new zombie and question
