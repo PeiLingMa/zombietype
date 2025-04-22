@@ -70,7 +70,6 @@ export const useZombieManager = (gameState/*, updateGameState*/) => {
   const weightedRandom = useCallback((items) => {
     const totalWeight = items.reduce((sum, item) => sum + item.spawnWeight, 0);
     const r = Math.random() * totalWeight;
-    console.log(r);
     let acc = 0;
     for (const item of items) {
       acc += item.spawnWeight;
