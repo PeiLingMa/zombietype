@@ -1,11 +1,11 @@
 .question-box {
   position: absolute;
   bottom: 3%;
-  width: 100vw;
+  width: 100%;
 
   min-height: 30%;
   height: auto;
-  min-width: 100vw;
+  min-width: 600px;
   background: rgba(73, 59, 59, 0.85);
   z-index: 1;
   display: flex;

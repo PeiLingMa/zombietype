@@ -5,7 +5,7 @@ export default function InputFrame({
   currentScene,
   questionText,
   isTyping,
-  onChoiceSelect,
+  onChoiceSelect, // called only when player's answer matched
   updateDialogueHistory
 }) {
   const [choiceInput, setChoiceInput] = useState('');

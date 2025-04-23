@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Navbar from './component/Navbar';
 import './test.css';
 import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
 
-export default function StoryMode({ scenes, onBack, onStoryEnd }) {
+export default function StoryMode({ storyId = 'local-story-default', scenes, onBack, onStoryEnd }) {
   const [index, setIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -14,45 +14,72 @@ export default function StoryMode({ scenes, onBack, onStoryEnd }) {
   const currentScene = scenes[index];
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
-  if (!onStoryEnd) {
-    onStoryEnd = () => {
-      if (showStoryEndPopup) return;
-      console.log('故事結束');
-      setShowStoryEndPopup(true);
-    };
-  }
+
+  // store story progress and answer status to localStorage
+  const [storyProgress, setStoryProgress] = useState({
+    storyId: storyId,
+    currentIndex: index,
+    answers: [], // player answer history { sceneId, chosenText, isCorrect, timestamp }
+    dialogueHistory: [],
+    startTime: null,
+    endTime: null // null: story not ended
+  });
+
+  const hasLoadedProgress = useRef(false);
+
+  const handleStoryEnd = useCallback(() => {
+    if (showStoryEndPopup) return;
+    console.log('故事結束');
+    setStoryProgress((prev) => ({
+      ...prev,
+      endTime: new Date().toISOString() // log end time
+    }));
+    setShowStoryEndPopup(true);
+    if (onStoryEnd) onStoryEnd();
+  }, [showStoryEndPopup, onStoryEnd]);
 
   const updateDialogueHistory = (character, dialogue) => {
-    if (currentScene) {
-      setDialogueHistory((prevHistory) => [
-        ...prevHistory,
-        { character: character, dialogue: dialogue } // 將當前對話加入紀錄
-      ]);
-      // console.log('對話紀錄', currentScene.character, currentScene.dialogue);
-    }
+    const history = {
+      character: character,
+      dialogue: dialogue
+    };
+    // update dialogueHistory in log and storyProgress
+    setDialogueHistory((prev) => [...prev, history]);
+    setStoryProgress((prev) => ({
+      ...prev,
+      dialogueHistory: [...prev.dialogueHistory, history]
+    }));
   };
 
   const handleNext = useCallback(() => {
     if (isTyping) return;
-    if (index < scenes.length - 1) {
-      setIndex(index + 1);
+
+    const nextIndex = index + 1;
+    if (nextIndex < scenes.length - 1) {
+      setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
+      setIndex(nextIndex);
     } else {
-      if (onStoryEnd) onStoryEnd();
+      handleStoryEnd();
     }
   });
 
-  const handleSkip = () => {
-    if (isTyping) {
-      // do nothing here}
-    }
-    let tempIndex = index;
+  const handleSkip = useCallback(() => {
+    if (scenes[index].type === 'question') return;
 
+    let tempIndex = index;
+    let avoidFirst = isTyping ? false : true; // avoid logging first scene
+
+    const skippedDialogues = []; // cache skipped dialogues
     while (tempIndex < scenes.length - 1) {
+      if (avoidFirst) {
+        avoidFirst = false;
+        tempIndex++;
+        continue;
+      }
       const sceneToSkip = scenes[tempIndex];
       if (sceneToSkip) {
         updateDialogueHistory(sceneToSkip.character, sceneToSkip.dialogue); // 更新對話紀錄
-        // console.log('對話紀錄', sceneToSkip.character, sceneToSkip.dialogue);
-        setDisplayText(`${sceneToSkip.dialogue}\n`); // 立即顯示完整對話
+        // setDisplayText(`${sceneToSkip.dialogue}\n`); // 立即顯示完整對話
       }
       if (scenes[tempIndex + 1]?.type === 'question') {
         // 預先檢查下一個場景是否為問題，如果是則停止跳過
@@ -61,34 +88,111 @@ export default function StoryMode({ scenes, onBack, onStoryEnd }) {
       tempIndex++;
     }
 
+    // add cached dialogues to history
+    setDialogueHistory((prevHistory) => [...prevHistory, ...skippedDialogues]);
+    setStoryProgress((prev) => ({
+      ...prev,
+      currentIndex: tempIndex,
+      dialogueHistory: [...prev.dialogueHistory, ...skippedDialogues]
+    }));
+
     if (tempIndex < scenes.length - 1) {
       setIndex(tempIndex + 1);
     } else {
-      if (onStoryEnd) onStoryEnd();
+      handleStoryEnd();
     }
     setIsTyping(false);
-  };
+  }, [index, scenes, isTyping, currentScene, handleStoryEnd]);
 
   const handleAuto = () => {
     setIsAuto(!isAuto);
   };
 
-  const handleChoiceSelect = (choice) => {
-    updateDialogueHistory('You choosed: ', `[${choice.text}]`); // save choice to history
-    const nextIndex = choice.nextIndex; // get nextIndex from choice
+  /**
+   * Called when user submit a valid answer(text)
+   * @param {{text: string, nextIndex: number, isCorrect: boolean}} choice - The player selected choice object in single scene
+   */
+  const handleChoiceSelect = useCallback(
+    (choice) => {
+      setStoryProgress((prev) => ({
+        ...prev,
+        answers: [
+          ...prev.answers,
+          {
+            sceneIndex: index,
+            chosenText: choice.text,
+            isCorrect: choice.isCorrect ? choice.isCorrect : false, // default to false if not specified
+            timestamp: new Date().toISOString() // 記錄回答時間
+          }
+        ]
+      }));
 
-    // validate nextIndex
-    if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
-      setIndex(nextIndex); // 跳轉到指定的索引
-    } else {
-      // if nextIndex is invalid or not specified then forward to next scene and log error
-      if (index < scenes.length - 1)
-        setIndex(index + 1); // 默認前進
-      else if (onStoryEnd) onStoryEnd(); // 如果已經到最後一個場景，則結束故事
-      console.error('Invalid nextIndex:', nextIndex);
+      updateDialogueHistory('You choosed: ', `[${choice.text}]`); // save choice to history
+
+      const nextIndex = choice.nextIndex; // get nextIndex from choice
+
+      // validate nextIndex
+      if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
+        setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
+        setIndex(nextIndex); // 跳轉到指定的索引
+      } else {
+        // if nextIndex is invalid or not specified then forward to next scene and log error
+        if (nextIndex < scenes.length - 1)
+          handleNext(); // 默認前進
+        else if (onStoryEnd) onStoryEnd(); // 如果已經到最後一個場景，則結束故事
+        console.error('Invalid nextIndex:', nextIndex);
+      }
+    },
+    [index, scenes, updateDialogueHistory, setStoryProgress, handleStoryEnd]
+  );
+  // localStorage read/write
+  useEffect(() => {
+    const localStorageKey = `storyProgress_${storyId}`;
+    // load progress
+    if (!hasLoadedProgress.current) {
+      const savedProgress = localStorage.getItem(localStorageKey);
+      if (savedProgress) {
+        try {
+          const parsedProgress = JSON.parse(savedProgress);
+          setStoryProgress(parsedProgress);
+          setIndex(parsedProgress.currentIndex ?? 0);
+          setDialogueHistory(parsedProgress.dialogueHistory ?? []);
+
+          if (parsedProgress.endTime) {
+            setShowStoryEndPopup(true); // show story end popup if story ended
+          }
+        } catch (error) {
+          console.error('Failed to parse story progress from localStorage:', error);
+          return;
+        }
+      } else {
+        // no progress found, set default values
+        setStoryProgress({
+          storyId: storyId,
+          currentIndex: 0,
+          answers: [],
+          dialogueHistory: [],
+          startTime: new Date().toISOString(),
+          endTime: null
+        });
+        setIndex(0);
+        setDialogueHistory([]);
+      }
+      hasLoadedProgress.current = true;
     }
-  };
 
+    // save progress
+    if (hasLoadedProgress.current) {
+      console.log('Saving story progress to localStorage:', storyProgress);
+      try {
+        localStorage.setItem(localStorageKey, JSON.stringify(storyProgress));
+      } catch (error) {
+        console.error('Failed to save story progress to localStorage:', error);
+      }
+    }
+  }, [storyProgress, storyId]);
+
+  // typing effect
   useEffect(() => {
     if (!currentScene) return;
 
@@ -121,6 +225,25 @@ export default function StoryMode({ scenes, onBack, onStoryEnd }) {
       return () => clearTimeout(timer);
     }
   }, [currentScene.type, isAuto, isTyping, handleNext]);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      // Trigger handleNext on Enter if not typing and not a question scene
+      if (event.key === 'Enter' && !isTyping && currentScene?.type !== 'question') {
+        handleNext();
+      }
+      // Enter key handling for question scenes is in InputFrame
+    },
+    [isTyping, currentScene?.type, handleNext]
+  );
+
+  // keyboard event listener
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]); // Dependency is handleKeyDown
 
   return (
     <div className="cutscene-container">
@@ -176,7 +299,10 @@ export default function StoryMode({ scenes, onBack, onStoryEnd }) {
         <StoryEndPopup
           isVisible={showStoryEndPopup}
           message="故事結束"
-          onConfirm={onBack}
+          onConfirm={() => {
+            localStorage.removeItem(`storyProgress_${storyId}`);
+            onBack();
+          }}
         />
       </div>
     </div>
