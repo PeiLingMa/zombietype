@@ -3,22 +3,24 @@ import Navbar from './component/Navbar';
 import './test.css';
 import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
-
 export default function StoryMode({ storyId = 'local-story-default', scenes, onBack, onStoryEnd }) {
   const [index, setIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  // const [displayText, setDisplayText] = useState('');
+
+  const [currentDialogueText, setCurrentDialogueText] = useState('');
+  const [displayedCharacterCount, setDisplayedCharacterCount] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [dialogueHistory, setDialogueHistory] = useState([]);
   const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
-  const currentScene = scenes[index];
+  const currentScene = scenes ? scenes[index] : null;
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
 
   // store story progress and answer status to localStorage
   const [storyProgress, setStoryProgress] = useState({
     storyId: storyId,
-    currentIndex: index,
+    currentIndex: 0,
     answers: [], // player answer history { sceneId, chosenText, isCorrect, timestamp }
     dialogueHistory: [],
     startTime: null,
@@ -38,6 +40,11 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     if (onStoryEnd) onStoryEnd();
   }, [showStoryEndPopup, onStoryEnd]);
 
+  /**
+   *
+   * @param {string} character
+   * @param {string} dialogue
+   */
   const updateDialogueHistory = (character, dialogue) => {
     const history = {
       character: character,
@@ -52,7 +59,12 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
   };
 
   const handleNext = useCallback(() => {
-    if (isTyping) return;
+    if (isTyping) {
+      // stop typing effect and show full text
+      setIsTyping(false);
+      setDisplayedCharacterCount(currentDialogueText.length);
+      return;
+    }
 
     const nextIndex = index + 1;
     if (nextIndex < scenes.length - 1) {
@@ -183,7 +195,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
     // save progress
     if (hasLoadedProgress.current) {
-      console.log('Saving story progress to localStorage:', storyProgress);
+      // console.log('Saving story progress to localStorage:', storyProgress);
       try {
         localStorage.setItem(localStorageKey, JSON.stringify(storyProgress));
       } catch (error) {
@@ -194,19 +206,20 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
   // typing effect
   useEffect(() => {
-    if (!currentScene) return;
-
-    setDisplayText('');
+    if (!currentScene || !hasLoadedProgress) return;
+    // console.log('Typing effect triggered'); // this trigger 2-3 times when entering story
+    setDisplayedCharacterCount(0);
     setIsTyping(true);
-    let i = -1; // avoid missing first word
+    let i = 0; // avoid missing first word
     const dialogueText = currentScene.dialogue ?? '';
+    setCurrentDialogueText(dialogueText);
 
     const interval = setInterval(() => {
       if (i < currentScene.dialogue.length - 1) {
-        // 確保 currentScene 和 currentScene.dialogue 存在
-        setDisplayText((prev) => prev + dialogueText[i]);
+        setDisplayedCharacterCount((prev) => prev + 1);
         i++;
       } else {
+        // console.log('Typing complete');
         clearInterval(interval);
         setIsTyping(false);
         updateDialogueHistory(currentScene.character, currentScene.dialogue);
@@ -215,6 +228,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     return () => clearInterval(interval);
   }, [index]);
 
+  const textToDisplay = currentDialogueText.substring(0, displayedCharacterCount);
   // auto play
   useEffect(() => {
     if (currentScene?.type === 'question') return;
@@ -263,10 +277,17 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         />
         {/* 對話框 或 Question */}
         {currentScene.type === 'question' ? (
-          <InputFrame
+          <InputFrame // TODO: cursor naviagate here when question is shown
             currentScene={currentScene}
-            questionText={displayText}
+            questionText={textToDisplay}
             isTyping={isTyping}
+            onClick={() => {
+              if (isTyping) {
+                // console.log('Typing effect interrupted');
+                setIsTyping(false);
+                setDisplayedCharacterCount(currentDialogueText.length);
+              }
+            }}
             onChoiceSelect={handleChoiceSelect}
             updateDialogueHistory={updateDialogueHistory}
           />
@@ -278,8 +299,20 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
             {' '}
             {/* 對話框 UI */}
             <h3>{currentScene.character}</h3>
-            <p className="content">{displayText}</p>
-            {!isTyping && <span style={{ fontSize: '0.9rem', opacity: 0.5 }}></span>}
+            <p className="content">{textToDisplay}</p>
+            {!isTyping && currentScene.dialogue && (
+              <span
+                style={{
+                  fontSize: '1rem',
+                  opacity: 0.5,
+                  position: 'absolute',
+                  bottom: '10px',
+                  right: '20px' // transition not working
+                }}
+              >
+                Click or press Enter to continue...
+              </span>
+            )}
           </div>
         )}
         {/* 返回按鈕放在畫面外 */}

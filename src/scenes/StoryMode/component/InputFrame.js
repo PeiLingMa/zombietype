@@ -5,6 +5,7 @@ export default function InputFrame({
   currentScene,
   questionText,
   isTyping,
+  onClick,
   onChoiceSelect, // called only when player's answer matched
   updateDialogueHistory
 }) {
@@ -61,7 +62,13 @@ export default function InputFrame({
     <div className="question-box">
       {' '}
       <h3>{currentScene.character}</h3>
-      <p className="question-content">{questionText}</p> {/* 顯示打字中的問題文字 */}
+      <p
+        onClick={onClick}
+        className="question-content"
+      >
+        {questionText}
+      </p>{' '}
+      {/* 顯示打字中的問題文字 */}
       {/* 顯示可選的選項列表作為提示 */}
       {/* <div className="choices-hint">
         Choices: {currentScene.choices?.map((c) => c.text).join(', ')}

@@ -1,19 +1,11 @@
 /* src\scenes\StoryMode\component\StoryEndPopup.css */
 
-.story-end-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* 更深的半透明背景 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000; /* 確保在 Log 之上 */
-}
-
 .story-end-dialog {
+  position: absolute; /* Position relative to the nearest positioned ancestor (e.g., ratio-container) */
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 2000;
+
   background: rgba(73, 59, 59, 0.95); /* 與對話框相似的背景，稍微不透明 */
   color: white;
   border-radius: 8px;
@@ -40,6 +32,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: block; /* Make button a block element for better layout */
+  width: 100%; /* Make button full width of the dialog */
+  text-align: center;
 }
 
 .story-end-button:hover {
