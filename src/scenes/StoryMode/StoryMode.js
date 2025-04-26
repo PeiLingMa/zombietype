@@ -5,12 +5,12 @@ import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
 export default function StoryMode({ storyId = 'local-story-default', scenes, onBack, onStoryEnd }) {
   const [index, setIndex] = useState(0);
-  // const [displayText, setDisplayText] = useState('');
 
   const [currentDialogueText, setCurrentDialogueText] = useState('');
   const [displayedCharacterCount, setDisplayedCharacterCount] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [dialogueHistory, setDialogueHistory] = useState([]);
+  const dialogueHistoryRef = useRef([]);
   const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
   const currentScene = scenes ? scenes[index] : null;
@@ -26,6 +26,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     startTime: null,
     endTime: null // null: story not ended
   });
+  const storyProgressRef = useRef(storyProgress);
 
   const hasLoadedProgress = useRef(false);
 
@@ -39,6 +40,13 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     setShowStoryEndPopup(true);
     if (onStoryEnd) onStoryEnd();
   }, [showStoryEndPopup, onStoryEnd]);
+
+  useEffect(() => {
+    dialogueHistoryRef.current = dialogueHistory;
+  }, [dialogueHistory]);
+  useEffect(() => {
+    storyProgressRef.current = storyProgress;
+  }, [storyProgress]);
 
   /**
    *
@@ -139,8 +147,6 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         ]
       }));
 
-      updateDialogueHistory('You choosed: ', `[${choice.text}]`); // save choice to history
-
       const nextIndex = choice.nextIndex; // get nextIndex from choice
 
       // validate nextIndex
@@ -204,6 +210,23 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     }
   }, [storyProgress, storyId]);
 
+  // remove cache if ended when the browser unloads (reload, close tab), and unmount
+  useEffect(() => {
+    const handleUnload = () => {
+      const latestProgress = storyProgressRef.current;
+      if (latestProgress?.endTime) {
+        localStorage.removeItem(`storyProgress_${storyId}`);
+      }
+    };
+    window.addEventListener('unload', handleUnload);
+
+    return () => {
+      // when component unmounts
+      window.removeEventListener('unload', handleUnload);
+      handleUnload();
+    };
+  }, []);
+
   // typing effect
   useEffect(() => {
     if (!currentScene || !hasLoadedProgress) return;
@@ -222,7 +245,14 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         // console.log('Typing complete');
         clearInterval(interval);
         setIsTyping(false);
-        updateDialogueHistory(currentScene.character, currentScene.dialogue);
+
+        const latestHistory = dialogueHistoryRef.current[dialogueHistoryRef.current.length - 1];
+        const isAlreadyInHistory =
+          latestHistory &&
+          latestHistory.dialogue === currentScene.dialogue &&
+          latestHistory.character === currentScene.character;
+        if (!isAlreadyInHistory)
+          updateDialogueHistory(currentScene.character, currentScene.dialogue);
       }
     }, 40);
     return () => clearInterval(interval);
@@ -277,7 +307,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         />
         {/* 對話框 或 Question */}
         {currentScene.type === 'question' ? (
-          <InputFrame // TODO: cursor naviagate here when question is shown
+          <InputFrame
             currentScene={currentScene}
             questionText={textToDisplay}
             isTyping={isTyping}

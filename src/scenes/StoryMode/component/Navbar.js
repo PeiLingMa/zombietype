@@ -6,13 +6,14 @@ import Log from './Log';
 export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto }) {
   const [isLogVisible, setIsLogVisible] = useState(false);
 
-  const handleLogClick = () => {
+  const handleLogClick = useCallback(() => {
     setIsLogVisible(true);
-  };
+  }, []);
 
-  const handleLogClose = () => {
+  const handleLogClose = useCallback(() => {
     setIsLogVisible(false);
-  };
+  }, []);
+
   return (
     <div class="navbar">
       <button

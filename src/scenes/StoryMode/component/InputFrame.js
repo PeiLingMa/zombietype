@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import './InputFrame.css';
 
 export default function InputFrame({
@@ -10,6 +10,7 @@ export default function InputFrame({
   updateDialogueHistory
 }) {
   const [choiceInput, setChoiceInput] = useState('');
+  const inputRef = useRef(null);
 
   const handleInputChange = useCallback((event) => {
     setChoiceInput(event.target.value);
@@ -51,8 +52,11 @@ export default function InputFrame({
   useEffect(() => {
     if (currentScene?.type === 'question') {
       setChoiceInput('');
+      if (!isTyping) {
+        inputRef?.current.focus();
+      }
     }
-  }, [currentScene]);
+  }, [currentScene, isTyping]);
 
   if (!currentScene || currentScene.type !== 'question') {
     return null;
@@ -75,6 +79,7 @@ export default function InputFrame({
       </div> */}
       <div className="choice-input-container">
         <input
+          ref={inputRef}
           type="text"
           value={choiceInput}
           onChange={handleInputChange}
