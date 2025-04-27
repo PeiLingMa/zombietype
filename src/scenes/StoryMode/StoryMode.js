@@ -66,10 +66,10 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     }));
   };
 
-
-
   const handleNext = useCallback(() => {
-    if (currentScene?.type === 'correctED' || 'wrongED') return; // do nothing if current scene is question
+    if (currentScene?.type !== undefined && (currentScene?.type === 'correctED' || 'wrongED')) {
+      return;
+    }
     if (isTyping) {
       // stop typing effect and show full text
       setIsTyping(false);
@@ -152,9 +152,9 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
       console.log(choice);
 
-      const nextIndex = choice 
-      ? currentScene.answer.correctIndex 
-      : currentScene.answer.incorrectIndex; // get nextIndex from choice
+      const nextIndex = choice
+        ? currentScene.answer.correctIndex
+        : currentScene.answer.incorrectIndex; // get nextIndex from choice
 
       // validate nextIndex
       if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
