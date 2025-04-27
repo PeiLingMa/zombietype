@@ -66,7 +66,10 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     }));
   };
 
+
+
   const handleNext = useCallback(() => {
+    if (currentScene?.type === 'correctED' || 'wrongED') return; // do nothing if current scene is question
     if (isTyping) {
       // stop typing effect and show full text
       setIsTyping(false);
@@ -130,7 +133,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
   /**
    * Called when user submit a valid answer(text)
-   * @param {{text: string, nextIndex: number, isCorrect: boolean}} choice - The player selected choice object in single scene
+   * @param {{text: string, correctIndex: number, incorrectIndex: number}} choice - The player selected choice object in single scene
    */
   const handleChoiceSelect = useCallback(
     (choice) => {
@@ -147,12 +150,19 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         ]
       }));
 
-      const nextIndex = choice.nextIndex; // get nextIndex from choice
+      console.log(choice);
+
+      const nextIndex = choice 
+      ? currentScene.answer.correctIndex 
+      : currentScene.answer.incorrectIndex; // get nextIndex from choice
 
       // validate nextIndex
       if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
         setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
         setIndex(nextIndex); // 跳轉到指定的索引
+        if (scenes[nextIndex]?.type === 'correctED' || scenes[nextIndex]?.type === 'wrongED') {
+          setShowStoryEndPopup(true);
+        }
       } else {
         // if nextIndex is invalid or not specified then forward to next scene and log error
         if (nextIndex < scenes.length - 1)
@@ -163,6 +173,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     },
     [index, scenes, updateDialogueHistory, setStoryProgress, handleStoryEnd]
   );
+
   // localStorage read/write
   useEffect(() => {
     const localStorageKey = `storyProgress_${storyId}`;

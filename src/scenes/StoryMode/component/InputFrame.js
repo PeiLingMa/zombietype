@@ -7,7 +7,7 @@ export default function InputFrame({
   isTyping,
   onClick,
   onChoiceSelect, // called only when player's answer matched
-  updateDialogueHistory
+  updateDialogueHistory,
 }) {
   const [choiceInput, setChoiceInput] = useState('');
   const inputRef = useRef(null);
@@ -24,13 +24,11 @@ export default function InputFrame({
       return;
     }
 
-    const matchedChoice = currentScene?.choices?.find(
-      (choice) => choice.text.trim().toLowerCase() === trimmedInput.toLowerCase()
-    );
+    const correct = currentScene?.answer?.text.trim().toLowerCase() === trimmedInput.trim().toLowerCase();
 
-    if (matchedChoice) {
+    onChoiceSelect(correct);
+    if (correct) {
       updateDialogueHistory('You typed:', `[${trimmedInput}]`);
-      onChoiceSelect(matchedChoice);
       setChoiceInput('');
     } else {
       console.warn(`No matching choice found for input: "${trimmedInput}"`);
