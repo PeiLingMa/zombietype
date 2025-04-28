@@ -1,9 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
-import Options from '../../Option/Option';
 import './Navbar.css';
 import Log from './Log';
 
-export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto }) {
+export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto, onConfig }) {
   const [isLogVisible, setIsLogVisible] = useState(false);
 
   const handleLogClick = useCallback(() => {
@@ -34,7 +33,10 @@ export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto }) {
       >
         <p>log</p>
       </button>
-      <button className="navbar-config">
+      <button
+        className="navbar-config"
+        onClick={onConfig}
+      >
         <p>config</p>
       </button>
 

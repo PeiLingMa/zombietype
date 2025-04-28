@@ -6,8 +6,8 @@ export default function InputFrame({
   questionText,
   isTyping,
   onClick,
-  onChoiceSelect, // called only when player's answer matched
-  updateDialogueHistory,
+  onChoiceSelect,
+  updateDialogueHistory
 }) {
   const [choiceInput, setChoiceInput] = useState('');
   const inputRef = useRef(null);
@@ -24,7 +24,7 @@ export default function InputFrame({
       return;
     }
 
-    const correct = currentScene?.answer?.text.trim().toLowerCase() === trimmedInput.trim().toLowerCase();
+    const correct = currentScene?.answer?.text.trim().toLowerCase() === trimmedInput.toLowerCase();
 
     onChoiceSelect(correct);
     if (correct) {
