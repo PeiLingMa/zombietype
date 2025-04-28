@@ -1,9 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import Options from '../Option/Option';
 import Navbar from './component/Navbar';
 import './test.css';
 import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
+
+import useStoryProgress from './hooks/useStoryProgress';
 export default function StoryMode({ storyId = 'local-story-default', scenes, onBack, onStoryEnd }) {
+  const { storyProgress, setStoryProgress, initialIndex, initialDialogueHistory } =
+    useStoryProgress({ storyId, scenes });
   const [index, setIndex] = useState(0);
 
   const [currentDialogueText, setCurrentDialogueText] = useState('');
@@ -11,6 +16,10 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
   const [isTyping, setIsTyping] = useState(false);
   const [dialogueHistory, setDialogueHistory] = useState([]);
   const dialogueHistoryRef = useRef([]);
+  useEffect(() => {
+    dialogueHistoryRef.current = dialogueHistory;
+  }, [dialogueHistory]);
+
   const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
   const currentScene = scenes ? scenes[index] : null;
@@ -18,14 +27,14 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
 
   // store story progress and answer status to localStorage
-  const [storyProgress, setStoryProgress] = useState({
-    storyId: storyId,
-    currentIndex: 0,
-    answers: [], // player answer history { sceneId, chosenText, isCorrect, timestamp }
-    dialogueHistory: [],
-    startTime: null,
-    endTime: null // null: story not ended
-  });
+  // const [storyProgress, setStoryProgress] = useState({
+  //   storyId: storyId,
+  //   currentIndex: 0,
+  //   answers: [], // player answer history { sceneId, chosenText, isCorrect, timestamp }
+  //   dialogueHistory: [],
+  //   startTime: null,
+  //   endTime: null // null: story not ended
+  // });
   const storyProgressRef = useRef(storyProgress);
 
   const hasLoadedProgress = useRef(false);
@@ -41,9 +50,6 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     if (onStoryEnd) onStoryEnd();
   }, [showStoryEndPopup, onStoryEnd]);
 
-  useEffect(() => {
-    dialogueHistoryRef.current = dialogueHistory;
-  }, [dialogueHistory]);
   useEffect(() => {
     storyProgressRef.current = storyProgress;
   }, [storyProgress]);
@@ -68,12 +74,14 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
   const handleNext = useCallback(() => {
     if (currentScene?.type !== undefined && (currentScene?.type === 'correctED' || 'wrongED')) {
+      handleStoryEnd();
       return;
     }
     if (isTyping) {
       // stop typing effect and show full text
       setIsTyping(false);
       setDisplayedCharacterCount(currentDialogueText.length);
+      updateDialogueHistory(currentScene.character, currentScene.dialogue);
       return;
     }
 
@@ -143,14 +151,15 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
           ...prev.answers,
           {
             sceneIndex: index,
-            chosenText: choice.text,
-            isCorrect: choice.isCorrect ? choice.isCorrect : false, // default to false if not specified
+            chosenText: choice.text ?? '',
+            isCorrect: choice.isCorrect ?? false, // default to false if not specified
             timestamp: new Date().toISOString() // 記錄回答時間
           }
         ]
       }));
 
-      console.log(choice);
+      // console.log(choice);
+      // console.log(storyProgressRef.current);
 
       const nextIndex = choice
         ? currentScene.answer.correctIndex
@@ -160,9 +169,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
       if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
         setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
         setIndex(nextIndex); // 跳轉到指定的索引
-        if (scenes[nextIndex]?.type === 'correctED' || scenes[nextIndex]?.type === 'wrongED') {
-          setShowStoryEndPopup(true);
-        }
+        handleNext();
       } else {
         // if nextIndex is invalid or not specified then forward to next scene and log error
         if (nextIndex < scenes.length - 1)
@@ -220,23 +227,6 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
       }
     }
   }, [storyProgress, storyId]);
-
-  // remove cache if ended when the browser unloads (reload, close tab), and unmount
-  useEffect(() => {
-    const handleUnload = () => {
-      const latestProgress = storyProgressRef.current;
-      if (latestProgress?.endTime) {
-        localStorage.removeItem(`storyProgress_${storyId}`);
-      }
-    };
-    window.addEventListener('unload', handleUnload);
-
-    return () => {
-      // when component unmounts
-      window.removeEventListener('unload', handleUnload);
-      handleUnload();
-    };
-  }, []);
 
   // typing effect
   useEffect(() => {
@@ -300,6 +290,15 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     };
   }, [handleKeyDown]); // Dependency is handleKeyDown
 
+  // config in navbar
+  const [showOptions, setShowOptions] = useState(false);
+  const handleOpenConig = useCallback(() => {
+    setShowOptions(true);
+  });
+  if (showOptions) {
+    return <Options onBack={() => setShowOptions(false)} />;
+  }
+
   return (
     <div className="cutscene-container">
       <div className="ratio-container">
@@ -315,6 +314,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
           onAuto={handleAuto}
           onSkip={handleSkip}
           isAuto={isAuto}
+          onConfig={handleOpenConig}
         />
         {/* 對話框 或 Question */}
         {currentScene.type === 'question' ? (
