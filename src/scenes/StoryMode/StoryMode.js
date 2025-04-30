@@ -1,15 +1,18 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+// FIXME: currently, scenes navigation is using array index instead of scene.id, pls fix
+// TOOD: duplicate history, pls bring up an issue and fix it later
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import './test.css';
 import Options from '../Option/Option';
 import Navbar from './component/Navbar';
-import './test.css';
 import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
 
 import useStoryProgress from './hooks/useStoryProgress';
-export default function StoryMode({ storyId = 'local-story-default', scenes, onBack, onStoryEnd }) {
-  const { storyProgress, setStoryProgress, initialIndex, initialDialogueHistory } =
+export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
+  const { storyProgress, setStoryProgress, initialSceneId, initialDialogueHistory } =
     useStoryProgress({ storyId, scenes });
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
+  const [currentSceneId, setCurrentSceneId] = useState(initialSceneId);
 
   const [currentDialogueText, setCurrentDialogueText] = useState('');
   const [displayedCharacterCount, setDisplayedCharacterCount] = useState(0);
@@ -22,19 +25,22 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
 
   const [isAuto, setIsAuto] = useState(false); // 自動播放狀態
 
-  const currentScene = scenes ? scenes[index] : null;
+  // const currentScene = scenes ? scenes[index] : null;
+
+  const sceneMap = useMemo(() => {
+    if (!scenes) return {};
+    return scenes.reduce((map, scene) => {
+      map[scene.id] = scene;
+      // console.log(scene.id, scene);
+
+      return map;
+    }, {});
+  }, [scenes]);
+  const currentScene = sceneMap[currentSceneId];
+  // const currentIndex = scenes ? scenes.findIndex((scene) => scene.id === currentSceneId) : -1;
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
 
-  // store story progress and answer status to localStorage
-  // const [storyProgress, setStoryProgress] = useState({
-  //   storyId: storyId,
-  //   currentIndex: 0,
-  //   answers: [], // player answer history { sceneId, chosenText, isCorrect, timestamp }
-  //   dialogueHistory: [],
-  //   startTime: null,
-  //   endTime: null // null: story not ended
-  // });
   const storyProgressRef = useRef(storyProgress);
 
   const hasLoadedProgress = useRef(false);
@@ -60,6 +66,15 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
    * @param {string} dialogue
    */
   const updateDialogueHistory = (character, dialogue) => {
+    // don't save if already in history
+    const latestHistory = dialogueHistoryRef.current[dialogueHistoryRef.current.length - 1];
+    if (
+      latestHistory &&
+      latestHistory.dialogue === dialogue &&
+      latestHistory.character === character
+    )
+      return;
+
     const history = {
       character: character,
       dialogue: dialogue
@@ -72,8 +87,13 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     }));
   };
 
-  const handleNext = useCallback(() => {
-    if (currentScene?.type !== undefined && (currentScene?.type === 'correctED' || 'wrongED')) {
+  const handleNext = useCallback((index) => {
+    // console.log(currentSceneId, currentScene);
+    if (
+      currentScene?.type !== undefined &&
+      (currentScene?.type === 'correctED' || currentScene?.type === 'wrongED')
+    ) {
+      console.log(currentScene?.type);
       handleStoryEnd();
       return;
     }
@@ -84,20 +104,22 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
       updateDialogueHistory(currentScene.character, currentScene.dialogue);
       return;
     }
-
-    const nextIndex = index + 1;
-    if (nextIndex < scenes.length - 1) {
-      setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
-      setIndex(nextIndex);
+    const nextIndex = index ?? currentSceneId + 1;
+    // console.log(nextIndex);
+    if (nextIndex) {
+      // console.log(nextIndex);
+      setStoryProgress((prev) => ({ ...prev, currentSceneId: nextIndex }));
+      // setIndex(nextIndex);
+      setCurrentSceneId(nextIndex); // update current scene id
     } else {
       handleStoryEnd();
     }
   });
 
   const handleSkip = useCallback(() => {
-    if (scenes[index].type === 'question') return;
+    if (scenes[currentSceneId].type === 'question') return;
 
-    let tempIndex = index;
+    let tempIndex = currentSceneId;
     let avoidFirst = isTyping ? false : true; // avoid logging first scene
 
     const skippedDialogues = []; // cache skipped dialogues
@@ -123,110 +145,73 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
     setDialogueHistory((prevHistory) => [...prevHistory, ...skippedDialogues]);
     setStoryProgress((prev) => ({
       ...prev,
-      currentIndex: tempIndex,
+      currentSceneId: tempIndex + 1, // question index
       dialogueHistory: [...prev.dialogueHistory, ...skippedDialogues]
     }));
+    console.log('handleSkip:', storyProgress);
 
     if (tempIndex < scenes.length - 1) {
-      setIndex(tempIndex + 1);
+      // setIndex(tempIndex + 1);
+      setCurrentSceneId(scenes[tempIndex + 1].id);
     } else {
       handleStoryEnd();
     }
     setIsTyping(false);
-  }, [index, scenes, isTyping, currentScene, handleStoryEnd]);
+  }, [currentSceneId, scenes, isTyping, currentScene, handleStoryEnd]);
 
   const handleAuto = () => {
     setIsAuto(!isAuto);
   };
 
   /**
-   * Called when user submit a valid answer(text)
-   * @param {{text: string, correctIndex: number, incorrectIndex: number}} choice - The player selected choice object in single scene
+   * Handle answer submitted from InputFrame
+   * @param {boolean} isCorrect
+   * @param {string} trimmedInput
    */
-  const handleChoiceSelect = useCallback(
-    (choice) => {
+  const handleAnswerSubmit = useCallback(
+    (isCorrect, trimmedInput) => {
       setStoryProgress((prev) => ({
         ...prev,
         answers: [
           ...prev.answers,
           {
-            sceneIndex: index,
-            chosenText: choice.text ?? '',
-            isCorrect: choice.isCorrect ?? false, // default to false if not specified
+            sceneIndex: currentSceneId,
+            chosenText: trimmedInput,
+            isCorrect: isCorrect.isCorrect ?? false, // default to false if not specified
             timestamp: new Date().toISOString() // 記錄回答時間
           }
         ]
       }));
 
-      // console.log(choice);
+      // console.log(isCorrect, trimmedInput);
       // console.log(storyProgressRef.current);
 
-      const nextIndex = choice
+      const nextSceneId = isCorrect
         ? currentScene.answer.correctIndex
-        : currentScene.answer.incorrectIndex; // get nextIndex from choice
+        : currentScene.answer.incorrectIndex; // get nextSceneId  from choice
 
-      // validate nextIndex
-      if (nextIndex !== undefined && nextIndex >= 0 && nextIndex < scenes.length) {
-        setStoryProgress((prev) => ({ ...prev, currentIndex: nextIndex }));
-        setIndex(nextIndex); // 跳轉到指定的索引
-        handleNext();
+      // validate nextSceneId
+      console.log(nextSceneId, scenes.length);
+      if (nextSceneId !== undefined && nextSceneId >= 0) {
+        setStoryProgress((prev) => ({ ...prev, currentSceneId: nextSceneId }));
+        // setCurrentSceneId(nextSceneId); // 跳轉到指定的索引
+        handleNext(nextSceneId);
       } else {
         // if nextIndex is invalid or not specified then forward to next scene and log error
-        if (nextIndex < scenes.length - 1)
+        if (nextSceneId < scenes.length - 1)
           handleNext(); // 默認前進
         else if (onStoryEnd) onStoryEnd(); // 如果已經到最後一個場景，則結束故事
-        console.error('Invalid nextIndex:', nextIndex);
+        console.error('Invalid nextIndex:', nextSceneId);
       }
     },
-    [index, scenes, updateDialogueHistory, setStoryProgress, handleStoryEnd]
+    [currentSceneId, updateDialogueHistory, setStoryProgress, handleStoryEnd]
   );
-
-  // localStorage read/write
+  // handle history update when storyProgress changes
   useEffect(() => {
-    const localStorageKey = `storyProgress_${storyId}`;
-    // load progress
-    if (!hasLoadedProgress.current) {
-      const savedProgress = localStorage.getItem(localStorageKey);
-      if (savedProgress) {
-        try {
-          const parsedProgress = JSON.parse(savedProgress);
-          setStoryProgress(parsedProgress);
-          setIndex(parsedProgress.currentIndex ?? 0);
-          setDialogueHistory(parsedProgress.dialogueHistory ?? []);
-
-          if (parsedProgress.endTime) {
-            setShowStoryEndPopup(true); // show story end popup if story ended
-          }
-        } catch (error) {
-          console.error('Failed to parse story progress from localStorage:', error);
-          return;
-        }
-      } else {
-        // no progress found, set default values
-        setStoryProgress({
-          storyId: storyId,
-          currentIndex: 0,
-          answers: [],
-          dialogueHistory: [],
-          startTime: new Date().toISOString(),
-          endTime: null
-        });
-        setIndex(0);
-        setDialogueHistory([]);
-      }
-      hasLoadedProgress.current = true;
+    if (storyProgress.dialogueHistory.length !== dialogueHistory.length) {
+      setDialogueHistory(storyProgress.dialogueHistory);
     }
-
-    // save progress
-    if (hasLoadedProgress.current) {
-      // console.log('Saving story progress to localStorage:', storyProgress);
-      try {
-        localStorage.setItem(localStorageKey, JSON.stringify(storyProgress));
-      } catch (error) {
-        console.error('Failed to save story progress to localStorage:', error);
-      }
-    }
-  }, [storyProgress, storyId]);
+  }, [storyProgress.dialogueHistory]);
 
   // typing effect
   useEffect(() => {
@@ -247,17 +232,11 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
         clearInterval(interval);
         setIsTyping(false);
 
-        const latestHistory = dialogueHistoryRef.current[dialogueHistoryRef.current.length - 1];
-        const isAlreadyInHistory =
-          latestHistory &&
-          latestHistory.dialogue === currentScene.dialogue &&
-          latestHistory.character === currentScene.character;
-        if (!isAlreadyInHistory)
-          updateDialogueHistory(currentScene.character, currentScene.dialogue);
+        updateDialogueHistory(currentScene.character, currentScene.dialogue);
       }
     }, 40);
     return () => clearInterval(interval);
-  }, [index]);
+  }, [currentSceneId]);
 
   const textToDisplay = currentDialogueText.substring(0, displayedCharacterCount);
   // auto play
@@ -269,7 +248,7 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
       }, 500); // 使用自動播放時，各句子間隔時間
       return () => clearTimeout(timer);
     }
-  }, [currentScene.type, isAuto, isTyping, handleNext]);
+  }, [currentScene?.type, isAuto, isTyping, handleNext]);
 
   const handleKeyDown = useCallback(
     (event) => {
@@ -329,13 +308,13 @@ export default function StoryMode({ storyId = 'local-story-default', scenes, onB
                 setDisplayedCharacterCount(currentDialogueText.length);
               }
             }}
-            onChoiceSelect={handleChoiceSelect}
+            onAnswerSubmit={handleAnswerSubmit}
             updateDialogueHistory={updateDialogueHistory}
           />
         ) : (
           <div
             className="dialogue-box"
-            onClick={handleNext}
+            onClick={() => handleNext()}
           >
             {' '}
             {/* 對話框 UI */}

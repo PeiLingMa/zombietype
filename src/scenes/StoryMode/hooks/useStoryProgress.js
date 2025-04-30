@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from 'react';
  * @returns {{
  *   storyProgress: object,
  *   setStoryProgress: React.Dispatch<React.SetStateAction<object>>,
- *   initialIndex: number,
+ *   initialSceneId: number,
  *   initialDialogueHistory: Array
  * }} - Returns the story progress state, setter, and initial values loaded from storage.
  */
@@ -22,7 +22,7 @@ export default function useStoryProgress({ storyId, scenes }) {
     const savedProgress = localStorage.getItem(localStorageKey);
     if (savedProgress) {
       try {
-        const parsedProgress = JSON.parse(savedProgress);
+        const parsedProgress = JSON.parse(savedProgress); // { storyId, currentSceneId, answers, dialogueHistory, startTime, endTime }
         if (
           parsedProgress &&
           parsedProgress.storyId === storyId &&
@@ -42,7 +42,8 @@ export default function useStoryProgress({ storyId, scenes }) {
 
     const initialProgress = {
       storyId: storyId,
-      currentIndex: 0,
+      // currentIndex: 0,
+      currentSceneId: scenes?.[0]?.id ?? 0,
       answers: [],
       dialogueHistory: [],
       startTime: new Date().toISOString(),
@@ -51,6 +52,11 @@ export default function useStoryProgress({ storyId, scenes }) {
     // console.log('Initializing new story progress:', initialProgress);
     return initialProgress;
   });
+
+  const initialIndex = scenes?.findIndex((scene) => scene.id === storyProgress.currentSceneId);
+
+  const resolvedInitialSceneId =
+    initialIndex !== undefined && initialIndex !== -1 ? initialIndex : 0;
 
   const hasInitialized = useRef(false);
   const storyProgressRef = useRef(storyProgress);
@@ -82,8 +88,34 @@ export default function useStoryProgress({ storyId, scenes }) {
     }
   }, [storyProgress, localStorageKey]); // Depend on storyProgress and localStorageKey
 
-  // Effect to clean up progress from localStorage when the story ends and component unmounts/window unloads
+  // run when storyId is ready
   useEffect(() => {
+    const loadProgress = () => {
+      try {
+        const savedProgress = localStorage.getItem(localStorageKey);
+        if (!savedProgress) {
+          console.log('No saved progress found in localStorage. Starting new story.');
+          return;
+        }
+
+        const parsedProgress = JSON.parse(savedProgress);
+        if (parsedProgress?.storyId === storyId && Array.isArray(parsedProgress.dialogueHistory)) {
+          setStoryProgress(parsedProgress);
+          return;
+        }
+        console.warn(
+          'Invalid or mismatched story progress in localStorage. Clearing and starting new story.'
+        );
+        localStorage.removeItem(localStorageKey);
+      } catch (error) {
+        console.error('Error loading story progress from localStorage:', error);
+        localStorage.removeItem(localStorageKey); // Clear corrupted data
+      }
+    };
+
+    loadProgress();
+
+    //clean up progress from localStorage when the story ends and component unmounts/window unloads
     const handleUnload = () => {
       const latestProgress = storyProgressRef.current;
       console.log(latestProgress);
@@ -106,7 +138,8 @@ export default function useStoryProgress({ storyId, scenes }) {
   return {
     storyProgress,
     setStoryProgress,
-    initialIndex: storyProgress.currentIndex ?? 0,
+    initialIndex: resolvedInitialSceneId,
+    initialSceneId: resolvedInitialSceneId,
     initialDialogueHistory: storyProgress.dialogueHistory ?? []
   };
 }

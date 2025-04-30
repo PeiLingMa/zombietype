@@ -9,10 +9,12 @@ import './App.css';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
+  const [selectedStoryId, setSelectedStoryId] = useState(null); // State to hold selected story ID
   const [selectedStoryScenes, setSelectedStoryScenes] = useState(null); // State to hold selected story scenes
 
   // Function to handle story selection from StoryMenu
-  const handleStorySelect = (scenes) => {
+  const handleStorySelect = (storyId, scenes) => {
+    setSelectedStoryId(storyId); // Store the selected story ID
     setSelectedStoryScenes(scenes); // Store the selected story scenes
     setCurrentScreen('story'); // Navigate to StoryMode (or adjust as needed)
   };
@@ -40,6 +42,7 @@ export default function App() {
     if (currentScreen === 'story' && selectedStoryScenes) {
       return (
         <StoryMode
+          storyId={selectedStoryId ?? 'story1'} // Pass the selected story ID as prop
           scenes={selectedStoryScenes} // Pass the selected story scenes as prop
           onBack={handleBackToStoryMenu} // Use handleBackToStoryMenu to go back to StoryMenu
         />

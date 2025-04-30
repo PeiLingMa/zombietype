@@ -6,7 +6,7 @@ export default function InputFrame({
   questionText,
   isTyping,
   onClick,
-  onChoiceSelect,
+  onAnswerSubmit,
   updateDialogueHistory
 }) {
   const [choiceInput, setChoiceInput] = useState('');
@@ -24,10 +24,11 @@ export default function InputFrame({
       return;
     }
 
-    const correct = currentScene?.answer?.text.trim().toLowerCase() === trimmedInput.toLowerCase();
+    const isCorrect =
+      currentScene?.answer?.text.trim().toLowerCase() === trimmedInput.toLowerCase();
 
-    onChoiceSelect(correct);
-    if (correct) {
+    onAnswerSubmit(isCorrect, trimmedInput);
+    if (isCorrect) {
       updateDialogueHistory('You typed:', `[${trimmedInput}]`);
       setChoiceInput('');
     } else {
@@ -36,7 +37,7 @@ export default function InputFrame({
       updateDialogueHistory('You typed:', `[${trimmedInput}] - No match found`);
       setChoiceInput('');
     }
-  }, [choiceInput, currentScene, onChoiceSelect, updateDialogueHistory]);
+  }, [choiceInput, currentScene, onAnswerSubmit, updateDialogueHistory]);
 
   const handleKeyPress = useCallback(
     (event) => {

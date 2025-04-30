@@ -49,7 +49,7 @@ const sceneData = [
     // choices: [
     //   { text: 'sun', nextIndex: 7, isCorrect: true },
     // ],
-    answer: {text: 'sun', correctIndex: 7, incorrectIndex: 8}
+    answer: { text: 'sun', correctIndex: 7, incorrectIndex: 8 }
   },
   {
     id: 7,
@@ -64,7 +64,7 @@ const sceneData = [
     character: 'Morgana',
     image: morganaImg,
     dialogue: '喵...好像不對呢，再猜一猜吧!'
-  },
+  }
 ];
 
 export default sceneData;

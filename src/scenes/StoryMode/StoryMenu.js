@@ -10,6 +10,13 @@ const stories = [
     description: ' Story 1 Overview...',
     previewImage: '', // 預覽圖片路徑
     scenes: sceneData
+  },
+  {
+    id: 'story2',
+    title: "It's giving",
+    description: 'An expression meaning something has a certain energy or vibe. Learn it here.',
+    previewImage: '', // 預覽圖片路徑
+    scenes: await import('./script2').then((module) => module.default) // 動態導入 script2.js
   }
 ];
 
@@ -57,7 +64,7 @@ export default function StoryMenu({ onStorySelect, onBack }) {
           <li
             key={story.id}
             className="story-item"
-            onClick={() => onStorySelect(story.scenes)}
+            onClick={() => onStorySelect(story.id, story.scenes)}
           >
             <div className="story-preview-image">
               {story.previewImage && (
