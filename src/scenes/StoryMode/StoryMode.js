@@ -4,12 +4,25 @@ import Options from '../Option/Option';
 import Navbar from './component/Navbar';
 import InputFrame from './component/InputFrame';
 import StoryEndPopup from './component/StoryEndPopup';
+import { useSound } from './hooks/useSound';
+import { useVolumeControl } from '../../context/GameSettingsContext';
 
 import useStoryProgress from './hooks/useStoryProgress';
 import useTypingEffect from './hooks/useTypingEffect';
 import useStoryNavigation from './hooks/useStoryNavigation';
 
 export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
+  // Sound management
+  const soundManager = useSound();
+  const { volume } = useVolumeControl();
+  useEffect(() => {
+    if (soundManager && typeof soundManager.setMasterVolume === 'function') {
+      console.log('StoryMode setting master volume:', volume);
+      soundManager.setMasterVolume(volume);
+      soundManager.playSound('background');
+    }
+  }, [soundManager, volume]); // 依賴 soundManager 和 volume
+
   const { storyProgress, setStoryProgress, initialSceneId } = useStoryProgress({ storyId, scenes });
 
   const [currentSceneId, setCurrentSceneId] = useState(initialSceneId);
