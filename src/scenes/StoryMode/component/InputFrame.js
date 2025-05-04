@@ -6,8 +6,7 @@ export default function InputFrame({
   questionText,
   isTyping,
   onClick,
-  onAnswerSubmit,
-  updateDialogueHistory
+  onAnswerSubmit
 }) {
   const [choiceInput, setChoiceInput] = useState('');
   const inputRef = useRef(null);
@@ -29,15 +28,13 @@ export default function InputFrame({
 
     onAnswerSubmit(isCorrect, trimmedInput);
     if (isCorrect) {
-      updateDialogueHistory('You typed:', `[${trimmedInput}]`);
       setChoiceInput('');
     } else {
       console.warn(`No matching choice found for input: "${trimmedInput}"`);
 
-      updateDialogueHistory('You typed:', `[${trimmedInput}] - No match found`);
       setChoiceInput('');
     }
-  }, [choiceInput, currentScene, onAnswerSubmit, updateDialogueHistory]);
+  }, [choiceInput, currentScene, onAnswerSubmit]);
 
   const handleKeyPress = useCallback(
     (event) => {
