@@ -44,7 +44,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
       return map;
     }, {});
   }, [scenes]);
-  const currentScene = sceneMap[currentSceneId];
+  const currentScene = sceneMap[currentSceneId] ?? scenes[initialSceneId]; // 確保 currentScene 不為 undefined
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
 
