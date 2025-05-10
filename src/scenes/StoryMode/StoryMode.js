@@ -12,16 +12,19 @@ import useTypingEffect from './hooks/useTypingEffect';
 import useStoryNavigation from './hooks/useStoryNavigation';
 
 export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
-  // Sound management
+  // Sound management，依賴 soundManager 和 volume
   const soundManager = useSound();
   const { volume } = useVolumeControl();
   useEffect(() => {
     if (soundManager && typeof soundManager.setMasterVolume === 'function') {
       console.log('StoryMode setting master volume:', volume);
       soundManager.setMasterVolume(volume);
-      soundManager.playSound('background');
     }
-  }, [soundManager, volume]); // 依賴 soundManager 和 volume
+  }, [soundManager, volume]);
+
+  useEffect(() => {
+    soundManager?.playSound('background');
+  }, [soundManager]);
 
   const { storyProgress, setStoryProgress, initialSceneId } = useStoryProgress({ storyId, scenes });
 
@@ -44,7 +47,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
       return map;
     }, {});
   }, [scenes]);
-  const currentScene = sceneMap[currentSceneId];
+  const currentScene = sceneMap[currentSceneId] ?? scenes[initialSceneId]; // 確保 currentScene 不為 undefined
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
 
@@ -99,6 +102,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   };
 
   const { handleAdvance, handleSkip, handleAnswerSubmit } = useStoryNavigation({
+    storyId,
     currentScene,
     scenes,
     setStoryProgress,
