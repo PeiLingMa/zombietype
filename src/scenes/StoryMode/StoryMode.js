@@ -12,7 +12,7 @@ import useTypingEffect from './hooks/useTypingEffect';
 import useStoryNavigation from './hooks/useStoryNavigation';
 
 export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
-  // Sound management
+  // Sound management，依賴 soundManager 和 volume
   const soundManager = useSound();
   const { volume } = useVolumeControl();
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
       soundManager.setMasterVolume(volume);
       soundManager.playSound('background');
     }
-  }, [soundManager, volume]); // 依賴 soundManager 和 volume
+  }, [soundManager, volume]);
 
   const { storyProgress, setStoryProgress, initialSceneId } = useStoryProgress({ storyId, scenes });
 
@@ -99,6 +99,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   };
 
   const { handleAdvance, handleSkip, handleAnswerSubmit } = useStoryNavigation({
+    storyId,
     currentScene,
     scenes,
     setStoryProgress,

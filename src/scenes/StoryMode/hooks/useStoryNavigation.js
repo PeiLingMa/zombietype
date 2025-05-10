@@ -1,10 +1,12 @@
 // src\scenes\StoryMode\hooks\useStoryNavigation.js
 import { useCallback } from 'react';
+import { useAddIncorrectWord } from '../../../context/GameSettingsContext';
 
 /**
  * Handles navigation logic within the story mode (advancing, skipping, answering questions).
  *
  * @param {object} params
+ * @param {string} params.storyId - The ID of the current story/chapter.
  * @param {object} params.currentScene - The current scene object.
  * @param {Array<object>} params.scenes - The array of all scene objects.
  * @param {Function} params.setStoryProgress - Setter for the story progress state.
@@ -17,12 +19,16 @@ import { useCallback } from 'react';
  * }}
  */
 export default function useStoryNavigation({
+  storyId,
   currentScene,
   scenes,
   setStoryProgress,
   updateDialogueHistory,
   handleStoryEnd
 }) {
+  // 呼叫 hook 獲取新增錯誤單字的函式
+  const addIncorrectWord = useAddIncorrectWord();
+
   /**
    * Advances to the next scene.
    * If nextSceneIdOverride is provided, goes to that scene ID.
@@ -151,6 +157,27 @@ export default function useStoryNavigation({
         return;
       }
 
+      // 如果答錯了，記錄單字
+      if (!isCorrect) {
+        if (currentScene.answer && currentScene.answer.text) {
+          const wordToSave = currentScene.answer.text;
+          // 呼叫 context 提供的函式來新增單字到歷史記錄
+          addIncorrectWord({
+            word: wordToSave,
+            storyId: storyId, // 使用傳入的 storyId
+            sceneId: currentScene.id,
+            timestamp: new Date().toISOString() // 記錄當前時間
+          });
+          console.log(
+            `Logged incorrect word: "${wordToSave}" from Story ID: ${storyId}, Scene ID: ${currentScene.id}`
+          );
+        } else {
+          console.warn(
+            `Question scene ID ${currentScene.id} is marked incorrect but has no 'answer.text' defined to save.`
+          );
+        }
+      }
+
       // Update progress with the answer
       setStoryProgress((prev) => ({
         ...prev,
@@ -171,12 +198,25 @@ export default function useStoryNavigation({
         : currentScene.answer.incorrectIndex;
 
       // Update dialogue history with the user's input
-      const historyEntry = isCorrect ? `[${trimmedInput}]` : `[${trimmedInput}] - No match found`;
+      // 注意：如果答錯，可能需要顯示正確答案，這裡的歷史記錄邏輯可以調整
+      // 例如：`const historyEntry = isCorrect ? `[${trimmedInput}]` : `[${trimmedInput}] (Correct: ${currentScene.answer.text})`;`
+      const historyEntry = isCorrect
+        ? `[${trimmedInput}]`
+        : `[${trimmedInput}] - Incorrect (Correct: ${currentScene.answer?.text || 'N/A'})`; // 顯示正確答案提示
       updateDialogueHistory('You typed:', historyEntry);
 
       // Navigate to the next scene
       if (nextSceneId !== undefined) {
-        handleAdvance(nextSceneId);
+        // Check if the target next scene ID exists before navigating
+        const targetNextSceneExists = scenes.some((scene) => scene.id === nextSceneId);
+        if (targetNextSceneExists) {
+          handleAdvance(nextSceneId);
+        } else {
+          console.error(
+            `Question scene ID ${currentScene.id} points to a non-existent next scene ID (${nextSceneId}) for ${isCorrect ? 'correct' : 'incorrect'} answer.`
+          );
+          handleStoryEnd(); // Treat as end if target scene doesn't exist
+        }
       } else {
         console.error(
           `Question scene ID ${currentScene.id} has no valid next scene defined for ${isCorrect ? 'correct' : 'incorrect'} answer.`
@@ -184,7 +224,17 @@ export default function useStoryNavigation({
         handleStoryEnd(); // Treat as end if next scene is not defined
       }
     },
-    [currentScene, setStoryProgress, updateDialogueHistory, handleAdvance, handleStoryEnd]
+    // 將 addIncorrectWord 和 storyId 加入 dependency array
+    [
+      currentScene,
+      setStoryProgress,
+      updateDialogueHistory,
+      handleAdvance,
+      handleStoryEnd,
+      addIncorrectWord,
+      storyId,
+      scenes
+    ]
   );
 
   return {
