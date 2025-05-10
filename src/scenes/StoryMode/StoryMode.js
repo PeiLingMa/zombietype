@@ -19,9 +19,12 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
     if (soundManager && typeof soundManager.setMasterVolume === 'function') {
       console.log('StoryMode setting master volume:', volume);
       soundManager.setMasterVolume(volume);
-      soundManager.playSound('background');
     }
   }, [soundManager, volume]);
+
+  useEffect(() => {
+    soundManager?.playSound('background');
+  }, [soundManager]);
 
   const { storyProgress, setStoryProgress, initialSceneId } = useStoryProgress({ storyId, scenes });
 
