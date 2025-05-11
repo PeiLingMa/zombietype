@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './test.css';
+import StoryList from './component/StoryList.js';
 
 import sceneData from './script';
-
 const stories = [
   {
     id: 'story1',
@@ -80,31 +80,10 @@ export default function StoryMenu({ onStorySelect, onBack }) {
   return (
     <div className="story-menu-container">
       <h1>Story Menu</h1>
-      <ul className="story-list">
-        {storyList.map((story) => (
-          <li
-            key={story.id}
-            className="story-item"
-            onClick={() => onStorySelect(story.id, story.scenes)}
-          >
-            <div className="story-preview-image">
-              {story.previewImage && (
-                <img
-                  src={story.previewImage}
-                  alt={story.title}
-                />
-              )}
-              {!story.previewImage && <div className="no-preview-placeholder">No Preview</div>}{' '}
-              {/* 沒有預覽圖時的 placeholder */}
-            </div>
-            <div className="story-info">
-              <h2>{story.title}</h2>
-              <p>{story.description}</p>
-              <button className="play-button">Start Story</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <StoryList
+        storyList={storyList}
+        onStorySelect={onStorySelect}
+      />
       <button
         className="btn btn-info px-4 py-2 fw-bold"
         onClick={onBack}
