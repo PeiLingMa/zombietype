@@ -15668,8 +15668,8 @@
           "type": "fill"
         },
         {
-          "description": "The flowers smell (lovely).",
-          "translation": "這些花聞起來很香。(No error here, let's change) The view is (love).",
+          "description": "The view is (love).",
+          "translation": "景色很迷人。",
           "answer": "lovely",
           "type": "amend"
         },
@@ -21124,8 +21124,8 @@
           "type": "fill"
         },
         {
-          "description": "What does the (inside) of the box look like?",
-          "translation": "盒子內部看起來怎麼樣？(No error, change sentence) Let's go (indoors).",
+          "description": "Let's go (indoors).",
+          "translation": "我們去室內吧。",
           "answer": "inside",
           "type": "amend"
         },
@@ -31894,8 +31894,8 @@
           "type": "fill"
         },
         {
-          "description": "Snuggle down under the warm (duvet).",
-          "translation": "舒服地窩在溫暖的棉被裡。(No error, change sentence) Is this a feather (duve)?",
+          "description": "Is this a feather (duve)?",
+          "translation": "這是羽絨被嗎？",
           "answer": "duvet",
           "type": "amend"
         },
@@ -37676,8 +37676,8 @@
           "type": "fill"
         },
         {
-          "description": "We went for a walk when the (tide) was low.",
-          "translation": "我們在退潮時去散步。(No error, change sentence) High (tides) can cause flooding.",
+          "description": "High (tides) can cause flooding.",
+          "translation": "高潮會導致洪水。",
           "answer": "tide",
           "type": "amend"
         },
@@ -38202,8 +38202,8 @@
           "type": "fill"
         },
         {
-          "description": "We got caught in a heavy (shower).",
-          "translation": "我們遇到了一場大陣雨。(No error, change sentence) Expect occasional (showers) tomorrow.",
+          "description": "Expect occasional (showers) tomorrow.",
+          "translation": "預計明天有陣雨。",
           "answer": "showers",
           "type": "amend"
         },
@@ -39647,8 +39647,8 @@
           "type": "fill"
         },
         {
-          "description": "He (kicked) the ball really hard just now.",
-          "translation": "他剛才用力踢了球。(No error, change sentence) She (kicks) the door open yesterday.",
+          "description": "She (kicks) the door open yesterday.",
+          "translation": "她昨天踢開了門。",
           "answer": "kicked",
           "type": "amend"
         },
@@ -39780,8 +39780,8 @@
           "type": "fill"
         },
         {
-          "description": "The shop (closes) at 6 PM every day.",
-          "translation": "這家商店每天下午六點關門。(No error, change sentence) He (closing) the window now.",
+          "description": "He (closing) the window now.",
+          "translation": "他現在正在關窗戶。",
           "answer": "is closing",
           "type": "amend"
         },
@@ -40236,8 +40236,8 @@
           "type": "fill"
         },
         {
-          "description": "She (did) her shopping yesterday.",
-          "translation": "她昨天去購物了。(No error, change sentence) What you (do) last night?",
+          "description": "What you (do) last night?",
+          "translation": "你昨晚做了什麼？",
           "answer": "did you do",
           "type": "amend"
         },
@@ -40255,8 +40255,8 @@
           "type": "fill"
         },
         {
-          "description": "I (met) my husband at university.",
-          "translation": "我在大學認識我丈夫。(No error, change sentence) Where did you (met) him?",
+          "description": "Where did you (met) him?",
+          "translation": "你在哪裡遇見他的？",
           "answer": "meet",
           "type": "amend"
         },
@@ -40274,8 +40274,8 @@
           "type": "fill"
         },
         {
-          "description": "She is (showering) right now.",
-          "translation": "她現在正在淋浴。(No error, change sentence) I need to take (shower).",
+          "description": "I need to take (shower).",
+          "translation": "我需要洗個澡。",
           "answer": "a shower",
           "type": "amend"
         },
@@ -40312,8 +40312,8 @@
           "type": "fill"
         },
         {
-          "description": "He (smokes) too much.",
-          "translation": "他煙抽得太多了。(No error, change sentence) Did he (smoked) here?",
+          "description": "Did he (smoked) here?",
+          "translation": "他剛才在這裡抽煙了嗎？",
           "answer": "smoke",
           "type": "amend"
         },
@@ -40388,8 +40388,8 @@
           "type": "fill"
         },
         {
-          "description": "We all (laughed) loudly at his joke.",
-          "translation": "我們都對他的笑話大笑起來。(No error, change sentence) She (laughing) when she saw him.",
+          "description": "She (laughing) when she saw him.",
+          "translation": "她看到他時笑了。",
           "answer": "laughed",
           "type": "amend"
         },
@@ -40483,8 +40483,8 @@
           "type": "fill"
         },
         {
-          "description": "He (kisses) his children goodnight every evening.",
-          "translation": "他每天晚上都親吻他的孩子們說晚安。(No error, change tense) He (kiss) her goodbye.",
+          "description": "He (kiss) her goodbye.",
+          "translation": "他吻別了她。",
           "answer": "kissed",
           "type": "amend"
         },
@@ -40730,8 +40730,8 @@
           "type": "fill"
         },
         {
-          "description": "She (left) the company last month.",
-          "translation": "她上個月離開了公司。(No error, change tense) When did you (leave) school?",
+          "description": "When did you (leave) school?",
+          "translation": "你什麼時候離開學校的？",
           "answer": "leave",
           "type": "amend"
         },
@@ -40749,8 +40749,8 @@
           "type": "fill"
         },
         {
-          "description": "The weather is (improving) slowly.",
-          "translation": "天氣正在慢慢好轉。(No error, change tense) His health (improves) significantly last year.",
+          "description": "His health (improves) significantly last year.",
+          "translation": "他的健康去年顯著改善。",
           "answer": "improved",
           "type": "amend"
         },
@@ -40806,8 +40806,8 @@
           "type": "fill"
         },
         {
-          "description": "We (shared) a pizza for lunch.",
-          "translation": "我們午餐分了一個披薩。(No error, change sentence) Do you want to (sharing) this cake?",
+          "description": "Do you want to (sharing) this cake?",
+          "translation": "你想分享這個蛋糕嗎？",
           "answer": "share",
           "type": "amend"
         },
@@ -40825,8 +40825,8 @@
           "type": "fill"
         },
         {
-          "description": "He likes (climbing) mountains.",
-          "translation": "他喜歡爬山。(No error, change tense) They (climb) Mount Fuji last year.",
+          "description": "They (climb) Mount Fuji last year.",
+          "translation": "他們去年爬了富士山。",
           "answer": "climbed",
           "type": "amend"
         },
@@ -40996,8 +40996,8 @@
           "type": "fill"
         },
         {
-          "description": "Snow (covered) the ground overnight.",
-          "translation": "雪一夜之間覆蓋了地面。(No error, change tense) He (covering) his face with his hands.",
+          "description": "He (covering) his face with his hands.",
+          "translation": "他用手捂著臉。",
           "answer": "covered",
           "type": "amend"
         },
@@ -41148,8 +41148,8 @@
           "type": "fill"
         },
         {
-          "description": "The dog (follows) his owner everywhere.",
-          "translation": "狗跟著牠的主人到處走。(No error, change tense) We (follow) the path through the woods.",
+          "description": "We (follow) the path through the woods.",
+          "translation": "我們沿著小路穿過樹林。",
           "answer": "followed",
           "type": "amend"
         },
@@ -41167,8 +41167,8 @@
           "type": "fill"
         },
         {
-          "description": "He was accused of (copying) his classmate's work.",
-          "translation": "他被指控抄襲同學的作業。(No error, change context) Make a (copie) of this document.",
+          "description": "Make a (copie) of this document.",
+          "translation": "把這份文件複印一份。",
           "answer": "copy",
           "type": "amend"
         },
@@ -41319,8 +41319,8 @@
           "type": "fill"
         },
         {
-          "description": "Have you (completed) the assignment yet?",
-          "translation": "你完成作業了嗎？(No error, change tense) She (completing) the report now.",
+          "description": "She (completing) the report now.",
+          "translation": "她現在正在完成報告。",
           "answer": "is completing",
           "type": "amend"
         },
@@ -41376,8 +41376,8 @@
           "type": "fill"
         },
         {
-          "description": "She (filled) the glass with water.",
-          "translation": "她把杯子裝滿水。(No error, change tense) He needs to (filling) the bucket.",
+          "description": "He needs to (filling) the bucket.",
+          "translation": "他需要把水桶裝滿。",
           "answer": "fill",
           "type": "amend"
         },
@@ -41395,8 +41395,8 @@
           "type": "fill"
         },
         {
-          "description": "Are you (prepared) for the meeting?",
-          "translation": "你準備好開會了嗎？(No error, change tense) She (prepares) dinner every night.",
+          "description": "She (prepares) dinner every night.",
+          "translation": "她每天晚上準備晚餐。",
           "answer": "prepares",
           "type": "amend"
         },
@@ -41433,8 +41433,8 @@
           "type": "fill"
         },
         {
-          "description": "She (painted) portraits for a living.",
-          "translation": "她靠畫肖像維生。(No error, change tense) He is (painting) the fence.",
+          "description": "He is (painting) the fence.",
+          "translation": "他正在粉刷柵欄。",
           "answer": "painting",
           "type": "amend"
         },
@@ -41528,8 +41528,8 @@
           "type": "fill"
         },
         {
-          "description": "She (pointed) to the map.",
-          "translation": "她指著地圖。(No error, change tense) He is (pointing) at the bird.",
+          "description": "He is (pointing) at the bird.",
+          "translation": "他正指著那隻鳥。",
           "answer": "pointing",
           "type": "amend"
         },
@@ -41642,8 +41642,8 @@
           "type": "fill"
         },
         {
-          "description": "The flight was (delayed) due to bad weather.",
-          "translation": "航班因惡劣天氣而延誤。(No error, change tense) Why you (delaying)?",
+          "description": "Why you (delaying)?",
+          "translation": "你為什麼耽擱？",
           "answer": "are you delaying",
           "type": "amend"
         },
@@ -41699,8 +41699,8 @@
           "type": "fill"
         },
         {
-          "description": "The car needs (repairing).",
-          "translation": "汽車需要修理。(No error, change tense) He (repairs) the roof last week.",
+          "description": "He (repairs) the roof last week.",
+          "translation": "他上週修理了屋頂。",
           "answer": "repaired",
           "type": "amend"
         },
@@ -41986,8 +41986,8 @@
           "type": "fill"
         },
         {
-          "description": "He (knocked) over the vase.",
-          "translation": "他打翻了花瓶。(No error, change tense) She (knocking) politely before entering.",
+          "description": "She (knocking) politely before entering.",
+          "translation": "她進門前禮貌地敲了敲門。",
           "answer": "knocked",
           "type": "amend"
         },
@@ -42404,8 +42404,8 @@
           "type": "fill"
         },
         {
-          "description": "The flowers (smelled) lovely.",
-          "translation": "花聞起來很香。(No error, change tense) What's that strange (smelling)?",
+          "description": "What's that strange (smelling)?",
+          "translation": "那奇怪的氣味是什麼？",
           "answer": "smell",
           "type": "amend"
         },
@@ -42518,8 +42518,8 @@
           "type": "fill"
         },
         {
-          "description": "She spent an hour (ironing) clothes.",
-          "translation": "她花了一個小時熨衣服。(No error, change tense) Have you (iron) my trousers?",
+          "description": "Have you (iron) my trousers?",
+          "translation": "你熨了我的褲子嗎？",
           "answer": "ironed",
           "type": "amend"
         },
@@ -42879,8 +42879,8 @@
           "type": "fill"
         },
         {
-          "description": "We (fished) all morning but didn't catch anything.",
-          "translation": "我們釣了一早上魚，但什麼也沒釣到。(No error, change tense) He (fishing) in the river now.",
+          "description": "He (fishing) in the river now.",
+          "translation": "他現在正在河裡釣魚。",
           "answer": "is fishing",
           "type": "amend"
         },
@@ -42917,8 +42917,8 @@
           "type": "fill"
         },
         {
-          "description": "She (poured) herself a drink.",
-          "translation": "她給自己倒了一杯飲料。(No error, change tense) He is (pouring) the milk.",
+          "description": "He is (pouring) the milk.",
+          "translation": "他正在倒牛奶。",
           "answer": "pouring",
           "type": "amend"
         },
@@ -42955,8 +42955,8 @@
           "type": "fill"
         },
         {
-          "description": "She (counted) the money carefully.",
-          "translation": "她仔細地數了錢。(No error, change tense) He is (counting) the sheep.",
+          "description": "He is (counting) the sheep.",
+          "translation": "他正在數羊。",
           "answer": "counting",
           "type": "amend"
         },
@@ -42993,8 +42993,8 @@
           "type": "fill"
         },
         {
-          "description": "The match was (postponed) due to bad weather.",
-          "translation": "比賽因惡劣天氣而延期。(No error, change tense) We might have to (postponing) our trip.",
+          "description": "We might have to (postponing) our trip.",
+          "translation": "我們可能得推遲我們的旅行。",
           "answer": "postpone",
           "type": "amend"
         },
@@ -43069,8 +43069,8 @@
           "type": "fill"
         },
         {
-          "description": "Always (check) your work for errors.",
-          "translation": "務必檢查你的作業是否有錯誤。(No error, change sentence) She (check) the time on her watch.",
+          "description": "She (check) the time on her watch.",
+          "translation": "她看了看手錶上的時間。",
           "answer": "checked",
           "type": "amend"
         },
@@ -43107,8 +43107,8 @@
           "type": "fill"
         },
         {
-          "description": "She (pinned) her hopes on winning the lottery.",
-          "translation": "她把希望寄託在贏得彩票上。(No error, change context) Use a (pen) to fasten the badge.",
+          "description": "Use a (pen) to fasten the badge.",
+          "translation": "用別針把徽章扣上。",
           "answer": "pin",
           "type": "amend"
         },
@@ -43164,8 +43164,8 @@
           "type": "fill"
         },
         {
-          "description": "She (noted) down his phone number.",
-          "translation": "她記下了他的電話號碼。(No error, change tense) He is (noting) the key points.",
+          "description": "He is (noting) the key points.",
+          "translation": "他正在記錄要點。",
           "answer": "noting",
           "type": "amend"
         },
@@ -43221,8 +43221,8 @@
           "type": "fill"
         },
         {
-          "description": "She (finished) eating her lunch.",
-          "translation": "她吃完午餐了。(No error, change tense) When will you (finish)?",
+          "description": "When will you (finish)?",
+          "translation": "你什麼時候結束？",
           "answer": "finish",
           "type": "amend"
         },
@@ -43240,8 +43240,8 @@
           "type": "fill"
         },
         {
-          "description": "Have you (picked) a colour yet?",
-          "translation": "你選好顏色了嗎？(No error, change tense) He is (picking) flowers.",
+          "description": "He is (picking) flowers.",
+          "translation": "他正在摘花。",
           "answer": "picking",
           "type": "amend"
         },
@@ -43297,8 +43297,8 @@
           "type": "fill"
         },
         {
-          "description": "He wore a shirt and (tie).",
-          "translation": "他穿著襯衫打著領帶。(No error, change tense) She is (tying) a ribbon in her hair.",
+          "description": "She is (tying) a ribbon in her hair.",
+          "translation": "她正在頭髮上繫絲帶。",
           "answer": "tying",
           "type": "amend"
         },
@@ -43487,8 +43487,8 @@
           "type": "fill"
         },
         {
-          "description": "She (pressed) her face against the window.",
-          "translation": "她把臉貼在窗戶上。(No error, change context) Give the button a firm (pressing).",
+          "description": "Give the button a firm (pressing).",
+          "translation": "用力按下按鈕。",
           "answer": "press",
           "type": "amend"
         },
@@ -43525,8 +43525,8 @@
           "type": "fill"
         },
         {
-          "description": "She earns extra money by (babysitting).",
-          "translation": "她靠當臨時保姆賺外快。(No error, change tense) Who (babysit) for you last time?",
+          "description": "Who (babysit) for you last time?",
+          "translation": "上次是誰幫你看孩子的？",
           "answer": "babysat",
           "type": "amend"
         },
@@ -43658,8 +43658,8 @@
           "type": "fill"
         },
         {
-          "description": "The wind (blew) strongly all night.",
-          "translation": "風整夜猛烈地吹。(No error, change tense) He is (blowing) bubbles.",
+          "description": "He is (blowing) bubbles.",
+          "translation": "他正在吹泡泡。",
           "answer": "blowing",
           "type": "amend"
         },
@@ -43696,8 +43696,8 @@
           "type": "fill"
         },
         {
-          "description": "Make sure the lid is (fastened) securely.",
-          "translation": "確保蓋子已牢固扣緊。(No error, change tense) She is (fastening) her coat.",
+          "description": "She is (fastening) her coat.",
+          "translation": "她正在扣外套。",
           "answer": "fastening",
           "type": "amend"
         },
@@ -43772,8 +43772,8 @@
           "type": "fill"
         },
         {
-          "description": "The children (behaved) badly.",
-          "translation": "孩子們表現很差。(No error, change context) You need to learn how to (behavior).",
+          "description": "You need to learn how to (behavior).",
+          "translation": "你需要學會如何表現。",
           "answer": "behave",
           "type": "amend"
         },
@@ -43867,8 +43867,8 @@
           "type": "fill"
         },
         {
-          "description": "She (arranged) the flowers beautifully.",
-          "translation": "她把花插得很漂亮。(No error, change context) We need to make some (arranging).",
+          "description": "We need to make some (arranging).",
+          "translation": "我們需要做些安排。",
           "answer": "arrangements",
           "type": "amend"
         },
@@ -43943,8 +43943,8 @@
           "type": "fill"
         },
         {
-          "description": "He (cleared) his throat before speaking.",
-          "translation": "他講話前清了清喉嚨。(No error, change context) The sky needs to (clearing) up.",
+          "description": "The sky needs to (clearing) up.",
+          "translation": "天需要放晴。",
           "answer": "clear",
           "type": "amend"
         },
@@ -44076,8 +44076,8 @@
           "type": "fill"
         },
         {
-          "description": "The plane (circled) the airport before landing.",
-          "translation": "飛機在降落前繞著機場盤旋。(No error, change context) Draw a (circular) around the word.",
+          "description": "Draw a (circular) around the word.",
+          "translation": "在這個詞周圍畫一個圈。",
           "answer": "circle",
           "type": "amend"
         },
@@ -44190,8 +44190,8 @@
           "type": "fill"
         },
         {
-          "description": "Sales (hit) a peak last month.",
-          "translation": "上個月銷售額達到高峰。(No error, change context) The boxer landed a hard (hitting).",
+          "description": "The boxer landed a hard (hitting).",
+          "translation": "拳擊手重重地打了一拳。",
           "answer": "hit",
           "type": "amend"
         },
@@ -44247,8 +44247,8 @@
           "type": "fill"
         },
         {
-          "description": "He is good at (mending) broken toys.",
-          "translation": "他擅長修理壞掉的玩具。(No error, change tense) The fence needs (mend).",
+          "description": "The fence needs (mend).",
+          "translation": "柵欄需要修理。",
           "answer": "mending",
           "type": "amend"
         },
@@ -44285,8 +44285,8 @@
           "type": "fill"
         },
         {
-          "description": "He accidentally (stepped) on my foot.",
-          "translation": "他不小心踩到我的腳了。(No error, change tense) She is (stepping) carefully.",
+          "description": "She is (stepping) carefully.",
+          "translation": "她小心翼翼地走著。",
           "answer": "stepping",
           "type": "amend"
         },
@@ -44380,8 +44380,8 @@
           "type": "fill"
         },
         {
-          "description": "She (wrapped) a scarf around her neck.",
-          "translation": "她把圍巾圍在脖子上。(No error, change tense) He is (wrapping) the gift.",
+          "description": "He is (wrapping) the gift.",
+          "translation": "他正在包裝禮物。",
           "answer": "wrapping",
           "type": "amend"
         },
@@ -44399,8 +44399,8 @@
           "type": "fill"
         },
         {
-          "description": "Is the car (locked)?",
-          "translation": "車鎖了嗎？(No error, change tense) She (locks) the gate every night.",
+          "description": "She (locks) the gate every night.",
+          "translation": "她每天晚上鎖大門。",
           "answer": "locks",
           "type": "amend"
         },
@@ -44456,8 +44456,8 @@
           "type": "fill"
         },
         {
-          "description": "She (handed) in her resignation yesterday.",
-          "translation": "她昨天遞交了辭職信。(No error, change context) Give me a (handle)!",
+          "description": "Give me a (handle)!",
+          "translation": "幫我個忙！",
           "answer": "hand",
           "type": "amend"
         },
@@ -44494,8 +44494,8 @@
           "type": "fill"
         },
         {
-          "description": "The meeting has been (cancelled).",
-          "translation": "會議已被取消。(No error, change tense) He (canceling) his subscription.",
+          "description": "He (canceling) his subscription.",
+          "translation": "他取消了他的訂閱。",
           "answer": "cancelled / canceled",
           "type": "amend"
         },
@@ -44551,8 +44551,8 @@
           "type": "fill"
         },
         {
-          "description": "He was (buried) next to his wife.",
-          "translation": "他被安葬在他妻子旁邊。(No error, change tense) They are (burying) the treasure.",
+          "description": "They are (burying) the treasure.",
+          "translation": "他們正在埋藏寶藏。",
           "answer": "burying",
           "type": "amend"
         },
@@ -44589,8 +44589,8 @@
           "type": "fill"
         },
         {
-          "description": "He is (watching) the children play.",
-          "translation": "他正在看孩子們玩耍。(No error, change tense) She (watch) the sunset.",
+          "description": "She (watch) the sunset.",
+          "translation": "她看了日落。",
           "answer": "watched",
           "type": "amend"
         },
@@ -44741,8 +44741,8 @@
           "type": "fill"
         },
         {
-          "description": "The glass fell and (smashed) into pieces.",
-          "translation": "玻璃杯掉下來摔得粉碎。(No error, change tense) Be careful not to (smashing) the plates.",
+          "description": "Be careful not to (smashing) the plates.",
+          "translation": "小心不要打碎盤子。",
           "answer": "smash",
           "type": "amend"
         },
@@ -44836,8 +44836,8 @@
           "type": "fill"
         },
         {
-          "description": "She (dipped) her toes into the cold water.",
-          "translation": "她把腳趾伸進冷水裡試了試。(No error, change context) Would you like some salsa (dipping)?",
+          "description": "Would you like some salsa (dipping)?",
+          "translation": "你想要一些莎莎醬嗎？",
           "answer": "dip",
           "type": "amend"
         },
@@ -44874,8 +44874,8 @@
           "type": "fill"
         },
         {
-          "description": "She (sprayed) perfume on her wrist.",
-          "translation": "她在手腕上噴了香水。(No error, change context) Use the hair (spraying).",
+          "description": "Use the hair (spraying).",
+          "translation": "使用髮膠。",
           "answer": "spray",
           "type": "amend"
         },
@@ -44931,8 +44931,8 @@
           "type": "fill"
         },
         {
-          "description": "I (spotted) my friend in the crowd.",
-          "translation": "我在人群中發現了我的朋友。(No error, change context) The leopard has dark (spotting).",
+          "description": "The leopard has dark (spotting).",
+          "translation": "豹子身上有深色斑點。",
           "answer": "spots",
           "type": "amend"
         },
@@ -44950,8 +44950,8 @@
           "type": "fill"
         },
         {
-          "description": "He (slammed) the phone down angrily.",
-          "translation": "他憤怒地摔下電話。(No error, change tense) She is always (slamming) doors.",
+          "description": "She is always (slamming) doors.",
+          "translation": "她總是砰地關門。",
           "answer": "slamming",
           "type": "amend"
         },
@@ -45159,8 +45159,8 @@
           "type": "fill"
         },
         {
-          "description": "The building was (demolished) last year.",
-          "translation": "這棟建築去年被拆除了。(No error, change tense) They are (demolishing) the bridge.",
+          "description": "They are (demolishing) the bridge.",
+          "translation": "他們正在拆除橋樑。",
           "answer": "demolishing",
           "type": "amend"
         },
@@ -45330,8 +45330,8 @@
           "type": "fill"
         },
         {
-          "description": "The prisoners were (freed) after the war.",
-          "translation": "戰後囚犯被釋放了。(No error, change context) Set the animals (freedom).",
+          "description": "Set the animals (freedom).",
+          "translation": "讓動物自由。",
           "answer": "free",
           "type": "amend"
         },
@@ -45406,8 +45406,8 @@
           "type": "fill"
         },
         {
-          "description": "He (tripped) and fell.",
-          "translation": "他絆倒摔跤了。(No error, change context) Don't leave things where people might (tripping).",
+          "description": "Don't leave things where people might (tripping).",
+          "translation": "不要把東西留在別人可能絆倒的地方。",
           "answer": "trip",
           "type": "amend"
         },
@@ -45444,8 +45444,8 @@
           "type": "fill"
         },
         {
-          "description": "She (sliced) the cake into equal portions.",
-          "translation": "她把蛋糕切成等份。(No error, change context) Can I have another (slicing) of pizza?",
+          "description": "Can I have another (slicing) of pizza?",
+          "translation": "我可以再要一片披薩嗎？",
           "answer": "slice",
           "type": "amend"
         },
@@ -45881,8 +45881,8 @@
           "type": "fill"
         },
         {
-          "description": "She (kept) interrupting me.",
-          "translation": "她不停地打斷我。(No error, change context) You must (kept) trying.",
+          "description": "You must (kept) trying.",
+          "translation": "你必須繼續嘗試。",
           "answer": "keep",
           "type": "amend"
         },
@@ -46052,8 +46052,8 @@
           "type": "fill"
         },
         {
-          "description": "He (ripped) his jeans when he fell.",
-          "translation": "他摔倒時撕破了牛仔褲。(No error, change context) There's a big (ripping) in the curtain.",
+          "description": "There's a big (ripping) in the curtain.",
+          "translation": "窗簾上有個大口子。",
           "answer": "rip",
           "type": "amend"
         },
@@ -46109,8 +46109,8 @@
           "type": "fill"
         },
         {
-          "description": "He (timed) his run around the park.",
-          "translation": "他測量了自己繞公園跑的時間。(No error, change context) What's the best (timing) to call?",
+          "description": "What's the best (timing) to call?",
+          "translation": "什麼時候打電話最好？",
           "answer": "time",
           "type": "amend"
         },
@@ -46261,8 +46261,8 @@
           "type": "fill"
         },
         {
-          "description": "We watched the sun (descending) below the horizon.",
-          "translation": "我們看著太陽落在地平線下。(No error, change tense) They (descend) the mountain carefully.",
+          "description": "They (descend) the mountain carefully.",
+          "translation": "他們小心翼翼地下山。",
           "answer": "descended",
           "type": "amend"
         },
@@ -46413,8 +46413,8 @@
           "type": "fill"
         },
         {
-          "description": "The police (seized) the stolen goods.",
-          "translation": "警方查獲了贓物。(No error, change context) This requires a quick (seizure) of the situation.",
+          "description": "This requires a quick (seizure) of the situation.",
+          "translation": "這需要快速掌控情況。",
           "answer": "seizing",
           "type": "amend"
         },
@@ -46432,8 +46432,8 @@
           "type": "fill"
         },
         {
-          "description": "He was (tapping) his fingers on the table.",
-          "translation": "他用手指輕敲桌子。(No error, change context) Give the door a gentle (taping).",
+          "description": "Give the door a gentle (taping).",
+          "translation": "輕輕敲門。",
           "answer": "tap",
           "type": "amend"
         },
@@ -46565,8 +46565,8 @@
           "type": "fill"
         },
         {
-          "description": "Traffic was (crawling) along.",
-          "translation": "交通緩慢行進。(No error, change tense) He (crawled) under the fence.",
+          "description": "He (crawled) under the fence.",
+          "translation": "他爬過了柵欄。",
           "answer": "crawled",
           "type": "amend"
         },
@@ -46622,8 +46622,8 @@
           "type": "fill"
         },
         {
-          "description": "He (showers) every morning.",
-          "translation": "他每天早上淋浴。(No error, change context) Expect scattered (showers) later.",
+          "description": "Expect occasional (showers) tomorrow.",
+          "translation": "預計明天有陣雨。",
           "answer": "showers",
           "type": "amend"
         },
@@ -46736,8 +46736,8 @@
           "type": "fill"
         },
         {
-          "description": "He (overcame) many difficulties to achieve success.",
-          "translation": "他克服了許多困難才取得成功。(No error, change tense) We must (overcoming) these obstacles.",
+          "description": "We must (overcoming) these obstacles.",
+          "translation": "我們必須克服這些障礙。",
           "answer": "overcome",
           "type": "amend"
         },
@@ -46793,8 +46793,8 @@
           "type": "fill"
         },
         {
-          "description": "He was (fired) for stealing.",
-          "translation": "他因偷竊被解雇了。(No error, change context) Don't (fired) the gun!",
+          "description": "Don't (fired) the gun!",
+          "translation": "不要開槍！",
           "answer": "fire",
           "type": "amend"
         },
@@ -46812,8 +46812,8 @@
           "type": "fill"
         },
         {
-          "description": "Further details can be (obtained) from head office.",
-          "translation": "更多細節可以從總部獲得。(No error, change tense) She is trying to (obtaining) a visa.",
+          "description": "She is trying to (obtaining) a visa.",
+          "translation": "她正在試圖獲得簽證。",
           "answer": "obtain",
           "type": "amend"
         },
@@ -46888,8 +46888,8 @@
           "type": "fill"
         },
         {
-          "description": "The cat (stretched) lazily in the sun.",
-          "translation": "貓懶洋洋地在陽光下伸展。(No error, change context) This sweater has (stretching) out of shape.",
+          "description": "This sweater has (stretching) out of shape.",
+          "translation": "這件毛衣已經變形了。",
           "answer": "stretched",
           "type": "amend"
         },
@@ -47097,8 +47097,8 @@
           "type": "fill"
         },
         {
-          "description": "My heart was (pounding) in my chest.",
-          "translation": "我的心在胸口怦怦直跳。(No error, change tense) She (pounds) the spices in a mortar.",
+          "description": "She (pounds) the spices in a mortar.",
+          "translation": "她在研缽裡搗香料。",
           "answer": "pounds",
           "type": "amend"
         },
@@ -47173,8 +47173,8 @@
           "type": "fill"
         },
         {
-          "description": "The ball (rolled) down the hill.",
-          "translation": "球滾下了山坡。(No error, change context) Can you give the dice a (rolling)?",
+          "description": "Can you give the dice a (rolling)?",
+          "translation": "你能擲一下骰子嗎？",
           "answer": "roll",
           "type": "amend"
         },
@@ -47629,8 +47629,8 @@
           "type": "fill"
         },
         {
-          "description": "The city was (rebuilt) after the earthquake.",
-          "translation": "地震後城市被重建了。(No error, change tense) It will take years to (rebuilding) the community.",
+          "description": "It will take years to (rebuilding) the community.",
+          "translation": "重建社區需要數年時間。",
           "answer": "rebuild",
           "type": "amend"
         },
@@ -47914,8 +47914,8 @@
           "type": "fill"
         },
         {
-          "description": "The photograph perfectly (captures) the mood.",
-          "translation": "這張照片完美地捕捉了氣氛。(No error, change tense) They are trying to (capturing) the butterfly.",
+          "description": "They are trying to (capturing) the butterfly.",
+          "translation": "他們正在試圖捕捉蝴蝶。",
           "answer": "capture",
           "type": "amend"
         },
@@ -47990,8 +47990,8 @@
           "type": "fill"
         },
         {
-          "description": "He (lowered) the flag.",
-          "translation": "他降下了旗幟。(No error, change context) Can you make the price a bit (low)?",
+          "description": "Can you make the price a bit (low)?",
+          "translation": "你能把價格降低一點嗎？",
           "answer": "lower",
           "type": "amend"
         },
@@ -48028,8 +48028,8 @@
           "type": "fill"
         },
         {
-          "description": "She (wiped) the table clean.",
-          "translation": "她把桌子擦乾淨了。(No error, change tense) He is (wiping) the window.",
+          "description": "He is (wiping) the window.",
+          "translation": "他正在擦窗戶。",
           "answer": "wiping",
           "type": "amend"
         },
@@ -48142,8 +48142,8 @@
           "type": "fill"
         },
         {
-          "description": "The plants need (watering) every day.",
-          "translation": "植物每天都需要澆水。(No error, change context) Who (waters) the garden when you're away?",
+          "description": "Who (waters) the garden when you're away?",
+          "translation": "你不在家的時候誰給花園澆水？",
           "answer": "waters",
           "type": "amend"
         },
@@ -48277,8 +48277,8 @@
           "type": "fill"
         },
         {
-          "description": "The ship (launched) yesterday.",
-          "translation": "船昨天啟航了。(No error, change context) The product (lunched) failed.",
+          "description": "The product (lunched) failed.",
+          "translation": "產品發布失敗了。",
           "answer": "launch",
           "type": "amend"
         },
@@ -48505,8 +48505,8 @@
           "type": "fill"
         },
         {
-          "description": "He (undertook) the responsibility willingly.",
-          "translation": "他心甘情願地承擔了責任。(No error, change tense) They are (undertaking) research.",
+          "description": "They are (undertaking) research.",
+          "translation": "他們正在進行研究。",
           "answer": "undertaking",
           "type": "amend"
         },
@@ -48714,8 +48714,8 @@
           "type": "fill"
         },
         {
-          "description": "This desk (occupies) too much space.",
-          "translation": "這張書桌佔用太多空間。(No error, change tense) Reading (occupies) most of her free time.",
+          "description": "Reading (occupies) most of her free time.",
+          "translation": "閱讀佔據了她大部分的空閒時間。",
           "answer": "occupies",
           "type": "amend"
         },
@@ -48733,8 +48733,8 @@
           "type": "fill"
         },
         {
-          "description": "The teacher is (marking) the exams.",
-          "translation": "老師正在批改考卷。(No error, change context) Please (marks) your name on the list.",
+          "description": "Please (marks) your name on the list.",
+          "translation": "請在名單上標出你的名字。",
           "answer": "mark",
           "type": "amend"
         },
@@ -48752,8 +48752,8 @@
           "type": "fill"
         },
         {
-          "description": "She (posed) for the photograph.",
-          "translation": "她擺好姿勢拍照。(No error, change context) This could (posing) a problem.",
+          "description": "This could (posing) a problem.",
+          "translation": "這可能會造成問題。",
           "answer": "pose",
           "type": "amend"
         },
@@ -48942,8 +48942,8 @@
           "type": "fill"
         },
         {
-          "description": "She (snapped) a photo of the sunset.",
-          "translation": "她拍了一張日落的照片。(No error, change tense) Don't (snapping) at me!",
+          "description": "Don't (snapping) at me!",
+          "translation": "別對我大吼大叫！",
           "answer": "snap",
           "type": "amend"
         },
@@ -48980,8 +48980,8 @@
           "type": "fill"
         },
         {
-          "description": "The train (slowed) as it approached the station.",
-          "translation": "火車駛近車站時減速了。(No error, change context) Can you speak more (slowly)?",
+          "description": "Can you speak more (slowly)?",
+          "translation": "你能說慢一點嗎？",
           "answer": "slowly",
           "type": "amend"
         },
@@ -49056,8 +49056,8 @@
           "type": "fill"
         },
         {
-          "description": "She (twisted) her ankle while running.",
-          "translation": "她跑步時扭傷了腳踝。(No error, change context) The story has an unexpected (twisting).",
+          "description": "The story has an unexpected (twisting).",
+          "translation": "這個故事有一個意想不到的轉折。",
           "answer": "twist",
           "type": "amend"
         },
@@ -49094,8 +49094,8 @@
           "type": "fill"
         },
         {
-          "description": "They (struggled) against poverty.",
-          "translation": "他們與貧困作鬥爭。(No error, change tense) He is (struggling) with his homework.",
+          "description": "He is (struggling) with his homework.",
+          "translation": "他正在為作業苦惱。",
           "answer": "struggling",
           "type": "amend"
         },
@@ -49246,8 +49246,8 @@
           "type": "fill"
         },
         {
-          "description": "He (tipped) his hat politely.",
-          "translation": "他禮貌地翹起帽子。(No error, change context) The waiter received a generous (tipping).",
+          "description": "The waiter received a generous (tipping).",
+          "translation": "服務生收到了一筆豐厚的小費。",
           "answer": "tip",
           "type": "amend"
         },
@@ -49303,8 +49303,8 @@
           "type": "fill"
         },
         {
-          "description": "She (staggered) under the weight of the boxes.",
-          "translation": "她在箱子的重壓下搖搖晃晃。(No error, change tense) He was (staggering) drunkenly.",
+          "description": "He was (staggering) drunkenly.",
+          "translation": "他醉醺醺地搖晃著。",
           "answer": "staggering",
           "type": "amend"
         },
@@ -49360,8 +49360,8 @@
           "type": "fill"
         },
         {
-          "description": "He (blew) his nose loudly.",
-          "translation": "他大聲地擤鼻子。(No error, change tense) The wind is (blowing) hard.",
+          "description": "He is (blowing) bubbles.",
+          "translation": "他正在吹泡泡。",
           "answer": "blowing",
           "type": "amend"
         },
@@ -49550,8 +49550,8 @@
           "type": "fill"
         },
         {
-          "description": "Pressure is (mounting) on the government.",
-          "translation": "政府面臨的壓力越來越大。(No error, change context) We need to (mountain) the TV on the wall.",
+          "description": "We need to (mountain) the TV on the wall.",
+          "translation": "我們需要把電視裝在牆上。",
           "answer": "mount",
           "type": "amend"
         },
@@ -49740,8 +49740,8 @@
           "type": "fill"
         },
         {
-          "description": "She (sprinkled) sugar on the cake.",
-          "translation": "她在蛋糕上撒了糖。(No error, change context) Add a (sprinkling) of herbs.",
+          "description": "Add a (sprinkling) of herbs.",
+          "translation": "撒上少許香草。",
           "answer": "sprinkling",
           "type": "amend"
         },
@@ -50238,8 +50238,8 @@
           "type": "fill"
         },
         {
-          "description": "He is now a responsible (adult).",
-          "translation": "他現在是個負責任的成年人了。(No error, change context) You need an (aduld) ticket.",
+          "description": "You need an (aduld) ticket.",
+          "translation": "你需要一張成人票。",
           "answer": "adult",
           "type": "amend"
         },
@@ -51481,8 +51481,8 @@
           "type": "fill"
         },
         {
-          "description": "I (enjoyed) watching movies yesterday.",
-          "translation": "我昨天很享受看電影。(No error, change tense) She is (enjoy) the concert.",
+          "description": "She is (enjoy) the concert.",
+          "translation": "她正在欣賞音樂會。",
           "answer": "enjoying",
           "type": "amend"
         },
@@ -51823,8 +51823,8 @@
           "type": "fill"
         },
         {
-          "description": "The baby (cries) when it's hungry.",
-          "translation": "嬰兒餓了就會哭。(No error, change tense) She (crying) when she heard the news.",
+          "description": "She (crying) when she heard the news.",
+          "translation": "她聽到消息時哭了。",
           "answer": "cried",
           "type": "amend"
         },
@@ -52051,8 +52051,8 @@
           "type": "fill"
         },
         {
-          "description": "We are (hoping) for good weather tomorrow.",
-          "translation": "我們希望明天天氣好。(No error, change context) Never lose (hoping).",
+          "description": "Never lose (hoping).",
+          "translation": "永不失去希望。",
           "answer": "hope",
           "type": "amend"
         },
