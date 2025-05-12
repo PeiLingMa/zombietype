@@ -7,11 +7,19 @@ import { useCallback, useReducer } from 'react';
  * @returns {Object} New game state
  */
 const gameStateReducer = (state, action) => {
-  // Handle functional updates (when action is a function)
   if (typeof action === 'function') {
     return action(state);
   }
-  // Handle object updates (regular updates)
+  if (action.type === 'initial') {
+    return {
+      level: 1,
+      lives: 3,
+      zombiesDefeated: 0,
+      gameOver: false,
+      currentTheme: '',
+      remainingThemes: []
+    };
+  }
   return { ...state, ...action };
 };
 
@@ -41,8 +49,15 @@ export const useGameState = () => {
     dispatch(updates);
   }, []);
 
+  const initializeGameState = useCallback(() => {
+    dispatch({
+      type: 'initial'
+    });
+  }, []);
+
   return {
     gameState,
-    updateGameState
+    updateGameState,
+    initializeGameState
   };
 };
