@@ -14,15 +14,12 @@
   left: 0;
   z-index: 10; /* 確保在其他內容之上 */
   display: none; /* 預設隱藏 */
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   padding: 0.5rem 0;
   margin-top: 0.125rem;
   min-width: 100%; /* 至少和按鈕一樣寬 */
   list-style: none; /* 移除 list 預設樣式 */
   padding-left: 0; /* 移除 list 預設 padding */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 
   opacity: 0; /* 初始透明度設為 0，讓選單預設是隱藏的 */
   transform: translateY(-10px); /* 初始位置稍微向上偏移，做出滑入效果 */
@@ -30,10 +27,13 @@
     opacity 0.2s ease-out,
     transform 0.2s ease-out,
     display 0.2s ease-out; /* 加入 transition 效果 */
-  /* transition: all 0.3s ease-out;  <-- 也可以用 all，但個別設定屬性通常效能更好 */
   pointer-events: none; /* 預設關閉 pointer 事件，避免選單隱藏時還能被點擊 */
   display: block; /* 先設定 display: block; 才能讓 transition 生效，之後再用條件式控制 display: none; */
   visibility: hidden; /* 初始狀態隱藏選單 */
+
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-primary-medium);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
 
 .dropdown-menu.open {
@@ -54,22 +54,23 @@
   width: 100%;
   padding: 0.5rem 1rem;
   clear: both;
-  font-weight: 400;
-  color: #212529;
+  font-weight: bolder;
   text-align: inherit;
   white-space: nowrap;
+  cursor: pointer;
+
   background-color: transparent;
   border: 0;
-  cursor: pointer;
+  color: var(--color-primary-medium);
 }
 
 .dropdown-option-button:hover,
 .dropdown-option-button:focus {
-  color: #1e2125;
-  background-color: #f8f9fa;
+  background-color: var(--color-secondary-medium);
+  color: var(--color-primary-medium);
 }
 
 .dropdown-option-button:active {
-  color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-secondary-dark);
+  color: var(--color-primary-dark);
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import './Navbar.css';
 import Log from './Log';
 
@@ -16,25 +16,25 @@ export default function Navbar({ dialogueHistory, onAuto, onSkip, isAuto, onConf
   return (
     <div class="navbar">
       <button
-        className={`navbar-auto ${isAuto ? 'active' : ''}`}
+        className={`btn navbar-auto ${isAuto ? 'active' : ''}`}
         onClick={onAuto}
       >
         <p>auto</p>
       </button>
       <button
-        className="navbar-skip"
+        className="btn navbar-skip"
         onClick={onSkip}
       >
         <p>skip</p>
       </button>
       <button
-        className="navbar-log"
+        className="btn navbar-log"
         onClick={handleLogClick}
       >
         <p>log</p>
       </button>
       <button
-        className="navbar-config"
+        className="btn navbar-config"
         onClick={onConfig}
       >
         <p>config</p>

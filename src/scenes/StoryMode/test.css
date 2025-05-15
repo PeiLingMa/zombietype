@@ -1,13 +1,20 @@
+/* ------------------------------------------------------------ */
 /* StoryMode section */
+/* ------------------------------------------------------------ */
+.story-mode {
+  --color-cutscene-container: white;
+  --color-bg-cutscene-container: rgba(255, 0, 0, 1);
+  --color-bg-ratio-container: rgba(0, 0, 0, 0);
+}
 .cutscene-container {
   position: relative; /* 確保 ratio-container 可以相對於它定位 */
-  background: rgb(255, 0, 0); /* 紅色背景方便您觀察 */
-  color: white;
   height: 100vh; /* 容器高度佔滿整個 viewport height */
   overflow: hidden;
   display: flex; /* 使用 Flexbox 讓內容可以水平置中 */
   justify-content: center; /* 水平置中 */
   align-items: center; /* 垂直置中 (如果您也想垂直置中 16:9 區域) */
+  background: var(--color-bg-cutscene-container); /* 紅色背景方便您觀察 */
+  color: var(--color-cutscene-container);
 }
 
 /* 16:9 比例容器 */
@@ -18,7 +25,7 @@
   aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
   position: relative; /* 讓內容元件可以相對於它絕對定位 */
   overflow: hidden; /* 確保內容超出比例容器時被隱藏 */
-  background-color: rgb(255, 0, 0); /* 可選：為比例容器設定背景色，方便觀察 */
+  background-color: var(--color-bg-ratio-container); /* 可選：為比例容器設定背景色，方便觀察 */
 }
 
 .character {
@@ -28,40 +35,47 @@
   left: 1%;
   z-index: 2;
 }
-
+/* ------------------------------------------------------------ */
+/* dialogue-box */
+/* ------------------------------------------------------------ */
+.dialogue-box {
+  --color-bg-question-box: var(--color-palette-dark-alpha-85);
+  --color-text-dialogue-header: var(--color-accent1-dark);
+  --color-text-dialogue-content: var(--color-palette-white);
+}
 .dialogue-box {
   position: absolute;
   bottom: 3%;
   width: 100vw;
   height: 30%;
-
   min-width: 100vw;
-
-  background: rgba(73, 59, 59, 0.85);
   cursor: pointer;
   z-index: 1;
+
+  background: var(--color-bg-question-box);
 }
 
 .dialogue-box h3 {
-  position: absolute;
-  left: 5%;
+  position: static;
+  margin-left: 5%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: fit-content;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
-  color: rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0.85);
   text-align: center;
+  color: var(--color-text-dialogue-header);
 }
 
 .content {
-  position: absolute;
-  bottom: 30%;
-  left: 10%;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
+  position: static;
   color: rgb(255, 255, 255);
-  max-width: 70%;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 /* 要再確認怎麼用 */
@@ -91,4 +105,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+.story-menu-container h1 {
+  color: var(--color-primary-medium);
 }

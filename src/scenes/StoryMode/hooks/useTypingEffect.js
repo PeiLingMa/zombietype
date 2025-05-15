@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 /**
  * Handles the character-by-character typing effect for dialogue text.
- *
+ * - isTyping: null when mountingl, false when finished
  * @param {string} text - The full text to display.
  * @param {number} [speed=40] - The speed of typing in milliseconds per character.
  * @returns {{

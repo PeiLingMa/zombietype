@@ -85,7 +85,7 @@ export default function StoryMenu({ onStorySelect, onBack }) {
         onStorySelect={onStorySelect}
       />
       <button
-        className="btn btn-info px-4 py-2 fw-bold"
+        className="btn-info1 px-4 py-2 fw-bold"
         onClick={onBack}
       >
         Back Menu

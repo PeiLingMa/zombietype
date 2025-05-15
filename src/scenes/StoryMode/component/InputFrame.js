@@ -59,7 +59,7 @@ export default function InputFrame({
   }
 
   return (
-    <div className="question-box">
+    <div className="question-box input-frame">
       {' '}
       <h3>{currentScene.character}</h3>
       <p
@@ -73,13 +73,14 @@ export default function InputFrame({
       {/* <div className="choices-hint">
         Choices: {currentScene.choices?.map((c) => c.text).join(', ')}
       </div> */}
-      <div className="choice-input-container">
+      <div className="choice-input-container ">
         <input
           ref={inputRef}
           type="text"
           value={choiceInput}
           onChange={handleInputChange}
           onKeyUp={handleKeyPress}
+          className="form-control shadow-lg"
           placeholder="Type your answer here..."
           disabled={isTyping}
         />

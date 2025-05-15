@@ -1,13 +1,54 @@
 .navbar {
+  --color-navbar-btn: var(--color-primary-light);
+  --color-navbar-btn-hover: var(--color-secondary-medium);
+  /* border */
+  --color-navbar-btn-border: var(--color-secondary-dark);
+  --color-navbar-btn-border-hover: var(--color-secondary-dark);
+  /* auto */
+  --color-navbar-auto-active-border: var(--color-secondary-dark);
+  --color-bg-navbar-auto-active: var(--color-secondary-medium);
+  /* background */
+  --color-bg-navbar-btn: var(--color-secondary-light);
+  --color-bg-navbar-btn-hover: var(--color-secondary-medium);
+}
+.navbar {
   position: absolute;
   display: flex;
-  gap: 70px;
-  bottom: 33%;
-  left: 65%;
+  bottom: 34%;
+  right: 10%;
+  width: 25%;
   cursor: pointer;
 }
+.navbar .btn {
+  border-width: 1px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+
+  color: var(--color-primary-light);
+  background-color: var(--color-bg-navbar-btn);
+  /* border-color: var(--color-secondary-dark) ; */
+  border: 1px solid var(--color-navbar-btn-border);
+  box-shadow: var(--shadow-primary-button);
+}
+.navbar .btn:hover {
+  transform: translateY(-2px);
+
+  background-color: var(--color-bg-navbar-btn-hover);
+  border: 1px solid var(--color-navbar-btn-border-hover);
+  color: var(--color-navbar-btn);
+  box-shadow: var(--shadow-primary-button-hover);
+}
 .navbar-auto.active {
-  color: #ffd700;
+  background-color: var(--color-bg-navbar-auto-active);
+  border-color: var(--color-navbar-auto-active-border);
+}
+.navbar-auto p,
+.navbar-skip p,
+.navbar-log p,
+.navbar-config p {
+  margin: 2px 0;
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {

@@ -1,3 +1,7 @@
+// FIXME: 把 StoryMode .css的風格整合
+// 以下是步驟
+// Option.css的色碼提出作為全域var
+// 修改Storymode folder下的其他css ui風格儘量使用，貼近 全域var(必要時可以增加不在Option.css的色碼到全域var) */
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import './test.css';
 import Options from '../Option/Option';
@@ -62,7 +66,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
     }));
     setShowStoryEndPopup(true);
     if (onStoryEnd) onStoryEnd();
-  }, [showStoryEndPopup, onStoryEnd]);
+  }, [setStoryProgress, showStoryEndPopup, onStoryEnd]);
 
   useEffect(() => {
     storyProgressRef.current = storyProgress;
@@ -177,9 +181,8 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   }
 
   return (
-    <div className="cutscene-container">
+    <div className="story-mode cutscene-container">
       <div className="ratio-container">
-        <h1 className="mb-4">THIS IS STORYMODE PAGE</h1> {/* 確保標題在比例容器內 */}
         {/* Cutscene 圖片角色 */}
         <img
           src={currentScene.image}
@@ -232,7 +235,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
           {' '}
           {/* 返回按鈕位置可能需要調整，看是否要放在 16:9 區域內 */}
           <button
-            className="btn btn-info px-4 py-2 fw-bold"
+            className="btn-info1 px-4 py-2"
             onClick={(e) => {
               e.stopPropagation(); // 避免點擊觸發對話切換
               onBack();

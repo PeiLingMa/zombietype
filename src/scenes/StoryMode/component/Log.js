@@ -9,7 +9,7 @@ export default function Log({ dialogueHistory, onClose }) {
     }
   }, [dialogueHistory]);
   return (
-    <div className="log-overlay">
+    <div className="log log-overlay">
       <div className="log-dialog">
         <div className="log-header">
           <h3>對話紀錄</h3>

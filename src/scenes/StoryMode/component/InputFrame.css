@@ -1,17 +1,22 @@
+.input-frame {
+  --color-bg-question-box: var(--color-palette-dark-alpha-85);
+  --color-dialogue-h3: var(--color-accent1-dark);
+  --color-dialogue-content: var(--color-palette-white);
+}
+
 .question-box {
   position: absolute;
   bottom: 3%;
   width: 100%;
-
   min-height: 30%;
   height: auto;
   min-width: 600px;
-  background: rgba(73, 59, 59, 0.85);
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 30px;
+  background: var(--color-bg-question-box);
 }
 
 .question-box h3 {
@@ -23,9 +28,9 @@
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
-  color: rgb(0, 0, 0);
-  background: rgba(255, 255, 255, 0.85);
   text-align: center;
+  color: var(--color-dialogue-h3);
+  /* background: rgba(255, 255, 255, 0.85); */
 }
 
 .question-box .question-content {
@@ -52,28 +57,34 @@
   flex-grow: 1;
   padding: 10px;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px;
   margin-right: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
   max-width: 600px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--color-accent);
+  color: var(--color-palette-neutral-dark);
 }
 
 .choice-input-container button {
   padding: 10px 20px;
+  font-weight: bold;
   font-size: 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease !important;
   flex-shrink: 0;
+
+  background: var(--color-secondary-light) !important;
+  border: none;
+  color: var(--color-primary-light) !important;
+  box-shadow: var(--shadow-primary-button) !important;
 }
 
 .choice-input-container button:hover {
-  background-color: #0056b3;
+  background: var(--color-secondary-medium) !important;
+  color: var(--color-primary-light) !important;
+  box-shadow: var(--shadow-primary-button-hover) !important;
 }
 
 .choice-input-container input[type='text']:disabled,

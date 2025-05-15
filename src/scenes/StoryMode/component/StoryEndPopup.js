@@ -12,7 +12,7 @@ export default function StoryEndPopup({ isVisible, message, onConfirm }) {
   }
 
   return (
-    <div className="story-end-dialog">
+    <div className="story-end-popup story-end-dialog">
       <h3>{message || '故事結束'}</h3> {/* 如果沒有傳入 message，顯示預設文字 */}
       <button
         className="story-end-button"
