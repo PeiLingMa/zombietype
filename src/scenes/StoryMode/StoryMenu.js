@@ -1,42 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './test.css';
 import StoryList from './component/StoryList.js';
+import Story1_preview from './images/story1_preview.jpeg';
+import Story2_preview from './images/story2_preview.jpeg';
+import Story3_preview from './images/story3_preview.jpeg';
 
-import sceneData from './script';
+// import sceneData from './script';
 const stories = [
-  {
-    id: 'story1',
-    title: 'Story 1 Title',
-    description: ' Story 1 Overview...',
-    previewImage: '', // 預覽圖片路徑
-    scenes: sceneData
-  },
-  {
-    id: 'story2',
-    title: "It's giving",
-    description: 'An expression meaning something has a certain energy or vibe. Learn it here.',
-    previewImage: '', // 預覽圖片路徑
-    scenes: await import('./script2').then((module) => module.default) // 動態導入 script2.js
-  },
+  // {
+  //   id: 'story1',
+  //   title: 'Story 1 Title',
+  //   description: ' Story 1 Overview...',
+  //   previewImage: '', // 預覽圖片路徑
+  //   scenes: sceneData
+  // },
+  // {
+  //   id: 'story2',
+  //   title: "It's giving",
+  //   description: 'An expression meaning something has a certain energy or vibe. Learn it here.',
+  //   previewImage: '', // 預覽圖片路徑
+  //   scenes: await import('./script2').then((module) => module.default) // 動態導入 script2.js
+  // },
   {
     id: 'story3',
     title: "Anna and Ben's Happy Time",
     description: 'Level: Easy',
-    previewImage: '', // 預覽圖片路徑
+    previewImage: Story1_preview, // 預覽圖片路徑
     scenes: await import('./script3').then((module) => module.default)
   },
   {
     id: 'story4',
     title: "Talkin' Library Vibes",
     description: 'Level: Midium',
-    previewImage: '', // 預覽圖片路徑
+    previewImage: Story2_preview, // 預覽圖片路徑
     scenes: await import('./script4').then((module) => module.default)
   },
   {
     id: 'story5',
     title: 'Navigating Setbacks: A Project Conundrum',
     description: 'Level: Hard',
-    previewImage: '', // 預覽圖片路徑
+    previewImage: Story3_preview, // 預覽圖片路徑
     scenes: await import('./script5').then((module) => module.default)
   }
 ];

@@ -30,9 +30,9 @@
 
 .character {
   position: absolute;
-  width: 15%;
+  width: 23%;
   bottom: 33%;
-  left: 1%;
+  /* left: 1%; */
   z-index: 2;
 }
 /* ------------------------------------------------------------ */
