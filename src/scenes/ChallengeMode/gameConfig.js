@@ -7,7 +7,28 @@ export const GAME_CONFIG = {
   ACCURACY_THRESHOLD: 0.9,
   SAMPLE_SIZE: 50,
   INITIAL_DIFFICULTY: 'beginner',
-  THEME_POOL: ['food', 'clothing', 'weather', 'sports', 'professions', 'technology', 'color'],
+  THEME_POOL: [
+    'animal',
+    'art',
+    'body and health',
+    'clothes',
+    'crime',
+    'education',
+    'describe',
+    'food',
+    'house',
+    'money',
+    'nature',
+    'actions',
+    'appearence',
+    'personality',
+    'politics',
+    'relationships',
+    'shopping',
+    'technology',
+    'travel',
+    'work'
+  ],
   DIFFICULTY_LEVELS: {
     BEGINNER: 1,
     MEDIUM: 2,
@@ -40,5 +61,5 @@ export const GAME_CONFIG = {
       volume: 1
     }
     // Add more sound effects here
-  },
+  }
 };
