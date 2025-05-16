@@ -1,7 +1,7 @@
 {
   "author": "cjh5958,PeiLingMa",
   "version": "1.1",
-  "last_update": "2025-04-28",
+  "last_update": "2025-05-16",
   "topics": {
     "animal": {
       "beginner": [
@@ -415,7 +415,7 @@
           "type": "fill"
         },
         {
-          "description": "Protecting (animal) habitats is important.",
+          "description": "Protecting (anemal) habitats is important.",
           "answer": "animal",
           "type": "amend"
         },
@@ -669,7 +669,7 @@
           "type": "fill"
         },
         {
-          "description": "Try to swat those annoying (flies).",
+          "description": "Try to swat those annoying (flys).",
           "answer": "flies",
           "type": "amend"
         },
@@ -705,7 +705,7 @@
           "type": "fill"
         },
         {
-          "description": "The bird preened its (feathers).",
+          "description": "The bird preened its (feathesr).",
           "answer": "feathers",
           "type": "amend"
         },
@@ -867,7 +867,7 @@
           "type": "fill"
         },
         {
-          "description": "Swimmers were warned about (sharks) in the area.",
+          "description": "Swimmers were warned about (shark) in the area.",
           "answer": "sharks",
           "type": "amend"
         },
@@ -1185,7 +1185,7 @@
           "type": "fill"
         },
         {
-          "description": "Don't let the bed (bugs) bite!",
+          "description": "Don't let the bed (buggs) bite!",
           "answer": "bugs",
           "type": "amend"
         },
@@ -1275,7 +1275,7 @@
           "type": "fill"
         },
         {
-          "description": "Are you afraid of (spiders)?",
+          "description": "Are you afraid of (spiderr)?",
           "answer": "spiders",
           "type": "amend"
         },
@@ -1293,7 +1293,7 @@
           "type": "fill"
         },
         {
-          "description": "We saw several (bats) flying out of the cave at dusk.",
+          "description": "We saw several (batts) flying out of the cave at dusk.",
           "answer": "bats",
           "type": "amend"
         },
@@ -1311,7 +1311,7 @@
           "type": "fill"
         },
         {
-          "description": "My neighbour's dog (barks) all night long.",
+          "description": "My neighbour's dog (barking) all night long.",
           "answer": "barks",
           "type": "amend"
         },
@@ -1347,7 +1347,7 @@
           "type": "fill"
         },
         {
-          "description": "Look at all the (ants) marching in a line!",
+          "description": "Look at all the (ant) marching in a line!",
           "answer": "ants",
           "type": "amend"
         },
@@ -1419,8 +1419,8 @@
           "type": "fill"
         },
         {
-          "description": "(Kangaroos) are native to Australia.",
-          "answer": "Kangaroos",
+          "description": "(Kangaroos) is native to Australia.",
+          "answer": "Kangaroo",
           "type": "amend"
         },
         {
@@ -2049,7 +2049,7 @@
           "type": "fill"
         },
         {
-          "description": "The book has over 500 (pages).",
+          "description": "The book has over 500 (pags).",
           "answer": "pages",
           "type": "amend"
         },
@@ -2139,7 +2139,7 @@
           "type": "fill"
         },
         {
-          "description": "He delivered (newspapers) in the neighborhood.",
+          "description": "He delivered (newspaper) in the neighborhood.",
           "answer": "newspapers",
           "type": "amend"
         },
@@ -2591,7 +2591,7 @@
           "type": "fill"
         },
         {
-          "description": "How many compact (discs) do you own?",
+          "description": "How many compact (disces) do you own?",
           "answer": "discs",
           "type": "amend"
         },
@@ -2681,7 +2681,7 @@
           "type": "fill"
         },
         {
-          "description": "She loves reading crime (thrillers).",
+          "description": "She loves reading crime (thriler).",
           "answer": "thrillers",
           "type": "amend"
         },
@@ -2771,7 +2771,7 @@
           "type": "fill"
         },
         {
-          "description": "TV channels rely on (viewer) ratings.",
+          "description": "TV channels rely on (view) ratings.",
           "answer": "viewer",
           "type": "amend"
         },
@@ -2861,7 +2861,7 @@
           "type": "fill"
         },
         {
-          "description": "He (pictures) himself winning the award.",
+          "description": "He (picturing) himself winning the award.",
           "answer": "pictures",
           "type": "amend"
         },
@@ -2897,7 +2897,7 @@
           "type": "fill"
         },
         {
-          "description": "All the (performers) took a bow.",
+          "description": "All the (performence) took a bow.",
           "answer": "performers",
           "type": "amend"
         },
@@ -3035,7 +3035,7 @@
           "type": "fill"
         },
         {
-          "description": "The novel is divided into twelve (chapters).",
+          "description": "The novel is divided into twelve (chapers).",
           "answer": "chapters",
           "type": "amend"
         },
@@ -3071,7 +3071,7 @@
           "type": "fill"
         },
         {
-          "description": "She doesn't believe everything she reads in the (tabloids).",
+          "description": "She doesn't believe everything she reads in the (tabloid).",
           "answer": "tabloids",
           "type": "amend"
         },
@@ -3089,7 +3089,7 @@
           "type": "fill"
         },
         {
-          "description": "The book topped the (bestseller) list for weeks.",
+          "description": "The book topped the (bestsell) list for weeks.",
           "answer": "bestseller",
           "type": "amend"
         },
@@ -3719,7 +3719,7 @@
           "type": "fill"
         },
         {
-          "description": "She (acts) professionally on stage.",
+          "description": "She (acting) professionally on stage.",
           "answer": "acts",
           "type": "amend"
         },
@@ -3737,7 +3737,7 @@
           "type": "fill"
         },
         {
-          "description": "I skipped the (adverts) on YouTube.",
+          "description": "I skipped the (advert) on YouTube.",
           "answer": "adverts",
           "type": "amend"
         },
@@ -3773,7 +3773,7 @@
           "type": "fill"
         },
         {
-          "description": "I saw (an ad) for cheap flights.",
+          "description": "I saw (a ad) for cheap flights.",
           "answer": "an ad",
           "type": "amend"
         },
@@ -3881,7 +3881,7 @@
           "type": "fill"
         },
         {
-          "description": "Did you see the newspaper (headlines) today?",
+          "description": "Did you see the newspaper (hedlines) today?",
           "answer": "headlines",
           "type": "amend"
         },
@@ -4019,7 +4019,7 @@
           "type": "fill"
         },
         {
-          "description": "She's addicted to watching TV (soaps).",
+          "description": "She's addicted to watching TV (sope).",
           "answer": "soaps",
           "type": "amend"
         },
@@ -4139,7 +4139,7 @@
           "type": "vocabulary"
         },
         {
-          "description": "He thinks watching (soap operas) is a waste of time.",
+          "description": "He thinks watching (soap opera) is a waste of time.",
           "answer": "soap operas",
           "type": "amend"
         },
@@ -4355,7 +4355,7 @@
           "type": "fill"
         },
         {
-          "description": "There are many TV (stations) to choose from.",
+          "description": "There are many TV (stationn) to choose from.",
           "answer": "stations",
           "type": "amend"
         },
@@ -4409,7 +4409,7 @@
           "type": "fill"
         },
         {
-          "description": "Who is (conducting) the choir?",
+          "description": "Who is (conduct) the choir?",
           "answer": "conducting",
           "type": "amend"
         },
@@ -4481,7 +4481,7 @@
           "type": "fill"
         },
         {
-          "description": "The song was (composed) by a famous musician.",
+          "description": "The song was (compossed) by a famous musician.",
           "answer": "composed",
           "type": "amend"
         },
@@ -4825,7 +4825,7 @@
           "type": "fill"
         },
         {
-          "description": "The book accurately (portrays) life in the 19th century.",
+          "description": "The book accurately (portray) life in the 19th century.",
           "answer": "portrays",
           "type": "amend"
         },
@@ -4843,7 +4843,7 @@
           "type": "fill"
         },
         {
-          "description": "He plays in a (brass) band.",
+          "description": "He plays in a (brasse) band.",
           "answer": "brass",
           "type": "amend"
         },
@@ -4915,7 +4915,7 @@
           "type": "fill"
         },
         {
-          "description": "The piano sounds out of (tune).",
+          "description": "The piano sounds out of (toon).",
           "answer": "tune",
           "type": "amend"
         },
@@ -5077,7 +5077,7 @@
           "type": "fill"
         },
         {
-          "description": "Can you read musical (notes)?",
+          "description": "Can you read musical (note)?",
           "answer": "notes",
           "type": "amend"
         },
@@ -5293,7 +5293,7 @@
           "type": "fill"
         },
         {
-          "description": "Good (illustrations) can enhance a story.",
+          "description": "Good (illustrate) can enhance a story.",
           "answer": "illustrations",
           "type": "amend"
         },
@@ -5383,7 +5383,7 @@
           "type": "fill"
         },
         {
-          "description": "The documentary (features) interviews with experts.",
+          "description": "The documentary (feature) interviews with experts.",
           "answer": "features",
           "type": "amend"
         },
@@ -5419,7 +5419,7 @@
           "type": "fill"
         },
         {
-          "description": "They needed hundreds of (extras) for the battle scene.",
+          "description": "They needed hundreds of (extra) for the battle scene.",
           "answer": "extras",
           "type": "amend"
         },
@@ -5603,7 +5603,7 @@
           "type": "fill"
         },
         {
-          "description": "He said he was (alright), but I wasn't sure.",
+          "description": "He said he was (allright), but I wasn't sure.",
           "answer": "alright",
           "type": "amend"
         },
@@ -5621,7 +5621,7 @@
           "type": "fill"
         },
         {
-          "description": "My (legs) hurt after the long walk.",
+          "description": "My (leg) hurt after the long walk.",
           "answer": "legs",
           "type": "amend"
         },
@@ -5903,7 +5903,7 @@
           "type": "fill"
         },
         {
-          "description": "Do you often suffer from (headaches)?",
+          "description": "Do you often suffer from (headaces)?",
           "answer": "headaches",
           "type": "amend"
         },
@@ -6101,7 +6101,7 @@
           "type": "fill"
         },
         {
-          "description": "She has beautiful blue (eyes).",
+          "description": "She has beautiful blue (eye).",
           "answer": "eyes",
           "type": "amend"
         },
@@ -6119,7 +6119,7 @@
           "type": "fill"
         },
         {
-          "description": "Cover your (ears) if the noise is too loud.",
+          "description": "Cover your (earr) if the noise is too loud.",
           "answer": "ears",
           "type": "amend"
         },
@@ -6355,7 +6355,7 @@
           "type": "fill"
         },
         {
-          "description": "I felt like I was (frozen) to the spot.",
+          "description": "I felt like I was (freze) to the spot.",
           "answer": "frozen",
           "type": "amend"
         },
@@ -6409,7 +6409,7 @@
           "type": "fill"
         },
         {
-          "description": "Wash your hands often to avoid spreading (viruses).",
+          "description": "Wash your hands often to avoid spreading (virus).",
           "answer": "viruses",
           "type": "amend"
         },
@@ -6481,7 +6481,7 @@
           "type": "fill"
         },
         {
-          "description": "Don't bite your (nails).",
+          "description": "Don't bite your (nailes).",
           "answer": "nails",
           "type": "amend"
         },
@@ -6643,7 +6643,7 @@
           "type": "fill"
         },
         {
-          "description": "He looked pale and slightly (unwell).",
+          "description": "He looked pale and slightly (unwel).",
           "answer": "unwell",
           "type": "amend"
         },
@@ -6733,7 +6733,7 @@
           "type": "fill"
         },
         {
-          "description": "He painted his (toenails) bright red.",
+          "description": "He painted his (toenail) bright red.",
           "answer": "toenails",
           "type": "amend"
         },
@@ -6823,7 +6823,7 @@
           "type": "fill"
         },
         {
-          "description": "The wound is (healing) nicely.",
+          "description": "The wound is (heeling) nicely.",
           "answer": "healing",
           "type": "amend"
         },
@@ -6877,7 +6877,7 @@
           "type": "fill"
         },
         {
-          "description": "Her (thighs) are strong from cycling.",
+          "description": "Her (thigh) are strong from cycling.",
           "answer": "thighs",
           "type": "amend"
         },
@@ -6931,7 +6931,7 @@
           "type": "fill"
         },
         {
-          "description": "The baby has chubby rosy (cheeks).",
+          "description": "The baby has chubby rosy (cheak).",
           "answer": "cheeks",
           "type": "amend"
         },
@@ -7039,7 +7039,7 @@
           "type": "fill"
         },
         {
-          "description": "He (bruised) his leg playing football.",
+          "description": "He (bruise) his leg playing football.",
           "answer": "bruised",
           "type": "amend"
         },
@@ -7129,7 +7129,7 @@
           "type": "fill"
         },
         {
-          "description": "The doctor prescribed some pain relief (tablets).",
+          "description": "The doctor prescribed some pain relief (tabblets).",
           "answer": "tablets",
           "type": "amend"
         },
@@ -7165,7 +7165,7 @@
           "type": "fill"
         },
         {
-          "description": "She has long dark (eyelashes).",
+          "description": "She has long dark (eyelash).",
           "answer": "eyelashes",
           "type": "amend"
         },
@@ -7219,7 +7219,7 @@
           "type": "fill"
         },
         {
-          "description": "He put his hands on his (hips).",
+          "description": "He put his hands on his (hipp).",
           "answer": "hips",
           "type": "amend"
         },
@@ -7327,7 +7327,7 @@
           "type": "fill"
         },
         {
-          "description": "The infection was (treated) with antibiotics.",
+          "description": "The infection was (treat) with antibiotics.",
           "answer": "treated",
           "type": "amend"
         },
@@ -7447,7 +7447,7 @@
           "type": "fill"
         },
         {
-          "description": "Excessive alcohol consumption can damage the (liver).",
+          "description": "Excessive alcohol consumption can damage the (livers).",
           "answer": "liver",
           "type": "amend"
         },
@@ -7483,7 +7483,7 @@
           "type": "fill"
         },
         {
-          "description": "A healthy mind in a healthy (body).",
+          "description": "A healthy mind in a healthy (boddy).",
           "answer": "body",
           "type": "amend"
         },
@@ -7555,7 +7555,7 @@
           "type": "fill"
         },
         {
-          "description": "She has a few red (spots) on her arm.",
+          "description": "She has a few red (spott) on her arm.",
           "answer": "spots",
           "type": "amend"
         },
@@ -7628,7 +7628,7 @@
         },
         {
           "description": "Bleeding (gums) can be a sign of disease.",
-          "answer": "gums",
+          "answer": "gum",
           "type": "amend"
         },
         {
@@ -7753,7 +7753,7 @@
           "type": "fill"
         },
         {
-          "description": "He often gets (earaches) after swimming.",
+          "description": "He often gets (earache) after swimming.",
           "answer": "earaches",
           "type": "amend"
         },
@@ -7933,7 +7933,7 @@
           "type": "fill"
         },
         {
-          "description": "Are there any natural (remedies) for insomnia?",
+          "description": "Are there any natural (remedys) for insomnia?",
           "answer": "remedies",
           "type": "amend"
         },
@@ -7951,7 +7951,7 @@
           "type": "fill"
         },
         {
-          "description": "I (bumped) my knee against the table.",
+          "description": "I (bumping) my knee against the table.",
           "answer": "bumped",
           "type": "amend"
         },
@@ -7987,7 +7987,7 @@
           "type": "fill"
         },
         {
-          "description": "He has a habit of biting his (fingernails).",
+          "description": "He has a habit of biting his (fingernail).",
           "answer": "fingernails",
           "type": "amend"
         },
@@ -8059,7 +8059,7 @@
           "type": "fill"
         },
         {
-          "description": "My leg is really (hurting) now.",
+          "description": "My leg is really (hurt) now.",
           "answer": "hurting",
           "type": "amend"
         },
@@ -8095,7 +8095,7 @@
           "type": "fill"
         },
         {
-          "description": "Humans typically have 12 pairs of (ribs).",
+          "description": "Humans typically have 12 pairs of (ribb).",
           "answer": "ribs",
           "type": "amend"
         },
@@ -8185,7 +8185,7 @@
           "type": "fill"
         },
         {
-          "description": "She plucked her (eyebrows) into a thin line.",
+          "description": "She plucked her (eyebrow) into a thin line.",
           "answer": "eyebrows",
           "type": "amend"
         },
@@ -8275,7 +8275,7 @@
           "type": "fill"
         },
         {
-          "description": "Rest your (elbows) on the table.",
+          "description": "Rest your (elbow) on the table.",
           "answer": "elbows",
           "type": "amend"
         },
@@ -8293,7 +8293,7 @@
           "type": "fill"
         },
         {
-          "description": "Do you take birth control (pills)?",
+          "description": "Do you take birth control (pill)?",
           "answer": "pills",
           "type": "amend"
         },
@@ -8365,7 +8365,7 @@
           "type": "fill"
         },
         {
-          "description": "He was arrested for possessing illegal (drugs).",
+          "description": "He was arrested for possessing illegal (drug).",
           "answer": "drugs",
           "type": "amend"
         },
@@ -8383,7 +8383,7 @@
           "type": "fill"
         },
         {
-          "description": "He is expected to make a full (recovery).",
+          "description": "He is expected to make a full (recovry).",
           "answer": "recovery",
           "type": "amend"
         },
@@ -8491,7 +8491,7 @@
           "type": "fill"
         },
         {
-          "description": "He was seriously (wounded) in the battle.",
+          "description": "He was seriously (wound) in the battle.",
           "answer": "wounded",
           "type": "amend"
         },
@@ -8619,7 +8619,7 @@
           "type": "fill"
         },
         {
-          "description": "He has a fear of (needles).",
+          "description": "He has a fear of (nedles).",
           "answer": "needles",
           "type": "amend"
         },
@@ -8673,7 +8673,7 @@
           "type": "fill"
         },
         {
-          "description": "His health was (wrecked) by heavy smoking.",
+          "description": "His health was (wreck) by heavy smoking.",
           "answer": "wrecked",
           "type": "amend"
         },
@@ -8691,7 +8691,7 @@
           "type": "fill"
         },
         {
-          "description": "Use lotion to prevent skin (dryness).",
+          "description": "Use lotion to prevent skin (driness).",
           "answer": "dryness",
           "type": "amend"
         },
@@ -8781,7 +8781,7 @@
           "type": "fill"
         },
         {
-          "description": "Blood flows back to the heart through the (veins).",
+          "description": "Blood flows back to the heart through the (vein).",
           "answer": "veins",
           "type": "amend"
         },
@@ -8991,7 +8991,7 @@
           "type": "fill"
         },
         {
-          "description": "The refugees were (starving) for food.",
+          "description": "The refugees were (starve) for food.",
           "answer": "starving",
           "type": "amend"
         },
@@ -9009,7 +9009,7 @@
           "type": "fill"
         },
         {
-          "description": "There have been several (cases) of flu reported.",
+          "description": "There have been several (cas) of flu reported.",
           "answer": "cases",
           "type": "amend"
         },
@@ -9027,7 +9027,7 @@
           "type": "fill"
         },
         {
-          "description": "Mental health (disorders) require professional help.",
+          "description": "Mental health (disorder) require professional help.",
           "answer": "disorders",
           "type": "amend"
         },
@@ -9115,11 +9115,6 @@
           "translation": "他感到左側疼痛。",
           "answer": "side",
           "type": "fill"
-        },
-        {
-          "description": "Lie on your (side) and rest.",
-          "answer": "side",
-          "type": "amend"
         },
         {
           "description": "knuckle",
@@ -9297,7 +9292,7 @@
           "type": "fill"
         },
         {
-          "description": "Support groups can help allergy (sufferers).",
+          "description": "Support groups can help allergy (sufferer).",
           "answer": "sufferers",
           "type": "amend"
         },
@@ -9405,7 +9400,7 @@
           "type": "fill"
         },
         {
-          "description": "Emotional wounds can also leave deep (scars).",
+          "description": "Emotional wounds can also leave deep (scar).",
           "answer": "scars",
           "type": "amend"
         },
@@ -9567,7 +9562,7 @@
           "type": "fill"
         },
         {
-          "description": "The virus is easily (transmitted) through the air.",
+          "description": "The virus is easily (transmit) through the air.",
           "answer": "transmitted",
           "type": "amend"
         },
@@ -9891,7 +9886,7 @@
           "type": "fill"
         },
         {
-          "description": "Scientists are studying the human (genome).",
+          "description": "Scientists are studying the human (genom).",
           "answer": "genome",
           "type": "amend"
         },
@@ -9957,7 +9952,7 @@
           "type": "fill"
         },
         {
-          "description": "Take the full course of (antibiotics) as directed.",
+          "description": "Take the full course of (antibiotic) as directed.",
           "answer": "antibiotics",
           "type": "amend"
         },
@@ -10437,7 +10432,7 @@
           "type": "fill"
         },
         {
-          "description": "Sweaty (palms) can be a sign of nervousness.",
+          "description": "Sweaty (palmes) can be a sign of nervousness.",
           "answer": "palms",
           "type": "amend"
         },
@@ -10473,7 +10468,7 @@
           "type": "fill"
         },
         {
-          "description": "Internal (organs) include the liver and kidneys.",
+          "description": "Internal (organ) include the liver and kidneys.",
           "answer": "organs",
           "type": "amend"
         },
@@ -10581,11 +10576,6 @@
           "type": "fill"
         },
         {
-          "description": "Problems with spinal (discs) can cause severe pain.",
-          "answer": "discs",
-          "type": "amend"
-        },
-        {
           "description": "nerve",
           "translation": "神經；勇氣",
           "PoS": "n.",
@@ -10599,7 +10589,7 @@
           "type": "fill"
         },
         {
-          "description": "She suffers from trapped (nerves) in her neck.",
+          "description": "She suffers from trapped (nerve) in her neck.",
           "answer": "nerves",
           "type": "amend"
         },
@@ -10741,7 +10731,7 @@
           "type": "fill"
         },
         {
-          "description": "Where are my clean (socks)?",
+          "description": "Where are my clean (sock)?",
           "answer": "socks",
           "type": "amend"
         },
@@ -10795,7 +10785,7 @@
           "type": "fill"
         },
         {
-          "description": "I lost one of my woollen (gloves).",
+          "description": "I lost one of my woollen (glove).",
           "answer": "gloves",
           "type": "amend"
         },
@@ -10921,7 +10911,7 @@
           "type": "fill"
         },
         {
-          "description": "She always (wears) beautiful jewellery.",
+          "description": "She always (wear) beautiful jewellery.",
           "answer": "wears",
           "type": "amend"
         },
@@ -10993,7 +10983,7 @@
           "type": "fill"
         },
         {
-          "description": "My leather (boots) need polishing.",
+          "description": "My leather (boot) need polishing.",
           "answer": "boots",
           "type": "amend"
         },
@@ -11029,7 +11019,7 @@
           "type": "fill"
         },
         {
-          "description": "She wears several (rings) on her fingers.",
+          "description": "She wears several (ring) on her fingers.",
           "answer": "rings",
           "type": "amend"
         },
@@ -11155,7 +11145,7 @@
           "type": "fill"
         },
         {
-          "description": "My new (trainers) are very comfortable.",
+          "description": "My new (trainer) are very comfortable.",
           "answer": "trainers",
           "type": "amend"
         },
@@ -11445,7 +11435,7 @@
           "type": "fill"
         },
         {
-          "description": "This jacket has short (sleeves).",
+          "description": "This jacket has short (sleve).",
           "answer": "sleeves",
           "type": "amend"
         },
@@ -11643,7 +11633,7 @@
           "type": "fill"
         },
         {
-          "description": "My new leather (sandals) are very comfortable.",
+          "description": "My new leather (sandal) are very comfortable.",
           "answer": "sandals",
           "type": "amend"
         },
@@ -12005,7 +11995,7 @@
           "type": "fill"
         },
         {
-          "description": "Santa Claus fills the Christmas (stockings).",
+          "description": "Santa Claus fills the Christmas (stocking).",
           "answer": "stockings",
           "type": "amend"
         },
@@ -12209,7 +12199,7 @@
           "type": "fill"
         },
         {
-          "description": "She maintained her (innocence) throughout the trial.",
+          "description": "She maintained her (innocent) throughout the trial.",
           "answer": "innocence",
           "type": "amend"
         },
@@ -12623,7 +12613,7 @@
           "type": "fill"
         },
         {
-          "description": "Parking here is (illegal).",
+          "description": "Parking here is (ilegally).",
           "answer": "illegal",
           "type": "amend"
         },
@@ -12677,7 +12667,7 @@
           "type": "fill"
         },
         {
-          "description": "He was (sentenced) to five years in jail.",
+          "description": "He was (sentence) to five years in jail.",
           "answer": "sentenced",
           "type": "amend"
         },
@@ -12731,7 +12721,7 @@
           "type": "fill"
         },
         {
-          "description": "Breaking the (rules) has consequences.",
+          "description": "Breaking the (rule) has consequences.",
           "answer": "rules",
           "type": "amend"
         },
@@ -12875,7 +12865,7 @@
           "type": "vocabulary"
         },
         {
-          "description": "He decided to study (law) at university.",
+          "description": "He decided to study (legal) at university.",
           "answer": "law",
           "type": "amend"
         },
@@ -12973,7 +12963,7 @@
           "type": "fill"
         },
         {
-          "description": "Hundreds of innocent civilians were (massacred).",
+          "description": "Hundreds of innocent civilians were (masacred).",
           "answer": "massacred",
           "type": "amend"
         },
@@ -13027,7 +13017,7 @@
           "type": "fill"
         },
         {
-          "description": "He was caught (smuggling) diamonds into the country.",
+          "description": "He was caught (smugling) diamonds into the country.",
           "answer": "smuggling",
           "type": "amend"
         },
@@ -13045,7 +13035,7 @@
           "type": "fill"
         },
         {
-          "description": "The defendant was (tried) by a jury of his peers.",
+          "description": "The defendant was (try) by a jury of his peers.",
           "answer": "tried",
           "type": "amend"
         },
@@ -13063,7 +13053,7 @@
           "type": "fill"
         },
         {
-          "description": "She is currently (serving) a life sentence.",
+          "description": "She is currently (serve) a life sentence.",
           "answer": "serving",
           "type": "amend"
         },
@@ -19901,7 +19891,7 @@
           "type": "fill"
         },
         {
-          "description": "Check the (inside) pocket of the jacket.",
+          "description": "Check the (insyde) pocket of the jacket.",
           "translation": "檢查夾克的內袋。(Use inside as adj) Check the (inner) pocket of the jacket.",
           "answer": "inside",
           "type": "amend"
@@ -21105,7 +21095,7 @@
           "type": "fill"
         },
         {
-          "description": "A (tremendous) amount of effort was required.",
+          "description": "A (tremendus) amount of effort was required.",
           "translation": "需要付出巨大的努力。",
           "answer": "tremendous",
           "type": "amend"
@@ -21637,12 +21627,6 @@
           "type": "fill"
         },
         {
-          "description": "The wheels of the bus go (round) and (round).",
-          "translation": "公車的輪子轉啊轉。(Correct both) The wheels ... go (around) and (around).",
-          "answer": "round",
-          "type": "amend"
-        },
-        {
           "description": "tiny",
           "translation": "極小的；微小的",
           "PoS": "adj.",
@@ -21846,7 +21830,7 @@
           "type": "fill"
         },
         {
-          "description": "They live in a nice (flat) overlooking the park.",
+          "description": "They live in a nice (flatt) overlooking the park.",
           "translation": "他們住在一個俯瞰公園的漂亮公寓裡。(Use flat as adj) The landscape is completely (flattened).",
           "answer": "flat",
           "type": "amend"
@@ -22549,7 +22533,7 @@
           "type": "fill"
         },
         {
-          "description": "Fish have (scales) covering their bodies.",
+          "description": "Fish have (scale) covering their bodies.",
           "translation": "魚身上覆蓋著鱗片。(Use singular)",
           "answer": "scales",
           "type": "amend"
@@ -22891,7 +22875,7 @@
           "type": "fill"
         },
         {
-          "description": "The journey takes (approximately) one hour.",
+          "description": "The journey takes (aproxmately) one hour.",
           "translation": "旅程大約需要一小時。",
           "answer": "approximately",
           "type": "amend"
@@ -23159,7 +23143,7 @@
           "type": "fill"
         },
         {
-          "description": "The palace gardens were (splendidly) decorated.",
+          "description": "The palace gardens were (splendid) decorated.",
           "translation": "宮殿花園裝飾得富麗堂皇。",
           "answer": "splendidly",
           "type": "amend"
@@ -23178,7 +23162,7 @@
           "type": "fill"
         },
         {
-          "description": "She moved across the room with (grace).",
+          "description": "She moved across the room with (graceful).",
           "translation": "她優雅地穿過房間。",
           "answer": "grace",
           "type": "amend"
@@ -23273,7 +23257,7 @@
           "type": "fill"
         },
         {
-          "description": "The universe is (immensely) vast.",
+          "description": "The universe is (imense) vast.",
           "translation": "宇宙是無限廣闊的。",
           "answer": "immensely",
           "type": "amend"
@@ -23387,7 +23371,7 @@
           "type": "fill"
         },
         {
-          "description": "Try to keep distractions to a (minimum).",
+          "description": "Try to keep distractions to a (minnimum).",
           "translation": "試著將干擾降到最低。",
           "answer": "minimum",
           "type": "amend"
@@ -24812,7 +24796,7 @@
           "type": "fill"
         },
         {
-          "description": "This product seems to have a (defect).",
+          "description": "This product seems to have a (defective).",
           "translation": "這個產品似乎有缺陷。",
           "answer": "defect",
           "type": "amend"
@@ -25627,7 +25611,7 @@
           "type": "fill"
         },
         {
-          "description": "This soup needs (an onion).",
+          "description": "This soup needs (a onion).",
           "translation": "這湯需要一顆洋蔥。",
           "answer": "an onion",
           "type": "amend"
@@ -25931,7 +25915,7 @@
           "type": "fill"
         },
         {
-          "description": "Don't eat too many (sweet) things.",
+          "description": "Don't eat too many (sweets) things.",
           "translation": "不要吃太多甜食。",
           "answer": "sweet",
           "type": "amend"
@@ -26578,7 +26562,7 @@
           "type": "fill"
         },
         {
-          "description": "Would you like a (sweet)?",
+          "description": "Would you like a (swet)?",
           "translation": "你想要一顆糖果嗎？ (Sweets is plural noun)",
           "answer": "sweet",
           "type": "amend"
@@ -26901,7 +26885,7 @@
           "type": "fill"
         },
         {
-          "description": "I drink two (coffees) every morning.",
+          "description": "I drink two (coffee) every morning.",
           "translation": "我每天早上喝兩杯咖啡。",
           "answer": "coffees",
           "type": "amend"
@@ -26920,7 +26904,7 @@
           "type": "fill"
         },
         {
-          "description": "Let's have (a tea) break.",
+          "description": "Let's have (tea) break.",
           "translation": "我們休息喝杯茶吧。",
           "answer": "a tea",
           "type": "amend"
@@ -27423,7 +27407,7 @@
           "type": "fill"
         },
         {
-          "description": "Do you prefer Irish (whiskey) or Scotch whisky?",
+          "description": "Do you prefer Irish (wiskey) or Scotch whisky?",
           "translation": "你比較喜歡愛爾蘭威士忌還是蘇格蘭威士忌？",
           "answer": "whiskey",
           "type": "amend"
@@ -27556,7 +27540,7 @@
           "type": "fill"
         },
         {
-          "description": "Is this dish made with beef or (pork)?",
+          "description": "Is this dish made with beef or (porke)?",
           "translation": "這道菜是用牛肉還是豬肉做的？",
           "answer": "pork",
           "type": "amend"
@@ -29370,7 +29354,7 @@
           "type": "fill"
         },
         {
-          "description": "He didn't (relish) the thought of working late.",
+          "description": "He didn't (rellish) the thought of working late.",
           "translation": "他對加班的想法並不樂意。(Use noun context) Serve the hot dogs with mustard and (relishing).",
           "answer": "relish",
           "type": "amend"
@@ -30294,7 +30278,7 @@
           "type": "fill"
         },
         {
-          "description": "The Great (Wall) of China is very long.",
+          "description": "The Great (Wal) of China is very long.",
           "translation": "中國的長城非常長。",
           "answer": "Wall",
           "type": "amend"
@@ -31266,7 +31250,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to find a new (place) to live.",
+          "description": "We need to find a new (plaice) to live.",
           "translation": "我們需要找個新住處。",
           "answer": "place",
           "type": "amend"
@@ -34166,7 +34150,7 @@
           "type": "fill"
         },
         {
-          "description": "She opened a (savings) account.",
+          "description": "She opened a (saving) account.",
           "translation": "她開了一個儲蓄帳戶。",
           "answer": "savings",
           "type": "amend"
@@ -34255,7 +34239,7 @@
           "type": "fill"
         },
         {
-          "description": "Is service charge (included) in the bill?",
+          "description": "Is service charge (include) in the bill?",
           "translation": "帳單包含服務費嗎？",
           "answer": "included",
           "type": "amend"
@@ -34426,7 +34410,7 @@
           "type": "fill"
         },
         {
-          "description": "Were you given any (compensation) for the delay?",
+          "description": "Were you given any (compensate) for the delay?",
           "translation": "延誤有給你任何補償嗎？",
           "answer": "compensation",
           "type": "amend"
@@ -34597,7 +34581,7 @@
           "type": "fill"
         },
         {
-          "description": "Rent is my biggest monthly (outgoing).",
+          "description": "Rent is my biggest monthly (outgoings).",
           "translation": "租金是我最大的月度開支。",
           "answer": "outgoing",
           "type": "amend"
@@ -34933,7 +34917,7 @@
           "type": "fill"
         },
         {
-          "description": "How much did you (bid) for that painting?",
+          "description": "How much did you (bids) for that painting?",
           "translation": "你為那幅畫出價多少？(Use noun context) The opening (bidding) was £100.",
           "answer": "bid",
           "type": "amend"
@@ -35564,7 +35548,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to protect the (natural) world.",
+          "description": "We need to protect the (nature) world.",
           "translation": "我們需要保護自然世界。",
           "answer": "natural",
           "type": "amend"
@@ -36039,7 +36023,7 @@
           "type": "fill"
         },
         {
-          "description": "The garden needs (watering) regularly in summer.",
+          "description": "The garden needs (water) regularly in summer.",
           "translation": "夏天花園需要定期澆水。",
           "answer": "watering",
           "type": "amend"
@@ -36421,7 +36405,7 @@
           "type": "fill"
         },
         {
-          "description": "Climate change is a (global) problem.",
+          "description": "Climate change is a (globe) problem.",
           "translation": "氣候變遷是個全球性問題。",
           "answer": "global",
           "type": "amend"
@@ -36764,7 +36748,7 @@
           "type": "fill"
         },
         {
-          "description": "Put the food in the (freezer) compartment.",
+          "description": "Put the food in the (frezer) compartment.",
           "translation": "把食物放進冷凍室。",
           "answer": "freezer",
           "type": "amend"
@@ -37372,7 +37356,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to think (globally) and act locally.",
+          "description": "We need to think (global) and act locally.",
           "translation": "我們需要全球思考，在地行動。",
           "answer": "globally",
           "type": "amend"
@@ -38202,7 +38186,7 @@
           "type": "fill"
         },
         {
-          "description": "Expect occasional (showers) tomorrow.",
+          "description": "Expect occasional (shower) tomorrow.",
           "translation": "預計明天有陣雨。",
           "answer": "showers",
           "type": "amend"
@@ -38367,7 +38351,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to address the issue of (climate) change.",
+          "description": "We need to address the issue of (climatic) change.",
           "translation": "我們需要處理氣候變遷的問題。",
           "answer": "climate",
           "type": "amend"
@@ -38735,7 +38719,7 @@
           "type": "fill"
         },
         {
-          "description": "The planet (Earth) revolves around the sun.",
+          "description": "The planet (Erth) revolves around the sun.",
           "translation": "地球圍繞太陽旋轉。",
           "answer": "Earth",
           "type": "amend"
@@ -39244,7 +39228,7 @@
           "type": "fill"
         },
         {
-          "description": "Coastal (erosion) is a serious problem.",
+          "description": "Coastal (erotion) is a serious problem.",
           "translation": "海岸侵蝕是個嚴重的問題。",
           "answer": "erosion",
           "type": "amend"
@@ -39548,7 +39532,7 @@
           "type": "fill"
         },
         {
-          "description": "(Reproduction) is essential for the survival of a species.",
+          "description": "(Reproduce) is essential for the survival of a species.",
           "translation": "繁殖對物種的生存至關重要。",
           "answer": "Reproduction",
           "type": "amend"
@@ -39913,7 +39897,7 @@
           "type": "fill"
         },
         {
-          "description": "Come (here) so I can tell you a secret.",
+          "description": "Come (hear) so I can tell you a secret.",
           "translation": "過來這裡，我好告訴你一個秘密。",
           "answer": "here",
           "type": "amend"
@@ -40521,7 +40505,7 @@
           "type": "fill"
         },
         {
-          "description": "Let's go for a (walk).",
+          "description": "Let's go for a (walking).",
           "translation": "我們去散步吧。",
           "answer": "walk",
           "type": "amend"
@@ -40730,7 +40714,7 @@
           "type": "fill"
         },
         {
-          "description": "When did you (leave) school?",
+          "description": "When did you (left) school?",
           "translation": "你什麼時候離開學校的？",
           "answer": "leave",
           "type": "amend"
@@ -41395,7 +41379,7 @@
           "type": "fill"
         },
         {
-          "description": "She (prepares) dinner every night.",
+          "description": "She (prepare) dinner every night.",
           "translation": "她每天晚上準備晚餐。",
           "answer": "prepares",
           "type": "amend"
@@ -41433,7 +41417,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (painting) the fence.",
+          "description": "He is (panting) the fence.",
           "translation": "他正在粉刷柵欄。",
           "answer": "painting",
           "type": "amend"
@@ -41528,7 +41512,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (pointing) at the bird.",
+          "description": "He is (point) at the bird.",
           "translation": "他正指著那隻鳥。",
           "answer": "pointing",
           "type": "amend"
@@ -41777,7 +41761,7 @@
           "type": "fill"
         },
         {
-          "description": "When was America (discovered)?",
+          "description": "When was America (discover)?",
           "translation": "美洲是何時被發現的？",
           "answer": "discovered",
           "type": "amend"
@@ -42917,7 +42901,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (pouring) the milk.",
+          "description": "He is (pour) the milk.",
           "translation": "他正在倒牛奶。",
           "answer": "pouring",
           "type": "amend"
@@ -42955,7 +42939,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (counting) the sheep.",
+          "description": "He is (count) the sheep.",
           "translation": "他正在數羊。",
           "answer": "counting",
           "type": "amend"
@@ -43164,7 +43148,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (noting) the key points.",
+          "description": "He is (note) the key points.",
           "translation": "他正在記錄要點。",
           "answer": "noting",
           "type": "amend"
@@ -43221,7 +43205,7 @@
           "type": "fill"
         },
         {
-          "description": "When will you (finish)?",
+          "description": "When will you (finsh)?",
           "translation": "你什麼時候結束？",
           "answer": "finish",
           "type": "amend"
@@ -43240,7 +43224,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (picking) flowers.",
+          "description": "He is (pick) flowers.",
           "translation": "他正在摘花。",
           "answer": "picking",
           "type": "amend"
@@ -43259,7 +43243,7 @@
           "type": "fill"
         },
         {
-          "description": "The shelf needs (fixing) to the wall.",
+          "description": "The shelf needs (fix) to the wall.",
           "translation": "架子需要固定在牆上。",
           "answer": "fixing",
           "type": "amend"
@@ -43297,7 +43281,7 @@
           "type": "fill"
         },
         {
-          "description": "She is (tying) a ribbon in her hair.",
+          "description": "She is (tieing) a ribbon in her hair.",
           "translation": "她正在頭髮上繫絲帶。",
           "answer": "tying",
           "type": "amend"
@@ -43658,7 +43642,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (blowing) bubbles.",
+          "description": "He is (blow) bubbles.",
           "translation": "他正在吹泡泡。",
           "answer": "blowing",
           "type": "amend"
@@ -43696,7 +43680,7 @@
           "type": "fill"
         },
         {
-          "description": "She is (fastening) her coat.",
+          "description": "She is (fasten) her coat.",
           "translation": "她正在扣外套。",
           "answer": "fastening",
           "type": "amend"
@@ -44285,7 +44269,7 @@
           "type": "fill"
         },
         {
-          "description": "She is (stepping) carefully.",
+          "description": "She is (steping) carefully.",
           "translation": "她小心翼翼地走著。",
           "answer": "stepping",
           "type": "amend"
@@ -44380,7 +44364,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (wrapping) the gift.",
+          "description": "He is (wraping) the gift.",
           "translation": "他正在包裝禮物。",
           "answer": "wrapping",
           "type": "amend"
@@ -44399,7 +44383,7 @@
           "type": "fill"
         },
         {
-          "description": "She (locks) the gate every night.",
+          "description": "She (lock) the gate every night.",
           "translation": "她每天晚上鎖大門。",
           "answer": "locks",
           "type": "amend"
@@ -44551,7 +44535,7 @@
           "type": "fill"
         },
         {
-          "description": "They are (burying) the treasure.",
+          "description": "They are (bury) the treasure.",
           "translation": "他們正在埋藏寶藏。",
           "answer": "burying",
           "type": "amend"
@@ -44950,7 +44934,7 @@
           "type": "fill"
         },
         {
-          "description": "She is always (slamming) doors.",
+          "description": "She is always (slam) doors.",
           "translation": "她總是砰地關門。",
           "answer": "slamming",
           "type": "amend"
@@ -45159,7 +45143,7 @@
           "type": "fill"
         },
         {
-          "description": "They are (demolishing) the bridge.",
+          "description": "They are (demolish) the bridge.",
           "translation": "他們正在拆除橋樑。",
           "answer": "demolishing",
           "type": "amend"
@@ -45748,7 +45732,7 @@
           "type": "fill"
         },
         {
-          "description": "Eating fruit (preserves) is a way to store them.",
+          "description": "Eating fruit (preserve) is a way to store them.",
           "translation": "吃水果蜜餞是儲存它們的一種方式。",
           "answer": "preserves",
           "type": "amend"
@@ -46014,7 +45998,7 @@
           "type": "fill"
         },
         {
-          "description": "How should we (dispose) of this old battery?",
+          "description": "How should we (dispoze) of this old battery?",
           "translation": "我們應該如何處理這個舊電池？",
           "answer": "dispose",
           "type": "amend"
@@ -46394,7 +46378,7 @@
           "type": "fill"
         },
         {
-          "description": "His loud (snoring) kept me awake.",
+          "description": "His loud (snorring) kept me awake.",
           "translation": "他響亮的鼾聲讓我無法入睡。",
           "answer": "snoring",
           "type": "amend"
@@ -46565,7 +46549,7 @@
           "type": "fill"
         },
         {
-          "description": "He (crawled) under the fence.",
+          "description": "He (crawl) under the fence.",
           "translation": "他爬過了柵欄。",
           "answer": "crawled",
           "type": "amend"
@@ -47097,7 +47081,7 @@
           "type": "fill"
         },
         {
-          "description": "She (pounds) the spices in a mortar.",
+          "description": "She (pound) the spices in a mortar.",
           "translation": "她在研缽裡搗香料。",
           "answer": "pounds",
           "type": "amend"
@@ -47800,7 +47784,7 @@
           "type": "fill"
         },
         {
-          "description": "He wears glasses to make himself look more (distinguished).",
+          "description": "He wears glasses to make himself look more (distinguish).",
           "translation": "他戴眼鏡讓自己看起來更顯眼。(Context implies 'different' or 'stand out', not the verb meaning)",
           "answer": "distinguished",
           "type": "amend"
@@ -48028,7 +48012,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (wiping) the window.",
+          "description": "He is (wipe) the window.",
           "translation": "他正在擦窗戶。",
           "answer": "wiping",
           "type": "amend"
@@ -48142,7 +48126,7 @@
           "type": "fill"
         },
         {
-          "description": "Who (waters) the garden when you're away?",
+          "description": "Who (water) the garden when you're away?",
           "translation": "你不在家的時候誰給花園澆水？",
           "answer": "waters",
           "type": "amend"
@@ -48505,7 +48489,7 @@
           "type": "fill"
         },
         {
-          "description": "They are (undertaking) research.",
+          "description": "They are (undertake) research.",
           "translation": "他們正在進行研究。",
           "answer": "undertaking",
           "type": "amend"
@@ -48714,7 +48698,7 @@
           "type": "fill"
         },
         {
-          "description": "Reading (occupies) most of her free time.",
+          "description": "Reading (occupy) most of her free time.",
           "translation": "閱讀佔據了她大部分的空閒時間。",
           "answer": "occupies",
           "type": "amend"
@@ -48980,7 +48964,7 @@
           "type": "fill"
         },
         {
-          "description": "Can you speak more (slowly)?",
+          "description": "Can you speak more (slow)?",
           "translation": "你能說慢一點嗎？",
           "answer": "slowly",
           "type": "amend"
@@ -49094,7 +49078,7 @@
           "type": "fill"
         },
         {
-          "description": "He is (struggling) with his homework.",
+          "description": "He is (struggle) with his homework.",
           "translation": "他正在為作業苦惱。",
           "answer": "struggling",
           "type": "amend"
@@ -49208,7 +49192,7 @@
           "type": "fill"
         },
         {
-          "description": "He accidentally (trod) on her foot.",
+          "description": "He accidentally (tread) on her foot.",
           "translation": "他不小心踩到她的腳了。(Past tense trod/trodden)",
           "answer": "trod",
           "type": "amend"
@@ -49303,7 +49287,7 @@
           "type": "fill"
         },
         {
-          "description": "He was (staggering) drunkenly.",
+          "description": "He was (stagger) drunkenly.",
           "translation": "他醉醺醺地搖晃著。",
           "answer": "staggering",
           "type": "amend"
@@ -49474,7 +49458,7 @@
           "type": "fill"
         },
         {
-          "description": "Wet clothes (clung) to their bodies.",
+          "description": "Wet clothes (clinged) to their bodies.",
           "translation": "濕衣服緊貼在他們身上。(Past tense is clung)",
           "answer": "clung",
           "type": "amend"
@@ -49740,7 +49724,7 @@
           "type": "fill"
         },
         {
-          "description": "Add a (sprinkling) of herbs.",
+          "description": "Add a (sprinkle) of herbs.",
           "translation": "撒上少許香草。",
           "answer": "sprinkling",
           "type": "amend"
@@ -50772,7 +50756,7 @@
           "type": "fill"
         },
         {
-          "description": "He doesn't care much about his (looks).",
+          "description": "He doesn't care much about his (look).",
           "translation": "他不太在意自己的外表。",
           "answer": "looks",
           "type": "amend"
@@ -50810,7 +50794,7 @@
           "type": "fill"
         },
         {
-          "description": "The room was decorated with simple (elegance).",
+          "description": "The room was decorated with simple (elegant).",
           "translation": "房間裝飾得簡潔雅緻。",
           "answer": "elegance",
           "type": "amend"
@@ -51097,7 +51081,7 @@
           "type": "fill"
         },
         {
-          "description": "The truth is (plainly) obvious.",
+          "description": "The truth is (plain) obvious.",
           "translation": "真相顯而易見。",
           "answer": "plainly",
           "type": "amend"
@@ -51173,7 +51157,7 @@
           "type": "fill"
         },
         {
-          "description": "They were subjected to (racial) abuse.",
+          "description": "They were subjected to (race) abuse.",
           "translation": "他們遭受了種族虐待。",
           "answer": "racial",
           "type": "amend"
@@ -53194,7 +53178,7 @@
           "type": "fill"
         },
         {
-          "description": "She (cares) deeply about environmental issues.",
+          "description": "She (care) deeply about environmental issues.",
           "answer": "cares",
           "type": "amend"
         },
@@ -53410,7 +53394,7 @@
           "type": "fill"
         },
         {
-          "description": "She often (dreams) about flying.",
+          "description": "She often (dream) about flying.",
           "answer": "dreams",
           "type": "amend"
         },
@@ -54256,7 +54240,7 @@
           "type": "fill"
         },
         {
-          "description": "She (worries) too much about her exams.",
+          "description": "She (worry) too much about her exams.",
           "answer": "worries",
           "type": "amend"
         },
@@ -54742,7 +54726,7 @@
           "type": "fill"
         },
         {
-          "description": "The teacher (stresses) the importance of homework.",
+          "description": "The teacher (stress) the importance of homework.",
           "answer": "stresses",
           "type": "amend"
         },
@@ -54778,7 +54762,7 @@
           "type": "fill"
         },
         {
-          "description": "The colorful display (attracts) many customers.",
+          "description": "The colorful display (attract) many customers.",
           "answer": "attracts",
           "type": "amend"
         },
@@ -55600,7 +55584,7 @@
           "type": "fill"
         },
         {
-          "description": "The results of the experiment (surprised) the scientists.",
+          "description": "The results of the experiment (surprise) the scientists.",
           "answer": "surprised",
           "type": "amend"
         },
@@ -56644,7 +56628,7 @@
           "type": "fill"
         },
         {
-          "description": "Good morning, ladies and (gentlemen).",
+          "description": "Good morning, ladies and (gentleman).",
           "answer": "gentlemen",
           "type": "amend"
         },
@@ -56770,7 +56754,7 @@
           "type": "fill"
         },
         {
-          "description": "He (despaired) of ever finding his lost dog.",
+          "description": "He (despair) of ever finding his lost dog.",
           "answer": "despaired",
           "type": "amend"
         },
@@ -57076,7 +57060,7 @@
           "type": "fill"
         },
         {
-          "description": "He (pretended) to be asleep when his mom came in.",
+          "description": "He (pretend) to be asleep when his mom came in.",
           "answer": "pretended",
           "type": "amend"
         },
@@ -57796,7 +57780,7 @@
           "type": "fill"
         },
         {
-          "description": "The committee finally (approved) the plan.",
+          "description": "The committee finally (approve) the plan.",
           "answer": "approved",
           "type": "amend"
         },
@@ -57904,7 +57888,7 @@
           "type": "fill"
         },
         {
-          "description": "Leadership (qualities) can be developed.",
+          "description": "Leadership (quality) can be developed.",
           "answer": "qualities",
           "type": "amend"
         },
@@ -57958,7 +57942,7 @@
           "type": "fill"
         },
         {
-          "description": "The children (delighted) in playing in the snow.",
+          "description": "The children (delight) in playing in the snow.",
           "answer": "delighted",
           "type": "amend"
         },
@@ -58084,7 +58068,7 @@
           "type": "fill"
         },
         {
-          "description": "It (pains) me to see you suffer.",
+          "description": "It (painfull) me to see you suffer.",
           "answer": "pains",
           "type": "amend"
         },
@@ -58372,7 +58356,7 @@
           "type": "fill"
         },
         {
-          "description": "This issue (concerns) all of us.",
+          "description": "This issue (consern) all of us.",
           "answer": "concerns",
           "type": "amend"
         },
@@ -58480,7 +58464,7 @@
           "type": "fill"
         },
         {
-          "description": "His unfair treatment (angered) the employees.",
+          "description": "His unfair treatment (anger) the employees.",
           "answer": "angered",
           "type": "amend"
         },
@@ -58804,7 +58788,7 @@
           "type": "fill"
         },
         {
-          "description": "He was caught (cheating) during the test.",
+          "description": "He was caught (cheat) during the test.",
           "answer": "cheating",
           "type": "amend"
         },
@@ -59398,7 +59382,7 @@
           "type": "fill"
         },
         {
-          "description": "Financial (worries) kept him awake at night.",
+          "description": "Financial (worry) kept him awake at night.",
           "answer": "worries",
           "type": "amend"
         },
@@ -59470,7 +59454,7 @@
           "type": "fill"
         },
         {
-          "description": "There are always two (sides) to every story.",
+          "description": "There are always two (side) to every story.",
           "answer": "sides",
           "type": "amend"
         },
@@ -59884,7 +59868,7 @@
           "type": "fill"
         },
         {
-          "description": "The loud thunder (terrified) the dog.",
+          "description": "The loud thunder (terrify) the dog.",
           "answer": "terrified",
           "type": "amend"
         },
@@ -60352,7 +60336,7 @@
           "type": "fill"
         },
         {
-          "description": "Where there is a (will), there is a way.",
+          "description": "Where there is a (wills), there is a way.",
           "answer": "will",
           "type": "amend"
         },
@@ -60802,7 +60786,7 @@
           "type": "fill"
         },
         {
-          "description": "She (bore) the pain bravely.",
+          "description": "She (bare) the pain bravely.",
           "answer": "bore",
           "type": "amend"
         },
@@ -60928,7 +60912,7 @@
           "type": "fill"
         },
         {
-          "description": "He showed great (care) for his elderly parents.",
+          "description": "He showed great (careful) for his elderly parents.",
           "answer": "care",
           "type": "amend"
         },
@@ -61126,7 +61110,7 @@
           "type": "fill"
         },
         {
-          "description": "It's important to show (appreciation) for what you have.",
+          "description": "It's important to show (appreciate) for what you have.",
           "answer": "appreciation",
           "type": "amend"
         },
@@ -61302,7 +61286,7 @@
           "type": "fill"
         },
         {
-          "description": "The injury (scarred) his face permanently.",
+          "description": "The injury (scar) his face permanently.",
           "answer": "scarred",
           "type": "amend"
         },
@@ -61338,7 +61322,7 @@
           "type": "fill"
         },
         {
-          "description": "It is considered (rude) to talk with your mouth full.",
+          "description": "It is considered (rudely) to talk with your mouth full.",
           "answer": "rude",
           "type": "amend"
         },
@@ -61356,7 +61340,7 @@
           "type": "fill"
         },
         {
-          "description": "Many cultures have ancient (legends) about heroes.",
+          "description": "Many cultures have ancient (legend) about heroes.",
           "answer": "legends",
           "type": "amend"
         },
@@ -61410,7 +61394,7 @@
           "type": "fill"
         },
         {
-          "description": "Please give my best (regards) to your family.",
+          "description": "Please give my best (regard) to your family.",
           "answer": "regards",
           "type": "amend"
         },
@@ -61446,7 +61430,7 @@
           "type": "fill"
         },
         {
-          "description": "Small and medium (enterprises) are vital to the economy.",
+          "description": "Small and medium (enterprise) are vital to the economy.",
           "answer": "enterprises",
           "type": "amend"
         },
@@ -61500,7 +61484,7 @@
           "type": "fill"
         },
         {
-          "description": "What (drives) you to work so hard?",
+          "description": "What (driving) you to work so hard?",
           "answer": "drives",
           "type": "amend"
         },
@@ -62094,7 +62078,7 @@
           "type": "fill"
         },
         {
-          "description": "He was known for (bullying) younger students.",
+          "description": "He was known for (bully) younger students.",
           "answer": "bullying",
           "type": "amend"
         },
@@ -62580,7 +62564,7 @@
           "type": "fill"
         },
         {
-          "description": "The loud noise (alerted) the guards.",
+          "description": "The loud noise (allerted) the guards.",
           "answer": "alerted",
           "type": "amend"
         },
@@ -62670,7 +62654,7 @@
           "type": "fill"
         },
         {
-          "description": "There has been a growing (distance) between them.",
+          "description": "There has been a growing (distant) between them.",
           "answer": "distance",
           "type": "amend"
         },
@@ -62688,7 +62672,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to ensure the (stability) of the structure.",
+          "description": "We need to ensure the (stable) of the structure.",
           "answer": "stability",
           "type": "amend"
         },
@@ -62742,7 +62726,7 @@
           "type": "fill"
         },
         {
-          "description": "She always (fusses) about her appearance.",
+          "description": "She always (fuss) about her appearance.",
           "answer": "fusses",
           "type": "amend"
         },
@@ -62760,7 +62744,7 @@
           "type": "fill"
         },
         {
-          "description": "Where there is a (will), there is a way.",
+          "description": "Where there is a (wills), there is a way.",
           "answer": "will",
           "type": "amend"
         },
@@ -62778,7 +62762,7 @@
           "type": "fill"
         },
         {
-          "description": "The earthquake had a (devastating) effect on the city.",
+          "description": "The earthquake had a (devastate) effect on the city.",
           "answer": "devastating",
           "type": "amend"
         },
@@ -62832,7 +62816,7 @@
           "type": "fill"
         },
         {
-          "description": "Many happy (returns) of the day!",
+          "description": "Many happy (return) of the day!",
           "answer": "returns",
           "type": "amend"
         },
@@ -62922,7 +62906,7 @@
           "type": "fill"
         },
         {
-          "description": "The sight of the decaying food (disgusted) her.",
+          "description": "The sight of the decaying food (disgust) her.",
           "answer": "disgusted",
           "type": "amend"
         },
@@ -62976,7 +62960,7 @@
           "type": "fill"
         },
         {
-          "description": "He felt deep (resentment) towards his boss.",
+          "description": "He felt deep (resentfull) towards his boss.",
           "answer": "resentment",
           "type": "amend"
         },
@@ -63228,7 +63212,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to take all factors into (consideration).",
+          "description": "We need to take all factors into (consider).",
           "answer": "consideration",
           "type": "amend"
         },
@@ -63336,7 +63320,7 @@
           "type": "fill"
         },
         {
-          "description": "She replied with heavy (sarcasm).",
+          "description": "She replied with heavy (sarcastic).",
           "answer": "sarcasm",
           "type": "amend"
         },
@@ -63390,7 +63374,7 @@
           "type": "fill"
         },
         {
-          "description": "Vaccination helps build (immunity) to diseases.",
+          "description": "Vaccination helps build (imunity) to diseases.",
           "answer": "immunity",
           "type": "amend"
         },
@@ -63588,7 +63572,7 @@
           "type": "fill"
         },
         {
-          "description": "Acting (superior) doesn't make you better than others.",
+          "description": "Acting (superiorly) doesn't make you better than others.",
           "answer": "superior",
           "type": "amend"
         },
@@ -63642,7 +63626,7 @@
           "type": "fill"
         },
         {
-          "description": "She maintained a look of (serenity) despite the chaos.",
+          "description": "She maintained a look of (serene) despite the chaos.",
           "answer": "serenity",
           "type": "amend"
         },
@@ -63732,7 +63716,7 @@
           "type": "fill"
         },
         {
-          "description": "She showed great (willingness) to learn.",
+          "description": "She showed great (willing) to learn.",
           "answer": "willingness",
           "type": "amend"
         },
@@ -63822,7 +63806,7 @@
           "type": "fill"
         },
         {
-          "description": "I need to change the car (tires).",
+          "description": "I need to change the car (tyres).",
           "answer": "tires",
           "type": "amend"
         },
@@ -64110,7 +64094,7 @@
           "type": "fill"
         },
         {
-          "description": "Her (vivacity) is contagious.",
+          "description": "Her (vivacious) is contagious.",
           "answer": "vivacity",
           "type": "amend"
         },
@@ -64308,7 +64292,7 @@
           "type": "fill"
         },
         {
-          "description": "She possesses a natural (charisma).",
+          "description": "She possesses a natural (charismatic).",
           "answer": "charisma",
           "type": "amend"
         },
@@ -64452,7 +64436,7 @@
           "type": "fill"
         },
         {
-          "description": "He showed no (mercy) towards his victims.",
+          "description": "He showed no (mercifull) towards his victims.",
           "answer": "mercy",
           "type": "amend"
         },
@@ -64650,7 +64634,7 @@
           "type": "fill"
         },
         {
-          "description": "He made a lifelong (commitment) to his wife.",
+          "description": "He made a lifelong (commit) to his wife.",
           "answer": "commitment",
           "type": "amend"
         },
@@ -64812,7 +64796,7 @@
           "type": "fill"
         },
         {
-          "description": "Many people were (outraged) by the injustice.",
+          "description": "Many people were (outrage) by the injustice.",
           "answer": "outraged",
           "type": "amend"
         },
@@ -65100,7 +65084,7 @@
           "type": "fill"
         },
         {
-          "description": "Such (inhumanity) cannot be tolerated.",
+          "description": "Such (inhumane) cannot be tolerated.",
           "answer": "inhumanity",
           "type": "amend"
         },
@@ -65118,7 +65102,7 @@
           "type": "fill"
         },
         {
-          "description": "She has a rather (materialistic) outlook on life.",
+          "description": "She has a rather (materialism) outlook on life.",
           "answer": "materialistic",
           "type": "amend"
         },
@@ -65208,7 +65192,7 @@
           "type": "fill"
         },
         {
-          "description": "He walked into the room with an air of (self-assurance).",
+          "description": "He walked into the room with an air of (self-assure).",
           "answer": "self-assurance",
           "type": "amend"
         },
@@ -65352,7 +65336,7 @@
           "type": "fill"
         },
         {
-          "description": "He is known for his keen (perception).",
+          "description": "He is known for his keen (perceptual).",
           "answer": "perception",
           "type": "amend"
         },
@@ -65586,7 +65570,7 @@
           "type": "fill"
         },
         {
-          "description": "He acted on (impulse) without thinking.",
+          "description": "He acted on (impulsive) without thinking.",
           "answer": "impulse",
           "type": "amend"
         },
@@ -65640,7 +65624,7 @@
           "type": "fill"
         },
         {
-          "description": "She is known for her (eminence) in the field.",
+          "description": "She is known for her (eminent) in the field.",
           "answer": "eminence",
           "type": "amend"
         },
@@ -65676,7 +65660,7 @@
           "type": "fill"
         },
         {
-          "description": "Developing (self-reliance) is an important part of growing up.",
+          "description": "Developing (self-reliant) is an important part of growing up.",
           "answer": "self-reliance",
           "type": "amend"
         },
@@ -65712,7 +65696,7 @@
           "type": "fill"
         },
         {
-          "description": "Her (eccentricity) made her stand out.",
+          "description": "Her (eccentric) made her stand out.",
           "answer": "eccentricity",
           "type": "amend"
         },
@@ -65946,7 +65930,7 @@
           "type": "fill"
         },
         {
-          "description": "She has the (ability) to solve complex problems.",
+          "description": "She has the (able) to solve complex problems.",
           "answer": "ability",
           "type": "amend"
         },
@@ -65964,7 +65948,7 @@
           "type": "fill"
         },
         {
-          "description": "He handled the negotiations with great (diplomacy).",
+          "description": "He handled the negotiations with great (diplomat).",
           "answer": "diplomacy",
           "type": "amend"
         },
@@ -66708,7 +66692,7 @@
           "type": "fill"
         },
         {
-          "description": "The United (Nations) promotes international cooperation.",
+          "description": "The United (Nation) promotes international cooperation.",
           "answer": "Nations",
           "type": "amend"
         },
@@ -66744,7 +66728,7 @@
           "type": "fill"
         },
         {
-          "description": "Who (controls) the budget?",
+          "description": "Who (controling) the budget?",
           "answer": "controls",
           "type": "amend"
         },
@@ -67070,7 +67054,7 @@
           "type": "fill"
         },
         {
-          "description": "The politician tried to appeal to undecided (voters).",
+          "description": "The politician tried to appeal to undecided (voter).",
           "answer": "voters",
           "type": "amend"
         },
@@ -67088,7 +67072,7 @@
           "type": "fill"
         },
         {
-          "description": "He handled the negotiations with great (diplomacy).",
+          "description": "He handled the negotiations with great (diplomatical).",
           "answer": "diplomacy",
           "type": "amend"
         },
@@ -67376,7 +67360,7 @@
           "type": "fill"
         },
         {
-          "description": "The party is split into left and right (wings).",
+          "description": "The party is split into left and right (wing).",
           "answer": "wings",
           "type": "amend"
         }
@@ -67506,7 +67490,7 @@
           "type": "fill"
         },
         {
-          "description": "All club (members) must pay a fee.",
+          "description": "All club (member) must pay a fee.",
           "answer": "members",
           "type": "amend"
         },
@@ -67614,7 +67598,7 @@
           "type": "fill"
         },
         {
-          "description": "My (grandparents) live nearby.",
+          "description": "My (grandparent) live nearby.",
           "answer": "grandparents",
           "type": "amend"
         },
@@ -67758,7 +67742,7 @@
           "type": "fill"
         },
         {
-          "description": "Let's go visit (Granny) this afternoon.",
+          "description": "Let's go visit (Granie) this afternoon.",
           "answer": "Granny",
           "type": "amend"
         },
@@ -67902,7 +67886,7 @@
           "type": "fill"
         },
         {
-          "description": "Can you ask (Dad) if we can go?",
+          "description": "Can you ask (Dads) if we can go?",
           "answer": "Dad",
           "type": "amend"
         },
@@ -67920,7 +67904,7 @@
           "type": "fill"
         },
         {
-          "description": "What did (Mum) say?",
+          "description": "What did (Mom) say?",
           "answer": "Mum",
           "type": "amend"
         },
@@ -67992,7 +67976,7 @@
           "type": "fill"
         },
         {
-          "description": "He has two (brothers).",
+          "description": "He has two (brother).",
           "answer": "brothers",
           "type": "amend"
         },
@@ -68300,7 +68284,7 @@
           "type": "fill"
         },
         {
-          "description": "The company's financial (affairs) are in order.",
+          "description": "The company's financial (affair) are in order.",
           "answer": "affairs",
           "type": "amend"
         },
@@ -68444,7 +68428,7 @@
           "type": "fill"
         },
         {
-          "description": "Learning about your (ancestors) can be fascinating.",
+          "description": "Learning about your (ancestorys) can be fascinating.",
           "answer": "ancestors",
           "type": "amend"
         },
@@ -68480,7 +68464,7 @@
           "type": "fill"
         },
         {
-          "description": "She doesn't enjoy large (social) events.",
+          "description": "She doesn't enjoy large (society) events.",
           "answer": "social",
           "type": "amend"
         },
@@ -68516,7 +68500,7 @@
           "type": "fill"
         },
         {
-          "description": "Who is (hosting) the party tonight?",
+          "description": "Who is (host) the party tonight?",
           "answer": "hosting",
           "type": "amend"
         },
@@ -68606,7 +68590,7 @@
           "type": "fill"
         },
         {
-          "description": "Several nomadic (tribes) live in the desert.",
+          "description": "Several nomadic (tribe) live in the desert.",
           "answer": "tribes",
           "type": "amend"
         },
@@ -68750,7 +68734,7 @@
           "type": "fill"
         },
         {
-          "description": "The Royal (Family) attended the event.",
+          "description": "The Royal (Familys) attended the event.",
           "answer": "Family",
           "type": "amend"
         },
@@ -68822,7 +68806,7 @@
           "type": "fill"
         },
         {
-          "description": "Good customer (relations) are important for business.",
+          "description": "Good customer (relate) are important for business.",
           "answer": "relations",
           "type": "amend"
         },
@@ -68894,7 +68878,7 @@
           "type": "fill"
         },
         {
-          "description": "Birds often (mate) for life.",
+          "description": "Birds often (mating) for life.",
           "answer": "mate",
           "type": "amend"
         },
@@ -68948,7 +68932,7 @@
           "type": "fill"
         },
         {
-          "description": "He came out as (gay) to his family.",
+          "description": "He came out as (gey) to his family.",
           "answer": "gay",
           "type": "amend"
         },
@@ -69002,7 +68986,7 @@
           "type": "fill"
         },
         {
-          "description": "The story is about two forbidden (lovers).",
+          "description": "The story is about two forbidden (lover).",
           "answer": "lovers",
           "type": "amend"
         },
@@ -69020,7 +69004,7 @@
           "type": "fill"
         },
         {
-          "description": "They were once friends, but now they are bitter (enemies).",
+          "description": "They were once friends, but now they are bitter (enemys).",
           "answer": "enemies",
           "type": "amend"
         },
@@ -69074,7 +69058,7 @@
           "type": "fill"
         },
         {
-          "description": "The support group helps (widows) cope with grief.",
+          "description": "The support group helps (widow) cope with grief.",
           "answer": "widows",
           "type": "amend"
         },
@@ -69182,7 +69166,7 @@
           "type": "fill"
         },
         {
-          "description": "They are identical (twins).",
+          "description": "They are identical (twin).",
           "answer": "twins",
           "type": "amend"
         },
@@ -69436,7 +69420,7 @@
           "type": "fill"
         },
         {
-          "description": "She always (sides) with her brother.",
+          "description": "She always (side) with her brother.",
           "answer": "sides",
           "type": "amend"
         },
@@ -69472,7 +69456,7 @@
           "type": "fill"
         },
         {
-          "description": "Their friendship developed into (intimacy).",
+          "description": "Their friendship developed into (intimate).",
           "answer": "intimacy",
           "type": "amend"
         },
@@ -69544,7 +69528,7 @@
           "type": "fill"
         },
         {
-          "description": "Both (spouses) need to sign the document.",
+          "description": "Both (spouse) need to sign the document.",
           "answer": "spouses",
           "type": "amend"
         },
@@ -69562,7 +69546,7 @@
           "type": "fill"
         },
         {
-          "description": "Do you have any (siblings)?",
+          "description": "Do you have any (sibling)?",
           "answer": "siblings",
           "type": "amend"
         },
@@ -69638,7 +69622,7 @@
           "type": "fill"
         },
         {
-          "description": "The team scored three (goals).",
+          "description": "The team scored three (goal).",
           "answer": "goals",
           "type": "amend"
         },
@@ -69818,7 +69802,7 @@
           "type": "fill"
         },
         {
-          "description": "They sell equipment for many different (sports).",
+          "description": "They sell equipment for many different (sport).",
           "answer": "sports",
           "type": "amend"
         },
@@ -69932,7 +69916,7 @@
           "type": "fill"
         },
         {
-          "description": "The team has twelve (players).",
+          "description": "The team has twelve (playr).",
           "answer": "players",
           "type": "amend"
         },
@@ -69968,7 +69952,7 @@
           "type": "fill"
         },
         {
-          "description": "Don't forget your shopping (bags).",
+          "description": "Don't forget your shopping (bagg).",
           "answer": "bags",
           "type": "amend"
         },
@@ -70112,7 +70096,7 @@
           "type": "fill"
         },
         {
-          "description": "His strange behavior (puzzled) me.",
+          "description": "His strange behavior (puzled) me.",
           "answer": "puzzled",
           "type": "amend"
         },
@@ -70220,7 +70204,7 @@
           "type": "fill"
         },
         {
-          "description": "The two (teams) played well.",
+          "description": "The two (team) played well.",
           "answer": "teams",
           "type": "amend"
         },
@@ -70376,7 +70360,7 @@
           "type": "fill"
         },
         {
-          "description": "They (marketed) the product aggressively.",
+          "description": "They (marketing) the product aggressively.",
           "answer": "marketed",
           "type": "amend"
         },
@@ -70552,7 +70536,7 @@
           "type": "fill"
         },
         {
-          "description": "She (went) to the store yesterday.",
+          "description": "She (go) to the store yesterday.",
           "answer": "went",
           "type": "amend"
         },
@@ -70570,7 +70554,7 @@
           "type": "fill"
         },
         {
-          "description": "Coffee is one of the country's main (exports).",
+          "description": "Coffee is one of the country's main (export).",
           "answer": "exports",
           "type": "amend"
         },
@@ -70672,7 +70656,7 @@
           "type": "fill"
         },
         {
-          "description": "The children love playing on the (swings).",
+          "description": "The children love playing on the (swing).",
           "answer": "swings",
           "type": "amend"
         },
@@ -70690,7 +70674,7 @@
           "type": "fill"
         },
         {
-          "description": "First (appearances) can be deceptive.",
+          "description": "First (appearance) can be deceptive.",
           "answer": "appearances",
           "type": "amend"
         },
@@ -70708,7 +70692,7 @@
           "type": "fill"
         },
         {
-          "description": "Muhammed Ali was a famous (boxer).",
+          "description": "Muhammed Ali was a famous (boxxing).",
           "answer": "boxer",
           "type": "amend"
         },
@@ -70744,7 +70728,7 @@
           "type": "fill"
         },
         {
-          "description": "There are many food (stalls) at the festival.",
+          "description": "There are many food (stall) at the festival.",
           "answer": "stalls",
           "type": "amend"
         },
@@ -70870,7 +70854,7 @@
           "type": "fill"
         },
         {
-          "description": "She enjoys (skiing) in the winter.",
+          "description": "She enjoys (skieing) in the winter.",
           "answer": "skiing",
           "type": "amend"
         },
@@ -70888,7 +70872,7 @@
           "type": "fill"
         },
         {
-          "description": "Can you (track) my order?",
+          "description": "Can you (trak) my order?",
           "answer": "track",
           "type": "amend"
         },
@@ -70996,7 +70980,7 @@
           "type": "fill"
         },
         {
-          "description": "Our team (defeated) their rivals in the final game.",
+          "description": "Our team (defeat) their rivals in the final game.",
           "answer": "defeated",
           "type": "amend"
         },
@@ -71050,7 +71034,7 @@
           "type": "fill"
         },
         {
-          "description": "Would you like a (cup of) tea?",
+          "description": "Would you like a (cups of) tea?",
           "answer": "cup of",
           "type": "amend"
         },
@@ -71122,7 +71106,7 @@
           "type": "fill"
         },
         {
-          "description": "He (scored) the winning goal.",
+          "description": "He (score) the winning goal.",
           "answer": "scored",
           "type": "amend"
         },
@@ -71158,7 +71142,7 @@
           "type": "fill"
         },
         {
-          "description": "She (runs) five kilometers every morning.",
+          "description": "She (run) five kilometers every morning.",
           "answer": "runs",
           "type": "amend"
         },
@@ -71440,7 +71424,7 @@
           "type": "fill"
         },
         {
-          "description": "The children are (playing) in the garden.",
+          "description": "The children are (play) in the garden.",
           "answer": "playing",
           "type": "amend"
         },
@@ -71620,7 +71604,7 @@
           "type": "fill"
         },
         {
-          "description": "There are clear (divisions) between the departments.",
+          "description": "There are clear (division) between the departments.",
           "answer": "divisions",
           "type": "amend"
         },
@@ -71692,7 +71676,7 @@
           "type": "fill"
         },
         {
-          "description": "She (held) the record for three years.",
+          "description": "She (hold) the record for three years.",
           "answer": "held",
           "type": "amend"
         },
@@ -71746,7 +71730,7 @@
           "type": "fill"
         },
         {
-          "description": "He bought new (athletic) shoes.",
+          "description": "He bought new (athletics) shoes.",
           "answer": "athletic",
           "type": "amend"
         },
@@ -71872,7 +71856,7 @@
           "type": "fill"
         },
         {
-          "description": "What is your favourite (sport)?",
+          "description": "What is your favourite (sporting)?",
           "answer": "sport",
           "type": "amend"
         },
@@ -71890,7 +71874,7 @@
           "type": "fill"
         },
         {
-          "description": "She spent an hour (browsing) the website.",
+          "description": "She spent an hour (browse) the website.",
           "answer": "browsing",
           "type": "amend"
         },
@@ -71902,7 +71886,7 @@
           "type": "vocabulary"
         },
         {
-          "description": "He practises several different (martial arts).",
+          "description": "He practises several different (martial art).",
           "answer": "martial arts",
           "type": "amend"
         },
@@ -71956,7 +71940,7 @@
           "type": "fill"
         },
         {
-          "description": "He (appears) to be unhappy with the service.",
+          "description": "He (appear) to be unhappy with the service.",
           "answer": "appears",
           "type": "amend"
         },
@@ -72312,7 +72296,7 @@
           "type": "fill"
         },
         {
-          "description": "These goods are (imported) from Italy.",
+          "description": "These goods are (import) from Italy.",
           "answer": "imported",
           "type": "amend"
         },
@@ -72492,7 +72476,7 @@
           "type": "fill"
         },
         {
-          "description": "He (withdrew) his application.",
+          "description": "He (withdraw) his application.",
           "answer": "withdrew",
           "type": "amend"
         },
@@ -72886,7 +72870,7 @@
           "type": "fill"
         },
         {
-          "description": "The website has many different (pages).",
+          "description": "The website has many different (page).",
           "answer": "pages",
           "type": "amend"
         },
@@ -72988,7 +72972,7 @@
           "type": "vocabulary"
         },
         {
-          "description": "Do people still use (MP3 players)?",
+          "description": "Do people still use (MP3 player)?",
           "answer": "MP3 players",
           "type": "amend"
         },
@@ -73042,7 +73026,7 @@
           "type": "fill"
         },
         {
-          "description": "This is a very complex piece of (machinery).",
+          "description": "This is a very complex piece of (machine).",
           "answer": "machinery",
           "type": "amend"
         },
@@ -73182,7 +73166,7 @@
           "type": "fill"
         },
         {
-          "description": "The program (stopped) responding.",
+          "description": "The program (stop) responding.",
           "answer": "stopped",
           "type": "amend"
         },
@@ -73254,7 +73238,7 @@
           "type": "fill"
         },
         {
-          "description": "The results are (displayed) on the screen.",
+          "description": "The results are (display) on the screen.",
           "answer": "displayed",
           "type": "amend"
         },
@@ -73434,7 +73418,7 @@
           "type": "fill"
         },
         {
-          "description": "This process (generates) a lot of heat.",
+          "description": "This process (generating) a lot of heat.",
           "answer": "generates",
           "type": "amend"
         },
@@ -73488,7 +73472,7 @@
           "type": "fill"
         },
         {
-          "description": "Make sure you have the right (equipment) for the job.",
+          "description": "Make sure you have the right (equipments) for the job.",
           "answer": "equipment",
           "type": "amend"
         },
@@ -73578,7 +73562,7 @@
           "type": "fill"
         },
         {
-          "description": "I have too many (bookmarks) saved in my browser.",
+          "description": "I have too many (bookmark) saved in my browser.",
           "answer": "bookmarks",
           "type": "amend"
         },
@@ -73686,7 +73670,7 @@
           "type": "fill"
         },
         {
-          "description": "Don't be afraid of (failure). Learn from it.",
+          "description": "Don't be afraid of (fail). Learn from it.",
           "answer": "failure",
           "type": "amend"
         },
@@ -74076,7 +74060,7 @@
           "type": "fill"
         },
         {
-          "description": "Lightning (flashed) across the sky.",
+          "description": "Lightning (flash) across the sky.",
           "answer": "flashed",
           "type": "amend"
         },
@@ -74148,7 +74132,7 @@
           "type": "fill"
         },
         {
-          "description": "Social (networking) sites are popular.",
+          "description": "Social (network) sites are popular.",
           "answer": "networking",
           "type": "amend"
         },
@@ -74936,7 +74920,7 @@
           "type": "fill"
         },
         {
-          "description": "This needle needs (threading).",
+          "description": "This needle needs (thread).",
           "answer": "threading",
           "type": "amend"
         },
@@ -75080,7 +75064,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to check the software (compatibility).",
+          "description": "We need to check the software (compatible).",
           "answer": "compatibility",
           "type": "amend"
         },
@@ -75156,7 +75140,7 @@
           "type": "fill"
         },
         {
-          "description": "There are many (buses) on this route.",
+          "description": "There are many (bus) on this route.",
           "answer": "buses",
           "type": "amend"
         },
@@ -75318,7 +75302,7 @@
           "type": "fill"
         },
         {
-          "description": "There are too many (cars) on the road.",
+          "description": "There are too many (car) on the road.",
           "answer": "cars",
           "type": "amend"
         },
@@ -75534,7 +75518,7 @@
           "type": "fill"
         },
         {
-          "description": "Please sign the (visitor) book.",
+          "description": "Please sign the (visiter) book.",
           "answer": "visitor",
           "type": "amend"
         },
@@ -75570,7 +75554,7 @@
           "type": "fill"
         },
         {
-          "description": "He looked like a typical (tourist) with his camera.",
+          "description": "He looked like a typical (tourisem) with his camera.",
           "answer": "tourist",
           "type": "amend"
         },
@@ -75624,7 +75608,7 @@
           "type": "fill"
         },
         {
-          "description": "I need to make a flight (booking).",
+          "description": "I need to make a flight (book).",
           "answer": "booking",
           "type": "amend"
         },
@@ -75726,7 +75710,7 @@
           "type": "fill"
         },
         {
-          "description": "We watched the (ships) sail away.",
+          "description": "We watched the (ship) sail away.",
           "answer": "ships",
           "type": "amend"
         },
@@ -75852,7 +75836,7 @@
           "type": "fill"
         },
         {
-          "description": "In (case) of emergency, call this number.",
+          "description": "In (cass) of emergency, call this number.",
           "answer": "case",
           "type": "amend"
         },
@@ -76038,7 +76022,7 @@
           "type": "fill"
         },
         {
-          "description": "We went (camping) last weekend.",
+          "description": "We went (camp) last weekend.",
           "answer": "camping",
           "type": "amend"
         },
@@ -76104,7 +76088,7 @@
           "type": "fill"
         },
         {
-          "description": "They are (touring) Europe this summer.",
+          "description": "They are (toure) Europe this summer.",
           "answer": "touring",
           "type": "amend"
         }
@@ -76454,7 +76438,7 @@
           "type": "fill"
         },
         {
-          "description": "How will the goods be (transported)?",
+          "description": "How will the goods be (transport)?",
           "answer": "transported",
           "type": "amend"
         },
@@ -76490,7 +76474,7 @@
           "type": "fill"
         },
         {
-          "description": "The military (jets) flew overhead.",
+          "description": "The military (jet) flew overhead.",
           "answer": "jets",
           "type": "amend"
         },
@@ -76562,7 +76546,7 @@
           "type": "fill"
         },
         {
-          "description": "The wind filled the boat's (sails).",
+          "description": "The wind filled the boat's (sail).",
           "answer": "sails",
           "type": "amend"
         },
@@ -76598,7 +76582,7 @@
           "type": "fill"
         },
         {
-          "description": "The printer keeps (jamming).",
+          "description": "The printer keeps (jamm) .",
           "answer": "jamming",
           "type": "amend"
         },
@@ -76652,7 +76636,7 @@
           "type": "fill"
         },
         {
-          "description": "Several (motorists) stopped to help.",
+          "description": "Several (motorist) stopped to help.",
           "answer": "motorists",
           "type": "amend"
         },
@@ -76742,7 +76726,7 @@
           "type": "fill"
         },
         {
-          "description": "Hold onto the hand (rail) when going down stairs.",
+          "description": "Hold onto the hand (rale) when going down stairs.",
           "answer": "rail",
           "type": "amend"
         },
@@ -76760,7 +76744,7 @@
           "type": "fill"
         },
         {
-          "description": "Welcome (aboard)!",
+          "description": "Welcome (abored)!",
           "answer": "aboard",
           "type": "amend"
         },
@@ -76838,7 +76822,7 @@
           "type": "fill"
         },
         {
-          "description": "Keep medicines out of the (reach) of children.",
+          "description": "Keep medicines out of the (reah) of children.",
           "answer": "reach",
           "type": "amend"
         },
@@ -76946,7 +76930,7 @@
           "type": "fill"
         },
         {
-          "description": "The shop sells lots of tourist (souvenirs).",
+          "description": "The shop sells lots of tourist (souvenir).",
           "answer": "souvenirs",
           "type": "amend"
         },
@@ -77036,7 +77020,7 @@
           "type": "fill"
         },
         {
-          "description": "Is this a (single or return) journey?",
+          "description": "Is this a (single and return) journey?",
           "answer": "single or return",
           "type": "amend"
         },
@@ -77126,7 +77110,7 @@
           "type": "fill"
         },
         {
-          "description": "She (carries) her passport in a safe place.",
+          "description": "She (carrys) her passport in a safe place.",
           "answer": "carries",
           "type": "amend"
         },
@@ -77234,7 +77218,7 @@
           "type": "fill"
         },
         {
-          "description": "They went on a long (trek) through the mountains.",
+          "description": "They went on a long (treking) through the mountains.",
           "answer": "trek",
           "type": "amend"
         },
@@ -77396,7 +77380,7 @@
           "type": "fill"
         },
         {
-          "description": "The bird flapped its (wings).",
+          "description": "The bird flapped its (wing).",
           "answer": "wings",
           "type": "amend"
         },
@@ -77576,7 +77560,7 @@
           "type": "fill"
         },
         {
-          "description": "Can I see your bus (pass)?",
+          "description": "Can I see your bus (past)?",
           "answer": "pass",
           "type": "amend"
         },
@@ -77630,7 +77614,7 @@
           "type": "fill"
         },
         {
-          "description": "You can access the files (via) the shared drive.",
+          "description": "You can access the files (buy) the shared drive.",
           "answer": "via",
           "type": "amend"
         }
@@ -77974,7 +77958,7 @@
           "type": "fill"
         },
         {
-          "description": "The train has ten (carriages).",
+          "description": "The train has ten (carrige).",
           "answer": "carriages",
           "type": "amend"
         },
@@ -78028,7 +78012,7 @@
           "type": "fill"
         },
         {
-          "description": "Press the (accelerator) pedal.",
+          "description": "Press the (accellerator) pedal.",
           "answer": "accelerator",
           "type": "amend"
         }
@@ -78050,7 +78034,7 @@
           "type": "fill"
         },
         {
-          "description": "She (works) hard every day.",
+          "description": "She (work) hard every day.",
           "answer": "works",
           "type": "amend"
         },
@@ -78538,7 +78522,7 @@
           "type": "fill"
         },
         {
-          "description": "She wants to study (architecture) and become an architect.",
+          "description": "She wants to study (architect) and become an architect.",
           "answer": "architecture",
           "type": "amend"
         },
@@ -78574,7 +78558,7 @@
           "type": "fill"
         },
         {
-          "description": "Good (management) is crucial for a company's success.",
+          "description": "Good (manage) is crucial for a company's success.",
           "answer": "management",
           "type": "amend"
         },
@@ -78646,7 +78630,7 @@
           "type": "fill"
         },
         {
-          "description": "The (barber's) shop is closed on Sundays.",
+          "description": "The (barber) shop is closed on Sundays.",
           "answer": "barber's",
           "type": "amend"
         },
@@ -78700,7 +78684,7 @@
           "type": "fill"
         },
         {
-          "description": "Where did you see the (advertisement) for this product?",
+          "description": "Where did you see the (advertise) for this product?",
           "answer": "advertisement",
           "type": "amend"
         },
@@ -78772,7 +78756,7 @@
           "type": "fill"
         },
         {
-          "description": "He received a well-deserved (promotion).",
+          "description": "He received a well-deserved (promote).",
           "answer": "promotion",
           "type": "amend"
         },
@@ -78826,7 +78810,7 @@
           "type": "fill"
         },
         {
-          "description": "What are your main (duties) in this role?",
+          "description": "What are your main (duty) in this role?",
           "answer": "duties",
           "type": "amend"
         },
@@ -79042,7 +79026,7 @@
           "type": "fill"
         },
         {
-          "description": "We need to maintain good relationships with our (clients).",
+          "description": "We need to maintain good relationships with our (client).",
           "answer": "clients",
           "type": "amend"
         },
@@ -79078,7 +79062,7 @@
           "type": "fill"
         },
         {
-          "description": "He is enjoying his (retirement).",
+          "description": "He is enjoying his (retire).",
           "answer": "retirement",
           "type": "amend"
         },
@@ -79222,7 +79206,7 @@
           "type": "fill"
         },
         {
-          "description": "The data (analyst) presented the findings.",
+          "description": "The data (analyse) presented the findings.",
           "answer": "analyst",
           "type": "amend"
         },
@@ -79276,7 +79260,7 @@
           "type": "fill"
         },
         {
-          "description": "The abolition of (slavery) was a major historical event.",
+          "description": "The abolition of (slave) was a major historical event.",
           "answer": "slavery",
           "type": "amend"
         },
@@ -79402,7 +79386,7 @@
           "type": "fill"
         },
         {
-          "description": "The board of (directors) approved the plan.",
+          "description": "The board of (director) approved the plan.",
           "answer": "directors",
           "type": "amend"
         },
@@ -79618,7 +79602,7 @@
           "type": "fill"
         },
         {
-          "description": "Who (heads) this team?",
+          "description": "Who (heading) this team?",
           "answer": "heads",
           "type": "amend"
         },
@@ -79980,7 +79964,7 @@
           "type": "fill"
         },
         {
-          "description": "They decided to (venture) into a new market.",
+          "description": "They decided to (ventured) into a new market.",
           "answer": "venture",
           "type": "amend"
         },
@@ -80070,7 +80054,7 @@
           "type": "fill"
         },
         {
-          "description": "The (miners) went on strike.",
+          "description": "The (miner) went on strike.",
           "answer": "miners",
           "type": "amend"
         },
@@ -80250,7 +80234,7 @@
           "type": "fill"
         },
         {
-          "description": "She received her letter of (appointment).",
+          "description": "She received her letter of (appoint).",
           "answer": "appointment",
           "type": "amend"
         },
@@ -80358,7 +80342,7 @@
           "type": "fill"
         },
         {
-          "description": "She quickly rose through the (ranks) of the company.",
+          "description": "She quickly rose through the (rank) of the company.",
           "answer": "ranks",
           "type": "amend"
         },
@@ -80466,7 +80450,7 @@
           "type": "fill"
         },
         {
-          "description": "What is the (importance) of this decision?",
+          "description": "What is the (important) of this decision?",
           "answer": "importance",
           "type": "amend"
         },
@@ -80484,7 +80468,7 @@
           "type": "fill"
         },
         {
-          "description": "New (recruits) undergo intensive training.",
+          "description": "New (recruit) undergo intensive training.",
           "answer": "recruits",
           "type": "amend"
         },
@@ -80556,7 +80540,7 @@
           "type": "fill"
         },
         {
-          "description": "Please ensure the (removal) of all personal items.",
+          "description": "Please ensure the (remove) of all personal items.",
           "answer": "removal",
           "type": "amend"
         },
