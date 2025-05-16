@@ -72,7 +72,7 @@ export default function App() {
           ]}
           onOptionSelect={async (value) => {
             if (value === 'startStory') {
-              const { default: storyScenes } = await import('../StoryMode/script'); // use default to avoid error
+              const { default: storyScenes } = await import('../StoryMode/script3'); // use default to avoid error
               setSelectedStoryScenes(storyScenes); // Load the default story scenes
               setCurrentScreen('story');
             } else if (value === 'storyMenu') {
