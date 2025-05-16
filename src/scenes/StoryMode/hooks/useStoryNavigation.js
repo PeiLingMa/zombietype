@@ -38,6 +38,10 @@ export default function useStoryNavigation({
    */
   const handleAdvance = useCallback(
     (nextSceneIdOverride) => {
+      if (currentScene.type === 'wrongED' || currentScene.type === 'correctED') {
+        handleStoryEnd();
+        return;
+      }
       const currentIndex = scenes?.findIndex((scene) => scene.id === currentScene?.id);
 
       let nextSceneId;
