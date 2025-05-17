@@ -42,7 +42,7 @@ export default function App() {
     if (currentScreen === 'story' && selectedStoryScenes) {
       return (
         <StoryMode
-          storyId={selectedStoryId ?? 'story1'} // Pass the selected story ID as prop
+          storyId={selectedStoryId ?? 'story3'} // Pass the selected story ID as prop
           scenes={selectedStoryScenes} // Pass the selected story scenes as prop
           onBack={handleBackToStoryMenu} // Use handleBackToStoryMenu to go back to StoryMenu
         />
