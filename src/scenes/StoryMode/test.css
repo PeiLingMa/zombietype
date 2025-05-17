@@ -1,11 +1,6 @@
 /* ------------------------------------------------------------ */
 /* StoryMode section */
 /* ------------------------------------------------------------ */
-.story-mode {
-  --color-cutscene-container: white;
-  --color-bg-cutscene-container: rgba(255, 0, 0, 1);
-  --color-bg-ratio-container: rgba(0, 0, 0, 0);
-}
 .cutscene-container {
   position: relative; /* 確保 ratio-container 可以相對於它定位 */
   height: 100vh; /* 容器高度佔滿整個 viewport height */
@@ -13,8 +8,6 @@
   display: flex; /* 使用 Flexbox 讓內容可以水平置中 */
   justify-content: center; /* 水平置中 */
   align-items: center; /* 垂直置中 (如果您也想垂直置中 16:9 區域) */
-  background: var(--color-bg-cutscene-container); /* 紅色背景方便您觀察 */
-  color: var(--color-cutscene-container);
 }
 
 /* 16:9 比例容器 */
@@ -25,14 +18,12 @@
   aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
   position: relative; /* 讓內容元件可以相對於它絕對定位 */
   overflow: hidden; /* 確保內容超出比例容器時被隱藏 */
-  background-color: var(--color-bg-ratio-container); /* 可選：為比例容器設定背景色，方便觀察 */
 }
 
 .character {
   position: absolute;
   width: 23%;
   bottom: 33%;
-  /* left: 1%; */
   z-index: 2;
 }
 /* ------------------------------------------------------------ */
@@ -105,6 +96,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  background: linear-gradient(to bottom, #fffdeb 0%, #fff2e6 50%, #ffdede 100%);
+  height: 100vh;
 }
 .story-menu-container h1 {
   color: var(--color-primary-medium);
