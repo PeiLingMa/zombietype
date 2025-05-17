@@ -98,8 +98,7 @@ const sceneData_B1_B2 = [
     id: 13,
     character: 'Liam',
     image: Liam_speak,
-    dialogue:
-      'True. I sometimes struggle with motivation, but having a calm space really helps.'
+    dialogue: 'I sometimes struggle with motivation, but having a calm space really helps.'
   },
   {
     id: 14,
@@ -139,7 +138,7 @@ const sceneData_B1_B2 = [
     type: 'correctED',
     character: 'Zoe',
     image: Zoe_speak,
-    dialogue: 'Let’s do it. First meeting right after the renovation!'
+    dialogue: 'Let’s organize a study group right now. First meeting right after the renovation!'
   },
   {
     id: 99,

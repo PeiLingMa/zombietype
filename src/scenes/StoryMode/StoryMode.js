@@ -110,6 +110,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
     currentScene,
     scenes,
     setStoryProgress,
+    storyProgressRef,
     updateDialogueHistory,
     handleStoryEnd
   });

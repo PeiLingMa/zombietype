@@ -8,7 +8,6 @@ import Julian_speak from './images/story3/Julian_speak.png';
 import Julian_question from './images/story3/Julian_question.png';
 import Julian_disagree from './images/story3/Julian_disagree.png';
 
-
 const sceneData_C1_C2 = [
   {
     id: 0,
@@ -48,117 +47,127 @@ const sceneData_C1_C2 = [
     id: 5,
     character: 'Elara',
     image: Elara_dis,
-    dialogue:
-      'Precisely, a setback. The detrimental effect on our resource allocation is already apparent.' // Continues after Q1 correct
+    dialogue: 'Precisely, a setback.' // Continues after Q1 correct
   },
   {
     id: 6,
+    character: 'Elara',
+    image: Elara_dis,
+    dialogue: 'The detrimental effect on our resource allocation is already apparent.'
+  },
+  {
+    id: 7,
     character: 'Julian',
     image: Julian_dis,
     dialogue: 'Stakeholder apprehension certainly makes things more complex.'
   },
   {
-    id: 7,
+    id: 8,
     character: 'Elara',
     image: Elara_think,
     dialogue: 'We absolutely must leverage our core strengths with precision.'
   },
   {
-    id: 8,
+    id: 9,
     character: 'Julian',
     image: Julian_speak,
     dialogue: 'Any misstep now could jeopardize the entire initiative.'
   },
   {
-    id: 9,
+    id: 10,
     character: 'Elara',
     image: Elara_dis,
     dialogue: 'A proactive, not reactive, strategy is imperative.'
   },
   {
-    id: 10,
+    id: 11,
     character: 'Julian',
     image: Julian,
     dialogue: 'Agreed. Risk mitigation must be paramount in our initial planning.'
   },
   // --- Question 2 ---
   {
-    id: 11,
+    id: 12,
     type: 'question',
     character: 'Elara',
     image: Elara_question,
     dialogue:
       'You stressed the importance of risk mitigation. What word describes its level of importance, meaning more important than anything else?',
-    answer: { text: 'paramount', correctIndex: 12, incorrectIndex: 99 }
-  },
-  {
-    id: 12,
-    character: 'Julian',
-    image: Julian_speak,
-    dialogue:
-      'Correct, paramount importance. Internal discord at this stage would prove truly catastrophic.' // Continues after Q2 correct
+    answer: { text: 'paramount', correctIndex: 13, incorrectIndex: 99 }
   },
   {
     id: 13,
-    character: 'Elara',
-    image: Elara,
-    dialogue: 'Absolutely. Building team consensus is our immediate priority.'
+    character: 'Julian',
+    image: Julian_speak,
+    dialogue: 'Correct, paramount importance.' // Continues after Q2 correct
   },
   {
     id: 14,
     character: 'Julian',
     image: Julian_speak,
-    dialogue: 'Divided effort would undermine everything we hope to achieve.'
+    dialogue: 'Internal discord at this stage would prove truly catastrophic.'
   },
   {
     id: 15,
+    character: 'Elara',
+    image: Elara,
+    dialogue: 'Absolutely. Building team consensus is our immediate priority.'
+  },
+  {
+    id: 16,
+    character: 'Julian',
+    image: Julian_speak,
+    dialogue: 'Divided effort would undermine everything we hope to achieve.'
+  },
+  {
+    id: 17,
     character: 'Elara',
     image: Elara_question,
     dialogue: 'Unity and clear communication are vital at this critical juncture.'
   },
   {
-    id: 16,
+    id: 18,
     character: 'Julian',
     image: Julian_question,
     dialogue:
       'That said, the established paradigm for our project management might need adjustment.'
   },
   {
-    id: 17,
+    id: 19,
     character: 'Elara',
     image: Elara_think,
     dialogue: 'Are you suggesting a fundamental shift in our usual approach?'
   },
   {
-    id: 18,
+    id: 20,
     character: 'Julian',
     image: Julian,
     dialogue: 'It warrants serious consideration if we aim for optimal results.'
   },
   {
-    id: 19,
+    id: 21,
     character: 'Elara',
     image: Elara_dis,
     dialogue: 'Sometimes departure from convention is necessary for breakthrough.'
   },
   // --- Question 3 ---
   {
-    id: 20,
+    id: 22,
     type: 'question',
     character: 'Julian',
     image: Julian_question,
     dialogue:
       'You mentioned the established model or pattern we follow might need adjustment. What is that model or typical example called?',
-    answer: { text: 'paradigm', correctIndex: 21, incorrectIndex: 99 }
+    answer: { text: 'paradigm', correctIndex: 23, incorrectIndex: 99 }
   },
   {
-    id: 21,
+    id: 23,
     character: 'Elara',
     image: Elara_dis,
-    dialogue: 'Yes, the existing paradigm. A complete overhaul still seems quite drastic, though.' // Continues after Q3 correct
+    dialogue: 'A complete overhaul still seems quite drastic, though.' // Continues after Q3 correct
   },
   {
-    id: 22,
+    id: 24,
     character: 'Julian',
     image: Julian,
     dialogue:
@@ -166,7 +175,7 @@ const sceneData_C1_C2 = [
   },
   // --- correctED Feedback (after last question flow completes) ---
   {
-    id: 23,
+    id: 25,
     type: 'correctED',
     character: 'Elara',
     image: Elara,

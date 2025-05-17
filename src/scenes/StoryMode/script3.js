@@ -58,82 +58,100 @@ const sceneData_A1_A2 = [
     id: 7,
     character: 'Ben',
     image: Ben_question2,
-    dialogue: "That's right! He is a dog. Do you have a pet?"
+    dialogue: "That's right! He is a dog."
   },
   {
     id: 8,
+    character: 'Ben',
+    image: Ben,
+    dialogue: 'Do you have a pet?'
+  },
+  {
+    id: 9,
     character: 'Anna',
     image: Anna_ball,
     dialogue: "No, I don't have a pet. But I have a red ball. We can play."
   },
   {
-    id: 9,
+    id: 10,
     character: 'Ben',
     image: Ben,
     dialogue: 'Great idea! Max loves balls.'
   },
   {
-    id: 10,
+    id: 11,
     character: 'Anna',
     image: Anna_happy,
-    dialogue: "Nice to hear that!"
+    dialogue: 'Nice to hear that!'
   },
   // --- Question 2 ---
   {
-    id: 11,
+    id: 12,
     type: 'question',
     character: 'Ben',
     image: Ben_question,
     dialogue: 'You have a ball for us to play with. What color is your ball?',
-    answer: { text: 'red', correctIndex: 12, incorrectIndex: 99 }
-  },
-  {
-    id: 12,
-    character: 'Anna',
-    image: Anna_ball,
-    dialogue: "Yes, it's red! Let's go to the park."
+    answer: { text: 'red', correctIndex: 13, incorrectIndex: 99 }
   },
   {
     id: 13,
+    character: 'Anna',
+    image: Anna_ball,
+    dialogue: "Yes, it's red!"
+  },
+  {
+    id: 14,
+    character: 'Anna',
+    image: Anna_happy,
+    dialogue: "Let's go to the park."
+  },
+  {
+    id: 15,
     character: 'Ben',
     image: Ben_question2,
     dialogue: 'Okay. Is the park far from here?'
   },
   {
-    id: 14,
+    id: 16,
     character: 'Anna',
     image: Anna_surprised,
     dialogue: "No, it's near. We can walk."
   },
   {
-    id: 15,
+    id: 17,
     character: 'Ben',
     image: Ben,
     dialogue: 'Perfect. Walking is good exercise.'
   },
   {
-    id: 16,
+    id: 18,
     character: 'Anna',
     image: Anna_happy,
     dialogue: 'I agree. Max will like the park too.'
   },
   // --- Question 3 ---
   {
-    id: 17,
+    id: 19,
     type: 'question',
     character: 'Ben',
     image: Ben_question,
     dialogue: "You mentioned the park isn't far. How close is it?",
-    answer: { text: 'near', correctIndex: 18, incorrectIndex: 99 }
+    answer: { text: 'near', correctIndex: 20, incorrectIndex: 99 }
   },
   {
-    id: 18,
+    id: 20,
     character: 'Anna',
     image: Anna_happy,
-    dialogue: "Yes, very near. Let's go!"
+    dialogue: 'Yes, very near.'
   },
   {
-    id: 19,
+    id: 21,
+    character: 'Anna',
+    image: Anna_happy,
+    dialogue: "Let's go to the park!"
+  },
+  {
+    id: 22,
     type: 'correctED',
     character: 'Ben',
     image: Ben,
