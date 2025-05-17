@@ -4,7 +4,6 @@ import StoryMode from '../StoryMode/StoryMode';
 import StoryMenu from '../StoryMode/StoryMenu';
 import Options from '../Option/Option';
 
-import Dropdown from './Dropdown';
 import './App.css';
 
 export default function App() {
@@ -12,7 +11,6 @@ export default function App() {
   const [selectedStoryId, setSelectedStoryId] = useState(null); // State to hold selected story ID
   const [selectedStoryScenes, setSelectedStoryScenes] = useState(null); // State to hold selected story scenes
 
-  // Function to handle story selection from StoryMenu
   const handleStorySelect = (storyId, scenes) => {
     setSelectedStoryId(storyId); // Store the selected story ID
     setSelectedStoryScenes(scenes); // Store the selected story scenes
@@ -64,22 +62,12 @@ export default function App() {
       <h1 className="display-3 mb-4">Monster Typing Game</h1>
       <p className="lead mb-5 fw-bold">- Choose your mode -</p>
       <div className="menu-buttons">
-        <Dropdown
-          buttonText="STORY MODE"
-          options={[
-            { label: 'Start Story', value: 'startStory' },
-            { label: 'Story Menu', value: 'storyMenu' }
-          ]}
-          onOptionSelect={async (value) => {
-            if (value === 'startStory') {
-              const { default: storyScenes } = await import('../StoryMode/script3'); // use default to avoid error
-              setSelectedStoryScenes(storyScenes); // Load the default story scenes
-              setCurrentScreen('story');
-            } else if (value === 'storyMenu') {
-              setCurrentScreen('storyMenu');
-            }
-          }}
-        />
+        <button
+          className="btn-story-mode my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          onClick={() => setCurrentScreen('storyMenu')}
+        >
+          STORY MODE
+        </button>
         <button
           className="btn btn-danger my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
           onClick={() => setCurrentScreen('challenge')}

@@ -21,7 +21,28 @@
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+.btn-story-mode {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
 
+  background-color: var(--color-secondary-light);
+  border: 2px solid var(--color-secondary-medium);
+  color: var(--color-primary-light);
+}
+.btn-story-mode:hover,
+.btn-story-mode:focus {
+  background-color: var(--color-secondary-medium);
+  border: 2px solid var(--color-secondary-dark);
+  color: var(--color-primary-medium);
+}
+
+.btn-story-mode:active {
+  background-color: var(--color-secondary-medium);
+  border: 2px solid var(--color-secondary-dark);
+  color: var(--color-primary-medium);
+}
 @keyframes fadeIn {
   from {
     opacity: 0.7;

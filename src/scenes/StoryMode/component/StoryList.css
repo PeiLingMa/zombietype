@@ -23,7 +23,7 @@
 
 .story-item {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
