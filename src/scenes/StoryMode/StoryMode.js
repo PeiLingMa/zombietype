@@ -15,7 +15,42 @@ import useStoryProgress from './hooks/useStoryProgress';
 import useTypingEffect from './hooks/useTypingEffect';
 import useStoryNavigation from './hooks/useStoryNavigation';
 
+import streetBg from './images/story1/street.png';
+import schoolBg from './images/story2/school.jpg';
+import officeBg from './images/story3/office.jpg';
+
 export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
+
+  const storyBackgrounds = {
+    story3: {
+      backgroundImage: `url(${streetBg})`,
+    },
+    story4: {
+      backgroundImage: `url(${schoolBg})`,
+    },
+    story5: {
+      backgroundImage: `url(${officeBg})`,
+    }
+  };
+
+  const backgroundStyle = useMemo(() => {
+    console.log('storyId:', storyId);
+    const bg = storyBackgrounds[storyId];
+    console.log('bg:', bg);
+    // 確保 bg 存在且有 backgroundImage 屬性
+    if (!bg || !bg.backgroundImage) {
+        console.warn(`No background image defined for storyId: ${storyId}`);
+        return {}; // 返回空物件，不設定背景
+    }
+    return {
+      backgroundImage: bg.backgroundImage,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center'
+    };
+  }, [storyId]);
+
+
   // Sound management，依賴 soundManager 和 volume
   const soundManager = useSound();
   const { volume } = useVolumeControl();
@@ -181,7 +216,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   }
 
   return (
-    <div className="story-mode cutscene-container">
+    <div className="story-mode cutscene-container" style={backgroundStyle}>
       <div className="ratio-container">
         {/* Cutscene 圖片角色 */}
         <img
