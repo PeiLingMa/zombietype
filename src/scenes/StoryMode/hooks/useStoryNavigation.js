@@ -1,7 +1,23 @@
 // src\scenes\StoryMode\hooks\useStoryNavigation.js
 import { useCallback } from 'react';
 import { useAddIncorrectWord } from '../../../context/GameSettingsContext'; // 假設路徑正確
-
+/**
+ * Handles navigation logic within the story mode (advancing, skipping, answering questions).
+ *
+ * @param {Object} params - Hook parameters.
+ * @param {string} params.storyId - The current story's ID.
+ * @param {Object} params.currentScene - The current scene object.
+ * @param {Array<object>} params.scenes - Array of all scenes in the story.
+ * @param {Function} params.setStoryProgress - Setter for updating story progress state.
+ * @param {Object} params.storyProgressRef - Ref object holding the latest story progress.
+ * @param {Function} params.updateDialogueHistory - Function to add dialogue to dialogue history.
+ * @param {Function} params.handleStoryEnd - Function to call when the story ends.
+ * @returns {{
+ *   handleAdvance: (nextSceneIdOverride?: number) => void,
+ *   handleSkip: () => void,
+ *   handleAnswerSubmit: (isCorrect: boolean, trimmedInput: string) => void
+ * }}
+ */
 export default function useStoryNavigation({
   storyId,
   currentScene,
@@ -15,7 +31,7 @@ export default function useStoryNavigation({
 
   const handleAdvance = useCallback(
     (nextSceneIdOverride) => {
-      if (currentScene?.type === 'wrongED') {
+      if (currentScene?.type === 'wrongED' && !nextSceneIdOverride) {
         const lastAnswer =
           storyProgressRef.current?.answers?.[storyProgressRef.current.answers.length - 1];
         const questionScene = scenes.find(
@@ -133,9 +149,25 @@ export default function useStoryNavigation({
 
     let tempIndex = currentIndex;
     const skippedDialogues = [];
+    // handling wrongED type to use right index
+    if (currentScene?.type === 'wrongED') {
+      const lastAnswer =
+        storyProgressRef.current?.answers?.[storyProgressRef.current.answers.length - 1];
+      const questionScene = scenes.find(
+        (scene) => scene.id === lastAnswer?.sceneId && scene.type === 'question'
+      );
+      if (
+        questionScene &&
+        questionScene.answer &&
+        questionScene.answer.correctIndex !== undefined
+      ) {
+        const correctPathSceneId = questionScene.answer.correctIndex;
+        tempIndex = scenes.findIndex((scene) => scene.id === correctPathSceneId);
+      }
+    }
     tempIndex++;
 
-    while (tempIndex < scenes.length) {
+    while (tempIndex < scenes.length - 1) {
       const sceneToSkip = scenes[tempIndex];
       if (!sceneToSkip) break;
       if (sceneToSkip.type === 'question') break;
@@ -153,9 +185,12 @@ export default function useStoryNavigation({
       dialogueHistory: [...prev.dialogueHistory, ...skippedDialogues]
     }));
 
-    if (tempIndex < scenes.length) {
+    if (tempIndex < scenes.length - 1) {
       handleAdvance(scenes[tempIndex].id); // 這裡的 handleAdvance 會走上面更新後的邏輯
+      // console.log(`Skipped to scene ID: ${scenes[tempIndex].id}`);
     } else {
+      handleAdvance(scenes[tempIndex - 1].id); // 這裡的 handleAdvance 會走上面更新後的邏輯
+      // console.log(`END:Skipped to scene ID: ${scenes[tempIndex - 1].id}`);
       handleStoryEnd();
     }
   }, [currentScene, scenes, setStoryProgress, handleStoryEnd, handleAdvance]);
