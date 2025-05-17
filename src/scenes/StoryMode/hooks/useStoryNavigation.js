@@ -202,8 +202,6 @@ export default function useStoryNavigation({
         : currentScene.answer.incorrectIndex;
 
       // Update dialogue history with the user's input
-      // 注意：如果答錯，可能需要顯示正確答案，這裡的歷史記錄邏輯可以調整
-      // 例如：`const historyEntry = isCorrect ? `[${trimmedInput}]` : `[${trimmedInput}] (Correct: ${currentScene.answer.text})`;`
       const historyEntry = isCorrect
         ? `[${trimmedInput}]`
         : `[${trimmedInput}] - Incorrect (Correct: ${currentScene.answer?.text || 'N/A'})`; // 顯示正確答案提示
