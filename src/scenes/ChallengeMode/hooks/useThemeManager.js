@@ -47,7 +47,7 @@ export const useThemeManager = (gameState, updateGameState) => {
       allThemeData.current = data;
       return data;
     } catch (error) {
-      console.error('Failed to load theme data:', error);
+      console.error('useThemeManager: Failed to load theme data:', error);
       return null;
     }
   }, []);
@@ -60,12 +60,12 @@ export const useThemeManager = (gameState, updateGameState) => {
   const selectNextTheme = useCallback(() => {
     // Use temporary themeList variable to track correct values
     let themeList = [];
-    
+
     if (!gameState.remainingThemes || gameState.remainingThemes.length === 0) {
-      console.log('useThemeManager: Refilling the pool');
+      console.log('useThemeManager: Refilling theme pool');
       // If theme pool is empty, use the complete theme pool and shuffle it
       themeList = shuffleArray([...GAME_CONFIG.THEME_POOL]);
-      
+
       // Update state (this won't take effect immediately, but it's fine as we have correct values in themeList)
       updateGameState({
         remainingThemes: [...themeList]
@@ -77,10 +77,10 @@ export const useThemeManager = (gameState, updateGameState) => {
 
     // Select first theme from temporary variable
     const nextTheme = themeList[0];
-    
+
     // Remove first theme from temporary variable
     const updatedThemes = themeList.slice(1);
-    
+
     // Update remaining themes in state
     updateGameState({
       currentTheme: nextTheme,
@@ -179,29 +179,28 @@ export const useThemeManager = (gameState, updateGameState) => {
     }
 
     // Select and switch to next theme
-    const nextTheme = selectNextTheme();
-    createThemeSample(nextTheme);
+    selectNextTheme();
   }, [selectNextTheme, createThemeSample, gameState.currentTheme, updateGameState]);
 
   // Initialize theme data on first load
   useEffect(() => {
     async function initializeThemeData() {
       if (isInitialized.current) return;
-      
+
       console.log('useThemeManager: Fetching raw data...');
       const data = await loadThemeData();
-      
+
       if (data) {
         console.log('useThemeManager: Data loaded.');
         isInitialized.current = true;
-        
+
         // Only set theme if not already set
         if (!gameState.currentTheme || gameState.currentTheme === '') {
           selectNextTheme();
         }
       }
     }
-    
+
     initializeThemeData();
   }, []); // Empty dependency array to ensure it runs only once
 

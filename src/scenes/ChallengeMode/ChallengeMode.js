@@ -8,6 +8,7 @@ import { useZombieManager } from './hooks/useZombieManager';
 import { useSoundManager } from './hooks/useSoundManager';
 import { GAME_CONFIG } from './gameConfig';
 import { useVolumeControl } from '../../context/GameSettingsContext';
+import SummaryPage from './SummaryPage';
 
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,7 +23,7 @@ import './shake.css';
  */
 export default function ChallengeMode({ onBack }) {
   // Game state variables
-  const { gameState, updateGameState } = useGameState();
+  const { gameState, updateGameState, initializeGameState } = useGameState();
 
   // Level management
   const levelManager = useLevelManager(gameState, updateGameState);
@@ -40,9 +41,9 @@ export default function ChallengeMode({ onBack }) {
   const soundManager = useSoundManager();
   const { volume } = useVolumeControl();
   soundManager.setMasterVolume(volume);
-  
+
   // decide zombie bahavior from their types
-  
+
   /**
    * Handles correct answer events
    * Updates accuracy statistics and spawns a new word
@@ -51,7 +52,7 @@ export default function ChallengeMode({ onBack }) {
   const handleCorrectAnswer = (answerData) => {
     let answer = questionManager.currentQuestion;
     // Update accuracy statistics
-    if (zombieManager.getCurrentZombie()?.behavior === 'mimic'){
+    if (zombieManager.getCurrentZombie()?.behavior === 'mimic') {
       answer = zombieManager.getExtraState('realAnswer');
     }
     if (questionManager.currentQuestion) {
@@ -61,7 +62,7 @@ export default function ChallengeMode({ onBack }) {
         isCorrect: true
       });
     }
-    if (zombieBehaviors(zombieManager.getCurrentZombie(),'correct')) return;
+    if (zombieBehaviors(zombieManager.getCurrentZombie(), 'correct')) return;
 
     // Update zombie defeat count in game state using functional update pattern
     updateGameState((prevState) => {
@@ -101,11 +102,10 @@ export default function ChallengeMode({ onBack }) {
       zombieManager.charge(0.3);
     }
 
-    zombieBehaviors(zombieManager.getCurrentZombie(),'wrong');
+    zombieBehaviors(zombieManager.getCurrentZombie(), 'wrong');
 
     // Play error sound effect
     soundManager.playSound('wrongAnswer');
-
   };
 
   // Initialize PlayerInput hook with necessary callbacks
@@ -118,13 +118,13 @@ export default function ChallengeMode({ onBack }) {
 
   /**
    * Fetch the type of zombie to spawn and request question(s)
-   * 
+   *
    * For future use:
    *   1. Replace generateNewZombie
    *   2. More powerful function
    *   3. Request question(s) based on zombie type
    *   4. Update zombieManager with the new zombie type
-   * 
+   *
    * This function will be called when the player defeats a zombie
    */
   /*
@@ -142,7 +142,7 @@ export default function ChallengeMode({ onBack }) {
   const generateNewZombie = useCallback(() => {
     const zombie = zombieManager.changeCurrentZombie(questionManager.getCompletionRate());
     if (zombieBehaviors(zombie, 'generate')) return;
-  
+
     const question = questionManager.selectQuestion();
     if (!question) {
       console.warn('No question available for difficulty:', gameState.currentDifficulty);
@@ -150,19 +150,14 @@ export default function ChallengeMode({ onBack }) {
     }
     questionManager.updateCurrentQuestion(question);
     playerInput.updateCurrentAnswer(question.answer, question.difficulty);
-  }, [
-    questionManager,
-    playerInput,
-    zombieManager,
-    gameState.currentDifficulty,
-  ]);
+  }, [questionManager, playerInput, zombieManager, gameState.currentDifficulty]);
 
   //extra handleinput for mimic
   const handleInputWithMimic = (e) => {
     const value = e.target.value;
     const currentZombie = zombieManager.getCurrentZombie();
     const behavior = currentZombie?.behavior;
-  
+
     if (behavior === 'mimic') {
       const revealed = zombieManager.getExtraState('mimicRevealed');
       const realQuestion = zombieManager.getExtraState('realAnswer');
@@ -172,90 +167,94 @@ export default function ChallengeMode({ onBack }) {
         return;
       }
     }
-  
+
     // if not mimic use origin handleinput
     playerInput.handleInputChange(e);
   };
 
-  const zombieBehaviors = useCallback((zombie, situation) => {
-    const behavior = zombie.behavior;
-  
-    // Boss zombie generation logic
-    if (behavior === 'boss' && situation === 'generate') {
-      const boss_questionArray = questionManager.getCandidateQuestions('beginner');
-      const boss_question = boss_questionArray[Math.floor(Math.random() * boss_questionArray.length)];
-      if (!boss_question) {
-        console.warn('No question available for difficulty:', gameState.currentDifficulty);
-        return true;
-      }
-      questionManager.updateCurrentQuestion(boss_question);
-      playerInput.updateCurrentAnswer(boss_question.answer, boss_question.difficulty);
-      return true;
-    }
-  
-    // Mimic zombie fake question logic
-    if (behavior === 'mimic' && situation === 'generate') {
-      const realQuestion = questionManager.selectQuestion();
-      if (!realQuestion) {
-        console.warn('No question available for difficulty:', gameState.currentDifficulty);
-        return true;
-      }
-      const fakeQuestionArray = questionManager.getCandidateQuestions('beginner');
-      const fakeQuestion = fakeQuestionArray[Math.floor(Math.random() * fakeQuestionArray.length)];
-      questionManager.updateCurrentQuestion(fakeQuestion);
-      playerInput.updateCurrentAnswer(realQuestion.answer, realQuestion.difficulty);
-      zombieManager.setExtraState('mimicRevealed', false);
-      zombieManager.setExtraState('realAnswer', realQuestion);
-      return true;
-    }
+  const zombieBehaviors = useCallback(
+    (zombie, situation) => {
+      const behavior = zombie.behavior;
 
-    if (behavior === 'chameleon' && situation === 'wrong') {
-      const newQuestion = questionManager.selectQuestion();
-      if (newQuestion) {
-        questionManager.updateCurrentQuestion(newQuestion);
-        playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+      // Boss zombie generation logic
+      if (behavior === 'boss' && situation === 'generate') {
+        const boss_questionArray = questionManager.getCandidateQuestions('beginner');
+        const boss_question =
+          boss_questionArray[Math.floor(Math.random() * boss_questionArray.length)];
+        if (!boss_question) {
+          console.warn('No question available for difficulty:', gameState.currentDifficulty);
+          return true;
+        }
+        questionManager.updateCurrentQuestion(boss_question);
+        playerInput.updateCurrentAnswer(boss_question.answer, boss_question.difficulty);
+        return true;
       }
-      return;
-    }
-    // shield zombie break shield logic
-    if (behavior === 'shield' && situation === 'correct') {
-      if (!zombieManager.getExtraState('shieldHit')) {
-        zombieManager.setExtraState('shieldHit', true);
+
+      // Mimic zombie fake question logic
+      if (behavior === 'mimic' && situation === 'generate') {
+        const realQuestion = questionManager.selectQuestion();
+        if (!realQuestion) {
+          console.warn('No question available for difficulty:', gameState.currentDifficulty);
+          return true;
+        }
+        const fakeQuestionArray = questionManager.getCandidateQuestions('beginner');
+        const fakeQuestion =
+          fakeQuestionArray[Math.floor(Math.random() * fakeQuestionArray.length)];
+        questionManager.updateCurrentQuestion(fakeQuestion);
+        playerInput.updateCurrentAnswer(realQuestion.answer, realQuestion.difficulty);
+        zombieManager.setExtraState('mimicRevealed', false);
+        zombieManager.setExtraState('realAnswer', realQuestion);
+        return true;
+      }
+
+      if (behavior === 'chameleon' && situation === 'wrong') {
         const newQuestion = questionManager.selectQuestion();
         if (newQuestion) {
           questionManager.updateCurrentQuestion(newQuestion);
           playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
         }
-        return true;
+        return;
       }
-      return false;
-    }
-    // boss zombie three question logic with theme change
-    if (behavior === 'boss' && situation === 'correct') {
-      const hp = zombieManager.getExtraState('bossHp') ?? 3;
-      const stage = zombieManager.getExtraState('bossStage') ?? 0;
-      if (hp > 1) {
-        const nextStage = stage + 1;
-        const difficultyOrder = ['beginner', 'medium', 'hard'];
-        const nextDifficulty = difficultyOrder[nextStage];
-  
-        zombieManager.setExtraState('bossHp', hp - 1);
-        zombieManager.setExtraState('bossStage', nextStage);
-        const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
-        const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];   
-        if (newQuestion) {
-          questionManager.updateCurrentQuestion(newQuestion);
-          playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+      // shield zombie break shield logic
+      if (behavior === 'shield' && situation === 'correct') {
+        if (!zombieManager.getExtraState('shieldHit')) {
+          zombieManager.setExtraState('shieldHit', true);
+          const newQuestion = questionManager.selectQuestion();
+          if (newQuestion) {
+            questionManager.updateCurrentQuestion(newQuestion);
+            playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+          }
+          return true;
         }
-        return true;
+        return false;
       }
-      else{
-        themeManager.rotateToNextTheme();
+      // boss zombie three question logic with theme change
+      if (behavior === 'boss' && situation === 'correct') {
+        const hp = zombieManager.getExtraState('bossHp') ?? 3;
+        const stage = zombieManager.getExtraState('bossStage') ?? 0;
+        if (hp > 1) {
+          const nextStage = stage + 1;
+          const difficultyOrder = ['beginner', 'medium', 'hard'];
+          const nextDifficulty = difficultyOrder[nextStage];
+
+          zombieManager.setExtraState('bossHp', hp - 1);
+          zombieManager.setExtraState('bossStage', nextStage);
+          const newQuestionArray = questionManager.getCandidateQuestions(nextDifficulty);
+          const newQuestion = newQuestionArray[Math.floor(Math.random() * newQuestionArray.length)];
+          if (newQuestion) {
+            questionManager.updateCurrentQuestion(newQuestion);
+            playerInput.updateCurrentAnswer(newQuestion.answer, newQuestion.difficulty);
+          }
+          return true;
+        } else {
+          themeManager.rotateToNextTheme();
+        }
+        return false;
       }
-      return false;
-    }
-  }, [questionManager, playerInput, zombieManager, gameState.currentDifficulty]);
-  
+    },
+    [questionManager, playerInput, zombieManager, gameState.currentDifficulty]
+  );
+
   // Initialize game, generate first zombie
   useEffect(() => {
     // Check that currentSample not only exists but has content
@@ -269,7 +268,7 @@ export default function ChallengeMode({ onBack }) {
       questionManager.updateSamplePool(themeManager.currentSample);
       generateNewZombie();
     }
-  }, [themeManager.currentSample, gameState.gameOver]);
+  }, [themeManager.currentSample]);
 
   // Main game loop - handles zombie charging and lifecycle
   useEffect(() => {
@@ -287,9 +286,10 @@ export default function ChallengeMode({ onBack }) {
 
         let chargeRate = zombieManager.getCurrentChargeRate();
         let chargeSpeed = levelManager.getChargeSpeed();
-        let next = chargeRate + chargeSpeed*zombieManager.getCurrentZombie().chargeSpeedMultiplier;
+        let next =
+          chargeRate + chargeSpeed * zombieManager.getCurrentZombie().chargeSpeedMultiplier;
 
-        zombieManager.charge(chargeSpeed*zombieManager.getCurrentZombie().chargeSpeedMultiplier);
+        zombieManager.charge(chargeSpeed * zombieManager.getCurrentZombie().chargeSpeedMultiplier);
 
         if (next >= 1) {
           const newLives = gameState.lives - 1;
@@ -299,13 +299,13 @@ export default function ChallengeMode({ onBack }) {
           } else {
             updateGameState({ lives: newLives });
             playerInput.clearInput();
-            if(zombieManager.getCurrentZombie().name === 'boss'){
+            if (zombieManager.getCurrentZombie().name === 'boss') {
               zombieManager.resetChargeRate();
               console.log('reset');
               setTimeout(() => {
                 zombieManager.charge(0.5);
               }, 100);
-            } else{
+            } else {
               generateNewZombie();
             }
           }
@@ -327,24 +327,39 @@ export default function ChallengeMode({ onBack }) {
     soundManager.playSound
   ]);
 
+  useEffect(() => {
+    if (
+      gameState.currentTheme === '' &&
+      Array.isArray(gameState.remainingThemes) &&
+      gameState.remainingThemes.length === 0 &&
+      !gameState.gameOver
+    ) {
+      themeManager.rotateToNextTheme();
+    }
+  }, [gameState.remainingThemes]);
+
+  // Restart game function
+  const handleRestart = useCallback(() => {
+    console.log('[ChallengeMode] Restarting the game...');
+    // Reset game state
+    initializeGameState();
+
+    // Reset player input
+    playerInput.clearInput();
+
+    // Reset zombie charge
+    zombieManager.resetChargeRate();
+  }, [initializeGameState, playerInput, zombieManager, themeManager, questionManager]);
+
   // Render game UI
   return (
     <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center bg-dark text-light p-4">
       {gameState.gameOver ? (
         // Game over screen
-        <>
-          <h1 className="display-3 text-danger fw-bold animate__animated animate__bounce">
-            You Died!
-          </h1>
-          <p className="fs-4 mb-4">Final Score: Level {gameState.level}</p>
-          <p className="fs-5 mb-4">Theme Accuracy: {questionManager.getThemeAccuracy()}%</p>
-          <button
-            className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
-            onClick={onBack}
-          >
-            Back Menu
-          </button>
-        </>
+        <SummaryPage
+          onBack={onBack}
+          onRestart={handleRestart}
+        />
       ) : (
         // Active game screen
         <>
@@ -415,11 +430,8 @@ export default function ChallengeMode({ onBack }) {
           />
           {/* Game stats */}
           <div className="d-flex justify-content-around w-50 mt-3">
-            <p className="badge bg-secondary p-2">zombiesDefeated: {gameState.zombiesDefeated}</p>
-            <p className="badge bg-primary p-2">Level: {gameState.level}</p>
             <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
             <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
-            <p className="badge bg-info p-2">Accuracy: {questionManager.getThemeAccuracy()}%</p>
             <p className="badge bg-warning p-2">
               Charge: {zombieManager.getCurrentChargeRate().toFixed(2)}%
             </p>
