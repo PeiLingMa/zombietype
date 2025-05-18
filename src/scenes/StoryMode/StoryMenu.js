@@ -26,21 +26,21 @@ const stories = [
     title: "Anna and Ben's Happy Time",
     description: 'Level: Easy',
     previewImage: Story1_preview, // 預覽圖片路徑
-    scenes: await import('./script3').then((module) => module.default)
+    scenes: null // 改在 useEffect 導入
   },
   {
     id: 'story4',
     title: "Talkin' Library Vibes",
     description: 'Level: Midium',
     previewImage: Story2_preview, // 預覽圖片路徑
-    scenes: await import('./script4').then((module) => module.default)
+    scenes: null
   },
   {
     id: 'story5',
     title: 'Navigating Setbacks: A Project Conundrum',
     description: 'Level: Hard',
     previewImage: Story3_preview, // 預覽圖片路徑
-    scenes: await import('./script5').then((module) => module.default)
+    scenes: null
   }
 ];
 
@@ -48,28 +48,24 @@ export default function StoryMenu({ onStorySelect, onBack }) {
   const [storyList, setStoryList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error] = useState(null);
+  async function loadStoriesWithScenes() {
+    try {
+      const loadedStories = [...stories];
+      loadedStories[0].scenes = (await import('./script3')).default;
+      loadedStories[1].scenes = (await import('./script4')).default;
+      loadedStories[2].scenes = (await import('./script5')).default;
+      setStoryList(loadedStories);
+    } catch (err) {
+      // setError(err); // Uncomment if you want to handle error state
+      console.error('Failed to load story scenes:', err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    // fetch('/api/stories')
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //     return response.json();
-    //   })
-    //   .then(data => {
-    //     setStoryList(data);
-    //     setLoading(false);
-    //   })
-    //   .catch(error => {
-    //     setError(error);
-    //     setLoading(false);
-    //     console.error("Failed to fetch stories:", error);
-    //   });
-
-    // 暫時使用本地 stories 資料
-    setStoryList(stories);
-    setLoading(false);
+    // load scenes asynchronously
+    loadStoriesWithScenes();
   }, []);
 
   if (loading) {

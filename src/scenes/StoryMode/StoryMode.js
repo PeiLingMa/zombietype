@@ -20,16 +20,15 @@ import schoolBg from './images/story2/school.jpg';
 import officeBg from './images/story3/office.jpg';
 
 export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
-
   const storyBackgrounds = {
     story3: {
-      backgroundImage: `url(${streetBg})`,
+      backgroundImage: `url(${streetBg})`
     },
     story4: {
-      backgroundImage: `url(${schoolBg})`,
+      backgroundImage: `url(${schoolBg})`
     },
     story5: {
-      backgroundImage: `url(${officeBg})`,
+      backgroundImage: `url(${officeBg})`
     }
   };
 
@@ -39,8 +38,8 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
     console.log('bg:', bg);
     // 確保 bg 存在且有 backgroundImage 屬性
     if (!bg || !bg.backgroundImage) {
-        console.warn(`No background image defined for storyId: ${storyId}`);
-        return {}; // 返回空物件，不設定背景
+      console.warn(`No background image defined for storyId: ${storyId}`);
+      return {}; // 返回空物件，不設定背景
     }
     return {
       backgroundImage: bg.backgroundImage,
@@ -49,7 +48,6 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
       backgroundPosition: 'center center'
     };
   }, [storyId]);
-
 
   // Sound management，依賴 soundManager 和 volume
   const soundManager = useSound();
@@ -217,7 +215,10 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   }
 
   return (
-    <div className="story-mode cutscene-container" style={backgroundStyle}>
+    <div
+      className="story-mode cutscene-container"
+      style={backgroundStyle}
+    >
       <div className="ratio-container">
         {/* Cutscene 圖片角色 */}
         <img
@@ -277,12 +278,12 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
               onBack();
             }}
           >
-            Back Menu
+            Back to Menu
           </button>
         </div>
         <StoryEndPopup
           isVisible={showStoryEndPopup}
-          message="故事結束"
+          message="Story Ended"
           onConfirm={() => {
             localStorage.removeItem(`storyProgress_${storyId}`);
             onBack();

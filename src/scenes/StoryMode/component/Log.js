@@ -12,7 +12,7 @@ export default function Log({ dialogueHistory, onClose }) {
     <div className="log log-overlay">
       <div className="log-dialog">
         <div className="log-header">
-          <h3>對話紀錄</h3>
+          <h3>Dialogue Log</h3>
           <button
             className="log-close-button"
             onClick={onClose}

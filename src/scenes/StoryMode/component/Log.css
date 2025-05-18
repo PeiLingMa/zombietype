@@ -2,6 +2,8 @@
   --log-bg-overlay-color: rgba(0, 0, 0, 0.5);
   --log-bg-dialog-color: rgba(73, 59, 59, 0.85);
   --log-header-border-color: #ddd;
+  --color-log-h3: var(--color-accent1-light);
+  --color-log-close-button: var(--color-accent1-light);
 }
 
 .log-overlay {
@@ -40,6 +42,8 @@
 .log-header h3 {
   margin: 0;
   font-size: 1.2rem;
+
+  color: var(--color-log-h3);
 }
 
 .log-close-button {
@@ -49,6 +53,8 @@
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.3s;
+
+  color: var(--color-log-close-button);
 }
 
 .log-close-button:hover {
@@ -59,6 +65,8 @@
   padding: 20px;
   overflow-y: auto; /* 啟用垂直滾動 */
   height: 100%; /* 讓內容區域佔滿剩餘高度 */
+
+  color: #fff;
 }
 
 .log-item {
