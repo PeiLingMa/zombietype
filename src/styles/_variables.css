@@ -1,0 +1,90 @@
+/* src\styles\_variables.css */
+/* Bad filename I know. */
+
+:root {
+  /* ------------------------------------------------------------ */
+  /* Core Color Palette (調色盤) */
+  /* ------------------------------------------------------------ */
+  --color-palette-brown-dark: #6b4f4f; /* 深棕色，用於主要文字 */
+  --color-palette-brown-medium: #a0522d; /* 中棕色，用於區塊標題 */
+  --color-palette-brown-light: #8b4513; /* 淺棕色，用於標題 */
+  --color-palette-gold-dark: #d49600; /* 深金色 */
+  --color-palette-gold-medium: #eaa60a; /* 中金色 */
+  --color-palette-gold-light: #ffda63; /* 淺金色，用於按鈕 */
+  /*--color-palette-gold-hover: #fbcb43;  按鈕 hover 色 */
+  --color-palette-pink-dark: #e4a8b1; /* 深粉色 */
+  --color-palette-pink-light: #ffc0cb; /* 淺粉色，用於滑塊 */
+  --color-palette-cream-light: #fffae2; /* 淺奶油色，用於背景 */
+  --color-palette-cream-medium: #f5e6c4; /* 中奶油色，用於次要背景 */
+  --color-palette-cream-dark: #d4c28a;
+
+  --color-palette-blue: #007bff; /* 標準藍色，用於連結/按鈕 */
+  --color-palette-blue-hover: #0056b3; /* 藍色 hover */
+
+  --color-palette-neutral-dark: #333; /* 深中性色，用於輸入框文字 */
+  --color-palette-neutral-medium: #555; /* 中性色，用於描述文字 */
+  --color-palette-neutral-light: #888; /* 淺中性色，用於提示文字或佔位符 */
+  --color-palette-neutral-grey-light: #ddd; /* 非常淺的灰色，用於邊框 */
+  --color-palette-neutral-grey-extra-light: #eee; /* 極淺的灰色，用於佔位背景 */
+
+  --color-palette-white: #fff; /* 白色 */
+
+  /* Alpha Colors (帶透明度的顏色) */
+  --color-palette-dark-alpha-85: rgba(73, 59, 59, 0.85); /* 深色半透明，用於對話框/Log */
+  --color-palette-light-alpha-90: rgba(255, 247, 224, 0.9); /* 淺色半透明，用於容器背景 */
+  --color-palette-light-alpha-85: rgba(255, 255, 255, 0.85); /* 淺色半透明，用於對話框標題背景 */
+  --color-palette-light-alpha-90-white: rgba(255, 255, 255, 0.9); /* 淺色半透明，用於輸入框背景 */
+  --color-palette-white-alpha-70: rgba(255, 255, 255, 0.7); /* 白色半透明，用於提示文字 */
+  --color-palette-black-alpha-50: rgba(0, 0, 0, 0.5); /* 黑色半透明，用於疊加層 */
+  --color-palette-black-alpha-10: rgba(0, 0, 0, 0.1); /* 黑色低透明度 */
+  --color-palette-black-alpha-175: rgba(0, 0, 0, 0.175); /* 黑色低透明度 */
+  --color-palette-black-alpha-30: rgba(0, 0, 0, 0.3); /* 黑色中透明度 */
+
+  /* Feedback Colors */
+  --color-feedback-focus-alpha: rgba(160, 82, 45, 0.25); /* 焦點效果透明色 */
+
+  /* ------------------------------------------------------------ */
+  /* 主要色:主要文字顏色*/
+  /* 次要色:對比和變化，通常用於標題、副標題、邊框、次要按鈕等 */
+  /* 強調色:突出重要的元素，例如行動呼籲按鈕、連結、小圖標、進度條的亮點等。*/
+  /* ------------------------------------------------------------ */
+
+  --color-primary-dark: var(--color-palette-brown-dark);
+  --color-primary-medium: var(--color-palette-brown-medium);
+  --color-primary-light: var(--color-palette-brown-light);
+  --color-bg-primary: var(--color-palette-light-alpha-90); /* 容器背景色 */
+  --color-secondary-dark: var(--color-palette-gold-dark);
+  --color-secondary-medium: var(--color-palette-gold-medium);
+  --color-secondary-light: var(--color-palette-gold-light);
+  --color-accent: #ffd700; /* 金色，用於 Navbar Active */
+  --color-accent1-light: var(--color-palette-pink-light);
+  --color-accent1-dark: var(--color-palette-pink-dark);
+  --color-accent2-light: var(--color-palette-blue);
+  --color-accent2-dark: var(--color-palette-blue-hover);
+
+  /* ------------------------------------------------------------ */
+  /* UI Element Colors, define global here, others leave to .css files*/
+  /* 這裡定義global UI style。*/
+  /* ------------------------------------------------------------ */
+  .btn-info1 {
+    font-weight: bold !important;
+    border-radius: 12px !important;
+    transition: transform 0.2s ease;
+
+    background-color: var(--color-accent1-light);
+    border: 1px solid var(--color-accent1-light);
+    color: var(--color-primary-light);
+  }
+  .btn-info1:hover,
+  .btn-info1:focus {
+    transform: translateY(-2px);
+
+    box-shadow: 1px 1px 5px var(--color-palette-dark-alpha-85);
+    color: var(--color-primary-medium);
+  }
+  .btn-info1:active {
+    background-color: var(--color-accent1-dark);
+    border: 1px solid var(--color-accent1-dark);
+    color: var(--color-primary-dark);
+  }
+}

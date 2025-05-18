@@ -20,7 +20,8 @@
     "test:coverage": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "format:storymode": "prettier --write src/scenes/StoryMode/**/*.{js,css}"
   },
   "eslintConfig": {
     "extends": [

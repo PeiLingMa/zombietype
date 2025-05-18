@@ -1,0 +1,63 @@
+/* src\scenes\StoryMode\component\StoryEndPopup.css */
+.story-end-popup {
+  --color-story-end-dialog-h3: var(--color-palette-white); /* 白色文字 */
+  /* --color-story-end-dialog-text: var(--color-palette-white); */
+  --color-story-end-dialog-border: var(--color-secondary-light);
+
+  --color-story-end-button: var(--color-primary-light);
+  --color-bg-story-end-button: var(--color-secondary-light);
+  --color-story-end-button-hover: var(--color-secondary-medium);
+  --color-story-end-button-border: var(--color-secondary-medium);
+  --color-story-end-button-border-hover: var(--color-secondary-dark);
+
+  --color-bg-story-end-dialog: rgba(73, 59, 59, 0.95); /* 與對話框相似的背景，稍微不透明 */
+}
+.story-end-dialog {
+  position: absolute; /* Position relative to the nearest positioned ancestor (e.g., ratio-container) */
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 2000;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px; /* 較小的彈出視窗 */
+
+  background: var(--color-bg-story-end-dialog);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: var(--color-primary-light);
+}
+
+.story-end-dialog h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+
+  color: var(--color-story-end-dialog-h3);
+}
+
+.story-end-button {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block; /* Make button a block element for better layout */
+  width: 100%; /* Make button full width of the dialog */
+  text-align: center;
+
+  background-color: var(--color-bg-story-end-button);
+  border: 2px solid var(--color-story-end-button-border);
+  color: var(--color-story-end-button);
+  box-shadow: var(--shadow-primary-button);
+}
+
+.story-end-button:hover {
+  transform: translateY(-2px);
+
+  background-color: var(--color-story-end-button-hover);
+  border: 2px solid var(--color-story-end-button-border-hover);
+  box-shadow: var(--shadow-primary-button-hover);
+}
