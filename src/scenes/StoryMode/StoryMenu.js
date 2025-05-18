@@ -47,7 +47,7 @@ const stories = [
 export default function StoryMenu({ onStorySelect, onBack }) {
   const [storyList, setStoryList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
   useEffect(() => {
     // fetch('/api/stories')
