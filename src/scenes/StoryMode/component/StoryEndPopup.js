@@ -17,7 +17,7 @@ export default function StoryEndPopup({ isVisible, message, answerSummary, onCon
         <h2>{message}</h2>
         {answerSummary && answerSummary.length > 0 && (
           <div className="answer-summary-container">
-            <h3>本次回答記錄：</h3>
+            <h3>Answer Summary:</h3>
             <ul>
               {answerSummary.map((item, index) => (
                 <li
@@ -25,18 +25,18 @@ export default function StoryEndPopup({ isVisible, message, answerSummary, onCon
                   className={`summary-item ${item.isCorrect ? 'correct' : 'incorrect'}`}
                 >
                   <p>
-                    <strong>問題：</strong> {item.questionText}
+                    <strong>Question:</strong> {item.questionText}
                   </p>
                   <p>
-                    <strong>你的答案：</strong> {item.userAnswer}
+                    <strong>Your Answer:</strong> {item.userAnswer}
                   </p>
                   {!item.isCorrect && (
                     <p>
-                      <strong>正確答案：</strong> {item.correctAnswer}
+                      <strong>Correct Answer:</strong> {item.correctAnswer}
                     </p>
                   )}
                   <p>
-                    <strong>結果：</strong> {item.isCorrect ? '答對' : '答錯'}
+                    <strong>Result:</strong> {item.isCorrect ? 'Correct' : 'Incorrect'}
                   </p>
                 </li>
               ))}
@@ -47,7 +47,7 @@ export default function StoryEndPopup({ isVisible, message, answerSummary, onCon
           onClick={onConfirm}
           className="popup-confirm-button"
         >
-          返回主選單
+          Back to Story Menu
         </button>
       </div>
     </div>
