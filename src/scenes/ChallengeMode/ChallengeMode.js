@@ -10,8 +10,6 @@ import { GAME_CONFIG } from './gameConfig';
 import { useVolumeControl } from '../../context/GameSettingsContext';
 import SummaryPage from './SummaryPage';
 
-// Import Bootstrap for UI styling
-import 'bootstrap/dist/css/bootstrap.min.css';
 // Import CSS for shake animation
 import './shake.css';
 
