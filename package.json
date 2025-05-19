@@ -42,12 +42,15 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "jest": "^27.5.1",
-    "prettier": "^3.5.3"
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.7"
   },
   "homepage": "https://PeiLingMa.github.io/zombietype/"
 }
