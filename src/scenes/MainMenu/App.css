@@ -1,48 +1,74 @@
 .main-menu {
+  --color-mainmenu-bg: var(--color-bg-primary);
+  --color-mainmenu-title: var(--color-primary-dark);
+  --color-mainmenu-desc: var(--color-primary-medium);
+  /* fallback Card colors, no use*/
+  --color-card-bg: var(--color-secondary-light);
+  --color-card-border: var(--color-secondary-medium);
+  --color-card-title: var(--color-primary-medium);
+  --color-card-desc: var(--color-primary-dark);
+  --color-card-hover-bg: var(--color-secondary-medium);
+  --color-card-hover-title: var(--color-primary-light);
+  --color-card-hover-desc: var(--color-primary-light);
+
+  /* Story Mode */
+  --color-card-story-bg: var(--color-accent1-light);
+  --color-card-story-title: var(--color-primary-medium);
+  --color-card-story-desc: var(--color-primary-light);
+  --color-card-story-hover-bg: var(--color-accent1-dark);
+  --color-card-story-hover-title: #fff;
+  --color-card-story-hover-desc: #fffbe2;
+
+  /* Challenge Mode */
+  --color-card-challenge-bg: var(--color-secondary-light);
+  --color-card-challenge-title: var(--color-primary-dark);
+  --color-card-challenge-desc: var(--color-primary-light);
+  --color-card-challenge-hover-bg: var(--color-secondary-medium);
+  --color-card-challenge-hover-title: #fff;
+  --color-card-challenge-hover-desc: #fffbe2;
+
+  /* Option */
+  --color-card-option-bg: var(--color-accent2-light);
+  --color-card-option-title: #fff;
+  --color-card-option-desc: #fffbe2;
+  --color-card-option-hover-bg: var(--color-accent2-dark);
+  --color-card-option-hover-title: #fffbe2;
+  --color-card-option-hover-desc: #fff;
+}
+
+.main-menu {
   height: 100vh;
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 1s ease-out;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./background.png') no-repeat center center;
   background-size: cover;
+
   color: #fff;
-  text-align: center;
-  padding: 20px;
-  animation: fadeIn 1s ease-out;
+  /* background: var(--color-mainmenu-bg); */
 }
 
-.menu-buttons button {
-  width: 250px;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+.main-menu h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px var(--color-palette-dark-alpha-85);
+
+  /* color: var(--color-mainmenu-title); */
 }
 
-.menu-buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-.btn-story-mode {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 0.5rem;
+.main-menu .lead {
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
 
-  background-color: var(--color-secondary-light);
-  border: 2px solid var(--color-secondary-medium);
-  color: var(--color-primary-light);
-}
-.btn-story-mode:hover,
-.btn-story-mode:focus {
-  background-color: var(--color-secondary-medium);
-  border: 2px solid var(--color-secondary-dark);
-  color: var(--color-primary-medium);
+  /* color: var(--color-mainmenu-desc); */
 }
 
-.btn-story-mode:active {
-  background-color: var(--color-secondary-medium);
-  border: 2px solid var(--color-secondary-dark);
-  color: var(--color-primary-medium);
-}
 @keyframes fadeIn {
   from {
     opacity: 0.7;
@@ -50,4 +76,116 @@
   to {
     opacity: 1;
   }
+}
+
+.menu-cards {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-card {
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  min-width: 280px;
+  background: var(--color-card-bg);
+  color: var(--color-card-title);
+}
+.menu-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+
+  background: var(--color-card-hover-bg);
+  color: var(--color-card-hover-title);
+}
+.menu-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.menu-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+
+  color: var(--color-card-title);
+}
+.menu-title:hover {
+  color: var(--color-card-hover-title);
+}
+.menu-desc {
+  font-size: 1rem;
+  opacity: 0.8;
+
+  color: var(--color-card-desc);
+}
+.menu-desc:hover {
+  color: var(--color-card-hover-desc);
+}
+/* ...Cards */
+/* Story Mode Card */
+.menu-card.story-mode {
+  background: var(--color-card-story-bg);
+  color: var(--color-card-story-desc);
+}
+.menu-card.story-mode .menu-title {
+  color: var(--color-card-story-title);
+}
+.menu-card.story-mode .menu-desc {
+  color: var(--color-card-story-desc);
+}
+.menu-card.story-mode:hover {
+  background: var(--color-card-story-hover-bg);
+}
+.menu-card.story-mode:hover .menu-title {
+  color: var(--color-card-story-hover-title);
+}
+.menu-card.story-mode:hover .menu-desc {
+  color: var(--color-card-story-hover-desc);
+}
+
+/* Challenge Mode Card */
+.menu-card.challenge-mode {
+  background: var(--color-card-challenge-bg);
+  color: var(--color-card-challenge-desc);
+}
+.menu-card.challenge-mode .menu-title {
+  color: var(--color-card-challenge-title);
+}
+.menu-card.challenge-mode .menu-desc {
+  color: var(--color-card-challenge-desc);
+}
+.menu-card.challenge-mode:hover {
+  background: var(--color-card-challenge-hover-bg);
+}
+.menu-card.challenge-mode:hover .menu-title {
+  color: var(--color-card-challenge-hover-title);
+}
+.menu-card.challenge-mode:hover .menu-desc {
+  color: var(--color-card-challenge-hover-desc);
+}
+
+/* Option Card */
+.menu-card.option {
+  background: var(--color-card-option-bg);
+  color: var(--color-card-option-desc);
+}
+.menu-card.option .menu-title {
+  color: var(--color-card-option-title);
+}
+.menu-card.option .menu-desc {
+  color: var(--color-card-option-desc);
+}
+.menu-card.option:hover {
+  background: var(--color-card-option-hover-bg);
+}
+.menu-card.option:hover .menu-title {
+  color: var(--color-card-option-hover-title);
+}
+.menu-card.option:hover .menu-desc {
+  color: var(--color-card-option-hover-desc);
 }

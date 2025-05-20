@@ -60,26 +60,32 @@ export default function App() {
   return (
     <div className="main-menu d-flex flex-column align-items-center justify-content-center">
       <h1 className="display-3 mb-4">Monster Typing Game</h1>
-      <p className="lead mb-5 fw-bold">- Choose your mode -</p>
-      <div className="menu-buttons">
-        <button
-          className="btn-story-mode my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+      <p className="lead">- Choose Game Mode -</p>
+      <div className="menu-cards d-flex gap-4">
+        <div
+          className="menu-card story-mode"
           onClick={() => setCurrentScreen('storyMenu')}
         >
-          STORY MODE
-        </button>
-        <button
-          className="btn btn-danger my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          <div className="menu-icon">📖</div>
+          <div className="menu-title">Story Mode</div>
+          <div className="menu-desc">Experience stories</div>
+        </div>
+        <div
+          className="menu-card challenge-mode"
           onClick={() => setCurrentScreen('challenge')}
         >
-          CHALLENGE MODE
-        </button>
-        <button
-          className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          <div className="menu-icon">⚔️</div>
+          <div className="menu-title">Challenge Mode</div>
+          <div className="menu-desc">Endless challenge your limits</div>
+        </div>
+        <div
+          className="menu-card option"
           onClick={() => setCurrentScreen('settings')}
         >
-          OPTIONS
-        </button>
+          <div className="menu-icon">⚙️</div>
+          <div className="menu-title">Option</div>
+          <div className="menu-desc">Adjust volume</div>
+        </div>
       </div>
     </div>
   );
