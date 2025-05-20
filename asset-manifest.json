@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/zombietype/static/css/main.a9743d4f.css",
-    "main.js": "/zombietype/static/js/main.734d5acd.js",
+    "main.js": "/zombietype/static/js/main.5dca0e29.js",
     "static/js/154.f47d2484.chunk.js": "/zombietype/static/js/154.f47d2484.chunk.js",
     "static/js/97.da8d6cf5.chunk.js": "/zombietype/static/js/97.da8d6cf5.chunk.js",
     "static/js/859.d14420c8.chunk.js": "/zombietype/static/js/859.d14420c8.chunk.js",
@@ -46,7 +46,7 @@
     "static/media/Anna_question.png": "/zombietype/static/media/Anna_question.8e8727fdb08bf306199c.png",
     "index.html": "/zombietype/index.html",
     "main.a9743d4f.css.map": "/zombietype/static/css/main.a9743d4f.css.map",
-    "main.734d5acd.js.map": "/zombietype/static/js/main.734d5acd.js.map",
+    "main.5dca0e29.js.map": "/zombietype/static/js/main.5dca0e29.js.map",
     "154.f47d2484.chunk.js.map": "/zombietype/static/js/154.f47d2484.chunk.js.map",
     "97.da8d6cf5.chunk.js.map": "/zombietype/static/js/97.da8d6cf5.chunk.js.map",
     "859.d14420c8.chunk.js.map": "/zombietype/static/js/859.d14420c8.chunk.js.map",
@@ -54,6 +54,6 @@
   },
   "entrypoints": [
     "static/css/main.a9743d4f.css",
-    "static/js/main.734d5acd.js"
+    "static/js/main.5dca0e29.js"
   ]
 }
