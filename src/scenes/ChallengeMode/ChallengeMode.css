@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------ */
+/* ChallengeMode section */
+/* ------------------------------------------------------------ */
+.challenge-container {
+  background: var(--color-bg-primary);
+}
+
+.bg-time-left {
+  background: var(--color-palette-dark-alpha-85);
+  color: var(--color-palette-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 8px var(--color-palette-black-alpha-10);
+  display: inline-block;
+}
+
+.zombie-visual {
+  background: var(--color-palette-white-alpha-70);
+  box-shadow: 0 4px 24px 0 var(--color-palette-black-alpha-30);
+  padding: 1.5rem;
+}
+
+.current-word-box {
+  background: var(--color-secondary-light);
+  color: var(--color-primary-dark);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid var(--color-palette-black-alpha-175);
+  box-shadow: 0 2px 8px var(--color-palette-black-alpha-10);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.input-word-box {
+  background: var(--color-palette-light-alpha-90-white);
+  border: 2px solid var(--color-secondary-light);
+  box-shadow: 0 2px 8px var(--color-palette-black-alpha-10);
+}
+
+.game-stats {
+  font-size: 1.5rem;
+}
+.game-stats .charge {
+  color: var(--color-primary-dark);
+  font-weight: bold;
+}

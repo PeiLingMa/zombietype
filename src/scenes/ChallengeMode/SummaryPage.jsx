@@ -1,9 +1,23 @@
+import './SummaryPage.css';
+
 export default function SummaryPage({ onBack, onRestart }) {
   return (
-    <>
-      <h1>Game Summary Page</h1>
-      <button onClick={onBack}>Menu</button>
-      <button onClick={onRestart}>重新開始</button>
-    </>
+    <div className="summary-page-root">
+      <h1 className="summary-page-title">Game Summary Page</h1>
+      <div className="summary-page-btn-group">
+        <button
+          className="summary-page-btn"
+          onClick={onBack}
+        >
+          Menu
+        </button>
+        <button
+          className="summary-page-btn"
+          onClick={onRestart}
+        >
+          Restart
+        </button>
+      </div>
+    </div>
   );
 }
