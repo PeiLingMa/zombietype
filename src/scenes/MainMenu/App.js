@@ -6,6 +6,19 @@ import Options from '../Option/Option';
 
 import './App.css';
 
+// Import button images
+import storyModeNormal from './assets/images/buttons/story-mode-normal.png';
+import storyModeHover from './assets/images/buttons/story-mode-hover.png';
+import challengeModeNormal from './assets/images/buttons/challenge-mode-normal.png';
+import challengeModeHover from './assets/images/buttons/challenge-mode-hover.png';
+import optionsNormal from './assets/images/buttons/options-normal.png';
+import optionsHover from './assets/images/buttons/options-hover.png';
+import tutorialNormal from './assets/images/buttons/tutorial-normal.png';
+import tutorialHover from './assets/images/buttons/tutorial-hover.png';
+import creditsNormal from './assets/images/buttons/credits-normal.png';
+import creditsHover from './assets/images/buttons/credits-hover.png';
+import zombieTypeLogo from './assets/images/logo/zombietype-logo.png';
+
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
   const [selectedStoryId, setSelectedStoryId] = useState(null); // State to hold selected story ID
@@ -25,6 +38,18 @@ export default function App() {
   const handleBackToStoryMenu = () => {
     setCurrentScreen('storyMenu'); // Go back to StoryMenu
     setSelectedStoryScenes(null); // Clear selected scenes
+  };
+
+  // Handler for tutorial button (placeholder functionality)
+  const handleTutorial = () => {
+    // TODO: Implement tutorial functionality in the future
+    console.log('Tutorial functionality to be implemented');
+  };
+
+  // Handler for credits button (placeholder functionality)
+  const handleCredits = () => {
+    // TODO: Implement credits functionality in the future
+    console.log('Credits functionality to be implemented');
   };
 
   if (currentScreen !== 'menu') {
@@ -58,27 +83,96 @@ export default function App() {
   }
 
   return (
-    <div className="main-menu d-flex flex-column align-items-center justify-content-center">
-      <h1 className="display-3 mb-4">Monster Typing Game</h1>
-      <p className="lead mb-5 fw-bold">- Choose your mode -</p>
+    <div className="main-menu">
+      {/* ZombieType Logo */}
+      <div className="logo-container">
+        <img
+          src={zombieTypeLogo}
+          alt="ZombieType"
+          className="zombietype-logo"
+        />
+      </div>
+
+      {/* Menu Buttons */}
       <div className="menu-buttons">
         <button
-          className="btn-story-mode my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          className="menu-button story-mode-button"
           onClick={() => setCurrentScreen('storyMenu')}
         >
-          STORY MODE
+          <img
+            src={storyModeNormal}
+            alt="Story Mode"
+            className="button-normal"
+          />
+          <img
+            src={storyModeHover}
+            alt="Story Mode"
+            className="button-hover"
+          />
         </button>
+
         <button
-          className="btn btn-danger my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          className="menu-button challenge-mode-button"
           onClick={() => setCurrentScreen('challenge')}
         >
-          CHALLENGE MODE
+          <img
+            src={challengeModeNormal}
+            alt="Challenge Mode"
+            className="button-normal"
+          />
+          <img
+            src={challengeModeHover}
+            alt="Challenge Mode"
+            className="button-hover"
+          />
         </button>
+
         <button
-          className="btn btn-info my-2 px-4 py-3 fs-4 fw-bold btn-lg mb-3"
+          className="menu-button options-button"
           onClick={() => setCurrentScreen('settings')}
         >
-          OPTIONS
+          <img
+            src={optionsNormal}
+            alt="Options"
+            className="button-normal"
+          />
+          <img
+            src={optionsHover}
+            alt="Options"
+            className="button-hover"
+          />
+        </button>
+
+        <button
+          className="menu-button tutorial-button"
+          onClick={handleTutorial}
+        >
+          <img
+            src={tutorialNormal}
+            alt="Tutorial"
+            className="button-normal"
+          />
+          <img
+            src={tutorialHover}
+            alt="Tutorial"
+            className="button-hover"
+          />
+        </button>
+
+        <button
+          className="menu-button credits-button"
+          onClick={handleCredits}
+        >
+          <img
+            src={creditsNormal}
+            alt="Credits"
+            className="button-normal"
+          />
+          <img
+            src={creditsHover}
+            alt="Credits"
+            className="button-hover"
+          />
         </button>
       </div>
     </div>

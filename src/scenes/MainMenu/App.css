@@ -1,53 +1,202 @@
+/* MainMenu Component Styles */
 .main-menu {
   height: 100vh;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./background.png') no-repeat center center;
-  background-size: cover;
-  color: #fff;
-  text-align: center;
+  width: 100vw;
+  background-color: var(--color-palette-cream-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   animation: fadeIn 1s ease-out;
+  overflow: hidden; /* Prevent any internal scrolling */
+  box-sizing: border-box;
 }
 
-.menu-buttons button {
-  width: 250px;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+/* Logo Container */
+.logo-container {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
-.menu-buttons button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.zombietype-logo {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  /* Remove hover transform effect */
 }
-.btn-story-mode {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+
+/* Menu Buttons Container */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px; /* Increased from 350px */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Individual Menu Button */
+.menu-button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  border-radius: 0.5rem;
-
-  background-color: var(--color-secondary-light);
-  border: 2px solid var(--color-secondary-medium);
-  color: var(--color-primary-light);
-}
-.btn-story-mode:hover,
-.btn-story-mode:focus {
-  background-color: var(--color-secondary-medium);
-  border: 2px solid var(--color-secondary-dark);
-  color: var(--color-primary-medium);
+  /* Remove fixed width constraints to allow natural button width */
+  /* Set fixed height for consistency */
+  height: 60px; /* Fixed height for all buttons */
+  /* Remove hover transform effects */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
-.btn-story-mode:active {
-  background-color: var(--color-secondary-medium);
-  border: 2px solid var(--color-secondary-dark);
-  color: var(--color-primary-medium);
+.menu-button:focus {
+  outline: none;
 }
+
+/* Button Images */
+.menu-button img {
+  height: 100%; /* Use full height of container */
+  width: auto; /* Let width scale naturally */
+  display: block;
+  transition: opacity 0.2s ease;
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+.menu-button .button-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-button:hover .button-hover {
+  opacity: 1;
+}
+
+.menu-button:hover .button-normal {
+  opacity: 0;
+}
+
+/* Add subtle shadow effects */
+.menu-button {
+  filter: drop-shadow(0 2px 4px var(--color-palette-black-alpha-10));
+}
+
+.menu-button:hover {
+  filter: drop-shadow(0 4px 8px var(--color-palette-black-alpha-175));
+}
+
+/* Fade in animation */
 @keyframes fadeIn {
   from {
-    opacity: 0.7;
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+
+/* Tablet styles (768px - 1200px) */
+@media (max-width: 1200px) {
+  .main-menu {
+    padding: 15px;
+  }
+
+  .logo-container {
+    margin-bottom: 50px;
+  }
+
+  .zombietype-logo {
+    max-width: 400px;
+  }
+
+  .menu-buttons {
+    gap: 18px;
+    max-width: 380px; /* Increased */
+  }
+
+  .menu-button {
+    height: 55px; /* Slightly smaller for tablet */
+  }
+}
+
+/* Mobile styles (max-width: 767px) */
+@media (max-width: 767px) {
+  .main-menu {
+    padding: 10px;
+    justify-content: flex-start;
+    padding-top: 50px;
+  }
+
+  .logo-container {
+    margin-bottom: 40px;
+  }
+
+  .zombietype-logo {
+    max-width: 300px;
+  }
+
+  .menu-buttons {
+    gap: 15px;
+    max-width: 320px; /* Increased */
+  }
+
+  .menu-button {
+    height: 50px; /* Smaller for mobile */
+  }
+}
+
+/* Small mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  .main-menu {
+    padding: 8px;
+    padding-top: 30px;
+  }
+
+  .logo-container {
+    margin-bottom: 30px;
+  }
+
+  .zombietype-logo {
+    max-width: 250px;
+  }
+
+  .menu-buttons {
+    gap: 12px;
+    max-width: 280px; /* Increased */
+  }
+
+  .menu-button {
+    height: 45px; /* Even smaller for small mobile */
+  }
+}
+
+/* Large desktop styles (min-width: 1921px) */
+@media (min-width: 1921px) {
+  .logo-container {
+    margin-bottom: 80px;
+  }
+
+  .zombietype-logo {
+    max-width: 600px;
+  }
+
+  .menu-buttons {
+    gap: 25px;
+    max-width: 450px; /* Increased */
+  }
+
+  .menu-button {
+    height: 70px; /* Larger for big screens */
   }
 }
