@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <div className="main-menu d-flex flex-column align-items-center justify-content-center">
-      <h1 className="display-3 mb-4">Monster Typing Game</h1>
+      <h1 className="display-3 mb-4">Crazy Typing Game</h1>
       <p className="lead">- Choose Game Mode -</p>
       <div className="menu-cards d-flex gap-4">
         <div
