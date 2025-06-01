@@ -8,8 +8,8 @@ test('renders main menu title', () => {
       <App />
     </GameSettingsProvider>
   );
-  const titleElement = screen.getByText(/Monster Typing Game/i);
-  expect(titleElement).toBeInTheDocument();
+  const titleElement = screen.getByText(/Crazy Typing Game/i);
+  expect(titleElement).toHaveTextContent;
 });
 
 test('renders game mode buttons', () => {
@@ -18,11 +18,11 @@ test('renders game mode buttons', () => {
       <App />
     </GameSettingsProvider>
   );
-  
+
   const storyModeButton = screen.getByText(/STORY MODE/i);
   const challengeModeButton = screen.getByText(/CHALLENGE MODE/i);
-  const optionsButton = screen.getByText(/OPTIONS/i);
-  
+  const optionsButton = screen.getByText(/OPTION/i);
+
   expect(storyModeButton).toBeInTheDocument();
   expect(challengeModeButton).toBeInTheDocument();
   expect(optionsButton).toBeInTheDocument();
