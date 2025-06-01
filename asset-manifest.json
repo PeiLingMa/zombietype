@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/zombietype/static/css/main.a9743d4f.css",
-    "main.js": "/zombietype/static/js/main.5dca0e29.js",
+    "main.css": "/zombietype/static/css/main.2c094840.css",
+    "main.js": "/zombietype/static/js/main.4a8223f0.js",
     "static/js/154.f47d2484.chunk.js": "/zombietype/static/js/154.f47d2484.chunk.js",
     "static/js/97.da8d6cf5.chunk.js": "/zombietype/static/js/97.da8d6cf5.chunk.js",
     "static/js/859.d14420c8.chunk.js": "/zombietype/static/js/859.d14420c8.chunk.js",
@@ -12,7 +12,7 @@
     "static/media/Liam_question2.png": "/zombietype/static/media/Liam_question2.f551ddf17dbf91c6e758.png",
     "static/media/Elara_question.png": "/zombietype/static/media/Elara_question.057491dc73ab2d5810ef.png",
     "static/media/Ben_question2.png": "/zombietype/static/media/Ben_question2.5704f8123497acf1651f.png",
-    "static/media/background.png": "/zombietype/static/media/background.a821481010732a515f6b.png",
+    "static/media/MainMenu.png": "/zombietype/static/media/MainMenu.545782d9a8ba68ebbc6d.png",
     "static/media/office.jpg": "/zombietype/static/media/office.337056db7c4ebf7a920c.jpg",
     "static/media/school.jpg": "/zombietype/static/media/school.009e7cfed01f41ec0672.jpg",
     "static/media/Zoe_question.png": "/zombietype/static/media/Zoe_question.bdda29f4f681c99ccbae.png",
@@ -45,15 +45,15 @@
     "static/media/Ben_question.png": "/zombietype/static/media/Ben_question.8f75be8d6eaabc0c9965.png",
     "static/media/Anna_question.png": "/zombietype/static/media/Anna_question.8e8727fdb08bf306199c.png",
     "index.html": "/zombietype/index.html",
-    "main.a9743d4f.css.map": "/zombietype/static/css/main.a9743d4f.css.map",
-    "main.5dca0e29.js.map": "/zombietype/static/js/main.5dca0e29.js.map",
+    "main.2c094840.css.map": "/zombietype/static/css/main.2c094840.css.map",
+    "main.4a8223f0.js.map": "/zombietype/static/js/main.4a8223f0.js.map",
     "154.f47d2484.chunk.js.map": "/zombietype/static/js/154.f47d2484.chunk.js.map",
     "97.da8d6cf5.chunk.js.map": "/zombietype/static/js/97.da8d6cf5.chunk.js.map",
     "859.d14420c8.chunk.js.map": "/zombietype/static/js/859.d14420c8.chunk.js.map",
     "453.38d1bb88.chunk.js.map": "/zombietype/static/js/453.38d1bb88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9743d4f.css",
-    "static/js/main.5dca0e29.js"
+    "static/css/main.2c094840.css",
+    "static/js/main.4a8223f0.js"
   ]
 }
