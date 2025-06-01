@@ -1,3 +1,5 @@
+// src\scenes\StoryMode\StoryMode.js
+
 // FIXME: 把 StoryMode .css的風格整合
 // 以下是步驟
 // Option.css的色碼提出作為全域var
@@ -87,19 +89,35 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
   const currentScene = sceneMap[currentSceneId] ?? scenes[initialSceneId]; // 確保 currentScene 不為 undefined
 
   const [showStoryEndPopup, setShowStoryEndPopup] = useState(false); // 控制故事結束彈出視窗的顯示狀態
-
+  const [answerSummary, setAnswerSummary] = useState([]); // 儲存本次的答案摘要
   const storyProgressRef = useRef(storyProgress);
 
   const handleStoryEnd = useCallback(() => {
     if (showStoryEndPopup) return;
     console.log('故事結束');
-    setStoryProgress((prev) => ({
-      ...prev,
-      endTime: new Date().toISOString() // log end time
-    }));
+    const finalProgress = {
+      ...storyProgressRef.current, // 使用 ref 獲取最新的進度
+      endTime: new Date().toISOString()
+    };
+    setStoryProgress(finalProgress);
+
+    // --- 產生答案摘要 ---
+    const summary = finalProgress.answers.map((answerRecord) => {
+      const questionScene = scenes.find(
+        (s) => s.id === answerRecord.sceneId && s.type === 'question'
+      );
+      return {
+        questionText: questionScene ? questionScene.dialogue : 'Unknown Question', // 問題文本
+        userAnswer: answerRecord.chosenText,
+        isCorrect: answerRecord.isCorrect,
+        correctAnswer: questionScene && questionScene.answer ? questionScene.answer.text : 'N/A' // 正確答案
+      };
+    });
+    setAnswerSummary(summary); // 設定摘要
+
     setShowStoryEndPopup(true);
-    if (onStoryEnd) onStoryEnd();
-  }, [setStoryProgress, showStoryEndPopup, onStoryEnd]);
+    if (onStoryEnd) onStoryEnd(finalProgress);
+  }, [setStoryProgress, showStoryEndPopup, onStoryEnd, scenes, storyProgressRef]);
 
   useEffect(() => {
     storyProgressRef.current = storyProgress;
@@ -284,6 +302,7 @@ export default function StoryMode({ storyId, scenes, onBack, onStoryEnd }) {
         <StoryEndPopup
           isVisible={showStoryEndPopup}
           message="Story Ended"
+          answerSummary={answerSummary}
           onConfirm={() => {
             localStorage.removeItem(`storyProgress_${storyId}`);
             onBack();

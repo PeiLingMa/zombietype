@@ -31,7 +31,7 @@ const stories = [
   {
     id: 'story4',
     title: "Talkin' Library Vibes",
-    description: 'Level: Midium',
+    description: 'Level: Medium',
     previewImage: Story2_preview, // 預覽圖片路徑
     scenes: null
   },

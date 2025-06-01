@@ -5,6 +5,7 @@
   /* ------------------------------------------------------------ */
   /* Core Color Palette (調色盤) */
   /* ------------------------------------------------------------ */
+  /* theme 1 */
   --color-palette-brown-dark: #6b4f4f; /* 深棕色，用於主要文字 */
   --color-palette-brown-medium: #a0522d; /* 中棕色，用於區塊標題 */
   --color-palette-brown-light: #8b4513; /* 淺棕色，用於標題 */
@@ -28,6 +29,7 @@
   --color-palette-neutral-grey-extra-light: #eee; /* 極淺的灰色，用於佔位背景 */
 
   --color-palette-white: #fff; /* 白色 */
+  --color-palette-white-dark: #fffbe2; /* 淺白色，用於hover */
 
   /* Alpha Colors (帶透明度的顏色) */
   --color-palette-dark-alpha-85: rgba(73, 59, 59, 0.85); /* 深色半透明，用於對話框/Log */
@@ -48,7 +50,7 @@
   /* 次要色:對比和變化，通常用於標題、副標題、邊框、次要按鈕等 */
   /* 強調色:突出重要的元素，例如行動呼籲按鈕、連結、小圖標、進度條的亮點等。*/
   /* ------------------------------------------------------------ */
-
+  /* theme 1 */
   --color-primary-dark: var(--color-palette-brown-dark);
   --color-primary-medium: var(--color-palette-brown-medium);
   --color-primary-light: var(--color-palette-brown-light);

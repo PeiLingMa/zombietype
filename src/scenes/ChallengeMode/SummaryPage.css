@@ -1,0 +1,40 @@
+/* ------------------------------------------------------------ */
+/* SummaryPage component style */
+/* ------------------------------------------------------------ */
+.summary-page-root {
+  /* layout 交給 jsx 控制 */
+}
+
+.summary-page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.summary-page-btn-group {
+  /* layout 交給 jsx 控制 */
+}
+
+.summary-page-btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  background: var(--color-secondary-light);
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    transform 0.12s;
+  box-shadow: 0 2px 8px var(--color-palette-black-alpha-10);
+  margin: 0 0.75rem;
+}
+.summary-page-btn:hover,
+.summary-page-btn:focus {
+  background: var(--color-secondary-medium);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}

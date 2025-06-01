@@ -38,7 +38,7 @@
 
 .option-page {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../MainMenu/background.png');
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../MainMenu/MainMenu.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

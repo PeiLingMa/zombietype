@@ -12,8 +12,9 @@ import SummaryPage from './SummaryPage';
 
 // Import Bootstrap for UI styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-// Import CSS for shake animation
+// Import CSS for shake animation and styling
 import './shake.css';
+import './ChallengeMode.css';
 
 /**
  * Challenge Mode Component
@@ -355,7 +356,7 @@ export default function ChallengeMode({ onBack }) {
 
   // Render game UI
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center bg-dark text-light p-4">
+    <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center challenge-container">
       {gameState.gameOver ? (
         // Game over screen
         <SummaryPage
@@ -365,8 +366,8 @@ export default function ChallengeMode({ onBack }) {
       ) : (
         // Active game screen
         <>
-          <h1 className="display-4 fw-bold text-warning mb-4">Monster Typing Game</h1>
-          <p className="lead">Type the word to defeat the monster!</p>
+          <h1 className="challenge-h1 display-4 fw-bold mb-4">Challenge Mode</h1>
+          <p className="challenge-lead lead">Type the word to defeat the monster!</p>
           {/* Boss hp */}
           {zombieManager.getCurrentZombie()?.behavior === 'boss' && (
             <div className="d-flex justify-content-center mb-3">
@@ -380,7 +381,7 @@ export default function ChallengeMode({ onBack }) {
                       height: '25px',
                       margin: '0 5px',
                       borderRadius: '50%',
-                      backgroundColor: i < bossHp ? 'red' : 'lightgray',
+                      backgroundColor: i < bossHp ? 'rgba(255,0,0,0.85)' : 'rgba(211,211,211,0.7)',
                       boxShadow: '0 0 5px rgba(0,0,0,0.5)'
                     }}
                   />
@@ -389,9 +390,7 @@ export default function ChallengeMode({ onBack }) {
             </div>
           )}
           {/* Time remaining indicator */}
-          <p
-            className={`mt-2 fw-bold ${zombieManager.getCurrentChargeRate() >= 0.75 ? 'text-danger' : 'text-warning'} bg-dark py-2 px-4 rounded-pill shadow`}
-          >
+          <p className={`mt-2 fw-bold bg-time-left`}>
             Time Left:{' '}
             {Math.round(
               (1 - zombieManager.getCurrentChargeRate()) /
@@ -411,13 +410,16 @@ export default function ChallengeMode({ onBack }) {
             <img
               src={zombieManager.getCurrentZombieImage()}
               alt="Zombie"
-              className="img-fluid rounded-circle border border-warning bg-light p-3 shadow-lg"
-              style={{ width: '250px', height: '250px' }}
+              className="img-fluid rounded-circle zombie-visual"
+              style={{
+                background: 'rgba(255,255,255,0.95)',
+                boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'
+              }}
             />
           </div>
 
           {/* Current word display */}
-          <div className="bg-warning text-dark px-4 py-2 rounded-pill fs-4 fw-bold border border-dark shadow mb-4">
+          <div className="current-word-box">
             {questionManager.currentQuestion ? questionManager.currentQuestion.description : ''}
           </div>
 
@@ -426,16 +428,34 @@ export default function ChallengeMode({ onBack }) {
             type="text"
             ref={playerInput.registerInputRef}
             onChange={handleInputWithMimic}
-            className={`form-control text-center w-50 mx-auto p-3 fs-4 border border-warning shadow-lg ${playerInput.isWrong ? 'shake' : ''}`}
+            className={`form-control text-center w-50 mx-auto p-3 fs-4 input-word-box ${playerInput.isWrong ? 'shake' : ''}`}
             autoFocus
             disabled={gameState.gameOver}
+            style={{
+              background: 'rgba(255,255,255,0.85)',
+              border: '2px solid rgba(255, 218, 99, 0.85)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+            }}
           />
           {/* Game stats */}
-          <div className="d-flex justify-content-around w-50 mt-3">
-            <p className="badge bg-danger p-2">Lives: {gameState.lives}</p>
-            <p className="badge bg-success p-2">Theme: {gameState.currentTheme}</p>
-            <p className="badge bg-warning p-2">
-              Charge: {zombieManager.getCurrentChargeRate().toFixed(2)}%
+          <div className="game-stats d-flex justify-content-around w-50 mt-3">
+            <p
+              className="badge p-2"
+              style={{ background: 'rgba(220,53,69,0.85)' }}
+            >
+              Lives: {gameState.lives}
+            </p>
+            <p
+              className="badge p-2"
+              style={{ background: 'rgba(40,167,69,0.85)' }}
+            >
+              Theme: {gameState.currentTheme}
+            </p>
+            <p
+              className="charge badge p-2"
+              style={{ background: 'rgba(255,218,99,0.85)' }}
+            >
+              Charge: {(zombieManager.getCurrentChargeRate() * 100).toFixed(0)}%
             </p>
           </div>
         </>
