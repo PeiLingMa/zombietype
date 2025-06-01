@@ -364,8 +364,8 @@ export default function ChallengeMode({ onBack }) {
       ) : (
         // Active game screen
         <>
-          <h1 className="display-4 fw-bold mb-4">Challenge Mode</h1>
-          <p className="lead">Type the word to defeat the monster!</p>
+          <h1 className="challenge-h1 display-4 fw-bold mb-4">Challenge Mode</h1>
+          <p className="challenge-lead lead">Type the word to defeat the monster!</p>
           {/* Boss hp */}
           {zombieManager.getCurrentZombie()?.behavior === 'boss' && (
             <div className="d-flex justify-content-center mb-3">
