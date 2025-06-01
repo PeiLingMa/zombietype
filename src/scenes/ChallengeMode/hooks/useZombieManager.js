@@ -102,7 +102,7 @@ export const useZombieManager = (gameState/*, updateGameState*/) => {
    */
   const changeCurrentZombie = useCallback((completionRate = 0) => {
     let filtered;
-    if (completionRate < 0.3) {
+    if (completionRate < 0.9) {
       if (completionRate === 0) {
         // 0 completionRate -> no mimic
         filtered = getAvailableZombies(gameState.level).filter(

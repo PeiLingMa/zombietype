@@ -248,6 +248,8 @@ export default function ChallengeMode({ onBack }) {
           }
           return true;
         } else {
+          const newLives = gameState.lives + 1;
+          updateGameState({ lives: newLives });
           themeManager.rotateToNextTheme();
         }
         return false;
