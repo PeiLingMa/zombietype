@@ -1,0 +1,620 @@
+[
+  {
+    "description": "The view is (love).",
+    "translation": "景色很迷人。",
+    "answer": "lovely",
+    "type": "amend"
+  },
+  {
+    "description": "Let's go (indoors).",
+    "translation": "我們去室內吧。",
+    "answer": "inside",
+    "type": "amend"
+  },
+  {
+    "description": "Is this a feather (duve)?",
+    "translation": "這是羽絨被嗎？",
+    "answer": "duvet",
+    "type": "amend"
+  },
+  {
+    "description": "High (tides) can cause flooding.",
+    "translation": "高潮會導致洪水。",
+    "answer": "tide",
+    "type": "amend"
+  },
+  {
+    "description": "Expect occasional (showers) tomorrow.",
+    "translation": "預計明天有陣雨。",
+    "answer": "showers",
+    "type": "amend"
+  },
+  {
+    "description": "She (kicks) the door open yesterday.",
+    "translation": "她昨天踢開了門。",
+    "answer": "kicked",
+    "type": "amend"
+  },
+  {
+    "description": "He (closing) the window now.",
+    "translation": "他現在正在關窗戶。",
+    "answer": "is closing",
+    "type": "amend"
+  },
+  {
+    "description": "What you (do) last night?",
+    "translation": "你昨晚做了什麼？",
+    "answer": "did you do",
+    "type": "amend"
+  },
+  {
+    "description": "Where did you (met) him?",
+    "translation": "你在哪裡遇見他的？",
+    "answer": "meet",
+    "type": "amend"
+  },
+  {
+    "description": "I need to take (shower).",
+    "translation": "我需要洗個澡。",
+    "answer": "a shower",
+    "type": "amend"
+  },
+  {
+    "description": "Did he (smoked) here?",
+    "translation": "他剛才在這裡抽煙了嗎？",
+    "answer": "smoke",
+    "type": "amend"
+  },
+  {
+    "description": "She (laughing) when she saw him.",
+    "translation": "她看到他時笑了。",
+    "answer": "laughed",
+    "type": "amend"
+  },
+  {
+    "description": "He (kiss) her goodbye.",
+    "translation": "他吻別了她。",
+    "answer": "kissed",
+    "type": "amend"
+  },
+  {
+    "description": "When did you (leave) school?",
+    "translation": "你什麼時候離開學校的？",
+    "answer": "leave",
+    "type": "amend"
+  },
+  {
+    "description": "His health (improves) significantly last year.",
+    "translation": "他的健康去年顯著改善。",
+    "answer": "improved",
+    "type": "amend"
+  },
+  {
+    "description": "Do you want to (sharing) this cake?",
+    "translation": "你想分享這個蛋糕嗎？",
+    "answer": "share",
+    "type": "amend"
+  },
+  {
+    "description": "They (climb) Mount Fuji last year.",
+    "translation": "他們去年爬了富士山。",
+    "answer": "climbed",
+    "type": "amend"
+  },
+  {
+    "description": "He (covering) his face with his hands.",
+    "translation": "他用手捂著臉。",
+    "answer": "covered",
+    "type": "amend"
+  },
+  {
+    "description": "We (follow) the path through the woods.",
+    "translation": "我們沿著小路穿過樹林。",
+    "answer": "followed",
+    "type": "amend"
+  },
+  {
+    "description": "Make a (copie) of this document.",
+    "translation": "把這份文件複印一份。",
+    "answer": "copy",
+    "type": "amend"
+  },
+  {
+    "description": "She (completing) the report now.",
+    "translation": "她現在正在完成報告。",
+    "answer": "is completing",
+    "type": "amend"
+  },
+  {
+    "description": "He needs to (filling) the bucket.",
+    "translation": "他需要把水桶裝滿。",
+    "answer": "fill",
+    "type": "amend"
+  },
+  {
+    "description": "She (prepares) dinner every night.",
+    "translation": "她每天晚上準備晚餐。",
+    "answer": "prepares",
+    "type": "amend"
+  },
+  {
+    "description": "He is (painting) the fence.",
+    "translation": "他正在粉刷柵欄。",
+    "answer": "painting",
+    "type": "amend"
+  },
+  {
+    "description": "He is (pointing) at the bird.",
+    "translation": "他正指著那隻鳥。",
+    "answer": "pointing",
+    "type": "amend"
+  },
+  {
+    "description": "Why you (delaying)?",
+    "translation": "你為什麼耽擱？",
+    "answer": "are you delaying",
+    "type": "amend"
+  },
+  {
+    "description": "He (repairs) the roof last week.",
+    "translation": "他上週修理了屋頂。",
+    "answer": "repaired",
+    "type": "amend"
+  },
+  {
+    "description": "She (knocking) politely before entering.",
+    "translation": "她進門前禮貌地敲了敲門。",
+    "answer": "knocked",
+    "type": "amend"
+  },
+  {
+    "description": "What's that strange (smelling)?",
+    "translation": "那奇怪的氣味是什麼？",
+    "answer": "smell",
+    "type": "amend"
+  },
+  {
+    "description": "Have you (iron) my trousers?",
+    "translation": "你熨了我的褲子嗎？",
+    "answer": "ironed",
+    "type": "amend"
+  },
+  {
+    "description": "He (fishing) in the river now.",
+    "translation": "他現在正在河裡釣魚。",
+    "answer": "is fishing",
+    "type": "amend"
+  },
+  {
+    "description": "He is (pouring) the milk.",
+    "translation": "他正在倒牛奶。",
+    "answer": "pouring",
+    "type": "amend"
+  },
+  {
+    "description": "He is (counting) the sheep.",
+    "translation": "他正在數羊。",
+    "answer": "counting",
+    "type": "amend"
+  },
+  {
+    "description": "We might have to (postponing) our trip.",
+    "translation": "我們可能得推遲我們的旅行。",
+    "answer": "postpone",
+    "type": "amend"
+  },
+  {
+    "description": "She (check) the time on her watch.",
+    "translation": "她看了看手錶上的時間。",
+    "answer": "checked",
+    "type": "amend"
+  },
+  {
+    "description": "Use a (pen) to fasten the badge.",
+    "translation": "用別針把徽章扣上。",
+    "answer": "pin",
+    "type": "amend"
+  },
+  {
+    "description": "He is (noting) the key points.",
+    "translation": "他正在記錄要點。",
+    "answer": "noting",
+    "type": "amend"
+  },
+  {
+    "description": "When will you (finish)?",
+    "translation": "你什麼時候結束？",
+    "answer": "finish",
+    "type": "amend"
+  },
+  {
+    "description": "He is (picking) flowers.",
+    "translation": "他正在摘花。",
+    "answer": "picking",
+    "type": "amend"
+  },
+  {
+    "description": "She is (tying) a ribbon in her hair.",
+    "translation": "她正在頭髮上繫絲帶。",
+    "answer": "tying",
+    "type": "amend"
+  },
+  {
+    "description": "Give the button a firm (pressing).",
+    "translation": "用力按下按鈕。",
+    "answer": "press",
+    "type": "amend"
+  },
+  {
+    "description": "Who (babysit) for you last time?",
+    "translation": "上次是誰幫你看孩子的？",
+    "answer": "babysat",
+    "type": "amend"
+  },
+  {
+    "description": "He is (blowing) bubbles.",
+    "translation": "他正在吹泡泡。",
+    "answer": "blowing",
+    "type": "amend"
+  },
+  {
+    "description": "She is (fastening) her coat.",
+    "translation": "她正在扣外套。",
+    "answer": "fastening",
+    "type": "amend"
+  },
+  {
+    "description": "You need to learn how to (behavior).",
+    "translation": "你需要學會如何表現。",
+    "answer": "behave",
+    "type": "amend"
+  },
+  {
+    "description": "We need to make some (arranging).",
+    "translation": "我們需要做些安排。",
+    "answer": "arrangements",
+    "type": "amend"
+  },
+  {
+    "description": "The sky needs to (clearing) up.",
+    "translation": "天需要放晴。",
+    "answer": "clear",
+    "type": "amend"
+  },
+  {
+    "description": "Draw a (circular) around the word.",
+    "translation": "在這個詞周圍畫一個圈。",
+    "answer": "circle",
+    "type": "amend"
+  },
+  {
+    "description": "The boxer landed a hard (hitting).",
+    "translation": "拳擊手重重地打了一拳。",
+    "answer": "hit",
+    "type": "amend"
+  },
+  {
+    "description": "The fence needs (mend).",
+    "translation": "柵欄需要修理。",
+    "answer": "mending",
+    "type": "amend"
+  },
+  {
+    "description": "She is (stepping) carefully.",
+    "translation": "她小心翼翼地走著。",
+    "answer": "stepping",
+    "type": "amend"
+  },
+  {
+    "description": "He is (wrapping) the gift.",
+    "translation": "他正在包裝禮物。",
+    "answer": "wrapping",
+    "type": "amend"
+  },
+  {
+    "description": "She (locks) the gate every night.",
+    "translation": "她每天晚上鎖大門。",
+    "answer": "locks",
+    "type": "amend"
+  },
+  {
+    "description": "Give me a (handle)!",
+    "translation": "幫我個忙！",
+    "answer": "hand",
+    "type": "amend"
+  },
+  {
+    "description": "He (canceling) his subscription.",
+    "translation": "他取消了他的訂閱。",
+    "answer": "cancelled / canceled",
+    "type": "amend"
+  },
+  {
+    "description": "They are (burying) the treasure.",
+    "translation": "他們正在埋藏寶藏。",
+    "answer": "burying",
+    "type": "amend"
+  },
+  {
+    "description": "She (watch) the sunset.",
+    "translation": "她看了日落。",
+    "answer": "watched",
+    "type": "amend"
+  },
+  {
+    "description": "Be careful not to (smashing) the plates.",
+    "translation": "小心不要打碎盤子。",
+    "answer": "smash",
+    "type": "amend"
+  },
+  {
+    "description": "Would you like some salsa (dipping)?",
+    "translation": "你想要一些莎莎醬嗎？",
+    "answer": "dip",
+    "type": "amend"
+  },
+  {
+    "description": "Use the hair (spraying).",
+    "translation": "使用髮膠。",
+    "answer": "spray",
+    "type": "amend"
+  },
+  {
+    "description": "The leopard has dark (spotting).",
+    "translation": "豹子身上有深色斑點。",
+    "answer": "spots",
+    "type": "amend"
+  },
+  {
+    "description": "She is always (slamming) doors.",
+    "translation": "她總是砰地關門。",
+    "answer": "slamming",
+    "type": "amend"
+  },
+  {
+    "description": "They are (demolishing) the bridge.",
+    "translation": "他們正在拆除橋樑。",
+    "answer": "demolishing",
+    "type": "amend"
+  },
+  {
+    "description": "Set the animals (freedom).",
+    "translation": "讓動物自由。",
+    "answer": "free",
+    "type": "amend"
+  },
+  {
+    "description": "Don't leave things where people might (tripping).",
+    "translation": "不要把東西留在別人可能絆倒的地方。",
+    "answer": "trip",
+    "type": "amend"
+  },
+  {
+    "description": "Can I have another (slicing) of pizza?",
+    "translation": "我可以再要一片披薩嗎？",
+    "answer": "slice",
+    "type": "amend"
+  },
+  {
+    "description": "You must (kept) trying.",
+    "translation": "你必須繼續嘗試。",
+    "answer": "keep",
+    "type": "amend"
+  },
+  {
+    "description": "There's a big (ripping) in the curtain.",
+    "translation": "窗簾上有個大口子。",
+    "answer": "rip",
+    "type": "amend"
+  },
+  {
+    "description": "What's the best (timing) to call?",
+    "translation": "什麼時候打電話最好？",
+    "answer": "time",
+    "type": "amend"
+  },
+  {
+    "description": "They (descend) the mountain carefully.",
+    "translation": "他們小心翼翼地下山。",
+    "answer": "descended",
+    "type": "amend"
+  },
+  {
+    "description": "This requires a quick (seizure) of the situation.",
+    "translation": "這需要快速掌控情況。",
+    "answer": "seizing",
+    "type": "amend"
+  },
+  {
+    "description": "Give the door a gentle (taping).",
+    "translation": "輕輕敲門。",
+    "answer": "tap",
+    "type": "amend"
+  },
+  {
+    "description": "He (crawled) under the fence.",
+    "translation": "他爬過了柵欄。",
+    "answer": "crawled",
+    "type": "amend"
+  },
+  {
+    "description": "Expect scattered (showers) later.",
+    "translation": "預計稍後有零星陣雨。",
+    "answer": "showers",
+    "type": "amend"
+  },
+  {
+    "description": "We must (overcoming) these obstacles.",
+    "translation": "我們必須克服這些障礙。",
+    "answer": "overcome",
+    "type": "amend"
+  },
+  {
+    "description": "Don't (fired) the gun!",
+    "translation": "不要開槍！",
+    "answer": "fire",
+    "type": "amend"
+  },
+  {
+    "description": "She is trying to (obtaining) a visa.",
+    "translation": "她正在試圖獲得簽證。",
+    "answer": "obtain",
+    "type": "amend"
+  },
+  {
+    "description": "This sweater has (stretching) out of shape.",
+    "translation": "這件毛衣已經變形了。",
+    "answer": "stretched",
+    "type": "amend"
+  },
+  {
+    "description": "She (pounds) the spices in a mortar.",
+    "translation": "她在研缽裡搗香料。",
+    "answer": "pounds",
+    "type": "amend"
+  },
+  {
+    "description": "Can you give the dice a (rolling)?",
+    "translation": "你能擲一下骰子嗎？",
+    "answer": "roll",
+    "type": "amend"
+  },
+  {
+    "description": "It will take years to (rebuilding) the community.",
+    "translation": "重建社區需要數年時間。",
+    "answer": "rebuild",
+    "type": "amend"
+  },
+  {
+    "description": "They are trying to (capturing) the butterfly.",
+    "translation": "他們正在試圖捕捉蝴蝶。",
+    "answer": "capture",
+    "type": "amend"
+  },
+  {
+    "description": "Can you make the price a bit (low)?",
+    "translation": "你能把價格降低一點嗎？",
+    "answer": "lower",
+    "type": "amend"
+  },
+  {
+    "description": "He is (wiping) the window.",
+    "translation": "他正在擦窗戶。",
+    "answer": "wiping",
+    "type": "amend"
+  },
+  {
+    "description": "Who (waters) the garden when you're away?",
+    "translation": "你不在家的時候誰給花園澆水？",
+    "answer": "waters",
+    "type": "amend"
+  },
+  {
+    "description": "The product (lunched) failed.",
+    "translation": "產品發布失敗了。",
+    "answer": "launch",
+    "type": "amend"
+  },
+  {
+    "description": "They are (undertaking) research.",
+    "translation": "他們正在進行研究。",
+    "answer": "undertaking",
+    "type": "amend"
+  },
+  {
+    "description": "Reading (occupies) most of her free time.",
+    "translation": "閱讀佔據了她大部分的空閒時間。",
+    "answer": "occupies",
+    "type": "amend"
+  },
+  {
+    "description": "Please (marks) your name on the list.",
+    "translation": "請在名單上標出你的名字。",
+    "answer": "mark",
+    "type": "amend"
+  },
+  {
+    "description": "This could (posing) a problem.",
+    "translation": "這可能會造成問題。",
+    "answer": "pose",
+    "type": "amend"
+  },
+  {
+    "description": "Don't (snapping) at me!",
+    "translation": "別對我大吼大叫！",
+    "answer": "snap",
+    "type": "amend"
+  },
+  {
+    "description": "Can you speak more (slowly)?",
+    "translation": "你能說慢一點嗎？",
+    "answer": "slowly",
+    "type": "amend"
+  },
+  {
+    "description": "The story has an unexpected (twisting).",
+    "translation": "這個故事有一個意想不到的轉折。",
+    "answer": "twist",
+    "type": "amend"
+  },
+  {
+    "description": "He is (struggling) with his homework.",
+    "translation": "他正在為作業苦惱。",
+    "answer": "struggling",
+    "type": "amend"
+  },
+  {
+    "description": "The waiter received a generous (tipping).",
+    "translation": "服務生收到了一筆豐厚的小費。",
+    "answer": "tip",
+    "type": "amend"
+  },
+  {
+    "description": "He was (staggering) drunkenly.",
+    "translation": "他醉醺醺地搖晃著。",
+    "answer": "staggering",
+    "type": "amend"
+  },
+  {
+    "description": "The wind is (blowing) hard.",
+    "translation": "風刮得很猛。",
+    "answer": "blowing",
+    "type": "amend"
+  },
+  {
+    "description": "We need to (mountain) the TV on the wall.",
+    "translation": "我們需要把電視裝在牆上。",
+    "answer": "mount",
+    "type": "amend"
+  },
+  {
+    "description": "Add a (sprinkling) of herbs.",
+    "translation": "撒上少許香草。",
+    "answer": "sprinkling",
+    "type": "amend"
+  },
+  {
+    "description": "You need an (aduld) ticket.",
+    "translation": "你需要一張成人票。",
+    "answer": "adult",
+    "type": "amend"
+  },
+  {
+    "description": "She is (enjoy) the concert.",
+    "translation": "她正在欣賞音樂會。",
+    "answer": "enjoying",
+    "type": "amend"
+  },
+  {
+    "description": "She (crying) when she heard the news.",
+    "translation": "她聽到消息時哭了。",
+    "answer": "cried",
+    "type": "amend"
+  },
+  {
+    "description": "Never lose (hoping).",
+    "translation": "永不失去希望。",
+    "answer": "hope",
+    "type": "amend"
+  }
+]

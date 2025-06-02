@@ -1,0 +1,1897 @@
+[
+  {
+    "description": "Protecting (anemal) habitats is important.",
+    "answer": "animal",
+    "type": "amend"
+  },
+  {
+    "description": "Try to swat those annoying (flys).",
+    "answer": "flies",
+    "type": "amend"
+  },
+  {
+    "description": "The bird preened its (feathesr).",
+    "answer": "feathers",
+    "type": "amend"
+  },
+  {
+    "description": "Swimmers were warned about (shark) in the area.",
+    "answer": "sharks",
+    "type": "amend"
+  },
+  {
+    "description": "Don't let the bed (buggs) bite!",
+    "answer": "bugs",
+    "type": "amend"
+  },
+  {
+    "description": "Are you afraid of (spiderr)?",
+    "answer": "spiders",
+    "type": "amend"
+  },
+  {
+    "description": "We saw several (batts) flying out of the cave at dusk.",
+    "answer": "bats",
+    "type": "amend"
+  },
+  {
+    "description": "My neighbour's dog (barking) all night long.",
+    "answer": "barks",
+    "type": "amend"
+  },
+  {
+    "description": "Look at all the (ant) marching in a line!",
+    "answer": "ants",
+    "type": "amend"
+  },
+  {
+    "description": "(Kangaroos) is native to Australia.",
+    "answer": "Kangaroos",
+    "type": "amend"
+  },
+  {
+    "description": "The book has over 500 (pags).",
+    "answer": "pages",
+    "type": "amend"
+  },
+  {
+    "description": "He delivered (newspaper) in the neighborhood.",
+    "answer": "newspapers",
+    "type": "amend"
+  },
+  {
+    "description": "How many compact (disces) do you own?",
+    "answer": "discs",
+    "type": "amend"
+  },
+  {
+    "description": "She loves reading crime (thriler).",
+    "answer": "thrillers",
+    "type": "amend"
+  },
+  {
+    "description": "TV channels rely on (view) ratings.",
+    "answer": "viewer",
+    "type": "amend"
+  },
+  {
+    "description": "He (picturing) himself winning the award.",
+    "answer": "pictures",
+    "type": "amend"
+  },
+  {
+    "description": "All the (performence) took a bow.",
+    "answer": "performers",
+    "type": "amend"
+  },
+  {
+    "description": "The novel is divided into twelve (chapers).",
+    "answer": "chapters",
+    "type": "amend"
+  },
+  {
+    "description": "She doesn't believe everything she reads in the (tabloid).",
+    "answer": "tabloids",
+    "type": "amend"
+  },
+  {
+    "description": "The book topped the (bestsell) list for weeks.",
+    "answer": "bestseller",
+    "type": "amend"
+  },
+  {
+    "description": "She (acting) professionally on stage.",
+    "answer": "acts",
+    "type": "amend"
+  },
+  {
+    "description": "I skipped the (advert) on YouTube.",
+    "answer": "adverts",
+    "type": "amend"
+  },
+  {
+    "description": "I saw (a ad) for cheap flights.",
+    "answer": "an ad",
+    "type": "amend"
+  },
+  {
+    "description": "Did you see the newspaper (hedlines) today?",
+    "answer": "headlines",
+    "type": "amend"
+  },
+  {
+    "description": "She's addicted to watching TV (sope).",
+    "answer": "soaps",
+    "type": "amend"
+  },
+  {
+    "description": "He thinks watching (soap opera) is a waste of time.",
+    "answer": "soap operas",
+    "type": "amend"
+  },
+  {
+    "description": "There are many TV (stationn) to choose from.",
+    "answer": "stations",
+    "type": "amend"
+  },
+  {
+    "description": "Who is (conduct) the choir?",
+    "answer": "conducting",
+    "type": "amend"
+  },
+  {
+    "description": "The song was (compossed) by a famous musician.",
+    "answer": "composed",
+    "type": "amend"
+  },
+  {
+    "description": "The book accurately (portray) life in the 19th century.",
+    "answer": "portrays",
+    "type": "amend"
+  },
+  {
+    "description": "He plays in a (brasse) band.",
+    "answer": "brass",
+    "type": "amend"
+  },
+  {
+    "description": "The piano sounds out of (toon).",
+    "answer": "tune",
+    "type": "amend"
+  },
+  {
+    "description": "Can you read musical (note)?",
+    "answer": "notes",
+    "type": "amend"
+  },
+  {
+    "description": "Good (illustrate) can enhance a story.",
+    "answer": "illustrations",
+    "type": "amend"
+  },
+  {
+    "description": "The documentary (feature) interviews with experts.",
+    "answer": "features",
+    "type": "amend"
+  },
+  {
+    "description": "They needed hundreds of (extra) for the battle scene.",
+    "answer": "extras",
+    "type": "amend"
+  },
+  {
+    "description": "He said he was (allright), but I wasn't sure.",
+    "answer": "alright",
+    "type": "amend"
+  },
+  {
+    "description": "My (leg) hurt after the long walk.",
+    "answer": "legs",
+    "type": "amend"
+  },
+  {
+    "description": "He has ten fingers and ten (toes).",
+    "answer": "toes",
+    "type": "amend"
+  },
+  {
+    "description": "Do you often suffer from (headaces)?",
+    "answer": "headaches",
+    "type": "amend"
+  },
+  {
+    "description": "She has beautiful blue (eye).",
+    "answer": "eyes",
+    "type": "amend"
+  },
+  {
+    "description": "Cover your (earr) if the noise is too loud.",
+    "answer": "ears",
+    "type": "amend"
+  },
+  {
+    "description": "I felt like I was (freze) to the spot.",
+    "answer": "frozen",
+    "type": "amend"
+  },
+  {
+    "description": "Wash your hands often to avoid spreading (virus).",
+    "answer": "viruses",
+    "type": "amend"
+  },
+  {
+    "description": "Don't bite your (nailes).",
+    "answer": "nails",
+    "type": "amend"
+  },
+  {
+    "description": "He looked pale and slightly (unwel).",
+    "answer": "unwell",
+    "type": "amend"
+  },
+  {
+    "description": "He painted his (toenail) bright red.",
+    "answer": "toenails",
+    "type": "amend"
+  },
+  {
+    "description": "The wound is (heeling) nicely.",
+    "answer": "healing",
+    "type": "amend"
+  },
+  {
+    "description": "Her (thigh) are strong from cycling.",
+    "answer": "thighs",
+    "type": "amend"
+  },
+  {
+    "description": "The baby has chubby rosy (cheak).",
+    "answer": "cheeks",
+    "type": "amend"
+  },
+  {
+    "description": "He (bruise) his leg playing football.",
+    "answer": "bruised",
+    "type": "amend"
+  },
+  {
+    "description": "The doctor prescribed some pain relief (tabblets).",
+    "answer": "tablets",
+    "type": "amend"
+  },
+  {
+    "description": "She has long dark (eyelash).",
+    "answer": "eyelashes",
+    "type": "amend"
+  },
+  {
+    "description": "He put his hands on his (hipp).",
+    "answer": "hips",
+    "type": "amend"
+  },
+  {
+    "description": "The infection was (treat) with antibiotics.",
+    "answer": "treated",
+    "type": "amend"
+  },
+  {
+    "description": "Excessive alcohol consumption can damage the (livers).",
+    "answer": "liver",
+    "type": "amend"
+  },
+  {
+    "description": "A healthy mind in a healthy (boddy).",
+    "answer": "body",
+    "type": "amend"
+  },
+  {
+    "description": "She has a few red (spott) on her arm.",
+    "answer": "spots",
+    "type": "amend"
+  },
+  {
+    "description": "Bleeding (gums) is a sign of disease.",
+    "answer": "gums",
+    "type": "amend"
+  },
+  {
+    "description": "He often gets (earache) after swimming.",
+    "answer": "earaches",
+    "type": "amend"
+  },
+  {
+    "description": "Are there any natural (remedys) for insomnia?",
+    "answer": "remedies",
+    "type": "amend"
+  },
+  {
+    "description": "I (bumping) my knee against the table.",
+    "answer": "bumped",
+    "type": "amend"
+  },
+  {
+    "description": "He has a habit of biting his (fingernail).",
+    "answer": "fingernails",
+    "type": "amend"
+  },
+  {
+    "description": "My leg is really (hurt) now.",
+    "answer": "hurting",
+    "type": "amend"
+  },
+  {
+    "description": "Humans typically have 12 pairs of (ribb).",
+    "answer": "ribs",
+    "type": "amend"
+  },
+  {
+    "description": "She plucked her (eyebrow) into a thin line.",
+    "answer": "eyebrows",
+    "type": "amend"
+  },
+  {
+    "description": "Rest your (elbow) on the table.",
+    "answer": "elbows",
+    "type": "amend"
+  },
+  {
+    "description": "Do you take birth control (pill)?",
+    "answer": "pills",
+    "type": "amend"
+  },
+  {
+    "description": "He was arrested for possessing illegal (drug).",
+    "answer": "drugs",
+    "type": "amend"
+  },
+  {
+    "description": "He is expected to make a full (recovry).",
+    "answer": "recovery",
+    "type": "amend"
+  },
+  {
+    "description": "He was seriously (wound) in the battle.",
+    "answer": "wounded",
+    "type": "amend"
+  },
+  {
+    "description": "He has a fear of (nedles).",
+    "answer": "needles",
+    "type": "amend"
+  },
+  {
+    "description": "His health was (wreck) by heavy smoking.",
+    "answer": "wrecked",
+    "type": "amend"
+  },
+  {
+    "description": "Use lotion to prevent skin (driness).",
+    "answer": "dryness",
+    "type": "amend"
+  },
+  {
+    "description": "Blood flows back to the heart through the (vein).",
+    "answer": "veins",
+    "type": "amend"
+  },
+  {
+    "description": "The refugees were (starve) for food.",
+    "answer": "starving",
+    "type": "amend"
+  },
+  {
+    "description": "There have been several (cas) of flu reported.",
+    "answer": "cases",
+    "type": "amend"
+  },
+  {
+    "description": "Mental health (disorder) require professional help.",
+    "answer": "disorders",
+    "type": "amend"
+  },
+  {
+    "description": "Lie on your (sides).",
+    "answer": "side",
+    "type": "amend"
+  },
+  {
+    "description": "Support groups can help allergy (sufferer).",
+    "answer": "sufferers",
+    "type": "amend"
+  },
+  {
+    "description": "Emotional wounds can also leave deep (scar).",
+    "answer": "scars",
+    "type": "amend"
+  },
+  {
+    "description": "The virus is easily (transmit) through the air.",
+    "answer": "transmitted",
+    "type": "amend"
+  },
+  {
+    "description": "Scientists are studying the human (genom).",
+    "answer": "genome",
+    "type": "amend"
+  },
+  {
+    "description": "Take the full course of (antibiotic) as directed.",
+    "answer": "antibiotics",
+    "type": "amend"
+  },
+  {
+    "description": "Sweaty (palmes) can be a sign of nervousness.",
+    "answer": "palms",
+    "type": "amend"
+  },
+  {
+    "description": "Internal (organs) includes the liver and kidneys.",
+    "answer": "organs",
+    "type": "amend"
+  },
+  {
+    "description": "Problems with spinal (discs) causes severe pain.",
+    "answer": "discs",
+    "type": "amend"
+  },
+  {
+    "description": "She suffers from trapped (nerve) in her neck.",
+    "answer": "nerves",
+    "type": "amend"
+  },
+  {
+    "description": "Where are my clean (sock)?",
+    "answer": "socks",
+    "type": "amend"
+  },
+  {
+    "description": "I lost one of my woollen (glove).",
+    "answer": "gloves",
+    "type": "amend"
+  },
+  {
+    "description": "She always (wear) beautiful jewellery.",
+    "answer": "wears",
+    "type": "amend"
+  },
+  {
+    "description": "My leather (boots) needs polish.",
+    "answer": "boots",
+    "type": "amend"
+  },
+  {
+    "description": "She wears several (ring) on her fingers.",
+    "answer": "rings",
+    "type": "amend"
+  },
+  {
+    "description": "My new (trainer) are very comfortable.",
+    "answer": "trainers",
+    "type": "amend"
+  },
+  {
+    "description": "This jacket has short (sleve).",
+    "answer": "sleeves",
+    "type": "amend"
+  },
+  {
+    "description": "My new leather (sandal) are very comfortable.",
+    "answer": "sandals",
+    "type": "amend"
+  },
+  {
+    "description": "Santa Claus fills the Christmas (stocking).",
+    "answer": "stockings",
+    "type": "amend"
+  },
+  {
+    "description": "She maintained her (innocent) throughout the trial.",
+    "answer": "innocence",
+    "type": "amend"
+  },
+  {
+    "description": "Parking here is (ilegally).",
+    "answer": "illegal",
+    "type": "amend"
+  },
+  {
+    "description": "He was (sentence) to five years in jail.",
+    "answer": "sentenced",
+    "type": "amend"
+  },
+  {
+    "description": "Breaking the (rule) has consequences.",
+    "answer": "rules",
+    "type": "amend"
+  },
+  {
+    "description": "He decided to study (legal) at university.",
+    "answer": "law",
+    "type": "amend"
+  },
+  {
+    "description": "Hundreds of innocent civilians were (masacred).",
+    "answer": "massacred",
+    "type": "amend"
+  },
+  {
+    "description": "He was caught (smugling) diamonds into the country.",
+    "answer": "smuggling",
+    "type": "amend"
+  },
+  {
+    "description": "The defendant was (try) by a jury of his peers.",
+    "answer": "tried",
+    "type": "amend"
+  },
+  {
+    "description": "She is currently (serve) a life sentence.",
+    "answer": "serving",
+    "type": "amend"
+  },
+  {
+    "description": "Check the (insyde) pocket of the jacket.",
+    "translation": "檢查夾克的內袋。(Use inside as adj) Check the (inner) pocket of the jacket.",
+    "answer": "inside",
+    "type": "amend"
+  },
+  {
+    "description": "A (tremendus) amount of effort was required.",
+    "translation": "需要付出巨大的努力。",
+    "answer": "tremendous",
+    "type": "amend"
+  },
+  {
+    "description": "The wheels of the bus go (roun) and (roun).",
+    "translation": "公車的輪子轉啊轉。(Correct both) The wheels ... go (around) and (around).",
+    "answer": "round",
+    "type": "amend"
+  },
+  {
+    "description": "They live in a nice (flatt) overlooking the park.",
+    "translation": "他們住在一個俯瞰公園的漂亮公寓裡。(Use flat as adj) The landscape is completely (flattened).",
+    "answer": "flat",
+    "type": "amend"
+  },
+  {
+    "description": "Fish have (scale) covering their bodies.",
+    "translation": "魚身上覆蓋著鱗片。(Use singular)",
+    "answer": "scales",
+    "type": "amend"
+  },
+  {
+    "description": "The journey takes (aproxmately) one hour.",
+    "translation": "旅程大約需要一小時。",
+    "answer": "approximately",
+    "type": "amend"
+  },
+  {
+    "description": "The palace gardens were (splendid) decorated.",
+    "translation": "宮殿花園裝飾得富麗堂皇。",
+    "answer": "splendidly",
+    "type": "amend"
+  },
+  {
+    "description": "She moved across the room with (graceful).",
+    "translation": "她優雅地穿過房間。",
+    "answer": "grace",
+    "type": "amend"
+  },
+  {
+    "description": "The universe is (imense) vast.",
+    "translation": "宇宙是無限廣闊的。",
+    "answer": "immensely",
+    "type": "amend"
+  },
+  {
+    "description": "Try to keep distractions to a (minnimum).",
+    "translation": "試著將干擾降到最低。",
+    "answer": "minimum",
+    "type": "amend"
+  },
+  {
+    "description": "This product seems to have a (defective).",
+    "translation": "這個產品似乎有缺陷。",
+    "answer": "defect",
+    "type": "amend"
+  },
+  {
+    "description": "This soup needs (a onion).",
+    "translation": "這湯需要一顆洋蔥。",
+    "answer": "an onion",
+    "type": "amend"
+  },
+  {
+    "description": "Don't eat too many (sweets) things.",
+    "translation": "不要吃太多甜食。",
+    "answer": "sweet",
+    "type": "amend"
+  },
+  {
+    "description": "Would you like a (swet)?",
+    "translation": "你想要一顆糖果嗎？ (Sweets is plural noun)",
+    "answer": "sweet",
+    "type": "amend"
+  },
+  {
+    "description": "I drink two (coffee) every morning.",
+    "translation": "我每天早上喝兩杯咖啡。",
+    "answer": "coffees",
+    "type": "amend"
+  },
+  {
+    "description": "Let's have (tea) break.",
+    "translation": "我們休息喝杯茶吧。",
+    "answer": "a tea",
+    "type": "amend"
+  },
+  {
+    "description": "Do you prefer Irish (wiskey) or Scotch whisky?",
+    "translation": "你比較喜歡愛爾蘭威士忌還是蘇格蘭威士忌？",
+    "answer": "whiskey",
+    "type": "amend"
+  },
+  {
+    "description": "Is this dish made with beef or (porke)?",
+    "translation": "這道菜是用牛肉還是豬肉做的？",
+    "answer": "pork",
+    "type": "amend"
+  },
+  {
+    "description": "He didn't (rellish) the thought of working late.",
+    "translation": "他對加班的想法並不樂意。(Use noun context) Serve the hot dogs with mustard and (relishing).",
+    "answer": "relish",
+    "type": "amend"
+  },
+  {
+    "description": "The Great (Wal) of China is very long.",
+    "translation": "中國的長城非常長。",
+    "answer": "Wall",
+    "type": "amend"
+  },
+  {
+    "description": "We need to find a new (plaice) to live.",
+    "translation": "我們需要找個新住處。",
+    "answer": "place",
+    "type": "amend"
+  },
+  {
+    "description": "She opened a (saving) account.",
+    "translation": "她開了一個儲蓄帳戶。",
+    "answer": "savings",
+    "type": "amend"
+  },
+  {
+    "description": "Is service charge (include) in the bill?",
+    "translation": "帳單包含服務費嗎？",
+    "answer": "included",
+    "type": "amend"
+  },
+  {
+    "description": "Were you given any (compensate) for the delay?",
+    "translation": "延誤有給你任何補償嗎？",
+    "answer": "compensation",
+    "type": "amend"
+  },
+  {
+    "description": "Rent is my biggest monthly (outgoings).",
+    "translation": "租金是我最大的月度開支。",
+    "answer": "outgoing",
+    "type": "amend"
+  },
+  {
+    "description": "How much did you (bids) for that painting?",
+    "translation": "你為那幅畫出價多少？(Use noun context) The opening (bidding) was £100.",
+    "answer": "bid",
+    "type": "amend"
+  },
+  {
+    "description": "We need to protect the (nature) world.",
+    "translation": "我們需要保護自然世界。",
+    "answer": "natural",
+    "type": "amend"
+  },
+  {
+    "description": "The garden needs (water) regularly in summer.",
+    "translation": "夏天花園需要定期澆水。",
+    "answer": "watering",
+    "type": "amend"
+  },
+  {
+    "description": "Climate change is a (globe) problem.",
+    "translation": "氣候變遷是個全球性問題。",
+    "answer": "global",
+    "type": "amend"
+  },
+  {
+    "description": "Put the food in the (frezer) compartment.",
+    "translation": "把食物放進冷凍室。",
+    "answer": "freezer",
+    "type": "amend"
+  },
+  {
+    "description": "We need to think (global) and act locally.",
+    "translation": "我們需要全球思考，在地行動。",
+    "answer": "globally",
+    "type": "amend"
+  },
+  {
+    "description": "Expect occasional (shower) tomorrow.",
+    "translation": "預計明天有陣雨。",
+    "answer": "showers",
+    "type": "amend"
+  },
+  {
+    "description": "We need to address the issue of (climatic) change.",
+    "translation": "我們需要處理氣候變遷的問題。",
+    "answer": "climate",
+    "type": "amend"
+  },
+  {
+    "description": "The planet (Erth) revolves around the sun.",
+    "translation": "地球圍繞太陽旋轉。",
+    "answer": "Earth",
+    "type": "amend"
+  },
+  {
+    "description": "Coastal (erotion) is a serious problem.",
+    "translation": "海岸侵蝕是個嚴重的問題。",
+    "answer": "erosion",
+    "type": "amend"
+  },
+  {
+    "description": "(Reproduce) is essential for the survival of a species.",
+    "translation": "繁殖對物種的生存至關重要。",
+    "answer": "Reproduction",
+    "type": "amend"
+  },
+  {
+    "description": "Come (hear) so I can tell you a secret.",
+    "translation": "過來這裡，我好告訴你一個秘密。",
+    "answer": "here",
+    "type": "amend"
+  },
+  {
+    "description": "Let's go for a (walking).",
+    "translation": "我們去散步吧。",
+    "answer": "walk",
+    "type": "amend"
+  },
+  {
+    "description": "When did you (left) school?",
+    "translation": "你什麼時候離開學校的？",
+    "answer": "leave",
+    "type": "amend"
+  },
+  {
+    "description": "She (prepare) dinner every night.",
+    "translation": "她每天晚上準備晚餐。",
+    "answer": "prepares",
+    "type": "amend"
+  },
+  {
+    "description": "He is (panting) the fence.",
+    "translation": "他正在粉刷柵欄。",
+    "answer": "painting",
+    "type": "amend"
+  },
+  {
+    "description": "He is (point) at the bird.",
+    "translation": "他正指著那隻鳥。",
+    "answer": "pointing",
+    "type": "amend"
+  },
+  {
+    "description": "When was America (discover)?",
+    "translation": "美洲是何時被發現的？",
+    "answer": "discovered",
+    "type": "amend"
+  },
+  {
+    "description": "He is (pour) the milk.",
+    "translation": "他正在倒牛奶。",
+    "answer": "pouring",
+    "type": "amend"
+  },
+  {
+    "description": "He is (count) the sheep.",
+    "translation": "他正在數羊。",
+    "answer": "counting",
+    "type": "amend"
+  },
+  {
+    "description": "He is (note) the key points.",
+    "translation": "他正在記錄要點。",
+    "answer": "noting",
+    "type": "amend"
+  },
+  {
+    "description": "When will you (finsh)?",
+    "translation": "你什麼時候結束？",
+    "answer": "finish",
+    "type": "amend"
+  },
+  {
+    "description": "He is (pick) flowers.",
+    "translation": "他正在摘花。",
+    "answer": "picking",
+    "type": "amend"
+  },
+  {
+    "description": "The shelf needs (fix) to the wall.",
+    "translation": "架子需要固定在牆上。",
+    "answer": "fixing",
+    "type": "amend"
+  },
+  {
+    "description": "She is (tieing) a ribbon in her hair.",
+    "translation": "她正在頭髮上繫絲帶。",
+    "answer": "tying",
+    "type": "amend"
+  },
+  {
+    "description": "He is (blow) bubbles.",
+    "translation": "他正在吹泡泡。",
+    "answer": "blowing",
+    "type": "amend"
+  },
+  {
+    "description": "She is (fasten) her coat.",
+    "translation": "她正在扣外套。",
+    "answer": "fastening",
+    "type": "amend"
+  },
+  {
+    "description": "She is (steping) carefully.",
+    "translation": "她小心翼翼地走著。",
+    "answer": "stepping",
+    "type": "amend"
+  },
+  {
+    "description": "He is (wraping) the gift.",
+    "translation": "他正在包裝禮物。",
+    "answer": "wrapping",
+    "type": "amend"
+  },
+  {
+    "description": "She (lock) the gate every night.",
+    "translation": "她每天晚上鎖大門。",
+    "answer": "locks",
+    "type": "amend"
+  },
+  {
+    "description": "They are (bury) the treasure.",
+    "translation": "他們正在埋藏寶藏。",
+    "answer": "burying",
+    "type": "amend"
+  },
+  {
+    "description": "She is always (slam) doors.",
+    "translation": "她總是砰地關門。",
+    "answer": "slamming",
+    "type": "amend"
+  },
+  {
+    "description": "They are (demolish) the bridge.",
+    "translation": "他們正在拆除橋樑。",
+    "answer": "demolishing",
+    "type": "amend"
+  },
+  {
+    "description": "Eating fruit (preserve) is a way to store them.",
+    "translation": "吃水果蜜餞是儲存它們的一種方式。",
+    "answer": "preserves",
+    "type": "amend"
+  },
+  {
+    "description": "How should we (dispoze) of this old battery?",
+    "translation": "我們應該如何處理這個舊電池？",
+    "answer": "dispose",
+    "type": "amend"
+  },
+  {
+    "description": "His loud (snorring) kept me awake.",
+    "translation": "他響亮的鼾聲讓我無法入睡。",
+    "answer": "snoring",
+    "type": "amend"
+  },
+  {
+    "description": "He (crawl) under the fence.",
+    "translation": "他爬過了柵欄。",
+    "answer": "crawled",
+    "type": "amend"
+  },
+  {
+    "description": "Expect occasional (showers) tomorrow.",
+    "translation": "預計明天有陣雨。",
+    "answer": "showers",
+    "type": "amend"
+  },
+  {
+    "description": "She (pound) the spices in a mortar.",
+    "translation": "她在研缽裡搗香料。",
+    "answer": "pounds",
+    "type": "amend"
+  },
+  {
+    "description": "He wears glasses to make himself look more (distinguish).",
+    "translation": "他戴眼鏡讓自己看起來更顯眼。(Context implies 'different' or 'stand out', not the verb meaning)",
+    "answer": "distinguished",
+    "type": "amend"
+  },
+  {
+    "description": "He is (wipe) the window.",
+    "translation": "他正在擦窗戶。",
+    "answer": "wiping",
+    "type": "amend"
+  },
+  {
+    "description": "Who (water) the garden when you're away?",
+    "translation": "你不在家的時候誰給花園澆水？",
+    "answer": "waters",
+    "type": "amend"
+  },
+  {
+    "description": "They are (undertake) research.",
+    "translation": "他們正在進行研究。",
+    "answer": "undertaking",
+    "type": "amend"
+  },
+  {
+    "description": "Reading (occupy) most of her free time.",
+    "translation": "閱讀佔據了她大部分的空閒時間。",
+    "answer": "occupies",
+    "type": "amend"
+  },
+  {
+    "description": "Can you speak more (slow)?",
+    "translation": "你能說慢一點嗎？",
+    "answer": "slowly",
+    "type": "amend"
+  },
+  {
+    "description": "He is (struggle) with his homework.",
+    "translation": "他正在為作業苦惱。",
+    "answer": "struggling",
+    "type": "amend"
+  },
+  {
+    "description": "He accidentally (tread) on her foot.",
+    "translation": "他不小心踩到她的腳了。(Past tense trod/trodden)",
+    "answer": "trod",
+    "type": "amend"
+  },
+  {
+    "description": "He was (stagger) drunkenly.",
+    "translation": "他醉醺醺地搖晃著。",
+    "answer": "staggering",
+    "type": "amend"
+  },
+  {
+    "description": "He is (blowing) bubbles.",
+    "translation": "他正在吹泡泡。",
+    "answer": "blowing",
+    "type": "amend"
+  },
+  {
+    "description": "Wet clothes (clinged) to their bodies.",
+    "translation": "濕衣服緊貼在他們身上。(Past tense is clung)",
+    "answer": "clung",
+    "type": "amend"
+  },
+  {
+    "description": "Add a (sprinkle) of herbs.",
+    "translation": "撒上少許香草。",
+    "answer": "sprinkling",
+    "type": "amend"
+  },
+  {
+    "description": "He doesn't care much about his (look).",
+    "translation": "他不太在意自己的外表。",
+    "answer": "looks",
+    "type": "amend"
+  },
+  {
+    "description": "The room was decorated with simple (elegant).",
+    "translation": "房間裝飾得簡潔雅緻。",
+    "answer": "elegance",
+    "type": "amend"
+  },
+  {
+    "description": "The truth is (plain) obvious.",
+    "translation": "真相顯而易見。",
+    "answer": "plainly",
+    "type": "amend"
+  },
+  {
+    "description": "They were subjected to (race) abuse.",
+    "translation": "他們遭受了種族虐待。",
+    "answer": "racial",
+    "type": "amend"
+  },
+  {
+    "description": "She (care) deeply about environmental issues.",
+    "answer": "cares",
+    "type": "amend"
+  },
+  {
+    "description": "She often (dream) about flying.",
+    "answer": "dreams",
+    "type": "amend"
+  },
+  {
+    "description": "She (worry) too much about her exams.",
+    "answer": "worries",
+    "type": "amend"
+  },
+  {
+    "description": "The teacher (stress) the importance of homework.",
+    "answer": "stresses",
+    "type": "amend"
+  },
+  {
+    "description": "The colorful display (attract) many customers.",
+    "answer": "attracts",
+    "type": "amend"
+  },
+  {
+    "description": "The results of the experiment (surprise) the scientists.",
+    "answer": "surprised",
+    "type": "amend"
+  },
+  {
+    "description": "Good morning, ladies and (gentleman).",
+    "answer": "gentlemen",
+    "type": "amend"
+  },
+  {
+    "description": "He (despair) of ever finding his lost dog.",
+    "answer": "despaired",
+    "type": "amend"
+  },
+  {
+    "description": "He (pretend) to be asleep when his mom came in.",
+    "answer": "pretended",
+    "type": "amend"
+  },
+  {
+    "description": "The committee finally (approve) the plan.",
+    "answer": "approved",
+    "type": "amend"
+  },
+  {
+    "description": "Leadership (quality) can be developed.",
+    "answer": "qualities",
+    "type": "amend"
+  },
+  {
+    "description": "The children (delight) in playing in the snow.",
+    "answer": "delighted",
+    "type": "amend"
+  },
+  {
+    "description": "It (painfull) me to see you suffer.",
+    "answer": "pains",
+    "type": "amend"
+  },
+  {
+    "description": "This issue (consern) all of us.",
+    "answer": "concerns",
+    "type": "amend"
+  },
+  {
+    "description": "His unfair treatment (anger) the employees.",
+    "answer": "angered",
+    "type": "amend"
+  },
+  {
+    "description": "He was caught (cheat) during the test.",
+    "answer": "cheating",
+    "type": "amend"
+  },
+  {
+    "description": "Financial (worry) kept him awake at night.",
+    "answer": "worries",
+    "type": "amend"
+  },
+  {
+    "description": "There are always two (side) to every story.",
+    "answer": "sides",
+    "type": "amend"
+  },
+  {
+    "description": "The loud thunder (terrify) the dog.",
+    "answer": "terrified",
+    "type": "amend"
+  },
+  {
+    "description": "Where there is a (wills), there is a way.",
+    "answer": "will",
+    "type": "amend"
+  },
+  {
+    "description": "She (bare) the pain bravely.",
+    "answer": "bore",
+    "type": "amend"
+  },
+  {
+    "description": "He showed great (careful) for his elderly parents.",
+    "answer": "care",
+    "type": "amend"
+  },
+  {
+    "description": "It's important to show (appreciate) for what you have.",
+    "answer": "appreciation",
+    "type": "amend"
+  },
+  {
+    "description": "The injury (scar) his face permanently.",
+    "answer": "scarred",
+    "type": "amend"
+  },
+  {
+    "description": "It is considered (rudely) to talk with your mouth full.",
+    "answer": "rude",
+    "type": "amend"
+  },
+  {
+    "description": "Many cultures have ancient (legend) about heroes.",
+    "answer": "legends",
+    "type": "amend"
+  },
+  {
+    "description": "Please give my best (regard) to your family.",
+    "answer": "regards",
+    "type": "amend"
+  },
+  {
+    "description": "Small and medium (enterprise) are vital to the economy.",
+    "answer": "enterprises",
+    "type": "amend"
+  },
+  {
+    "description": "What (driving) you to work so hard?",
+    "answer": "drives",
+    "type": "amend"
+  },
+  {
+    "description": "He was known for (bully) younger students.",
+    "answer": "bullying",
+    "type": "amend"
+  },
+  {
+    "description": "The loud noise (allerted) the guards.",
+    "answer": "alerted",
+    "type": "amend"
+  },
+  {
+    "description": "There has been a growing (distant) between them.",
+    "answer": "distance",
+    "type": "amend"
+  },
+  {
+    "description": "We need to ensure the (stable) of the structure.",
+    "answer": "stability",
+    "type": "amend"
+  },
+  {
+    "description": "She always (fuss) about her appearance.",
+    "answer": "fusses",
+    "type": "amend"
+  },
+  {
+    "description": "Where there is a (wills), there is a way.",
+    "answer": "will",
+    "type": "amend"
+  },
+  {
+    "description": "The earthquake had a (devastate) effect on the city.",
+    "answer": "devastating",
+    "type": "amend"
+  },
+  {
+    "description": "Many happy (return) of the day!",
+    "answer": "returns",
+    "type": "amend"
+  },
+  {
+    "description": "The sight of the decaying food (disgust) her.",
+    "answer": "disgusted",
+    "type": "amend"
+  },
+  {
+    "description": "He felt deep (resentfull) towards his boss.",
+    "answer": "resentment",
+    "type": "amend"
+  },
+  {
+    "description": "We need to take all factors into (consider).",
+    "answer": "consideration",
+    "type": "amend"
+  },
+  {
+    "description": "She replied with heavy (sarcastic).",
+    "answer": "sarcasm",
+    "type": "amend"
+  },
+  {
+    "description": "Vaccination helps build (imunity) to diseases.",
+    "answer": "immunity",
+    "type": "amend"
+  },
+  {
+    "description": "Acting (superiorly) doesn't make you better than others.",
+    "answer": "superior",
+    "type": "amend"
+  },
+  {
+    "description": "She maintained a look of (serene) despite the chaos.",
+    "answer": "serenity",
+    "type": "amend"
+  },
+  {
+    "description": "She showed great (willing) to learn.",
+    "answer": "willingness",
+    "type": "amend"
+  },
+  {
+    "description": "I need to change the car (tyres).",
+    "answer": "tires",
+    "type": "amend"
+  },
+  {
+    "description": "Her (vivacious) is contagious.",
+    "answer": "vivacity",
+    "type": "amend"
+  },
+  {
+    "description": "She possesses a natural (charismatic).",
+    "answer": "charisma",
+    "type": "amend"
+  },
+  {
+    "description": "He showed no (mercifull) towards his victims.",
+    "answer": "mercy",
+    "type": "amend"
+  },
+  {
+    "description": "He made a lifelong (commit) to his wife.",
+    "answer": "commitment",
+    "type": "amend"
+  },
+  {
+    "description": "Many people were (outrage) by the injustice.",
+    "answer": "outraged",
+    "type": "amend"
+  },
+  {
+    "description": "Such (inhumane) cannot be tolerated.",
+    "answer": "inhumanity",
+    "type": "amend"
+  },
+  {
+    "description": "She has a rather (materialism) outlook on life.",
+    "answer": "materialistic",
+    "type": "amend"
+  },
+  {
+    "description": "He walked into the room with an air of (self-assure).",
+    "answer": "self-assurance",
+    "type": "amend"
+  },
+  {
+    "description": "He is known for his keen (perceptual).",
+    "answer": "perception",
+    "type": "amend"
+  },
+  {
+    "description": "He acted on (impulsive) without thinking.",
+    "answer": "impulse",
+    "type": "amend"
+  },
+  {
+    "description": "She is known for her (eminent) in the field.",
+    "answer": "eminence",
+    "type": "amend"
+  },
+  {
+    "description": "Developing (self-reliant) is an important part of growing up.",
+    "answer": "self-reliance",
+    "type": "amend"
+  },
+  {
+    "description": "Her (eccentric) made her stand out.",
+    "answer": "eccentricity",
+    "type": "amend"
+  },
+  {
+    "description": "She has the (able) to solve complex problems.",
+    "answer": "ability",
+    "type": "amend"
+  },
+  {
+    "description": "He handled the negotiations with great (diplomat).",
+    "answer": "diplomacy",
+    "type": "amend"
+  },
+  {
+    "description": "The United (Nation) promotes international cooperation.",
+    "answer": "Nations",
+    "type": "amend"
+  },
+  {
+    "description": "Who (controling) the budget?",
+    "answer": "controls",
+    "type": "amend"
+  },
+  {
+    "description": "The politician tried to appeal to undecided (voter).",
+    "answer": "voters",
+    "type": "amend"
+  },
+  {
+    "description": "He handled the negotiations with great (diplomatical).",
+    "answer": "diplomacy",
+    "type": "amend"
+  },
+  {
+    "description": "The party is split into left and right (wing).",
+    "answer": "wings",
+    "type": "amend"
+  },
+  {
+    "description": "All club (member) must pay a fee.",
+    "answer": "members",
+    "type": "amend"
+  },
+  {
+    "description": "My (grandparent) live nearby.",
+    "answer": "grandparents",
+    "type": "amend"
+  },
+  {
+    "description": "Let's go visit (Granie) this afternoon.",
+    "answer": "Granny",
+    "type": "amend"
+  },
+  {
+    "description": "Can you ask (Dads) if we can go?",
+    "answer": "Dad",
+    "type": "amend"
+  },
+  {
+    "description": "What did (Mom) say?",
+    "answer": "Mum",
+    "type": "amend"
+  },
+  {
+    "description": "He has two (brother).",
+    "answer": "brothers",
+    "type": "amend"
+  },
+  {
+    "description": "The company's financial (affair) are in order.",
+    "answer": "affairs",
+    "type": "amend"
+  },
+  {
+    "description": "Learning about your (ancestorys) can be fascinating.",
+    "answer": "ancestors",
+    "type": "amend"
+  },
+  {
+    "description": "She doesn't enjoy large (society) events.",
+    "answer": "social",
+    "type": "amend"
+  },
+  {
+    "description": "Who is (host) the party tonight?",
+    "answer": "hosting",
+    "type": "amend"
+  },
+  {
+    "description": "Several nomadic (tribes) lives in the desert.",
+    "answer": "tribes",
+    "type": "amend"
+  },
+  {
+    "description": "The Royal (Familys) attended the event.",
+    "answer": "Family",
+    "type": "amend"
+  },
+  {
+    "description": "Good customer (relate) are important for business.",
+    "answer": "relations",
+    "type": "amend"
+  },
+  {
+    "description": "Birds often (mating) for life.",
+    "answer": "mate",
+    "type": "amend"
+  },
+  {
+    "description": "He came out as (gey) to his family.",
+    "answer": "gay",
+    "type": "amend"
+  },
+  {
+    "description": "The story is about two forbidden (lover).",
+    "answer": "lovers",
+    "type": "amend"
+  },
+  {
+    "description": "They were once friends, but now they are bitter (enemys).",
+    "answer": "enemies",
+    "type": "amend"
+  },
+  {
+    "description": "The support group helps (widow) cope with grief.",
+    "answer": "widows",
+    "type": "amend"
+  },
+  {
+    "description": "They are identical (twin).",
+    "answer": "twins",
+    "type": "amend"
+  },
+  {
+    "description": "She always (side) with her brother.",
+    "answer": "sides",
+    "type": "amend"
+  },
+  {
+    "description": "Their friendship developed into (intimate).",
+    "answer": "intimacy",
+    "type": "amend"
+  },
+  {
+    "description": "Both (spouse) need to sign the document.",
+    "answer": "spouses",
+    "type": "amend"
+  },
+  {
+    "description": "Do you have any (sibling)?",
+    "answer": "siblings",
+    "type": "amend"
+  },
+  {
+    "description": "The team scored three (goal).",
+    "answer": "goals",
+    "type": "amend"
+  },
+  {
+    "description": "They sell equipment for many different (sport).",
+    "answer": "sports",
+    "type": "amend"
+  },
+  {
+    "description": "The team has twelve (playr).",
+    "answer": "players",
+    "type": "amend"
+  },
+  {
+    "description": "Don't forget your shopping (bagg).",
+    "answer": "bags",
+    "type": "amend"
+  },
+  {
+    "description": "His strange behavior (puzled) me.",
+    "answer": "puzzled",
+    "type": "amend"
+  },
+  {
+    "description": "The two (team) played well.",
+    "answer": "teams",
+    "type": "amend"
+  },
+  {
+    "description": "They (marketing) the product aggressively.",
+    "answer": "marketed",
+    "type": "amend"
+  },
+  {
+    "description": "She (go) to the store yesterday.",
+    "answer": "went",
+    "type": "amend"
+  },
+  {
+    "description": "Coffee is one of the country's main (export).",
+    "answer": "exports",
+    "type": "amend"
+  },
+  {
+    "description": "The children love playing on the (swing).",
+    "answer": "swings",
+    "type": "amend"
+  },
+  {
+    "description": "First (appearance) can be deceptive.",
+    "answer": "appearances",
+    "type": "amend"
+  },
+  {
+    "description": "Muhammed Ali was a famous (boxxing).",
+    "answer": "boxer",
+    "type": "amend"
+  },
+  {
+    "description": "There are many food (stall) at the festival.",
+    "answer": "stalls",
+    "type": "amend"
+  },
+  {
+    "description": "She enjoys (skieing) in the winter.",
+    "answer": "skiing",
+    "type": "amend"
+  },
+  {
+    "description": "Can you (trak) my order?",
+    "answer": "track",
+    "type": "amend"
+  },
+  {
+    "description": "Our team (defeat) their rivals in the final game.",
+    "answer": "defeated",
+    "type": "amend"
+  },
+  {
+    "description": "Would you like a (cups of) tea?",
+    "answer": "cup of",
+    "type": "amend"
+  },
+  {
+    "description": "He (score) the winning goal.",
+    "answer": "scored",
+    "type": "amend"
+  },
+  {
+    "description": "She (run) five kilometers every morning.",
+    "answer": "runs",
+    "type": "amend"
+  },
+  {
+    "description": "The children are (play) in the garden.",
+    "answer": "playing",
+    "type": "amend"
+  },
+  {
+    "description": "There are clear (division) between the departments.",
+    "answer": "divisions",
+    "type": "amend"
+  },
+  {
+    "description": "She (hold) the record for three years.",
+    "answer": "held",
+    "type": "amend"
+  },
+  {
+    "description": "He bought new (athletics) shoes.",
+    "answer": "athletic",
+    "type": "amend"
+  },
+  {
+    "description": "What is your favourite (sporting)?",
+    "answer": "sport",
+    "type": "amend"
+  },
+  {
+    "description": "She spent an hour (browse) the website.",
+    "answer": "browsing",
+    "type": "amend"
+  },
+  {
+    "description": "He practises several different (martial art).",
+    "answer": "martial arts",
+    "type": "amend"
+  },
+  {
+    "description": "He (appear) to be unhappy with the service.",
+    "answer": "appears",
+    "type": "amend"
+  },
+  {
+    "description": "These goods are (import) from Italy.",
+    "answer": "imported",
+    "type": "amend"
+  },
+  {
+    "description": "He (withdraw) his application.",
+    "answer": "withdrew",
+    "type": "amend"
+  },
+  {
+    "description": "The website has many different (page).",
+    "answer": "pages",
+    "type": "amend"
+  },
+  {
+    "description": "Do people still use (MP3 player)?",
+    "answer": "MP3 players",
+    "type": "amend"
+  },
+  {
+    "description": "This is a very complex piece of (machine).",
+    "answer": "machinery",
+    "type": "amend"
+  },
+  {
+    "description": "The program (stop) responding.",
+    "answer": "stopped",
+    "type": "amend"
+  },
+  {
+    "description": "The results are (display) on the screen.",
+    "answer": "displayed",
+    "type": "amend"
+  },
+  {
+    "description": "This process (generating) a lot of heat.",
+    "answer": "generates",
+    "type": "amend"
+  },
+  {
+    "description": "Make sure you have the right (equipments) for the job.",
+    "answer": "equipment",
+    "type": "amend"
+  },
+  {
+    "description": "I have too many (bookmark) saved in my browser.",
+    "answer": "bookmarks",
+    "type": "amend"
+  },
+  {
+    "description": "Don't be afraid of (fail). Learn from it.",
+    "answer": "failure",
+    "type": "amend"
+  },
+  {
+    "description": "Lightning (flash) across the sky.",
+    "answer": "flashed",
+    "type": "amend"
+  },
+  {
+    "description": "Social (network) sites are popular.",
+    "answer": "networking",
+    "type": "amend"
+  },
+  {
+    "description": "This needle needs (thread).",
+    "answer": "threading",
+    "type": "amend"
+  },
+  {
+    "description": "We need to check the software (compatible).",
+    "answer": "compatibility",
+    "type": "amend"
+  },
+  {
+    "description": "There are many (bus) on this route.",
+    "answer": "buses",
+    "type": "amend"
+  },
+  {
+    "description": "There are too many (car) on the road.",
+    "answer": "cars",
+    "type": "amend"
+  },
+  {
+    "description": "Please sign the (visiter) book.",
+    "answer": "visitor",
+    "type": "amend"
+  },
+  {
+    "description": "He looked like a typical (tourisem) with his camera.",
+    "answer": "tourist",
+    "type": "amend"
+  },
+  {
+    "description": "I need to make a flight (book).",
+    "answer": "booking",
+    "type": "amend"
+  },
+  {
+    "description": "We watched the (ship) sail away.",
+    "answer": "ships",
+    "type": "amend"
+  },
+  {
+    "description": "In (cass) of emergency, call this number.",
+    "answer": "case",
+    "type": "amend"
+  },
+  {
+    "description": "We went (camp) last weekend.",
+    "answer": "camping",
+    "type": "amend"
+  },
+  {
+    "description": "They are (toure) Europe this summer.",
+    "answer": "touring",
+    "type": "amend"
+  },
+  {
+    "description": "How will the goods be (transport)?",
+    "answer": "transported",
+    "type": "amend"
+  },
+  {
+    "description": "The military (jet) flew overhead.",
+    "answer": "jets",
+    "type": "amend"
+  },
+  {
+    "description": "The wind filled the boat's (sail).",
+    "answer": "sails",
+    "type": "amend"
+  },
+  {
+    "description": "The printer keeps (jamm) .",
+    "answer": "jamming",
+    "type": "amend"
+  },
+  {
+    "description": "Several (motorist) stopped to help.",
+    "answer": "motorists",
+    "type": "amend"
+  },
+  {
+    "description": "Hold onto the hand (rale) when going down stairs.",
+    "answer": "rail",
+    "type": "amend"
+  },
+  {
+    "description": "Welcome (abored)!",
+    "answer": "aboard",
+    "type": "amend"
+  },
+  {
+    "description": "Keep medicines out of the (reah) of children.",
+    "answer": "reach",
+    "type": "amend"
+  },
+  {
+    "description": "The shop sells lots of tourist (souvenir).",
+    "answer": "souvenirs",
+    "type": "amend"
+  },
+  {
+    "description": "Is this a (single and return) journey?",
+    "answer": "single or return",
+    "type": "amend"
+  },
+  {
+    "description": "She (carrys) her passport in a safe place.",
+    "answer": "carries",
+    "type": "amend"
+  },
+  {
+    "description": "They went on a long (treking) through the mountains.",
+    "answer": "trek",
+    "type": "amend"
+  },
+  {
+    "description": "The bird flapped its (wing).",
+    "answer": "wings",
+    "type": "amend"
+  },
+  {
+    "description": "Can I see your bus (past)?",
+    "answer": "pass",
+    "type": "amend"
+  },
+  {
+    "description": "You can access the files (buy) the shared drive.",
+    "answer": "via",
+    "type": "amend"
+  },
+  {
+    "description": "The train has ten (carrige).",
+    "answer": "carriages",
+    "type": "amend"
+  },
+  {
+    "description": "Press the (accellerator) pedal.",
+    "answer": "accelerator",
+    "type": "amend"
+  },
+  {
+    "description": "She (work) hard every day.",
+    "answer": "works",
+    "type": "amend"
+  },
+  {
+    "description": "She wants to study (architect) and become an architect.",
+    "answer": "architecture",
+    "type": "amend"
+  },
+  {
+    "description": "Good (manage) is crucial for a company's success.",
+    "answer": "management",
+    "type": "amend"
+  },
+  {
+    "description": "The (barber) shop is closed on Sundays.",
+    "answer": "barber's",
+    "type": "amend"
+  },
+  {
+    "description": "Where did you see the (advertise) for this product?",
+    "answer": "advertisement",
+    "type": "amend"
+  },
+  {
+    "description": "He received a well-deserved (promote).",
+    "answer": "promotion",
+    "type": "amend"
+  },
+  {
+    "description": "What are your main (duty) in this role?",
+    "answer": "duties",
+    "type": "amend"
+  },
+  {
+    "description": "We need to maintain good relationships with our (client).",
+    "answer": "clients",
+    "type": "amend"
+  },
+  {
+    "description": "He is enjoying his (retire).",
+    "answer": "retirement",
+    "type": "amend"
+  },
+  {
+    "description": "The data (analyse) presented the findings.",
+    "answer": "analyst",
+    "type": "amend"
+  },
+  {
+    "description": "The abolition of (slave) was a major historical event.",
+    "answer": "slavery",
+    "type": "amend"
+  },
+  {
+    "description": "The board of (director) approved the plan.",
+    "answer": "directors",
+    "type": "amend"
+  },
+  {
+    "description": "Who (heading) this team?",
+    "answer": "heads",
+    "type": "amend"
+  },
+  {
+    "description": "They decided to (ventured) into a new market.",
+    "answer": "venture",
+    "type": "amend"
+  },
+  {
+    "description": "The (miner) went on strike.",
+    "answer": "miners",
+    "type": "amend"
+  },
+  {
+    "description": "She received her letter of (appoint).",
+    "answer": "appointment",
+    "type": "amend"
+  },
+  {
+    "description": "She quickly rose through the (rank) of the company.",
+    "answer": "ranks",
+    "type": "amend"
+  },
+  {
+    "description": "What is the (important) of this decision?",
+    "answer": "importance",
+    "type": "amend"
+  },
+  {
+    "description": "New (recruit) undergo intensive training.",
+    "answer": "recruits",
+    "type": "amend"
+  },
+  {
+    "description": "Please ensure the (remove) of all personal items.",
+    "answer": "removal",
+    "type": "amend"
+  }
+]
